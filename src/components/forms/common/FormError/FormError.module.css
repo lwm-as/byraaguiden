@@ -1,0 +1,21 @@
+.root {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0;
+  color: #c92e2e;
+  padding: 12px 0px 0px 0px;
+  position: absolute;
+  bottom: -5px;
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    margin: 0rem 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .root {
+    bottom: -13px;
+  }
+}

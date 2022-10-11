@@ -1,0 +1,49 @@
+.root {
+  position: relative;
+}
+
+.container {
+  position: sticky;
+  top: 6rem;
+}
+
+.cta-footer {
+  padding: 0.5rem 4rem 0.75rem 4rem;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  display: flex;
+  overflow: hidden;
+  background: #fff;
+  appearance: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.cta-footer.show {
+  bottom: 0;
+}
+
+.cta-button-container {
+  max-width: 200px;
+  width: 100%;
+  margin: 0 auto;
+  appearance: none;
+}
+
+.mobile-button {
+  padding: 0.6rem 0;
+  min-width: 200px;
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    margin: 0;
+  }
+
+  .cta-footer {
+    display: none;
+  }
+}

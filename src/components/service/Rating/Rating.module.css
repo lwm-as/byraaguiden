@@ -1,0 +1,25 @@
+.root {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0.4rem;
+  margin-right: 10px;
+  margin-bottom: 0;
+  display: flex;
+}
+
+.root img {
+  width: 15px;
+  margin-right: 4px;
+}
+
+.root span {
+  list-style-type: none;
+  width: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.root span svg {
+  color: gold;
+  padding-right: 2px;
+}

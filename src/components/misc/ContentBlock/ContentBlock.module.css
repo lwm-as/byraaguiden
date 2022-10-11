@@ -1,0 +1,14 @@
+.root {
+  margin: 1rem 1rem 2rem;
+  padding: 1.5rem;
+  background-color: #FFF;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 2px 5px 1px #00000010;
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    margin: 0 0 3rem;
+    padding: 2.5rem 3.5rem 3rem;
+  }
+}

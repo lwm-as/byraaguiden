@@ -1,0 +1,265 @@
+.main-container {
+  overflow-x: hidden;
+}
+
+.hero-container {
+  background: white;
+}
+
+.hero-inner-container {
+  height: 100%;
+}
+
+
+.bg-container {
+  position: relative;
+  background: #002E47;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  overflow: hidden;
+}
+
+.red-square {
+  position: absolute;
+  box-sizing: border-box;
+  top: 100%;
+  /*width: 10%;*/
+  /*height: 10%;*/
+  border-top: solid 400px #FF4A55;
+  border-left: solid 400px #FF4A55;
+  border-top-left-radius: 50px;
+  border-right: solid 400px transparent;
+  border-bottom: solid 400px transparent;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  opacity: 0.8;
+  transform: rotate(45deg) translate(-200px, -5px) ;
+}
+
+
+.dark-square {
+  position: absolute;
+  padding: 20% 100%;
+  background-color: #9C3F50;
+  -ms-transform: rotate(140deg); /* IE 9 */
+  -webkit-transform: rotate(140deg); /* Chrome, Safari, Opera */
+  transform: rotate(140deg) translate(400px, -100px);
+}
+
+
+.section-bg {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.section-square-bg-container {
+  position: absolute;
+  left: -130px;
+}
+
+.content-section-square-pink  {
+  right: 100%;
+  border-top: solid 120px #F4878E;
+  border-left: solid 120px #F4878E;
+  border-top-left-radius: 40px;
+  border-right: solid 120px transparent;
+  border-bottom: solid 120px transparent;
+}
+
+
+.content-section-square-blue  {
+  right: 100%;
+  border-top: solid 120px #002E47;
+  border-left: solid 120px #002E47;
+  opacity: 0.6;
+  border-top-left-radius: 40px;
+  border-right: solid 120px transparent;
+  border-bottom: solid 120px transparent;
+}
+
+/*utility classes for squares*/
+.rotate135Deg {
+  transform: rotate(135deg) ;
+}
+.rotate-45Deg {
+  transform: rotate(-45deg);
+  opacity: 0.6;
+}
+.lighter-blue {
+  border-top: solid 120px #6B8694;
+  border-left: solid 120px #6B8694;
+}
+.reduce-pink-opacity {
+  opacity: 0.6;
+}
+
+.section {
+  margin: 1rem 0;
+  padding: 1rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.last-section {
+  position: relative;
+  padding-bottom: 5rem;
+  background: #002E47;
+}
+
+.last-section-square-container {
+  position: absolute;
+}
+
+.top-right-align {
+  top: -238px;
+  right: -140px;
+}
+.top-left-align {
+  top: -305px;
+  left: -140px;
+}
+.middle-right-align {
+  right: -140px;
+  top: 50%;
+}
+.quarter-left-align {
+  top: 25%;
+  left: -130px;
+}
+
+.section-icon-container {
+  display: flex;
+  align-items: center;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.section-title {
+  color: white;
+  text-align: center;
+  font-size: 28px;
+
+}
+
+.another-section {
+  background: #FFFFFF;
+  position: relative;
+}
+
+.another-section-square-bg-container {
+  position: absolute;
+}
+
+
+
+.customer-review-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+
+.register-company-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #FF4A55;
+  padding: 2rem 0 2rem 0;
+  border-radius: 32px;
+}
+
+.register-title {
+  font-size: 32px;
+  color: white;
+  padding: 0 1.5rem;
+  /*text-shadow: 1px 1px #ababab;*/
+
+}
+
+.register-content {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  margin-left: 1.5rem;
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  flex-direction: column;
+
+}
+
+.icons-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icons-container span {
+  color: white;
+}
+
+.register-btn-container a {
+  background-color:white;
+  color: #002E47;
+  border-radius: 8px;
+  margin-left: 1.5rem;
+
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    padding: 3rem 0.5rem 0;
+  }
+  .hero-container {
+    background: white;
+    height: 42.4vh;
+  }
+
+  .bg-container {
+    height: 51vh;
+  }
+
+  .section {
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 35% 55%;
+    align-items: center;
+  }
+
+  .image-container {
+    position: relative;
+    top: 20px;
+  }
+
+  .section-title {
+    font-size: 42px;
+  }
+
+  .customer-review-container {
+    flex-direction: row;
+  }
+
+  .register-company-box {
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+  }
+
+  .register-title {
+    padding: unset;
+  }
+  .register-content {
+    flex-direction: row;
+  }
+  .register-btn-container a {
+    margin-left: unset;
+  }
+
+}
+

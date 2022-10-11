@@ -1,0 +1,118 @@
+.root {
+  position: relative;
+  background-color: white;
+  margin-bottom: 2rem;
+  padding: 2rem 2rem 2rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 2px 5px 1px #00000010;
+}
+
+.root:last-of-type {
+  margin-bottom: 0;
+}
+
+.image img {
+  height: 80px !important;
+  width: 200px !important;
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1rem;
+  color: var(--color-title);
+  font-weight: 600;
+  margin-top: 0.4em;
+  max-width: 200px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.subTitle {
+  color: var(--color-title);
+  font-size: 13px;
+  margin: 0;
+  margin-top: 0.3rem;
+  text-align: center;
+  max-width: 200px;
+  word-wrap: break-word;
+}
+
+.text-box span {
+  color: black;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.left-section,
+.middle-section,
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-section {
+  height: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.right-section {
+  margin-bottom: 0;
+}
+/* Google no-data placeholde */
+.placeholder-review-container {
+  display: flex;
+  height: 100%;
+  width: 85%;
+  margin-top: 1.4rem;
+  border-radius: var(--border-radius);
+  background-color: #e2f2fe;
+}
+
+.addMinHeight {
+  height: 120px;
+}
+
+.second-container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
+/* -- end -- Google no-data placeholder */
+
+@media screen and (min-width: 768px) {
+  .root {
+    display: grid;
+    padding: 1.5rem 2rem 1.5rem 2rem;
+    grid-template-columns: 33% 33% 33%;
+  }
+  .left-section,
+  .middle-section,
+  .right-section {
+    margin-bottom: 0rem;
+  }
+  .left-section {
+    align-items: flex-start;
+  }
+  .right-section {
+    align-items: flex-end;
+  }
+
+  .image img {
+    height: 70px !important;
+  }
+  .placeholder-review-container {
+    margin-top: 0rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .placeholder-review-container {
+    width: 65%;
+    height: 130px;
+  }
+}

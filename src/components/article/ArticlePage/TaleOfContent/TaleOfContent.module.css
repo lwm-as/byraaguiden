@@ -1,0 +1,39 @@
+.root {
+    position: sticky;
+    top: calc(6rem + 2.438rem)
+
+}
+.container {
+    padding: 1rem 1rem;
+    /*width: 250px;*/
+    background: #f4f7fc;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .heading {
+    margin-bottom: 12px;
+}
+
+.list ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    position: relative;
+}
+
+.list ul li {
+    margin-bottom: 16px;
+}
+
+.list ul li:last-of-type {
+    margin-bottom: unset;
+}
+
+
+.is-active {
+    color: #fa9e2e;
+}
+

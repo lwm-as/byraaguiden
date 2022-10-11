@@ -1,0 +1,131 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    background: #f4f7fc;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+
+.excerpt-text {
+    line-height: 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.read-more span{
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.image-container img {
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .root {
+        display: grid;
+        grid-template-columns: 0.2fr 0.8fr;
+        align-items: center;
+        padding: unset;
+    }
+    .content {
+        padding: 1.7rem 0;
+    }
+
+    .image-container {
+        margin: 0 2rem 0 1rem;
+        width: 400px;
+    }
+
+    .image-container img {
+        margin: unset;
+        object-fit: contain;
+    }
+    .excerpt-text {
+        font-size: 14px;
+        line-height: 23px;
+    }
+    .read-more span{
+        font-size: 14px;
+    }
+
+}
+
+
+/*.root {*/
+/*    width: 100%;*/
+/*    margin-bottom: 1rem;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/*.title {*/
+/*    margin: 0;*/
+/*    font-size: 18px;*/
+/*    font-weight: 500;*/
+/*}*/
+
+/*.excerpt-text {*/
+/*    font-size: 14px;*/
+/*    margin: 0.5rem 0;*/
+/*}*/
+
+
+/*.read-more {*/
+/*    margin: 0;*/
+/*    justify-self: flex-end;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.read-more span {*/
+/*    margin-right: 0.25rem;*/
+/*    font-size: 14px;*/
+/*    font-weight: 600;*/
+/*    color: var(--color-primary-blue);*/
+/*    text-decoration: none;*/
+/*    transition: all 0.2s ease;*/
+/*}*/
+
+/*.read-more svg {*/
+/*    margin-top: 0.15rem;*/
+/*    font-size: 12px;*/
+/*    color: var(--color-primary-blue);*/
+/*    transition: all 0.2s ease;*/
+/*}*/
+
+/*.root:hover .read-more span {*/
+/*    color: var(--color-primary-blue);*/
+/*    text-decoration: underline;*/
+/*}*/
+
+/*.root:hover .read-more svg {*/
+/*    color: var(--color-primary-blue);*/
+/*}*/
+
+/*@media screen and (min-width: 768px) {*/
+/*    .root {*/
+/*        width: 45%;*/
+/*    }*/
+/*}*/
+
+/*@media screen and (min-width: 1100px) {*/
+/*    .root {*/
+/*        width: 32%;*/
+/*        transition: box-shadow 0.2s ease;*/
+/*    }*/
+
+/*    .root:hover {*/
+/*        box-shadow: 0px 2px 15px 1px #00000020;*/
+/*    }*/
+/*}*/

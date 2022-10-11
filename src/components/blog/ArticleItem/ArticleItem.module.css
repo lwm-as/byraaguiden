@@ -1,0 +1,55 @@
+.root {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+}
+
+.title {
+  margin: 1rem 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.excerpt-text {
+  font-size: 14px;
+  margin: 0.5rem 0;
+}
+
+.image-container {
+  height: 100%;
+}
+
+.image-container img{
+  border-radius: 10px;
+}
+
+.read-more {
+  margin: 1rem 0;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    width: 45%;
+    cursor: pointer;
+  }
+  .read-more {
+    font-size: 14px;
+  }
+}
+
+/*@media screen and (min-width: 1100px) {*/
+/*  .root {*/
+/*    width: 32%;*/
+/*    transition: box-shadow 0.2s ease;*/
+/*  }*/
+
+/*  .root:hover {*/
+/*    box-shadow: 0px 2px 15px 1px #00000020;*/
+/*  }*/
+/*}*/

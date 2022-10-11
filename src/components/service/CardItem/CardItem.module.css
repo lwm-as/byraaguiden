@@ -1,0 +1,77 @@
+.root {
+  position: relative;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  background-color: white;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+
+.column {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  border-top: 0;
+  height: auto;
+  position: relative;
+  border-radius: 0 0 3px 3px;
+}
+
+.banner {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  border-radius: 3px 3px 0 0;
+  background-position: 50% 60%;
+}
+
+.image-wrapper {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  border-radius: 3px 3px 0 0;
+}
+
+.title {
+  font-weight: bold;
+  line-height: 140%;
+  font-family: 'FrutigerLT Pro', serif;
+  color: gray;
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.text {
+  line-height: 1.25;
+  color: gray;
+}
+
+@media screen and (min-width: 1024px) {
+  .root {
+    transition: box-shadow 0.2s ease;
+  }
+  .root:hover {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  }
+  .banner {
+    background-size: 60%;
+    background-position: 50% 70%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .column {
+    padding: 12px;
+  }
+  .title {
+    margin: 0;
+  }
+}

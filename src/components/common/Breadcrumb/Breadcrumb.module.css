@@ -1,0 +1,45 @@
+.root {
+  display: none;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+
+.item {
+  font-size: 12px;
+  line-height: 16px;
+  color: #313131;
+}
+
+.item:not(.active):after {
+  content: '>';
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: var(--color-text);
+}
+
+.active {
+  color: var(--color-title);
+}
+
+.icon-container svg:first-of-type {
+  margin-right: 6px;
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .root {
+    display: block;
+  }
+}

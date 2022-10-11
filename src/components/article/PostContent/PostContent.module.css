@@ -1,0 +1,36 @@
+.root {
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.image-container {
+  margin-bottom: 1rem;
+  position: relative;
+  height: 170px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.image-container div span img {
+  object-fit: contain !important;
+}
+
+.image-caption {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 600px) {
+  .root {
+    /*margin: 0 2rem 0 0;*/
+  }
+
+  .image-container {
+    height: 300px;
+
+  }
+  .image-container div span img {
+    object-fit: cover !important;
+  }
+
+}

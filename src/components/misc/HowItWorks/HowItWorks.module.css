@@ -1,0 +1,131 @@
+.root {
+  margin: 1rem 1rem 2rem;
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -120px;
+  visibility: hidden;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.items-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.content-left {
+  width: 100%;
+}
+
+.content-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.text-box {
+  margin: 1.5rem 0;
+  padding: 1.5rem 1rem;
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px 1px #00000010;
+}
+
+.text-box:first-of-type {
+  margin: 1rem 0 1.5rem;
+}
+
+.text-box:last-of-type {
+  margin: 1.5rem 0 0;
+}
+
+.text-box h4 {
+  margin: 0 0 0.25rem;
+  font-size: 16px;
+  font-weight: 600;
+  color: #223EAA;
+}
+
+.text-box p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.icon-box {
+  margin: 1.5rem 1rem 1.5rem 0;
+  padding: 0.5rem;
+  background-color: #E2F2FE;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    margin: 0 0 3rem;
+    padding: 2rem 3rem;
+    background-color: #FFF;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 2px 5px 1px #00000010;
+  }
+  .title {
+    text-align: center;
+  }
+  .items-container {
+    margin: 2rem 0;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .content-left {
+    width: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .content-middle {
+    position: relative;
+    order: 2;
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .content-right {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .text-box {
+    margin: 0;
+    padding: 1.5rem;
+    background-color: #E2F2FE;
+    box-shadow: none;
+  }
+  .text-box:last-of-type {
+    margin: 1.5rem 0;
+  }
+  .icon-box {
+    margin: 1rem 0;
+  }
+  .line {
+    position: absolute;
+    width: 1px;
+    height: 30px;
+    background-color: #2288EF;
+  }
+  .first-line {
+    top: 70px;
+    left: 15px;
+  }
+  .second-line {
+    left: 15px;
+    bottom: 70px;
+  }
+}
