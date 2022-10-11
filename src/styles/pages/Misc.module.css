@@ -1,0 +1,55 @@
+.root {
+  padding: 1rem 0.5rem 0;
+}
+
+.about-us-container, .error-container  {
+    background-color: #f4f7fc !important; ;
+    /*background: url("http://wp.wp.xn--byrguiden-72a.no/wp-content/uploads/2022/09/wave-white-1.svg") no-repeat;*/
+    background-size: contain;
+    background-position-y: 101%;
+    margin-bottom: 3rem;
+}
+
+
+/*.slider-container {*/
+/*    background: #f4f7fc;*/
+/*    padding: 2rem 0;*/
+/*    margin: 4rem 0;*/
+/*}*/
+
+.our-team-container {
+        margin: 4rem 0;
+}
+
+
+@media screen and (min-width: 768px) {
+    .about-us-container, .error-container   {
+        height: 60vh;
+        background-position-y: 10vh;
+        background-size: cover;
+    }
+
+    .error-container {
+        height: 70vh;
+
+    }
+    .our-team-container {
+        margin: 6rem 0;
+    }
+    /*.slider-container {*/
+    /*    padding: 4rem 0;*/
+    /*    margin: 6rem 0;*/
+
+    /*}*/
+
+  /*.root {*/
+  /*  padding: 3rem 0.5rem 0;*/
+  /*}*/
+  /*.center {*/
+  /*  height: calc(100vh - 5rem);*/
+  /*  display: flex;*/
+  /*  align-items: center;*/
+  /*}*/
+}
+
+@media screen and (min-width: 1024px) {}

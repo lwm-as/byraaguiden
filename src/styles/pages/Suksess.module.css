@@ -1,0 +1,28 @@
+.root {
+  margin-top: 12vw;
+}
+
+.title {
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.description {
+  width: 90vw;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .root {
+    margin-top: 6rem;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+}

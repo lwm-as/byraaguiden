@@ -1,0 +1,68 @@
+.root {
+  padding-bottom: 2.7rem;
+}
+
+.btn-container {
+  display: flex;
+}
+
+.btn-flex-end {
+  justify-content: flex-end;
+}
+
+.btn-justify-space-between {
+  justify-content: space-between;
+}
+
+.btn-flex-center {
+  justify-content: center;
+}
+
+.prevBtn > button {
+  background-color: var(--color-previousBtn-color);
+  box-shadow: none;
+  color: #808080;
+  font-weight: 500;
+}
+.prevBtn > button:hover {
+  box-shadow: none;
+  background-color: hsl(210, 4%, 85%);
+}
+
+.prevBtn > button,
+.nextBtn > button {
+  transition: none;
+  margin-top: 0;
+}
+
+.circularBtn > button {
+  padding: 10.5px 52px 10.5px 52px;
+}
+
+.bottom-txt {
+  margin-top: 2rem;
+}
+
+.disclaimer {
+  font-size: 13px !important;
+  color: #737983 !important;
+  margin: 0 !important;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .prevBtn > button,
+  .nextBtn > button {
+    width: 135px;
+    height: 45px;
+  }
+
+  .circularBtn > button {
+    width: 135px;
+    height: 45px;
+  }
+
+  .nextBtn {
+    padding-right: 8px;
+  }
+}

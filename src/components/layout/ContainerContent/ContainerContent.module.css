@@ -1,0 +1,19 @@
+.root {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4.5rem;
+}
+
+@media screen and (min-width: 1025px) {
+  .root {
+    display: grid;
+    grid-column-gap: 40px;
+    margin-top: 5.5rem;
+    width: 100%;
+  }
+
+  .columns-2 {
+    grid-template-columns: 72% 24%;
+  }
+}

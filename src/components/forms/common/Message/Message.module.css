@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-left {
+  order: 2;
+}
+
+.section-left .title {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 140%;
+  color: #223EAA;
+}
+
+.section-right {
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 75% 25%;
+  }
+  .section-left {
+    margin-right: 5rem;
+  }
+  .section-left .title {
+    font-size: 34px;
+  }
+  .section-right {
+    margin-bottom: 0;
+    order: 2;
+    display: flex;
+    justify-content: center;
+  }
+}

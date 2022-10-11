@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  align-items: center;
+}
+
+/* .root:focus-within {
+  border-color: hsl(228, 67%, 40%);
+}
+
+.root:focus {
+  outline: 0;
+}
+
+.root {
+  color: rgba(0, 0, 0, 0.6);
+  flex: 1;
+  border: 1px solid #d9dfe5;
+  border-radius: 6px;
+  font-size: 16px;
+  background: 0;
+  font-family: sans-serif;
+} */

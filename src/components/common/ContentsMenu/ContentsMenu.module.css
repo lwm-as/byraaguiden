@@ -1,0 +1,37 @@
+.root {
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.item {
+  margin-bottom: 0.75rem;
+  margin-right: 0.75rem;
+  padding-right: 0.75rem;
+  border-right: 1px solid #d7e8f9;
+}
+
+.item:last-of-type {
+  margin-bottom: 0.5rem;
+  margin-right: 0;
+  padding-right: 0;
+  border-right: none;
+}
+
+.link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2288EF;
+}
+
+.link:hover {
+  color: var(--color-lightblue);
+}

@@ -1,0 +1,74 @@
+
+.header-container {
+    margin: 3rem 0 1rem 0;
+}
+
+.header-container h2 {
+    font-size: 32px;
+    font-weight: 500;
+
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.select-container span:last-of-type {
+    margin-left: 1rem;
+    color: #FA5D2E;
+    font-weight: 700;
+}
+.select-container span:first-of-type {
+    margin-right: 0.8rem;
+    font-weight: 600;
+}
+
+.btn-container  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.inner-container {
+    position: sticky;
+    top: 5rem;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.landing-page-provider {
+    margin-bottom: 5rem;
+}
+
+.our-choice-heading {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.top-heading {
+    font-size: 36px;
+    font-weight: 500;
+
+}
+@media screen and (min-width: 768px) {
+    .root {
+        display: grid;
+        grid-template-columns: 75% 25%;
+        gap: 1rem;
+    }
+
+    .main {
+        gap: 3rem;
+    }
+
+
+}

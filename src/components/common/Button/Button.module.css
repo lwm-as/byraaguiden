@@ -1,0 +1,75 @@
+.root * {
+  text-align: center;
+}
+
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.button {
+  margin: 1rem 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--title-font);
+  color: #fff;
+  /*border-radius: 1p2;*/
+  background-color: var(--color-accent-red);
+  box-shadow: 0px 1px 5px 1px #00000020;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--color-accent-red);
+  box-shadow: 0px 1px 5px 1px #00000030;
+}
+
+.small {
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+}
+
+.medium {
+  padding: 0.75rem 2rem;
+}
+
+.large {
+  width: 100%;
+  padding: 0.75rem 2.5rem;
+}
+.xlarge {
+  width: 100%;
+  padding: 0.75rem 6.9rem;
+}
+
+.yellow {
+  background-color: var(--color-primary-yellow);
+}
+
+.yellow:hover {
+  background-color: var(--color-accent-yellow);
+}
+
+.red {
+  background-color: var(--color-primary-red);
+}
+
+.red:hover {
+  background-color: var(--color-accent-red);
+}
+
+@media screen and (min-width: 768px) {
+}

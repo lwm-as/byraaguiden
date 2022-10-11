@@ -1,0 +1,12 @@
+Sitemap: https://wp.xn--byrguiden-72a.no/sitemap_index.xml
+Sitemap: https://wp.xn--byrguiden-72a.no/sitemap-post.xml
+Sitemap: https://wp.xn--byrguiden-72a.no/sitemap-page.xml
+Sitemap: https://wp.xn--byrguiden-72a.no/sitemap-category.xml
+
+
+User-agent: *
+Disallow: /index
+Disallow: /blog/
+Disallow: /cities/
+Disallow: /articles/blog
+Disallow: /articles/cities

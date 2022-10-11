@@ -1,0 +1,20 @@
+.root {
+    position: relative;
+}
+
+.heading {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 6rem;
+}
+
+.container > div {
+    margin-bottom: 1rem;
+}
+
