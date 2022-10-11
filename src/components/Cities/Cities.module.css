@@ -1,0 +1,66 @@
+.root {
+    background: white;
+    margin: 2rem 0 3.5rem;
+    padding: 2rem 2rem 2.5rem;
+    border-radius: 16px;
+    position: relative;
+}
+
+.root:last-of-type {
+    margin-bottom: 2rem;
+}
+
+.root h4 {
+    margin-bottom: 1.5rem;
+    font-size: 22px;
+}
+
+.img-container {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    background-color: white;
+    box-shadow: 0 3px 6px #00000029;
+    border-radius: 6px;
+
+}
+
+.img-container img {
+    width: 70px;
+}
+
+.cities {
+    display: flex;
+    flex-direction: column;
+}
+
+.cities a {
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.cities a:hover {
+    color: #002E47;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+    .root {
+        padding: 2rem 3rem 2.5rem;
+    }
+    .cities {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 1.5rem;
+    }
+    .cities a {
+        margin-bottom: unset;
+    }
+
+    .img-container {
+        top: -20px;
+        right: -20px;
+
+    }
+
+}

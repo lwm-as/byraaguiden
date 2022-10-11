@@ -1,0 +1,119 @@
+.root {
+    background-color: #9C3F50;
+    padding: 7rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.title, .text {
+    position: relative;
+    color: white;
+}
+
+/*.dark-square-right {*/
+/*    position: absolute;*/
+/*    display: inline-block;*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*    top: 0;*/
+/*    right: 0;*/
+/*    border-style: solid;*/
+/*    border-width: 0 0 800px 500px;*/
+/*    border-color: transparent transparent #002E47 transparent;*/
+
+/*}*/
+
+.dark-square-left {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 650px 0 0 700px;
+    border-color: transparent transparent transparent #002E47;
+}
+
+
+/*.red-square {*/
+/*    position: absolute;*/
+/*    z-index: 5;*/
+/*    box-sizing: border-box;*/
+/*    top: 100%;*/
+/*    right: 0;*/
+/*    border-top: solid 120px #FF4A55;*/
+/*    border-left: solid 120px #FF4A55;*/
+/*    border-top-left-radius: 40px;*/
+/*    border-right: solid 120px transparent;*/
+/*    border-bottom: solid 120px transparent;*/
+/*    -ms-transform: rotate(45deg); !* IE 9 *!*/
+/*    -webkit-transform: rotate(45deg); !* Chrome, Safari, Opera *!*/
+/*    transform: rotate(45deg) translate(-280px, 110px)  ;*/
+/*}*/
+
+.red-square {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 107px 0 107px;
+    border-color: #FF4A55 transparent transparent transparent;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .root {
+        overflow: unset;
+
+    }
+    .dark-square-right {
+        position: absolute;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        top: 0;
+        right: 0;
+        border-style: solid;
+        border-width: 0 0 265px 265px;
+        border-color: transparent transparent #002E47 transparent;
+
+    }
+
+    .dark-square-left {
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 265px 0 0 265px;
+        border-color: transparent transparent transparent #002E47;
+    }
+
+
+.red-square-bottom {
+        position: absolute;
+        display: inline-block;
+        width: 0;
+        bottom: 0;
+        right: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 200px 250px 200px 250px;
+        border-color: transparent transparent #FF4A55 transparent;
+
+
+}
+
+    .red-square {
+        border-width: 100px 100px 0 100px;
+    }
+
+
+
+
+}

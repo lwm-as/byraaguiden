@@ -1,0 +1,39 @@
+.root {
+    margin: 1.5rem 0 4rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-container {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.image img {
+    display: block;
+    border-radius: 15px;
+    height: 230px !important;
+}
+
+.content {
+    flex: 1;
+}
+
+.content div {
+    margin-top: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    .root {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem;
+        row-gap: 1rem;
+    }
+}
