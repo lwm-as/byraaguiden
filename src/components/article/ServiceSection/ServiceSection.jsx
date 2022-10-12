@@ -16,8 +16,8 @@ export default function ServiceSection({ category }) {
           </div>
           <div>
             <p>
-              Trenger du hjelp med grafisk design? Hos oss kan du sammenligne en rekke byråer for å finne det byrået som
-              passer dine behov. Få tilbud fra flere byråer og la dem konkurrere om deg.
+              Trenger du hjelp med {category.name.toLowerCase()}? Hos oss kan du sammenligne en rekke byråer for å finne
+              det byrået som passer dine behov. Få tilbud fra flere byråer og la dem konkurrere om deg.
             </p>
           </div>
           <div>

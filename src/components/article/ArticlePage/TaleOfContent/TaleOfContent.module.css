@@ -4,12 +4,13 @@
 
 }
 .container {
-    padding: 1rem 1rem;
+    padding: 1.5rem 1rem 1.5rem 1rem;
     /*width: 250px;*/
-    background: #f4f7fc;
-    border-radius: 4px;
+    background-color: #F6F6F6;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
+
 }
 
 .container .heading {
@@ -34,6 +35,7 @@
 
 
 .is-active {
-    color: #fa9e2e;
+    color: #FF4A55;
+
 }
 

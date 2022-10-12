@@ -1,16 +1,34 @@
 
 .root {
+    display: flex;
+}
+.inner-root {
     padding: 2rem;
     background: white;
     border-radius: 1rem;
     width: 100%;
     position: relative;
-    z-index: 9 ;
+    z-index: 9;
+    flex: 1;
+}
 
+.header {
+    flex-grow: 1;
 }
 
 .btn-container a{
     border-radius: 10px;
+    margin: 0;
+    white-space: nowrap;
+
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1rem;
+
 }
 
 .white-bg a{
@@ -20,14 +38,18 @@
 }
 
 @media screen and (min-width: 768px) {
+    .inner-root {
+        flex: 0.5;
 
-    .root {
-        width: 60%;
     }
 
-.btn-container {
-    display: flex;
-    padding-right: 8rem;
-}
+    .btn-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+
+    }
+
+
 
 }

@@ -17,7 +17,7 @@ const HeroSection = ({ noHeading }) => {
   const servicePath = router.asPath?.split('/#')[1]
 
   const { width } = useWindowSize()
-  const isMobile = width < 768
+  const isMobile = width < 1200
 
   const [selectedTab, setSelectedTab] = useState({})
 

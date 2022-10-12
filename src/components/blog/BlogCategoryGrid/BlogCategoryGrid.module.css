@@ -1,14 +1,22 @@
 .inner-container {
     display: flex;
     flex-direction: column;
-    margin: 4rem 0;
+    margin: 2rem 0;
+    gap: 1.5rem;
+}
+
+.initialPOSTS {
+    margin-bottom: 4rem;
 }
 
 .btn-container {
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
 }
+
 
 .inner-btn-container {
     display: flex;
@@ -49,51 +57,69 @@
 }
 
 .other-services-bar {
-    margin: 4rem 0 0;
+    margin: 2rem 0;
+}
+
+.other-service-bar-inner {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+    gap: .5rem;
 }
 
-.other-services-bar span, .other-services-bar a {
+.choose-other-service {
     font-weight: 600;
 }
 
-/*.a-tag:hover {*/
-/*    cursor: pointer;*/
-/*    text-decoration-line: underline;*/
-/*}*/
+.other-service-bar-inner a {
+    font-weight: 500;
+}
 
- .a-tag {
-     margin: .5rem 0;
- }
-
- .choose-another-branch {
-     font-size: 22px;
-     margin-bottom: 1rem;
- }
 
 @media screen and (min-width: 768px) {
     .inner-container {
+        position: relative;
+        top: -40px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 2rem;
         row-gap: 1rem;
+        margin: 4rem 0;
+
     }
-    .other-services-bar {
-       flex-direction: row;
+    .other-service-bar-inner {
+        flex-direction: row;
         align-items: center;
-
     }
-    .a-tag {
-        margin: unset;
-   }
-
-    .choose-another-branch {
-        font-size: unset;
-        margin-bottom: unset;
-
+    .link {
+        font-size: 14px;
+        white-space: nowrap;
     }
 
+    .other-services-bar {
+        margin-top: 2rem;
+    }
 
+    .other-service-bar-inner {
+        margin-top: 1rem;
+        position: relative;
+        left: -35px;
+
+    }
+
+    .btn-container {
+        align-items: center;
+        flex-direction: row;
+    }
+
+
+}
+
+@media (min-width:600px) and (max-width:1024px) {
+    .other-service-bar-inner {
+        display: grid;
+        row-gap: 1rem;
+        margin-left: 1.7rem;
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

@@ -11,14 +11,12 @@ import styles from './Sidebar.module.css'
 
 const cx = classNames.bind(styles)
 
-const PostContent = ({ post, category, show }) => {
-  const {
-    ctaDisabled: { ctaDisabled }
-  } = post
+const PostContent = ({ ctaDisabled: { ctaDisabled }, post, category, show }) => {
   const { slug } = category
 
   const isRA = category.posts.nodes.length > 1
-  const showCTA = !ctaDisabled
+
+  const showCTA = ctaDisabled
 
   const { width } = useWindowSize()
   const isMobile = width <= 768
@@ -26,32 +24,11 @@ const PostContent = ({ post, category, show }) => {
   return (
     <div className={cx('root')}>
       <div className={cx('container')}>
-        {/* {showCTA && <CTASection category={category} />} */}
-        {!showCTA && isRA && <RelevantPosts post={post} category={category} />}
+        {!showCTA && <CTASection category={category} />}
+        {/*{!showCTA && isRA && <RelevantPosts post={post} category={category} />}*/}
       </div>
     </div>
   )
-
-  // return (
-  //   <>
-  //     {isMobile && showCTA ? (
-  //       <div className={cx('cta-footer', { show })}>
-  //         <div className={cx('cta-button-container')}>
-  //           <Button link={`/${slug}/tilbud`} flex='flex-center' size='large'>
-  //             Få tilbud
-  //           </Button>
-  //         </div>
-  //       </div>
-  //     ) : (
-  //       <div className={cx('root')}>
-  //         <div className={cx('container')}>
-  //           {/* {showCTA && <CTASection category={category} />} */}
-  //           {!showCTA && isRA && <RelevantPosts post={post} category={category} />}
-  //         </div>
-  //       </div>
-  //     )}
-  //   </>
-  // )
 }
 
 export default PostContent

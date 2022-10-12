@@ -20,6 +20,10 @@
   overflow: hidden;
 }
 
+.service-preview-container {
+  width: 100%;
+}
+
 .red-square {
   position: absolute;
   box-sizing: border-box;

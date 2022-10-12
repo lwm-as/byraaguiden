@@ -16,9 +16,9 @@ export default function ServiceHero({ category }) {
         <Image className={cx('image')} imageData={category.posts.nodes[0]?.featuredImage.node} />
       </div>
       <div className={cx('content')}>
-        <h3>{category.posts.nodes[0]?.title || 'No data'}</h3>
-        <span>{formattedDate || 'No data'}</span>
-        <p>{excerpts(category.posts.nodes[0]?.excerpt) || 'No data'}</p>
+        {category.posts.nodes.length > 0 && <h3>{category.posts.nodes[0]?.title}</h3>}
+        <span>{formattedDate || 'No post found'}</span>
+        {category.posts.nodes.length > 0 && <p>{excerpts(category.posts.nodes[0]?.excerpt)}</p>}
       </div>
     </div>
   )

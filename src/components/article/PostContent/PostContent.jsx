@@ -10,13 +10,13 @@ import PostHeader from '../PostHeader/PostHeader'
 
 const cx = classNames.bind(styles)
 
-const PostContent = ({ post, postHeaderIsInside, className }) => {
+const PostContent = ({ marginBreadCrumb, post, postHeaderIsInside, className }) => {
   const { featuredImage, content, customToc } = post
   const isFeatured = !!featuredImage?.node
 
   return (
     <div className={cx('root')}>
-      {postHeaderIsInside && <PostHeader post={post} />}
+      {postHeaderIsInside && <PostHeader marginBreadCrumb={marginBreadCrumb} post={post} />}
       {isFeatured && (
         <>
           <figure className={cx('image-container')}>

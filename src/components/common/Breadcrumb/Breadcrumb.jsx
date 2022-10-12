@@ -8,9 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const cx = classNames.bind(styles)
 
-const Breadcrumb = ({ className, categoryData, title }) => {
+const Breadcrumb = ({ marginBreadCrumb, className, categoryData, title }) => {
   return (
-    <nav className={cx('root', className)} aria-label='breadcrumb'>
+    <nav className={cx('root', className, { marginBreadCrumb })} aria-label='breadcrumb'>
       <ol className={cx('breadcrumb')}>
         <li className={cx('item')}>
           <Link href={'/'}>
@@ -22,16 +22,14 @@ const Breadcrumb = ({ className, categoryData, title }) => {
             <a className={cx('link')}>Hjem</a>
           </Link>
         </li>
-        {/*{!title === "Artikler" &&*/}
-        {/*}*/}
-        <li className={cx('item')}>
-          <Link href='/artikler' passHref>
-            <a className={cx('link')}>Artikler</a>
-          </Link>
-        </li>
+        {/*<li className={cx('item')}>*/}
+        {/*  <Link href='/artikler' passHref>*/}
+        {/*    <a className={cx('link')}>Artikler</a>*/}
+        {/*  </Link>*/}
+        {/*</li>*/}
         {categoryData && (
           <li className={cx('item')}>
-            <Link href='/blog' passHref>
+            <Link href='/artikler' passHref>
               <a className={cx('link')}>{categoryData.name}</a>
             </Link>
           </li>
