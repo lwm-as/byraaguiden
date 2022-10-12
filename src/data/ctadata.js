@@ -1,6 +1,6 @@
 const DATA = [
   {
-    name: 'Blog',
+    name: 'Digital markedsføring',
     title: 'Finn beste boligalarm der du bor',
     titleSize: '25px',
     text: 'Fyll ut vårt enkle skjema for å motta inntil 5 tilbud',

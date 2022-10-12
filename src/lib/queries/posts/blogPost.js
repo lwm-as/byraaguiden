@@ -38,6 +38,9 @@ export const GET_POST = `
           slug
         }
       }
+     ctaDisabled {
+      ctaDisabled
+    }
       categorypage {
         herotitle
         herosubtitle

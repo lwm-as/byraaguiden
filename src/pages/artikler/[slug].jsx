@@ -8,11 +8,9 @@ import Container from '../../components/layout/Container/Container'
 import GridHero from '../../components/blog/GridHero/GridHero'
 import Breadcrumb from '../../components/common/Breadcrumb/Breadcrumb'
 import ServiceHero from '../../components/article/ServiceHero/ServiceHero'
-import ReadMoreGrid from '../../components/article/GridItem/GridItem'
 import classNames from 'classnames/bind'
 import ServiceSection from '../../components/article/ServiceSection/ServiceSection'
-import BlogGrid from '../../components/article/BlogGrid/BlogGrid'
-import { useState } from 'react'
+import BlogCategoryGrid from '../../components/blog/BlogCategoryGrid/BlogCategoryGrid'
 
 const cx = classNames.bind(styles)
 
@@ -28,21 +26,19 @@ const BlogCategories = ({ data, categories }) => {
 
   const size = useWindowSize()
 
-  const [alreadyShownPosts, setAlreadyShownPosts] = useState()
-
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
       <GridHero title={category.name} description={category.posts.nodes} />
       <Container size='medium'>
         <Breadcrumb title={category.name} category={category} size={size} />
         <ServiceHero category={category} />
-        <h2 className={cx('section-title')}>Les mer om {category.name.toLowerCase()}</h2>
-        {/*<GridItem setAlreadyShownPosts={setAlreadyShownPosts} posts={posts} category={category} />*/}
+        {posts.nodes.length > 1 && (
+          <h2 className={cx('section-title')}>Les mer om {category.name.toLowerCase()}</h2>
+        )}{' '}
       </Container>
-      <ServiceSection category={category} />
-      <Container size='medium'>
-        <BlogGrid categories={categories} alreadyShownPosts={alreadyShownPosts} posts={posts} category={category} />
-      </Container>
+      <BlogCategoryGrid category={category} categories={categories} posts={posts}>
+        <ServiceSection category={category} />
+      </BlogCategoryGrid>
     </Layout>
   )
 }
@@ -63,7 +59,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const variables = {
     id: encodeURIComponent(params.slug),
-    first: 6,
+    first: 4,
     featured: 'Featured',
     popular: 'Popular'
   }

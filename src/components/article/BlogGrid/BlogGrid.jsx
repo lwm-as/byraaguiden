@@ -21,15 +21,6 @@ export default function BlogGrid({ categories, posts, category, children }) {
 
   const [loading, setLoading] = useState(false)
 
-  const {
-    query: { slug: pathName }
-  } = useRouter()
-
-  // useEffect(() => {
-  //   setInfo(posts?.pageInfo)
-  //   setFetchedPosts(posts?.nodes)
-  // }, [pathName])
-
   useEffect(async () => {
     const variables = {
       first: 3,

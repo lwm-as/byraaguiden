@@ -1,11 +1,11 @@
 .root {
-  position: relative;
+  /*position: relative; */
 }
 
-.container {
+/*.container {
   position: sticky;
   top: 6rem;
-}
+}*/
 
 .cta-footer {
   padding: 0.5rem 4rem 0.75rem 4rem;
