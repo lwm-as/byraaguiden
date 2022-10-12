@@ -11,7 +11,6 @@ import React, { useState } from 'react'
 import styles from '../../styles/pages/BlogCategories.module.css'
 import ServiceTab from '../../components/ServiceTab/ServiceTab'
 import ServicePreviewArticle from '../../components/ServicePreviewArticle/ServicePreviewArticle'
-import ServicePreview from '../../components/LanguagePreview/ServicePreview'
 import BlogGrid from '../../components/article/BlogGrid/BlogGrid'
 
 const cx = classNames.bind(styles)

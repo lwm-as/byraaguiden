@@ -54,23 +54,11 @@ const BurgerMenu = ({ items, handleDropDownClick, subItems }) => {
 
       {toggleBurgerMenu && (
         <div className={cx('root')}>
-          <div className={cx('articles')}>
-            {items
-              .filter(({ label }) => label === 'Artikler')
-              .map(({ label, path }, index) => {
-                return (
-                  <div onClick={() => handleDropDownClick(index)} className={cx('article')}>
-                    <div className={cx('parent-box')}>
-                      <span className={cx('label')}>{label}</span>
-                    </div>
-                  </div>
-                )
-              })}
-          </div>
           <div className={cx('links')}>
             {items
-              .filter(({ label }) => label !== 'Tjenester' && label !== 'Artikler')
+              .filter(({ label }) => label !== 'Tjenester')
               .map(({ label, path }) => {
+                console.log({ label }, { path })
                 return (
                   <div className={cx('links-item')}>
                     <a className={cx('link')} href={path}>
@@ -98,10 +86,10 @@ const BurgerMenu = ({ items, handleDropDownClick, subItems }) => {
               })}
             {subItems.map(({ path, label }) => {
               return (
-                <div className={cx('service-box')}>
+                <a className={cx('service-box')} href={path}>
                   <img src={`/media/icons/${getCorrectImage(label)}.svg`} alt='' />
-                  <a href={path}>{label}</a>
-                </div>
+                  <a>{label}</a>
+                </a>
               )
             })}
           </div>

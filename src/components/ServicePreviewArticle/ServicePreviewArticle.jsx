@@ -32,15 +32,21 @@ export default function ServicePreviewArticle({ services }) {
 
   return (
     <div className={cx('root')}>
-      <div className={cx('header')}>
-        <h3>De beste {`${service?.name?.toLowerCase()}-byråene i Norge`}</h3>
-        <p>{service?.servicePreviewDescription?.serviceDescription}</p>
-      </div>
-      <div className={cx('btn-container')}>
-        <Button link={`/${service?.slug}`}>Sammenlign byråer</Button>
-        <Button className={cx('white-bg')} link={`/""`}>
-          Les artikler
-        </Button>
+      <div className={cx('inner-root')}>
+        <div className={cx('header')}>
+          <h3>De beste {`${service?.name?.toLowerCase()}-byråene i Norge`}</h3>
+          <p>{service?.servicePreviewDescription?.serviceDescription}</p>
+        </div>
+        <div className={cx('btn-container')}>
+          <div>
+            <Button link={`/${service?.slug}`}>Sammenlign byråer</Button>
+          </div>
+          <div>
+            <Button className={cx('white-bg')} link={`/""`}>
+              Les artikler
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   )

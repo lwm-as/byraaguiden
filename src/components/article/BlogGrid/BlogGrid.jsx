@@ -61,57 +61,55 @@ export default function BlogGrid({ categories, posts, category, children }) {
   const isMobile = windowWidth < 768
 
   return (
-    <>
-      <div className={cx('root')}>
-        <Container size='medium'>
-          <div className={cx('inner-container', 'initialPOSTS')}>
-            {posts?.nodes.map((post, idx) => {
-              return <GridItem post={post} />
-            })}
-          </div>
-        </Container>
-        <div>{children}</div>
-        <Container size='medium'>
-          <div className={cx('inner-container')}>
-            {preLoadedPosts?.map((post, idx) => {
-              return <GridItem post={post} />
-            })}
-          </div>
-        </Container>
-        <Container size='medium'>
-          <div className={cx('btn-container')}>
-            <div className={cx('inner-btn-container')}>
-              <div>
-                <Button disabled={loading} onClick={handleClick} className={cx('btn')}>
-                  {loading ? 'Laster inn fler' : 'Last inn fler'}
-                </Button>
-              </div>
-            </div>
-            <div className={cx('all-articles')}>
-              <div className={cx('all-articles-inner')}>
-                <a href='/artikler'>Alle artikler</a>
-                <FontAwesomeIcon icon={['fas', 'chevron-right']} />
-              </div>
+    <div className={cx('root')}>
+      <Container size='medium'>
+        <div className={cx('inner-container', 'initialPOSTS')}>
+          {posts?.nodes.map((post, idx) => {
+            return <GridItem post={post} />
+          })}
+        </div>
+      </Container>
+      <div>{children}</div>
+      <Container size='medium'>
+        <div className={cx('inner-container')}>
+          {preLoadedPosts?.map((post, idx) => {
+            return <GridItem post={post} />
+          })}
+        </div>
+      </Container>
+      <Container size='medium'>
+        <div className={cx('btn-container')}>
+          <div className={cx('inner-btn-container')}>
+            <div>
+              <Button disabled={loading} onClick={handleClick} className={cx('btn')}>
+                {loading ? 'Laster inn fler' : 'Last inn fler'}
+              </Button>
             </div>
           </div>
-        </Container>
-        <Container size='medium'>
-          <div className={cx('other-services-bar')}>
-            <span className={cx('choose-other-service')}>Velg en annen bransje:</span>
-            <div className={cx('other-service-bar-inner')}>
-              {categories.categories.nodes
-                .filter(catt => catt.name !== category.name && catt.name !== 'Alle artikler')
-                .map(({ name, slug }, i) => {
-                  return (
-                    <Link href={`/${slug}`}>
-                      <a className={cx('link')}>{name}</a>
-                    </Link>
-                  )
-                })}
+          <div className={cx('all-articles')}>
+            <div className={cx('all-articles-inner')}>
+              <a href='/artikler'>Alle artikler</a>
+              <FontAwesomeIcon icon={['fas', 'chevron-right']} />
             </div>
           </div>
-        </Container>
-      </div>
-    </>
+        </div>
+      </Container>
+      <Container size='medium'>
+        <div className={cx('other-services-bar')}>
+          <span className={cx('choose-other-service')}>Velg en annen bransje:</span>
+          <div className={cx('other-service-bar-inner')}>
+            {categories.categories.nodes
+              .filter(catt => catt.name !== category.name && catt.name !== 'Alle artikler')
+              .map(({ name, slug }, i) => {
+                return (
+                  <Link href={`/${slug}`}>
+                    <a className={cx('link')}>{name}</a>
+                  </Link>
+                )
+              })}
+          </div>
+        </div>
+      </Container>
+    </div>
   )
 }
