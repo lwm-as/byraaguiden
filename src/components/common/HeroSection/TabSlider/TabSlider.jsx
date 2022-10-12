@@ -13,7 +13,7 @@ export default function TabSlider({ data, setActiveClass = () => {}, setActiveCl
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={100}
-        slidesPerView={6}
+        slidesPerView={2}
         navigation
         breakpoints={{
           320: {
@@ -34,25 +34,22 @@ export default function TabSlider({ data, setActiveClass = () => {}, setActiveCl
           }
         }}
       >
-        {data.map(({ service, logo }, idx) => (
-          <SwiperSlide className={cx('slider-wrapper')}>
-            <Link href={`#${service.toLowerCase()}`}>
-              <div
-                style={{
-                  width: service.toLowerCase() === 'seo' && '200px'
-                }}
-                className={cx('list-item', setActiveClass({ idx, service }))}
-              >
-                <div className={cx('logo-container')}>
-                  <img src={logo} alt='Service' />
+        {data.map(({ service, logo }, idx) => {
+          return (
+            <SwiperSlide className={cx('slider-wrapper')}>
+              <Link href={`#${service.toLowerCase()}`}>
+                <div className={cx('list-item', setActiveClass({ idx, service }))}>
+                  <div className={cx('logo-container')}>
+                    <img src={logo} alt='Service' />
+                  </div>
+                  <a className={cx('item', setActiveClassText({ idx, service }))}>
+                    {service.charAt(0).toUpperCase() + service.slice(1).toUpperCase()}
+                  </a>
                 </div>
-                <a className={cx('item', setActiveClassText({ idx, service }))}>
-                  {service.charAt(0).toUpperCase() + service.slice(1).toUpperCase()}
-                </a>
-              </div>
-            </Link>
-          </SwiperSlide>
-        ))}
+              </Link>
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
     </div>
   )

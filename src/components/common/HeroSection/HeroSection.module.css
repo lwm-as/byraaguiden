@@ -49,6 +49,11 @@
   border-bottom: 4px solid var(--color-accent-red);
 }
 
+.test {
+border: 1px solid red;
+  width: 100% !important;
+}
+
 .activeClassText {
   font-weight: 700;
   color: var(--color-accent-red);

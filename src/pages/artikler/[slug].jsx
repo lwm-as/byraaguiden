@@ -8,10 +8,10 @@ import Container from '../../components/layout/Container/Container'
 import GridHero from '../../components/blog/GridHero/GridHero'
 import Breadcrumb from '../../components/common/Breadcrumb/Breadcrumb'
 import ServiceHero from '../../components/article/ServiceHero/ServiceHero'
-import ReadMoreGrid from '../../components/article/ReadMoreGrid/ReadMoreGrid'
+import ReadMoreGrid from '../../components/article/GridItem/GridItem'
 import classNames from 'classnames/bind'
 import ServiceSection from '../../components/article/ServiceSection/ServiceSection'
-import LoadMoreGrid from '../../components/article/LoadMoreGrid/LoadMoreGrid'
+import BlogGrid from '../../components/article/BlogGrid/BlogGrid'
 import { useState } from 'react'
 
 const cx = classNames.bind(styles)
@@ -37,11 +37,11 @@ const BlogCategories = ({ data, categories }) => {
         <Breadcrumb title={category.name} category={category} size={size} />
         <ServiceHero category={category} />
         <h2 className={cx('section-title')}>Les mer om {category.name.toLowerCase()}</h2>
-        <ReadMoreGrid setAlreadyShownPosts={setAlreadyShownPosts} posts={posts} category={category} />
+        {/*<GridItem setAlreadyShownPosts={setAlreadyShownPosts} posts={posts} category={category} />*/}
       </Container>
       <ServiceSection category={category} />
       <Container size='medium'>
-        <LoadMoreGrid categories={categories} alreadyShownPosts={alreadyShownPosts} posts={posts} category={category} />
+        <BlogGrid categories={categories} alreadyShownPosts={alreadyShownPosts} posts={posts} category={category} />
       </Container>
     </Layout>
   )

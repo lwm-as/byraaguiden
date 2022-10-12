@@ -91,6 +91,10 @@ export const GET_POSTS_BY_CATEGORY = `
           featuredImage {
             node {
               sourceUrl
+            mediaDetails {
+             width
+            height
+         }
             }
           }
           categories {
@@ -118,11 +122,20 @@ export const GET_MORE_POSTS_BY_CATEGORY = `
         hasNextPage
       }
       nodes {
+         author {
+          node {
+            firstName
+          }
+        }
         title
         slug
         excerpt
         featuredImage {
           node {
+             mediaDetails {
+             width
+            height
+         }
             sourceUrl
           }
         }

@@ -3,9 +3,13 @@ import { useRouter } from 'next/dist/client/router'
 import useWindowSize from '../../utils/windowSize'
 import { useEffect, useState } from 'react'
 import { servicesArray } from '../../data/tabs'
-import TabSlider from '../common/HeroSection/TabSlider/TabSlider'
 import Link from 'next/link'
 import styles from '../common/HeroSection/HeroSection.module.css'
+import TabSlider from '../common/HeroSection/TabSlider/TabSlider'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+// Import Swiper styles
+import 'swiper/css'
 
 const cx = classNames.bind(styles)
 
@@ -15,7 +19,7 @@ export default function ServiceTab() {
   let articleServicePath = router.asPath.split('#')[1]
 
   const { width } = useWindowSize()
-  const isMobile = width < 768
+  const isMobile = width < 1200
 
   const [selectedTab, setSelectedTab] = useState({})
 
@@ -49,10 +53,13 @@ export default function ServiceTab() {
   }
   return (
     <div className={cx('root')}>
-      <div className={cx('heading')}></div>
-      {/* eslint-disable-next-line react/jsx-no-bind */}
       {isMobile && (
-        <TabSlider data={servicesArray} setActiveClassText={setActiveClassText} setActiveClass={setActiveClass} />
+        <TabSlider
+          article
+          data={servicesArray}
+          setActiveClassText={setActiveClassText}
+          setActiveClass={setActiveClass}
+        />
       )}
       {!isMobile && (
         <>
