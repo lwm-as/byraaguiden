@@ -1,0 +1,131 @@
+.popupLayout {
+    width: calc(100% - 40px);
+    max-width: 900px;
+    height: min-content;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    text-align: center;
+    background-color: #f7fafd;
+    -webkit-box-shadow: 0 5px 10px rgb(37 37 37 / 40%);
+    box-shadow: 0 5px 10px rgb(37 37 37 / 40%);
+    max-height: calc(100vh - 112px);
+    overflow: auto;
+    border-radius: 4px;
+}
+
+.popoutLayout_content {
+    height: 100%;
+    width: 100%;
+    padding-top: 2.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-radius: 4px;
+    z-index: 200;
+}
+
+.popupLayout_content_root {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 0 10px #dee3ea;
+    border-radius: 4px;
+    margin-bottom: 2.5rem;
+}
+
+.popoutLayout_content_root_comment_container {
+    display: flex;
+    background-color: var(--color-white);
+    -webkit-box-shadow: var(--app-shadow);
+    box-shadow: var(--app-shadow);
+    border-radius: 4px;
+    padding: 30px;
+}
+
+.comment_container_author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3rem;
+    min-width: 160px;
+    max-width: 160px;
+    min-height: 140px;
+}
+
+.comment_container_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.comment_container_content_actual {
+    font-weight: 400;
+    line-height: 160%;
+}
+
+.popupLayout_closePopup {
+    appearance: none;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    border: 0;
+    color: currentColor;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    font-size: 2em;
+    background: none;
+    font-weight: 700;
+    padding-bottom: 8px;
+}
+
+.popupLayout_comment_item {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    min-width: 70%;
+}
+
+.popupLayout_comment_item img {
+    height: 15px;
+    margin: 1.3rem 0.6rem 1.3rem 0;
+}
+
+.comment_container_author img {
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    -webkit-object-fit: cover;
+    object-fit: cover;
+}
+
+.rating_text {
+    color: #85868a;
+}
+
+.rating_text2 {
+    color: #85868a;
+    margin-left: 4px;
+}
+
+.author_name {
+    margin-bottom: 0;
+    font-weight: 700;
+    text-align: center;
+    color: #26394e;
+}
+
+@media screen and (max-width: 768px) {
+    .popoutLayout_content_root_comment_container {
+        display: block;
+    }
+    .comment_container_author {
+        margin-right: 0px;
+        max-width: none;
+    }
+}

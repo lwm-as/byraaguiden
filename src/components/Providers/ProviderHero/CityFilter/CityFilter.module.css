@@ -1,0 +1,19 @@
+.select-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 9px;
+}
+
+.select-container * {
+    margin: 0;
+}
+
+.react-select-container {
+    flex: 1;
+}
+
+.icon {
+    color: #FF4A55;
+}
+

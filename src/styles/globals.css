@@ -13,6 +13,9 @@
   --text-font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
   --border-radius: 10px;
+  --shadow: 0px 0px 5px 0px #36486333;
+  --bg-focus: #EAF0F2;
+
 }
 
 html {
@@ -768,6 +771,23 @@ label {
   .inline-provider .provider-bottom li {
     margin: 0;
   }
+}
+
+.react-select__single-value {
+  font-size: 16px;
+}
+.react-select__control:hover .react-select__single-value {
+  color: white;
+
+}
+
+.react-select__control:hover .react-select__indicator svg {
+ color: white !important;
+}
+
+
+.react-select__single-value {
+  padding-left: 1rem;
 }
 
 /* Stepper for Offer form */

@@ -8,6 +8,7 @@
 .title, .text {
     position: relative;
     color: white;
+    z-index: 7;
 }
 
 /*.dark-square-right {*/
@@ -67,7 +68,8 @@
 
 @media screen and (min-width: 768px) {
     .root {
-        overflow: unset;
+        overflow: hidden;
+
 
     }
     .dark-square-right {
@@ -78,7 +80,7 @@
         top: 0;
         right: 0;
         border-style: solid;
-        border-width: 0 0 265px 265px;
+        border-width: 0 0 400px 500px;
         border-color: transparent transparent #002E47 transparent;
 
     }
@@ -90,7 +92,7 @@
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 265px 0 0 265px;
+        border-width: 100% 0 0 300px;
         border-color: transparent transparent transparent #002E47;
     }
 
@@ -110,7 +112,7 @@
 }
 
     .red-square {
-        border-width: 100px 100px 0 100px;
+        border-width: 100px 101px 0 110px;
     }
 
 

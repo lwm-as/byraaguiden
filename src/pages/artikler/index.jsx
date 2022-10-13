@@ -47,7 +47,7 @@ const Blogg = ({ data, categories }) => {
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
       <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
-        <GridHero title='Alle artikler' description={category.posts.nodes} />
+        <GridHero title='Alle artikler' />
         <Container size='medium'>
           <Breadcrumb title={category.name} category={category} size={size} />
         </Container>

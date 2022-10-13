@@ -1,0 +1,44 @@
+.progressContainer {
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 140px;
+}
+
+.progressInnerContainer {
+    margin-bottom: 8px;
+}
+
+.progressInnerContainer progress {
+    width: 100%;
+    margin-top: -10px;
+}
+
+.progressInnerContainer progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 7px;
+}
+
+.progressInnerContainer progress[value]::-webkit-progress-value {
+    background-color: #FBBC04;
+}
+
+.progressInnerContainer progress[value]::-webkit-progress-bar {
+    background-color: var(--bg-focus);
+  }
+
+.labelContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -8px;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--cl-text);
+}
+
+@media screen and (min-width: 801px) {
+    .progressContainer {
+        padding: 1rem;
+    }
+}
