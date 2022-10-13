@@ -1,0 +1,227 @@
+.providerItem {
+  box-shadow: 0px 0px 10px 0px #36486356;
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.providerItem:last-of-type {
+  margin-bottom: 0;
+}
+
+.upperColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.firstUpperColumn p {
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.logoNameContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logoNameContainer h4 {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.logoNameContainer img {
+  max-width: 50px;
+  margin-right: 10px;
+  height: auto;
+  object-fit: contain;
+}
+
+.metaInfoColumn {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--cl-line);
+  border-bottom: 1px solid var(--cl-line);
+}
+
+.metaInfoContentMob {
+  min-width: 30px;
+}
+
+.metaInfoColumn p {
+  font-size: 13px;
+}
+
+.lowerColumn .metaInfoColumn {
+  display: none;
+}
+
+.metaInfoColumn svg {
+  margin-right: 5px;
+  max-height: 15px;
+  height: fit-content;
+  color: var(--cl-text);
+}
+
+.metaInfoColumn div {
+  font-size: 15px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}
+
+.secondUpperColumn {
+  order: 1;
+}
+
+.thirdUpperColumn {
+  order: 2;
+  text-align: center;
+  border-top: 1px solid var(--cl-line);
+  border-bottom: 1px solid var(--cl-line);
+  padding: 1rem 0;
+}
+
+.thirdUpperColumn h5 {
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.serviceContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -2px;
+}
+
+.serviceContainer div {
+  background-color: var(--bg-medium);
+  padding: 3px 10px;
+  border-radius: var(--border-radius);
+  margin: 4px;
+}
+
+.serviceContainer span {
+  color: #5e7b8c;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.buttonColumn {
+  display: flex;
+}
+
+.buttonColumn a {
+  width: 100%;
+  padding: 0.75rem 0;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.loadMoreButton {
+  padding: 0.75rem 4rem;
+  text-align: center;
+  font-family: 'Mulish', 'sans-serif';
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--bg-dark);
+  border: unset;
+  border-radius: var(--border-radius);
+  -webkit-box-shadow: 0px 1px 10px 0px #36486356;
+  box-shadow: 0px 1px 10px 0px #36486356;
+  background-color: transparent;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.loadMoreButton:hover {
+  cursor: pointer;
+  color: var(--bg-dark);
+  background-color: var(--bg-medium);
+  background-color: var(--bg-medium);
+}
+
+@media screen and (min-width: 360px) {
+  .providerItem {
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .providerItem {
+    padding: 0;
+    box-shadow: var(--shadow);
+  }
+  .upperColumn {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .logoNameContainer {
+    padding: 1rem;
+    max-height: 82px;
+    min-height: 82px;
+    margin-bottom: 0;
+  }
+  .line {
+    border-bottom: 1px solid var(--cl-line);
+  }
+  .firstUpperColumn p {
+    margin: 0;
+    padding: 1rem;
+  }
+  .firstUpperColumn .metaInfoColumn {
+    display: none;
+  }
+  .secondUpperColumn {
+    order: 1;
+    border-left: 1px solid var(--cl-line);
+    border-right: 1px solid var(--cl-line);
+  }
+  .thirdUpperColumn {
+    order: 2;
+    border: none;
+    padding-left: 1rem;
+    padding-top: 2rem;
+  }
+  .thirdUpperColumn h5 {
+    text-align: left;
+  }
+  .lowerColumn {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+  .lowerColumn .metaInfoColumn {
+    display: flex;
+  }
+  .metaInfoColumn {
+    justify-content: flex-start;
+    border-bottom: 0;
+    border-right: 1px solid var(--cl-line);
+  }
+  .metaInfoContentDesktop {
+    min-width: 30px;
+  }
+  .metaInfoColumn div {
+    margin-right: 0rem;
+    margin-left: 1rem;
+  }
+  .metaInfoColumn p {
+    font-size: unset;
+  }
+  .buttonColumn {
+    padding: 0.5rem 1rem 1rem;
+    align-items: flex-end;
+  }
+  .buttonColumn a {
+    height: fit-content;
+  }
+  .loadMoreButton {
+    -webkit-box-shadow: 0px 1px 8px 0px #36486333;
+    box-shadow: 0px 1px 8px 0px #36486333;
+  }
+}

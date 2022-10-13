@@ -16,7 +16,8 @@ const Button = ({
   flex,
   children,
   onClick,
-  disabled
+  disabled,
+  ...other
 }) => {
   if (link) {
     return (
@@ -31,7 +32,7 @@ const Button = ({
   }
   return (
     <div className={cx('root', flex, className)}>
-      <button disabled={disabled} type={type} className={cx('button', color, size)} onClick={onClick}>
+      <button {...other} disabled={disabled} type={type} className={cx('button', color, size)} onClick={onClick}>
         {children}
       </button>
     </div>

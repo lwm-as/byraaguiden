@@ -1,0 +1,60 @@
+.googleReviewContainer {
+  display: flex;
+  align-items: center;
+}
+
+.starContainer {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.starContainer span:first-of-type div {
+  margin-top: 2px;
+}
+
+.starContainer span {
+  display: flex;
+  margin: 0 2px;
+}
+
+.starContainer .starCount {
+  margin: 1px 5px 0 7px;
+  font-weight: 500;
+}
+
+.reviewLink {
+  font-weight: 300;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 980px) {
+  .googleReviewContainer {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  .reviewLink {
+    margin-left: 8px !important;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .googleReviewContainer {
+    border-bottom: 1px solid var(--cl-line);
+    padding: 1rem;
+    height: 83px;
+    margin: unset;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .starContainer {
+    margin: 0;
+  }
+
+  .reviewLink {
+    margin: 0;
+  }
+}

@@ -5,11 +5,13 @@ import { useReducer } from 'react'
 
 export const actionTypes = {
   toggle_index: 'toggle_index',
+  toggle_button: 'check_button',
   resetState: 'resetState'
 }
 
 const inititalState = {
   openIndexes: [-1],
+  checkedButtons: [0],
   resetState: []
 }
 
@@ -27,6 +29,18 @@ export const toggleReducer = (state, action) => {
           : [...state.openIndexes, action.index]
       }
     }
+    case actionTypes.toggle_button: {
+      const closing = state.checkedButtons.includes(action.index)
+      const opening = !state.checkedButtons.includes(action.index)
+      return {
+        ...state,
+        checkedButtons: opening
+          ? [action.index]
+          : closing
+          ? state.checkedButtons?.filter(i => i !== action.index)
+          : [...state.checkedButtons, action.index]
+      }
+    }
 
     case actionTypes.resetState:
       return {
@@ -42,9 +56,10 @@ export const toggleReducer = (state, action) => {
 
 // user can provide custom reducer if he wishes to
 export const useToggler = ({ reducer = toggleReducer } = {}) => {
-  const [{ openIndexes, subMenu }, dispatch] = useReducer(reducer, inititalState)
+  const [{ openIndexes, checkedButtons }, dispatch] = useReducer(reducer, inititalState)
   const toggleIndex = index => dispatch({ type: actionTypes.toggle_index, index })
+  const toggleButton = index => dispatch({ type: actionTypes.toggle_button, index })
   const resetState = () => dispatch({ type: actionTypes.resetState })
 
-  return { resetState, openIndexes, toggleIndex }
+  return { resetState, openIndexes, toggleIndex, toggleButton, checkedButtons }
 }
