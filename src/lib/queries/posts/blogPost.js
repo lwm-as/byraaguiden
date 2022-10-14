@@ -18,6 +18,20 @@ query getPostSlugs {
 export const GET_POST = `
   query getPost($id: ID!, $catId: ID!) {
     post(id: $id, idType: SLUG) {
+     customToc {
+      hascustomtoc
+      content {
+        contentTitle
+      }
+    }
+      author {
+        node {
+          firstName
+          avatar {
+           url
+          }
+        }
+      }
       title
       modifiedGmt
       excerpt

@@ -21,53 +21,45 @@ import useOutsideDetector from '../../../utils/hooks/useOutsideDetecter'
 
 const cx = classNames.bind(styles)
 
-function DesktopLeftHeader({ parentItems, handleDropDownClick, handleIcon, handleFlag }) {
+function DesktopLeftHeader({ handleIconBackgroundColor, parentItems, handleDropDownClick, handleIcon, handleFlag }) {
   return (
-    <>
-      <div className={cx('header-right')}>
-        <div className={cx('dropdown-container')}>
-          {parentItems
-            .filter(({ label }) => label === 'Tjenester' || label === 'Artikler')
-            .map(({ label, path }, index) => {
-              return (
-                <div onClick={() => handleDropDownClick(index)} className={cx('dropdown-menu-container')}>
-                  <div className={cx('icon-container')}>
-                    <FontAwesomeIcon icon={['fas', handleIcon(index)]} color='white' size='xs' />
-                  </div>
-                  <div className={cx('dropdown-menu')}>
-                    <span className={cx('menu-item', 'no-margin')}>{label}</span>
-                    <span className={cx('menu-item', 'under-text', 'no-margin')}>utforske</span>
-                  </div>
-                </div>
-              )
-            })}
+    <div className={cx('dropdown-container')}>
+      {parentItems
+        .filter(({ label }) => label === 'Tjenester' || label === 'Artikler')
+        .map(({ label, path }, index) => {
+          return (
+            <div onClick={() => handleDropDownClick(index)} className={cx('dropdown-menu-container')}>
+              <div className={cx('icon-container', handleIconBackgroundColor(index))}>
+                <FontAwesomeIcon icon={['fas', handleIcon(index)]} color='white' size='xs' />
+              </div>
+              <div className={cx('dropdown-menu')}>
+                <span className={cx('menu-item', 'no-margin')}>{label}</span>
+                <span className={cx('menu-item', 'under-text', 'no-margin', 'button-under-text')}>Utforsk</span>
+              </div>
+            </div>
+          )
+        })}
+      <div className={cx('menu-container')}>
+        {parentItems
+          .filter(({ label }) => label !== 'Tjenester' && label !== 'Artikler' && label !== 'Registrer byrå')
+          .map(({ label, path }) => {
+            return (
+              <div className={cx('om-oss')}>
+                <a href={path}>{label}</a>
+                <span id={cx('bli-kjent-med-oss')}>Bli kjent med oss</span>
+              </div>
+            )
+          })}
+      </div>
+      <div className={cx('choose-language-container')}>
+        <div className={cx('icon-container', 'flag-chevron', handleIconBackgroundColor(4))}>
+          <FontAwesomeIcon icon={['fas', handleIcon(4)]} color='white' size='xs' />
         </div>
-        <div className={cx('menu-container')}>
-          {parentItems
-            .filter(({ label }) => label !== 'Tjenester' && label !== 'Artikler' && label !== 'Registrer byrå')
-            .map(({ label, path }) => {
-              return (
-                <div className={cx('menu')}>
-                  <a className={cx('menu-item')} href={path}>
-                    {label}
-                  </a>
-                  <a className={cx('menu-item', 'under-text')} href={path}>
-                    bli kjent med oss
-                  </a>
-                </div>
-              )
-            })}
-        </div>
-        <div className={cx('choose-language-container')}>
-          <div className={cx('icon-container', 'flag-chevron')}>
-            <FontAwesomeIcon icon={['fas', handleIcon(4)]} color='white' size='xs' />
-          </div>
-          <div onClick={() => handleFlag(4)} className={cx('flag-container')}>
-            <img className={cx('flag')} src='/media/images/norway.png' alt='' />
-          </div>
+        <div onClick={() => handleFlag(4)} className={cx('flag-container')}>
+          <img className={cx('flag')} src='/media/images/norway.png' alt='' />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
@@ -94,24 +86,31 @@ const Header = ({ headerMenu }) => {
     return openIndexes.includes(index) ? 'chevron-down' : 'chevron-up'
   }
 
+  function handleIconBackgroundColor(index) {
+    return openIndexes.includes(index) ? 'red-icon-bg' : 'dark-blue-icon-bg'
+  }
+
   function handleFlag(index) {
     toggleIndex(index)
   }
 
   return (
     <div ref={wrapperRef} className={cx('root')}>
-      {openIndexes.includes(openDropDown) && <SubMenu openIndexes={openIndexes} subItems={subItems} />}
       <Container className={cx('container')} size='medium'>
         <div className={cx('header-left')}>
           <DomainLogo />
         </div>
         {!isMobile && (
-          <DesktopLeftHeader
-            handleDropDownClick={handleDropDownClick}
-            handleFlag={handleFlag}
-            handleIcon={handleIcon}
-            parentItems={parentItems}
-          />
+          <div className={cx('header-right')}>
+            {openIndexes.includes(openDropDown) && <SubMenu openIndexes={openIndexes} subItems={subItems} />}
+            <DesktopLeftHeader
+              handleDropDownClick={handleDropDownClick}
+              handleFlag={handleFlag}
+              handleIcon={handleIcon}
+              handleIconBackgroundColor={handleIconBackgroundColor}
+              parentItems={parentItems}
+            />
+          </div>
         )}
         {isMobile && (
           <BurgerMenu

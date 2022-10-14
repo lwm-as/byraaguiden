@@ -9,7 +9,6 @@
 }
 
 .date {
-  margin: 1rem 0 1.5rem;
   font-size: 14px;
 }
 
@@ -18,14 +17,32 @@
   height: 14px;
 }
 
-.date span {
-  margin-left: 0.5rem;
+.separator {
+  padding: 0 12px;
+  font-size: 14px;
+}
+.meta-info {
+  display: flex;
+  align-items: center;
+  margin: .7rem 0 1rem;
+}
+
+.meta-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.meta-info img {
+  width: 30px ;
+  height: 30px;
+  border-radius: 100px;
+  margin-right: 8px;
 }
 
 @media screen and (min-width: 768px) {
   .root {
     margin: 0;
-    width: 657px;
   }
 
   .fullwidth {

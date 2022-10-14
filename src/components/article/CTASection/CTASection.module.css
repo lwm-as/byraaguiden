@@ -6,15 +6,12 @@
 }
 
 .title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--color-title);
   text-align: center;
 }
 
-.category {
-  white-space: nowrap;
-}
 
 .icon-clock {
   margin-right: 4px;
@@ -22,14 +19,14 @@
 
 
 .text {
-  margin: 1.5rem 0;
-  padding: 0.75rem 1.5rem;
-  font-size: 14px;
+  padding: 0.3rem 1.5rem;
+  font-size: 12px !important;
   font-weight: 600;
   color: white;
   border-radius: var(--border-radius);
   background-color: #668190;
   text-align: center;
+  white-space: nowrap;
 }
 
 .list {
@@ -37,20 +34,24 @@
 }
 
 .list-item {
-  margin: 1rem 0;
+  margin: .6rem 0;
   display: flex;
   align-items: center;
 }
 
+
 .list-item .icon-container {
   background-color: #668190;
   border-radius: 50%;
-
 }
+
+
 
 .cta-btn a{
   border-radius: 12px;
   background-color: #FF4A55;
+  font-size: 14px;
+  margin-top: 7px;
 }
 
 
@@ -65,6 +66,7 @@
   margin-left: 0.75rem;
   text-align: left;
   white-space: nowrap;
+  font-size: 14px;
 }
 
 .disclaimer {

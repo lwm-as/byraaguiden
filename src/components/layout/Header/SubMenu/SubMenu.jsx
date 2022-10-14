@@ -7,7 +7,7 @@ const cx = classNames.bind(styles)
 export default function SubMenu({ openIndexes, subItems }) {
   return (
     <div className={cx('root')}>
-      <h3>{`${openIndexes.includes(0) ? 'Utforske tjenester' : 'Utforske artikler'}`}</h3>
+      <h3>{`${openIndexes.includes(0) ? 'Utforsk tjenester' : 'Utforsk artikler'}`}</h3>
       <div className={cx('rule-container')}>
         <hr className={cx('rule')} />
       </div>

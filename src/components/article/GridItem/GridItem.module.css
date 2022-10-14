@@ -1,6 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .img-container {
@@ -8,19 +9,41 @@
     margin-bottom: 4px;
 }
 
+.image {
+}
+
 .image img {
     display: block;
     border-radius: 15px;
-    height: 230px !important;
+    height: 180px !important;
+    width: 300px !important;
 }
 
 .content {
-    flex: 1;
+    /*flex: 1;*/
+    height: 100%;
+
 }
 
 .content h4 {
     margin-bottom: 7px;
 }
+
+
+.meta-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+
+.avatar {
+    width: 30px !important;
+    height: 30px;
+    border-radius: 100px;
+    margin-right: 8px;
+}
+
 
 @media screen and (min-width: 768px) {
 

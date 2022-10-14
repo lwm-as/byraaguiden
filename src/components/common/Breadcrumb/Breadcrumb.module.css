@@ -1,8 +1,7 @@
 .root {
   display: none;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
+  margin-top: 2.5rem;
+  padding-bottom: 1.2rem;
 
 }
 
@@ -13,16 +12,17 @@
   list-style: none;
 }
 
-.item {
+.item{
   font-size: 12px;
   line-height: 16px;
-  color: #313131;
+  color: #7E7E7E !important;
 }
 
 .item:not(.active):after {
   content: '>';
   display: inline-block;
   margin: 0 8px;
+
 }
 
 .link:hover {
@@ -31,7 +31,8 @@
 }
 
 .active {
-  color: var(--color-title);
+  color: #313131 !important;
+
 }
 
 .icon-container svg:first-of-type {

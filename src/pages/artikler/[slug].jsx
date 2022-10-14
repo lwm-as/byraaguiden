@@ -32,9 +32,7 @@ const BlogCategories = ({ data, categories }) => {
       <Container size='medium'>
         <Breadcrumb title={category.name} category={category} size={size} />
         <ServiceHero category={category} />
-        {posts.nodes.length > 1 && (
-          <h2 className={cx('section-title')}>Les mer om {category.name.toLowerCase()}</h2>
-        )}{' '}
+        {posts.nodes.length > 1 && <h2 className={cx('section-title')}>Les mer om {category.name.toLowerCase()}</h2>}
       </Container>
       <BlogCategoryGrid category={category} categories={categories} posts={posts}>
         <ServiceSection category={category} />

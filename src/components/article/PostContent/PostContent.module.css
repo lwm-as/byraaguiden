@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.excerpt {
+  margin-bottom: 2rem;
+}
+
 .image-container {
   margin-bottom: 1rem;
   position: relative;

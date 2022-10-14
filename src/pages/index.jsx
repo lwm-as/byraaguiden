@@ -42,19 +42,17 @@ const HomePage = ({ data }) => {
   const { width } = useWindowSize()
   const isMobileWidth = width <= 768
 
-  console.log(categories.nodes)
-
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
       <div className={cx('main-container')}>
         <div className={cx('hero-container')}>
-          <Container className={cx('hero-inner-container')} size='large'>
+          <Container className={cx('hero-inner-container')} size='medium'>
             <HeroSection />
           </Container>
         </div>
         <div className={cx('bg-container')}>
           <div className={cx('red-square')} />
-          <Container className={cx('service-preview-container')} size='large'>
+          <Container className={cx('service-preview-container')} size='medium'>
             <ServicePreview services={categories.nodes} />
           </Container>
           <div className={cx('dark-square')} />
@@ -66,14 +64,14 @@ const HomePage = ({ data }) => {
               <div className={cx('content-section-square-blue', 'rotate135Deg')} />
             </div>
           )}
-          <Container size='large'>
+          <Container size='medium'>
             <section className={cx('section')}>
               <div className={cx('image-container')}>
                 <Image imageData={homeSection.sectionImage} />
               </div>
               <div>
                 <ContentsMenuStateProvider>
-                  <Wysiwyg>{homeSection?.sectionContent}</Wysiwyg>
+                  <Wysiwyg className={cx('text')}>{homeSection?.sectionContent}</Wysiwyg>
                 </ContentsMenuStateProvider>
               </div>
             </section>
@@ -96,7 +94,7 @@ const HomePage = ({ data }) => {
               </div>
             </>
           )}
-          <Container size='large'>
+          <Container size='medium'>
             <section>
               <div className={cx('section-icon-container')}>
                 <img src='/media/icons/pin.svg' alt='' />
@@ -117,7 +115,7 @@ const HomePage = ({ data }) => {
               <div className={cx('content-section-square-pink', 'rotate135Deg', 'reduce-pink-opacity')} />
             </div>
           )}
-          <Container size='large'>
+          <Container size='medium'>
             <section>
               <div className={cx('customer-review-container')}>
                 <CustomerReviewBox
@@ -140,6 +138,10 @@ const HomePage = ({ data }) => {
                 />
               </div>
               <div className={cx('register-company-box')}>
+                <div className={cx('register-triangles')}>
+                  <div className={cx('light-pink-triangle')} />
+                  <div className={cx('dark-blue-triangle')} />
+                </div>
                 <div>
                   <h5 className={cx('register-title')}>Register ditt byrå hos oss</h5>
                 </div>
@@ -156,9 +158,15 @@ const HomePage = ({ data }) => {
                     <img src='/media/icons/check.svg' alt='' />
                     <span>Få flere kunder</span>
                   </div>
+                  <div className={cx('register-triangles-container-right')}>
+                    <div className={cx('dark-blue-triangle-right')} />
+                    <div className={cx('light-pink-triangle-right')} />
+                  </div>
                 </div>
                 <div className={cx('register-btn-container')}>
-                  <Button link='/'>Gå til registrering</Button>
+                  <Button className={cx('gaa-til-registrering')} link='/'>
+                    Gå til registrering
+                  </Button>
                 </div>
               </div>
             </section>

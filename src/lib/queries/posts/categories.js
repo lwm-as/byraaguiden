@@ -17,11 +17,14 @@ export const GET_POSTS_BY_CATEGORY = `
       name
       posts(first: $first, after: $after, where: {categoryNotIn: 271}) {
         nodes {
-         author {
-          node {
-            firstName
+        author {
+        node {
+          firstName
+          avatar {
+           url
           }
         }
+      }
           title
           slug
           excerpt

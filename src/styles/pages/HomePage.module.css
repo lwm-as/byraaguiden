@@ -42,6 +42,7 @@
 }
 
 
+
 .dark-square {
   position: absolute;
   padding: 20% 100%;
@@ -156,6 +157,7 @@
 
 .another-section-square-bg-container {
   position: absolute;
+  z-index: 1;
 }
 
 
@@ -175,6 +177,84 @@
   background-color: #FF4A55;
   padding: 2rem 0 2rem 0;
   border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+
+}
+
+.register-triangles {
+  display: flex;
+  flex-direction: column;
+  left: -100px;
+  position: absolute;
+  transform: scale(0.4);
+  z-index: -1;
+
+
+}
+
+.gaa-til-registrering a:hover {
+  background-color: #002e47;
+  color: white;
+}
+
+.dark-blue-triangle {
+  position: relative;
+  top: -100px;
+  display: inline-block;
+  opacity: 0.6;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 0 200px 300px;
+  border-color: transparent transparent transparent #002E47;
+}
+.light-pink-triangle {
+  position: relative;
+  top: 100px;
+  opacity: 0.6;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 0 200px 300px;
+  border-color: transparent transparent transparent #F4878E;
+}
+
+
+
+.register-triangles-container-right {
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  right: -250px;
+  transform: translate(-50%,-50%) scale(0.4);
+  position: absolute;
+}
+
+.dark-blue-triangle-right {
+  position: relative;
+  top: 100px;
+  display: inline-block;
+  opacity: 0.6;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 300px 200px 0;
+  border-color: transparent #F4878E transparent transparent;
+}
+
+.light-pink-triangle-right {
+  position: relative;
+  top: -100px;
+  display: inline-block;
+  opacity: 0.6;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 300px 200px 0;
+  border-color: transparent #002E47 transparent transparent;
 }
 
 .register-title {

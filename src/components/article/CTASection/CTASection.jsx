@@ -13,9 +13,7 @@ const CTASection = ({ category }) => {
 
   return (
     <div className={cx('root')}>
-      <h3 className={cx('title')}>
-        Få gratis og uforpliktende tilbud på <span className={cx('category')}>{name.toLowerCase()}</span>
-      </h3>
+      <h3 className={cx('title')}>Få gratis og uforpliktende tilbud på {name.toLowerCase()}</h3>
       <p className={cx('text')}>
         <i className={cx('icon-container')}>
           <FontAwesomeIcon className={cx('icon-clock')} icon={['fal', 'clock']} />
@@ -24,26 +22,26 @@ const CTASection = ({ category }) => {
       </p>
       <ul className={cx('list')}>
         <li className={cx('list-item')}>
-          <i className={cx('icon-container')}>
+          <i className={cx('icon-container', 'check')}>
             <FontAwesomeIcon className={cx('icon')} icon={['fal', 'check']} />
           </i>
           <span>Helt uforpliktende</span>
         </li>
         <li className={cx('list-item')}>
-          <i className={cx('icon-container')}>
+          <i className={cx('icon-container', 'check')}>
             <FontAwesomeIcon className={cx('icon')} icon={['fal', 'check']} />
           </i>
           <span>100% gratis</span>
         </li>
         <li className={cx('list-item')}>
           <i className={cx('icon-container')}>
-            <FontAwesomeIcon className={cx('icon')} icon={['fal', 'check']} />
+            <FontAwesomeIcon className={cx('icon', 'check')} icon={['fal', 'check']} />
           </i>
           <span>Byråer tilpasset ditt prosjekt</span>
         </li>
       </ul>
       <Button className={cx('cta-btn')} link={`/${slug}/tilbud`} flex='flex-center' size='large'>
-        Få tilbud
+        Få 3 gratis tilbud
       </Button>
       {/*<p className={cx('disclaimer')}>*/}
       {/*  <FontAwesomeIcon className={cx('icon')} icon={['fal', 'clock']} />*/}

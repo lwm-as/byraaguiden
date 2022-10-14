@@ -2,10 +2,11 @@ import classNames from 'classnames/bind'
 import styles from './GridItem.module.css'
 import Image from '../../common/Image/Image'
 import Link from 'next/link'
+import React from 'react'
 
 const cx = classNames.bind(styles)
 
-export default function GridItem({ post }) {
+export default function GridItem({ author = {}, post }) {
   return (
     <Link href={`/${post.categories.nodes[1].slug}/${post.slug}`}>
       <a>
@@ -19,7 +20,12 @@ export default function GridItem({ post }) {
           </div>
           <div className={cx('content')}>
             <h4>{post?.title}</h4>
-            {/*<div>{post?.author.node.firstName && <span>by {post.author.node.firstName}</span>} </div>*/}
+            {author?.node?.firstName && (
+              <div className={cx('meta-container')}>
+                <img className={cx('avatar')} src={author?.node?.avatar?.url} alt='' />
+                <p>by {author?.node.firstName}</p>
+              </div>
+            )}
           </div>
         </div>
       </a>
