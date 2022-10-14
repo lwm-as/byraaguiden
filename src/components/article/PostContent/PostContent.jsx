@@ -2,21 +2,23 @@ import React from 'react'
 import classNames from 'classnames/bind'
 
 import Image from '../../common/Image/Image'
-import ContentsMenu from '../../common/ContentsMenu/ContentsMenu'
 import Wysiwyg from '../../common/Wysiwyg/Wysiwyg'
 
 import styles from './PostContent.module.css'
 import PostHeader from '../PostHeader/PostHeader'
+import excerpts from 'excerpts'
+import ContentsMenuArrowStyle from '../../common/ContentsMenuArrowStyle/ContentsMenuArrowStyle'
 
 const cx = classNames.bind(styles)
 
-const PostContent = ({ marginBreadCrumb, post, postHeaderIsInside, className }) => {
+const PostContent = ({ author, excerpt, marginBreadCrumb, post, postHeaderIsInside, className }) => {
   const { featuredImage, content, customToc } = post
   const isFeatured = !!featuredImage?.node
 
   return (
     <div className={cx('root')}>
-      {postHeaderIsInside && <PostHeader marginBreadCrumb={marginBreadCrumb} post={post} />}
+      {postHeaderIsInside && <PostHeader author={author} marginBreadCrumb={marginBreadCrumb} post={post} />}
+      {excerpt && <p className={cx('excerpt')}>{excerpts(excerpt)}</p>}
       {isFeatured && (
         <>
           <figure className={cx('image-container')}>
@@ -28,6 +30,7 @@ const PostContent = ({ marginBreadCrumb, post, postHeaderIsInside, className }) 
           />
         </>
       )}
+      <ContentsMenuArrowStyle />
       {content && (
         <Wysiwyg className={className} isContentsMenu customToc={customToc}>
           {content}

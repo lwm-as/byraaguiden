@@ -4,6 +4,7 @@
     padding: 2rem 2rem 2.5rem;
     border-radius: 16px;
     position: relative;
+    z-index: 2;
 }
 
 .root:last-of-type {
@@ -35,8 +36,8 @@
 }
 
 .cities a {
-    font-weight: 500;
     margin-bottom: 1rem;
+    font-size: 13px;
 }
 
 .cities a:hover {

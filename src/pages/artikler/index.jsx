@@ -54,13 +54,13 @@ const Blogg = ({ data, categories }) => {
         <BlogGrid categories={categories} posts={posts} category={category}>
           <>
             <div className={cx('hero-container')}>
-              <Container className={cx('hero-inner-container')} size='large'>
+              <Container className={cx('hero-inner-container')} size='medium'>
                 <ServiceTab />
               </Container>
             </div>
             <div className={cx('bg-container')}>
               <div className={cx('red-square')} />
-              <Container className={cx('service-preview-container')} size='large'>
+              <Container className={cx('service-preview-container')} size='medium'>
                 <ServicePreviewArticle services={categories.categories} />
               </Container>
               <div className={cx('dark-square')} />

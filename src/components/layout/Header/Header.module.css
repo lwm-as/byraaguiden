@@ -24,22 +24,53 @@
 }
 
 
-
 .menu-item {
   width: 100%;
-  padding: 1.5rem 1.25rem;
-  font-size: 18px;
+  font-size: 12px !important;
   font-weight: bold;
   font-family: var(--title-font);
   text-align: left;
-  border-bottom: 1px solid #00000020;
   background-color: #fff;
   color: hsl(0, 0%, 15%);
   text-transform: uppercase;
 }
 
-.menu-item a {
-  width: 100%;
+.om-oss {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3rem;
+}
+
+.om-oss a {
+  color: hsl(0, 0%, 15%);
+  text-transform: uppercase;
+  font-size: 12px !important;
+  font-weight: bold;
+}
+
+
+.dropdown-container {
+  display: flex;
+  cursor: pointer;
+}
+
+.under-text {
+  font-weight: 500;
+  padding-top: 2px;
+  font-size: 11px !important;
+  text-transform: lowercase;
+  color: #7E7E7E;
+}
+
+.button-under-text {
+  text-transform: unset;
+}
+
+#bli-kjent-med-oss {
+  font-weight: 500;
+  padding-top: 2px;
+  font-size: 11px !important;
+  color: #7E7E7E;
 }
 
 
@@ -49,73 +80,39 @@
     height: 4.2rem;
   }
 
-  /*.menu {*/
-  /*  height: unset;*/
-  /*  padding: 0;*/
-  /*  flex-direction: row;*/
-  /*  justify-content: flex-end;*/
-  /*  align-items: center;*/
-  /*  position: unset;*/
-  /*  overflow-y: unset;*/
-  /*}*/
-
-  .menu > div {
-    width: unset;
-  }
-
-  .menu-item {
-    width: unset;
-    margin-left: 2rem;
-    padding: 0;
-    font-size: 14px;
-    text-align: left;
-    border-bottom: unset;
-    background-color: unset;
-  }
-
-
 }
 
-.dropdown-container {
-  display: flex;
-  cursor: pointer;
-}
-
-.under-text {
-  font-weight: 500;
-  font-size: 12px;
-  text-transform: lowercase;
-  color: #7E7E7E;
-}
 
 @media screen and (min-width: 768px) {
   .header-right {
     display: flex;
+    align-items: center;
     position: relative;
   }
 
-  .menu {
+  .menu-item {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .dropdown-menu-container {
     display: flex;
     align-items: center;
+
   }
 
   .dropdown-menu-container:first-of-type {
-    margin-right: 2.3rem;
+    margin-right: 2.8rem;
   }
 
   .menu-container {
     display: flex;
+    align-items: center;
   }
 
 
  .icon-container {
-   background-color: #002E47;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -126,6 +123,14 @@
    margin-right: 8px;
  }
 
+  .red-icon-bg {
+   background-color: #FF4A55;
+ }
+
+ .dark-blue-icon-bg {
+   background-color: #002E47;
+
+ }
  .icon-container svg {
    position: relative;
    font-size: 9px;
@@ -155,7 +160,7 @@
     border: 1px solid #002E47;
     border-radius: 999px;
     padding: 6px;
-    margin-left: 2rem;
+    margin-left: 3rem;
 
   }
 

@@ -76,7 +76,7 @@ const HeroSection = ({ noHeading }) => {
                     <div
                       style={{
                         textAlign: 'center',
-                        lineHeight: '2.2rem',
+                        lineHeight: '1.4rem',
                         width: service.toLowerCase() === 'seo' && '60px'
                       }}
                       className={cx('list-item', setActiveClass({ idx, service }))}
