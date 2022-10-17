@@ -39,7 +39,7 @@ const ProviderHero = () => {
     <>
       <div className={cx('root')}>
         <div className={cx('filter')}>
-          <h3 className={cx('title', 'sorter-title')}>Sorter etter</h3>
+          <span className={cx('title', 'sorter-title')}>Sorter etter:</span>
           <div className={cx('inner-filter')}>
             {sortValue
               .filter(
@@ -64,7 +64,7 @@ const ProviderHero = () => {
           </div>
         </div>
         <div className={cx('city')}>
-          <h3 className={cx('title')}>Filtrer</h3>
+          <span className={cx('title')}>Filtrer:</span>
           <CityFilter />
         </div>
         {/*<div className={styles.providerHeroLeft}>*/}

@@ -28,7 +28,10 @@ const BlogCategories = ({ data, categories }) => {
 
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
-      <GridHero title={category.name} description={category.posts.nodes} />
+      <GridHero
+        title={category.name}
+        // description={category.posts.nodes}
+      />
       <Container size='medium'>
         <Breadcrumb title={category.name} category={category} size={size} />
         <ServiceHero category={category} />
