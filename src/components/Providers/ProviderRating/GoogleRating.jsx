@@ -1,7 +1,10 @@
 import styles from './GoogleRating.module.css'
 import IconContainer from '../../../components/IconContainer/IconContainer'
-import React, { useState } from 'react'
+import React from 'react'
 import { useReviewContext } from '../../Cities/ReviewContextProvider'
+import classNames from 'classnames/bind'
+
+const cx = classNames.bind(styles)
 
 const GoogleRating = ({ stars, totalReviews, showModal, placeid }) => {
   const { setCurrentPlaceId } = useReviewContext()
@@ -43,25 +46,25 @@ const GoogleRating = ({ stars, totalReviews, showModal, placeid }) => {
 
   if (stars === 0) {
     return (
-      <div className={styles.googleReviewContainer}>
+      <div className={styles.root}>
         <p>Ingen anmeldelser</p>
       </div>
     )
   }
 
   return (
-    <div className={styles.googleReviewContainer}>
-      <div className={styles.starContainer}>
+    <div className={cx('root')}>
+      <div className={cx('starContainer')}>
         <IconContainer src={'google-icon.svg'} width={14} height={14} />
         <p className={styles.starCount}>{parseFloat(stars).toFixed(1)}</p>
 
-        {starCount.map((star, idx) => (
-          <IconContainer src={starIcons[star]} key={idx} width={18} height={18}></IconContainer>
-        ))}
+        {/*{starCount.map((star, idx) => (*/}
+        {/*  <IconContainer src={starIcons[star]} key={idx} width={18} height={18}></IconContainer>*/}
+        {/*))}*/}
       </div>
-      <div className={styles.totalReviewsContainer}>
+      <div className={cx('totalReviewsContainer')}>
         {totalReviews > 0 && (
-          <p className={styles.reviewLink} onClick={readMore}>
+          <p className={cx('reviewLink')} onClick={readMore}>
             {totalReviews} anmeldelse{totalReviews > 1 && 'r'}
           </p>
         )}

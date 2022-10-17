@@ -1,0 +1,62 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #D3D4D5;
+    padding: 1rem;
+}
+
+
+.root:nth-of-type(4n) {
+    border-right: 1px solid white;
+}
+
+.root:last-of-type {
+    /*border-right: unset;*/
+}
+.name {
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+    margin: 1rem 0;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+}
+
+.btn a {
+    border-radius: 10px;
+}
+
+.provider-rating {
+    display: flex;
+    flex-direction: column;
+}
+.focus-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 1rem 0;
+}
+
+.focus-box {
+    background-color: #ECECEC;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.first-section {
+    /*border: 1px solid red;*/
+    flex-grow: 1;
+
+}
+
+.middle-section {
+    /*border: 1px solid red;*/
+
+}
+
+.last-section {
+    /*border: 1px solid red;*/
+}

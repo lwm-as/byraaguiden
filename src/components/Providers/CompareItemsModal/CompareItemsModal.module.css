@@ -1,0 +1,42 @@
+.root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.overlay {
+    position: fixed;
+    top: 10%;
+    width: 100%;
+    /*transform: translate(-50%, -50%);*/
+    background-color: #fff;
+    padding: 0px 50px 90px;
+    height: 100vh;
+    overflow: scroll;
+    z-index: 1000;
+}
+
+.close {
+    position: sticky;
+    top: 6.5rem;
+    transform: translateX(100%) translateY(-60px);
+
+    /*margin-right: 1rem;*/
+    /*margin-top: 1rem;*/
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 22px;
+    display: block;
+    margin-bottom: 1rem;
+}
+

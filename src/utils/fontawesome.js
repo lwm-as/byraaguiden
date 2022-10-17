@@ -13,8 +13,6 @@ import {
   faAngleUp,
   faBell,
   faHammer,
-  faFlag,
-  faMapMarkerAlt,
   faToolbox,
   faWrench,
   faCogs,
@@ -50,7 +48,10 @@ import {
   faChevronUp,
   faChevronLeft,
   faChevronRight,
-  faHome
+  faHome,
+  faUserFriends,
+  faMapMarkerAlt,
+  faFlag
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebookSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons'
@@ -59,6 +60,7 @@ import { faFacebookSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons
 library.add(faBars)
 library.add(faFlag)
 library.add(faStar)
+library.add(faUserFriends)
 library.add(faStarHalf)
 library.add(faMapMarkerAlt)
 library.add(faUser)

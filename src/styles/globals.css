@@ -115,10 +115,10 @@ img {
 label {
   user-select: none;
   /*added by shahir*/
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--color-title);
-  font-family: var(--title-font);
+  font-family: var(--text-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -838,3 +838,4 @@ label {
 /*.MuiStepIcon-root.Mui-active>.MuiStepIcon-text {*/
 /*  fill: #ffff !important;*/
 /*}*/
+

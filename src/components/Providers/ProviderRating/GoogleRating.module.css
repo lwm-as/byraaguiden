@@ -1,4 +1,4 @@
-.googleReviewContainer {
+.root {
   display: flex;
   align-items: center;
 }
@@ -30,9 +30,9 @@
 }
 
 @media screen and (min-width: 980px) {
-  .googleReviewContainer {
-    flex-direction: row !important;
-    align-items: center !important;
+  .root {
+    /*flex-direction: row !important;*/
+    /*align-items: center !important;*/
   }
 
   .reviewLink {
@@ -41,8 +41,8 @@
 }
 
 @media screen and (min-width: 801px) {
-  .googleReviewContainer {
-    border-bottom: 1px solid var(--cl-line);
+  .root {
+    /*border-bottom: 1px solid var(--cl-line);*/
     padding: 1rem;
     height: 83px;
     margin: unset;

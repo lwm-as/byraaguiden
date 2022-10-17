@@ -12,8 +12,6 @@ import DomainLogo from '../menus/DomainLogo/DomainLogo'
 import BurgerMenu from '../menus/BurgerMenu/BurgerMenu'
 // import MenuItem from '../menus/MenuItem/MenuItem'
 
-import useOutsideDetecter from '../../../utils/hooks/useOutsideDetecter'
-
 import styles from './Header.module.css'
 import SubMenu from './SubMenu/SubMenu'
 import { useToggler } from '../../../hooks/useToggler'

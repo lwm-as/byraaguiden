@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -16,7 +18,7 @@
     "@fortawesome/react-fontawesome": "^0.1.15",
     "@googlemaps/google-maps-services-js": "^3.3.16",
     "@mui/icons-material": "^5.5.1",
-    "@mui/material": "^5.2.7",
+    "@mui/material": "^5.10.9",
     "@mui/styles": "^5.2.3",
     "axios": "^0.23.0",
     "babel-plugin-inline-react-svg": "^2.0.1",
