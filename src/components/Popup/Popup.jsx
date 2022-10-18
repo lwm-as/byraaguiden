@@ -1,12 +1,17 @@
 import { useReviewContext } from '../Cities/ReviewContextProvider'
 import styles from './Popup.module.css'
+import { useRef } from 'react'
+import useOutsideDetecter from '../../utils/hooks/useOutsideDetecter'
 
 function Popup({ onClick }) {
   const { currentReviews } = useReviewContext()
+  const wrapperRef = useRef(null)
+  useOutsideDetecter(wrapperRef, onClick)
+
   const EMPTY_REVIEW_PLACEHOLDER = 'Brukeren har ikke skrevet en anmeldelse'
 
   return (
-    <div className={styles.popupLayout}>
+    <div ref={wrapperRef} className={styles.popupLayout}>
       <div className={styles.popoutLayout_content}>
         {currentReviews === undefined
           ? null

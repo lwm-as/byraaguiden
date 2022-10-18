@@ -40,8 +40,6 @@ const Blogg = ({ data, categories }) => {
   // const isFeatured = featured.nodes.length > 0
   // const isPopular = popular.nodes.length > 0
 
-  const [alreadyShownPosts, setAlreadyShownPosts] = useState()
-
   const size = useWindowSize()
 
   return (

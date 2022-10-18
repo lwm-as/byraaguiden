@@ -1,7 +1,7 @@
 const minMax = (reviews, method) => Math[method](...reviews.map(item => item.totalReviews), null)
 
 const calculateReviews = (reviews = []) => {
-  const calculatedReviews = reviews.map(item => {
+  return reviews.map(item => {
     const round = (value, precision) => {
       let multiplier = Math.pow(10, precision || 0)
       return Math.round(value * multiplier) / multiplier
@@ -15,8 +15,6 @@ const calculateReviews = (reviews = []) => {
 
     return Object.assign({}, { ...item, popularity, agencyScore })
   })
-
-  return calculatedReviews
 }
 
 export default calculateReviews

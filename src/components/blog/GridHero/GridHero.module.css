@@ -24,6 +24,25 @@
 
 /*}*/
 
+.icons-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icons-container span {
+    color: white;
+}
+
+
+.icons-content {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    position: relative;
+    top: 10px;
+}
+
 .dark-square-left {
     position: absolute;
     display: inline-block;

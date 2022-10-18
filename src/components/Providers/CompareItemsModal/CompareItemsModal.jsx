@@ -2,14 +2,27 @@ import classNames from 'classnames/bind'
 import styles from './CompareItemsModal.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import useOutsideDetecter from '../../../utils/hooks/useOutsideDetecter'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { BasicTabs } from '../Tabs'
+import { useReviewContext } from '../../Cities/ReviewContextProvider'
 
 const cx = classNames.bind(styles)
 
 export default function CompareItemsModal({ checked, open, onClose }) {
+  const [topFiveProviders, setTopFiveProviders] = useState()
+  const { sortedReviews, sortReviews } = useReviewContext()
+
   const wrapperRef = useRef(null)
   useOutsideDetecter(wrapperRef, onClose)
+
+  //setting top providers for the compare modal
+  useEffect(() => {
+    sortReviews({ target: { dataset: { value: 'highestScore' } } })
+  }, [])
+
+  useEffect(() => {
+    setTopFiveProviders(sortedReviews)
+  }, [])
 
   if (!open) return null
   return (
@@ -20,7 +33,7 @@ export default function CompareItemsModal({ checked, open, onClose }) {
         </div>
         <div>
           <span className={cx('title')}>Sammenlign byråene</span>
-          <BasicTabs checked={checked} />
+          <BasicTabs topFiveProviders={topFiveProviders} checked={checked} />
         </div>
       </div>
     </div>

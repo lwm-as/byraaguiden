@@ -128,6 +128,9 @@ export const GET_MORE_POSTS_BY_CATEGORY = `
          author {
           node {
             firstName
+            avatar {
+           url
+          }
           }
         }
         title

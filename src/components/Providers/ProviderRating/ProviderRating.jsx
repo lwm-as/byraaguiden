@@ -4,12 +4,11 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
 
-const ProviderRating = ({ className, rating, totalReviews, popularity, agencyScore, showModal, placeid }) => {
+const ProviderRating = ({ className, rating, totalReviews, popularity, agencyScore }) => {
   const isReviews = totalReviews != 0
 
   return (
     <>
-      {/*<GoogleRating stars={rating} totalReviews={totalReviews} showModal={showModal} placeid={placeid} />*/}
       <div className={cx('root', className)}>
         <div className={cx('progressInnerContainer')}>
           <div className={cx('labelContainer')}>

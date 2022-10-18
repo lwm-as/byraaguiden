@@ -7,26 +7,13 @@ import Image from '../../common/Image/Image'
 
 const cx = classNames.bind(styles)
 
-export default function ProviderItemVertical({ showModal, provider }) {
+export default function ProviderItemVertical({ provider }) {
   const {
     provider: {
-      providersInfo: {
-        name,
-        logo,
-        providerButton,
-        contact,
-        websiteLink,
-        focusareas,
-        establishedYear,
-        employeeCount,
-        description,
-        city: { name: city },
-        placeid //sende denne til providers.jsx
-      }
+      providersInfo: { name, logo, providerButton, contact, websiteLink, focusareas, description, placeid }
     },
     rating,
     totalReviews,
-    reviews,
     popularity,
     agencyScore
   } = provider
@@ -44,16 +31,20 @@ export default function ProviderItemVertical({ showModal, provider }) {
                 sourceUrl: logo.sourceUrl,
                 mediaDetails: {
                   width: 100,
-                  height: 100
+                  height: 80
                 }
               }}
             />
           )}
-          <GoogleRating stars={rating} totalReviews={totalReviews} showModal={showModal} placeid={placeid} />
+          <GoogleRating stars={rating} totalReviews={totalReviews} placeid={placeid} />
         </div>
-        {isVisitButton && (
+        {isVisitButton ? (
           <Button className={cx('btn')} size='large' link={websiteLink}>
             Besøk nettsted
+          </Button>
+        ) : (
+          <Button disabled={true} size='large' className={cx('transparent')}>
+            -
           </Button>
         )}
         {isCtaButton && (
@@ -70,7 +61,6 @@ export default function ProviderItemVertical({ showModal, provider }) {
             totalReviews={totalReviews}
             popularity={popularity}
             agencyScore={agencyScore}
-            showModal={showModal}
             placeid={placeid}
           />
         </div>

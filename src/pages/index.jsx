@@ -164,7 +164,7 @@ const HomePage = ({ data }) => {
                   </div>
                 </div>
                 <div className={cx('register-btn-container')}>
-                  <Button className={cx('gaa-til-registrering')} link='/'>
+                  <Button className={cx('gaa-til-registrering')} link='/registrer-bedrift'>
                     Gå til registrering
                   </Button>
                 </div>

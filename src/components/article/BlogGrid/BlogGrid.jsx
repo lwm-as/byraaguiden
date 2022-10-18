@@ -61,7 +61,7 @@ export default function BlogGrid({ categories, posts, category, children }) {
         </div>
       </Container>
       <div>{children}</div>
-      <Container size='medium'>
+      <Container size='medium' className={cx('preloaded-post')}>
         <div className={cx('inner-container')}>
           {preLoadedPosts?.map((post, idx) => {
             return <GridItem author={post.author} post={post} />

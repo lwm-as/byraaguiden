@@ -1,37 +1,30 @@
 export const SORT_OPTIONS = [
   {
     key: 'default',
-    value: 'Vår anbefaling',
-    selected: true
+    value: 'Vår anbefaling'
   },
   {
     key: 'highestScore',
-    value: 'Høyest Byrå-score',
-    selected: false
+    value: 'Høyest Byrå-score'
   },
   {
     key: 'lowestScore',
-    value: 'Lavest Byrå-score',
-    selected: false
+    value: 'Lavest Byrå-score'
   },
   {
     key: 'mostreviews',
-    value: 'Høyest popularitet',
-    selected: false
+    value: 'Høyest popularitet'
   },
   {
     key: 'leastreviews',
-    value: 'Lavest popularitet',
-    selected: false
+    value: 'Lavest popularitet'
   },
   {
     key: 'bestreviews',
-    value: 'Høyest kundetilfredshet',
-    selected: false
+    value: 'Høyest kundetilfredshet'
   },
   {
     key: 'worstreviews',
-    value: 'Lavest kundetilfredshet',
-    selected: false
+    value: 'Lavest kundetilfredshet'
   }
 ]

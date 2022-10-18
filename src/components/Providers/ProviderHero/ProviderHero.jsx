@@ -8,19 +8,13 @@ import Button from '../../common/Button/Button'
 import { useToggler } from '../../../hooks/useToggler'
 import { useReviewContext } from '../../Cities/ReviewContextProvider'
 import { useEffect } from 'react'
+import { SORT_OPTIONS } from '../../../lib/constants/sortOptions'
 
 const cx = classNames.bind(styles)
 
 const ProviderHero = () => {
   const { toggleButton, checkedButtons } = useToggler()
   const { sortReviews, sortValue } = useReviewContext()
-
-  // const [selectedValue] = sortValue.filter(value => value.selected)
-  // const options = sortValue.filter(value => !value.selected)
-
-  useEffect(() => {
-    sortReviews({ target: { dataset: { value: 'highestScore' } } })
-  }, [])
 
   function handleClick({ e, idx }) {
     sortReviews(e)
@@ -41,49 +35,30 @@ const ProviderHero = () => {
         <div className={cx('filter')}>
           <span className={cx('title', 'sorter-title')}>Sorter etter:</span>
           <div className={cx('inner-filter')}>
-            {sortValue
-              .filter(
-                item =>
-                  item.value === 'Høyest kundetilfredshet' ||
-                  item.value === 'Høyest Byrå-score' ||
-                  item.value === 'Høyest popularitet'
+            {SORT_OPTIONS.filter(
+              item =>
+                item.value === 'Høyest kundetilfredshet' ||
+                item.value === 'Høyest Byrå-score' ||
+                item.value === 'Høyest popularitet'
+            ).map((item, idx) => {
+              return (
+                <Button
+                  disabled={disableButton({ idx })}
+                  size='large'
+                  data-value={item.key}
+                  className={cx('btn', setActiveClass({ idx }))}
+                  onClick={e => handleClick({ e, idx })}
+                >
+                  {item.value}
+                </Button>
               )
-              .map((item, idx) => {
-                return (
-                  <Button
-                    disabled={disableButton({ idx })}
-                    size='large'
-                    data-value={item.key}
-                    className={cx('btn', setActiveClass({ idx }))}
-                    onClick={e => handleClick({ e, idx })}
-                  >
-                    {item.value}
-                  </Button>
-                )
-              })}
+            })}
           </div>
         </div>
         <div className={cx('city')}>
           <span className={cx('title')}>Filtrer:</span>
           <CityFilter />
         </div>
-        {/*<div className={styles.providerHeroLeft}>*/}
-        {/*  <Disclaimer />*/}
-        {/*</div>*/}
-        {/*<div className={styles.providerHeroRight}>*/}
-        {/*  <div>*/}
-        {/*    <p className={styles.heroTitle}>Filtrer</p>*/}
-        {/*    <div className={styles.selectContainer}>*/}
-        {/*      <CityFilter title='Sted' />*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*  <div>*/}
-        {/*    <p className={styles.heroTitle}>Sorter</p>*/}
-        {/*    <div className={styles.selectContainer}>*/}
-        {/*      <ProviderSort />*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
       </div>
     </>
   )
