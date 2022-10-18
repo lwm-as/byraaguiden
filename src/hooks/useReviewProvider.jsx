@@ -8,33 +8,25 @@ import { sortReviews } from '../utils/sortReviews'
 import disableScroll from '../utils/disableScroll'
 
 const useReviewProvider = (providers, cities) => {
+  //Providers
   let initialProviders = providers.filter((item, ixd) => ixd < 10)
   let initialRest = providers.filter((item, ixd) => ixd >= 10)
+
+  //Reviews
   const [reviews, setReviews] = useState([])
   const [sortedReviews, setSortedReviews] = useState([])
-  const [sortFilters, setSortFilters] = useState([])
-  const [sortValue, setSortValue] = useState(SORT_OPTIONS)
 
   const [loaded, setLoaded] = useState(initialProviders)
   const [rest, setRest] = useState(initialRest)
   const [loadMore, setLoadMore] = useState(false)
-  const [modalStatus, setModalStatus] = useState(false)
+
   const [currentPlaceId, setCurrentPlaceId] = useState('')
   const [currentReviews, setCurrentReviews] = useState()
 
   const router = useRouter()
-  //
-  const showModal = () => {
-    setModalStatus(true)
-  }
-  //
-  const closeModal = () => {
-    setModalStatus(false)
-  }
 
   const changeCurrentReview = () => {
     const [currentReview] = sortedReviews.filter(item => item.provider.providersInfo.placeid === currentPlaceId)
-
     setCurrentReviews(currentReview)
   }
 
@@ -42,25 +34,9 @@ const useReviewProvider = (providers, cities) => {
     changeCurrentReview()
   }, [currentPlaceId])
 
-  //
-  useEffect(() => {
-    if (modalStatus) {
-      disableScroll.on()
-    } else {
-      disableScroll.off()
-    }
-  }, [modalStatus])
-
   useEffect(() => {
     setLoaded(initialProviders)
     setRest(initialRest)
-    sortValue.map(object => {
-      if (object.key === 'default') {
-        object.selected = true
-      } else {
-        object.selected = false
-      }
-    })
   }, [router.asPath])
 
   const placeIds = loaded.map(item => item.provider.providersInfo.placeid)
@@ -84,116 +60,25 @@ const useReviewProvider = (providers, cities) => {
 
       const calculatedReviews = calculateReviews(reviews)
 
-      const cities = new Set(calculatedReviews.map(review => review.provider.providersInfo.city.name))
-      const focusAreas = new Set(
-        calculatedReviews
-          .map(review => review.provider.providersInfo.focusareas.map(focusArea => focusArea.name))
-          .flat()
-      )
-
-      const filter = obj => ({
-        name: obj.toLowerCase().replace(/ /g, '-') + 1,
-        label: obj,
-        value: obj,
-        checked: false,
-        disabled: false
-      })
-
-      setSortFilters(() => ({
-        city: [...cities].map(city => filter(city)),
-        focusareas: [...focusAreas].map(area => filter(area))
-      }))
-
-      setReviews(calculatedReviews)
-      setSortedReviews(calculatedReviews)
+      setReviews(sortReviews('highestScore', calculatedReviews))
+      setSortedReviews(sortReviews('highestScore', calculatedReviews))
     }
   }, [isValidating])
 
   const changeReviewSort = event => {
     const { value } = event?.target?.dataset || {}
 
-    if (value === 'default') {
-      setSortedReviews(reviews)
-    } else {
-      setSortedReviews(sortReviews(value, sortedReviews))
-    }
-
-    setSortValue(state => {
-      return state.map(option => {
-        if (option.key === value) {
-          return { ...option, selected: true }
-        }
-        return { ...option, selected: false }
-      })
-    })
+    setSortedReviews(sortReviews(value, sortedReviews))
   }
-
-  const changeReviewFilter = (value, type) => {
-    setSortFilters(state => {
-      const newState = state[type].map(item => {
-        if (item.label === value) {
-          return {
-            ...item,
-            checked: !item.checked
-          }
-        }
-        return item
-      })
-      return { ...state, [type]: [...newState] }
-    })
-  }
-
-  useEffect(() => {
-    const filters = []
-    const filteredReviews = []
-
-    for (const key in sortFilters) {
-      sortFilters[key].forEach(filter => {
-        if (filter.checked) filters.push({ ...filter, type: key })
-      })
-    }
-
-    if (filters.length === 0) {
-      setSortedReviews(reviews)
-    } else {
-      filters.forEach(filter => {
-        reviews.forEach(review => {
-          const root = review.provider.providersInfo[filter.type]
-          const isArray = 'forEach' in root
-
-          if (!isArray && filter.label === root.name) {
-            filteredReviews.push(review)
-          }
-
-          if (isArray) {
-            root.forEach(focusArea => {
-              if (filter.label === focusArea.name) filteredReviews.push(review)
-            })
-          }
-        })
-      })
-
-      const uniqueReviews = [...new Set(filteredReviews)]
-
-      changeReviewSort({ target: { dataset: { value: 'default' } } })
-      setSortedReviews(uniqueReviews)
-    }
-  }, [sortFilters])
 
   return {
     reviews,
     sortedReviews,
-    sortFilters,
     sortReviews: changeReviewSort,
-    sortValue,
     loading: isValidating,
-    filterReviews: changeReviewFilter,
     loadMore,
     setLoadMore,
     rest,
-    modalStatus,
-    showModal,
-    closeModal,
     setCurrentPlaceId,
     currentReviews,
     cities

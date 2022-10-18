@@ -27,43 +27,29 @@ export function TabPanel({ children, value, index, ...other }) {
 
 function a11yProps(index) {
   return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`
+    id: `tab-${index}`,
+    'aria-controls': `tabpanel-${index}`
   }
 }
 
-export function BasicTabs({ checked }) {
-  const [value, setValue] = useState(0)
-  const { sortedReviews, showModal, sortReviews } = useReviewContext() //denne kan brukes på alle komponenter i provider
-  // const [highestByraaScore, setHighestByraaScore] = useState()
-  // const [defaultFilters, setDefaultFilters] = useState()
+const tabLabelStyles = {
+  '&.MuiButtonBase-root': {
+    fontSize: '1',
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: '600',
+    color: '#595B5F'
+  },
+  '&.Mui-selected': {
+    color: '#FF4A55'
+  }
+}
 
-  // useEffect(() => {
-  //   setDefaultFilters(sortedReviews)
-  // }, [])
-  //
-  // useEffect(() => {
-  //   sortReviews({ target: { dataset: { value: 'highestScore' } } })
-  // }, [])
-  //
-  // useEffect(() => {
-  //   setHighestByraaScore(sortedReviews)
-  // }, [value])
+export function BasicTabs({ topFiveProviders, checked }) {
+  const [value, setValue] = useState(0)
+  const { sortedReviews } = useReviewContext() //denne kan brukes på alle komponenter i provider
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
-  }
-
-  const tabLabelStyles = {
-    '&.MuiButtonBase-root': {
-      fontSize: '1',
-      fontFamily: "'Montserrat', sans-serif",
-      fontWeight: '600',
-      color: '#595B5F'
-    },
-    '&.Mui-selected': {
-      color: '#FF4A55'
-    }
   }
 
   return (
@@ -87,18 +73,16 @@ export function BasicTabs({ checked }) {
         <div className={cx('grid')}>
           {sortedReviews?.map((item, idx) => {
             if (checked.includes(idx)) {
-              return <ProviderItemVertical showModal={showModal} provider={item} />
+              return <ProviderItemVertical provider={item} />
             }
           })}
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div className={cx('grid')}>
-          {/*{highestByraaScore?.map((item, idx) => {*/}
-          {/*  if (checked.includes(idx)) {*/}
-          {/*    return <ProviderItemVertical showModal={showModal} provider={item} />*/}
-          {/*  }*/}
-          {/*})}*/}
+          {topFiveProviders?.slice(0, 5).map((item, idx) => {
+            return <ProviderItemVertical provider={item} />
+          })}
         </div>
       </TabPanel>
     </Box>

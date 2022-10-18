@@ -13,21 +13,21 @@ import { useCompareItems } from './compareitems'
 import CompareItemsModal from './CompareItemsModal/CompareItemsModal'
 import disableScroll from '../../utils/disableScroll'
 import Image from '../common/Image/Image'
+import Button from '../common/Button/Button'
 
 const cx = classNames.bind(styles)
 
 const Providers = () => {
-  const { sortedReviews, loading, setLoadMore, rest, modalStatus, showModal, closeModal } = useReviewContext() //denne kan brukes på alle komponenter i provider
+  const { sortedReviews, loading, setLoadMore, rest } = useReviewContext()
+  const { checked, toggleChecked } = useCompareItems()
+  const [compareItemsModal, setCompareItemsModal] = useState(false)
+  const [customerReviewsModal, setCustomerReviewsModal] = useState(false)
+
+  const isRestEmpty = rest.length < 1
 
   const buttonClick = () => {
     setLoadMore(true)
   }
-
-  const { checked, toggleChecked } = useCompareItems()
-
-  const isRestEmpty = rest.length < 1
-
-  const [compareItemsModal, setCompareItemsModal] = useState(false)
 
   function openCompareItems() {
     setCompareItemsModal(true)
@@ -45,26 +45,28 @@ const Providers = () => {
     <>
       <CompareItemsModal checked={checked} onClose={() => setCompareItemsModal(false)} open={compareItemsModal} />
       <div className={cx('root')}>
-        {modalStatus && <Popup onClick={closeModal} />}
-        {modalStatus ? <Backdrop onClick={closeModal} /> : null}
+        {customerReviewsModal && <Popup onClick={() => setCustomerReviewsModal(false)} />}
+        {customerReviewsModal && <Backdrop onClick={() => setCustomerReviewsModal(false)} />}
         <Container size='medium' className={cx('providerContainer')}>
-          <ProviderHero reviews={sortedReviews} loading={loading} />
+          <ProviderHero loading={loading} />
 
           {sortedReviews.map((item, idx) => (
             <ProviderItem
+              customReviewModal={() => setCustomerReviewsModal(true)}
               checked={checked}
               toggleChecked={toggleChecked}
               idx={idx}
               provider={item}
               key={uniqid()}
-              showModal={showModal}
             />
           ))}
           {!isRestEmpty && (
             <div className={cx('buttonContainer')}>
-              <button className={cx('loadMoreButton')} onClick={buttonClick}>
-                Last inn fler
-              </button>
+              <div>
+                <Button className={cx('loadMoreButton')} onClick={buttonClick}>
+                  Last inn fler
+                </Button>
+              </div>
             </div>
           )}
         </Container>

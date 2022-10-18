@@ -56,9 +56,11 @@ export const toggleReducer = (state, action) => {
 
 // user can provide custom reducer if he wishes to
 export const useToggler = ({ reducer = toggleReducer } = {}) => {
-  const [{ openIndexes, checkedButtons }, dispatch] = useReducer(reducer, inititalState)
+  const [{ openIndexes, checkedButtons, radioGroupCategory }, dispatch] = useReducer(reducer, inititalState)
+
   const toggleIndex = index => dispatch({ type: actionTypes.toggle_index, index })
   const toggleButton = index => dispatch({ type: actionTypes.toggle_button, index })
+
   const resetState = () => dispatch({ type: actionTypes.resetState })
 
   return { resetState, openIndexes, toggleIndex, toggleButton, checkedButtons }

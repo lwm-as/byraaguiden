@@ -30,12 +30,12 @@ const Breadcrumb = ({ marginBreadCrumb, className, categoryData, title }) => {
         {categoryData && (
           <li className={cx('item')}>
             <Link href='/artikler' passHref>
-              <a className={cx('link')}>{categoryData.name}</a>
+              <a className={cx('link')}>{decodeURIComponent(categoryData.name)}</a>
             </Link>
           </li>
         )}
         <li className={cx('item', 'active')} aria-current='page'>
-          {title}
+          {decodeURIComponent(title)}
         </li>
       </ol>
     </nav>

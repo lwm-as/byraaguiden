@@ -6,7 +6,7 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
 
-const GoogleRating = ({ stars, totalReviews, showModal, placeid }) => {
+const GoogleRating = ({ customReviewModal, stars, totalReviews, placeid }) => {
   const { setCurrentPlaceId } = useReviewContext()
   const calculateStars = stars => {
     switch (true) {
@@ -34,8 +34,8 @@ const GoogleRating = ({ stars, totalReviews, showModal, placeid }) => {
   const starCount = calculateStars(stars)
 
   const readMore = () => {
+    customReviewModal()
     setCurrentPlaceId(placeid)
-    showModal()
   }
 
   const starIcons = {
@@ -58,9 +58,9 @@ const GoogleRating = ({ stars, totalReviews, showModal, placeid }) => {
         <IconContainer src={'google-icon.svg'} width={14} height={14} />
         <p className={styles.starCount}>{parseFloat(stars).toFixed(1)}</p>
 
-        {/*{starCount.map((star, idx) => (*/}
-        {/*  <IconContainer src={starIcons[star]} key={idx} width={18} height={18}></IconContainer>*/}
-        {/*))}*/}
+        {starCount.map((star, idx) => (
+          <IconContainer src={starIcons[star]} key={idx} width={18} height={18}></IconContainer>
+        ))}
       </div>
       <div className={cx('totalReviewsContainer')}>
         {totalReviews > 0 && (

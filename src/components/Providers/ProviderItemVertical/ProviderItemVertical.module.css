@@ -27,6 +27,7 @@
 
 .btn a {
     border-radius: 10px;
+    margin: 0;
 }
 
 .provider-rating {
@@ -40,6 +41,18 @@
     margin: 1rem 0;
 }
 
+.transparent button {
+    background-color: transparent;
+    box-shadow: unset;
+    margin-top: 0;
+}
+
+.transparent button:hover {
+    background-color: unset;
+    box-shadow: unset;
+     cursor: unset;
+}
+
 .focus-box {
     background-color: #ECECEC;
     border-radius: 8px;
@@ -47,16 +60,17 @@
 }
 
 .first-section {
-    /*border: 1px solid red;*/
-    flex-grow: 1;
+    /*flex-grow: 1;*/
 
 }
 
 .middle-section {
-    /*border: 1px solid red;*/
+    /*flex-grow: 1;*/
+
 
 }
 
 .last-section {
     /*border: 1px solid red;*/
+    flex-grow: 1;
 }

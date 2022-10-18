@@ -839,3 +839,10 @@ label {
 /*  fill: #ffff !important;*/
 /*}*/
 
+.MuiFormControlLabel-root .MuiFormControlLabel-label.Mui-disabled{
+  color: #CC0D19 !important;
+}
+
+.MuiTypography-root {
+  font-size: 14px !important;
+}
