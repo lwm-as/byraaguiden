@@ -5,11 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Button from '../../common/Button/Button'
 
 import styles from './CTASection.module.css'
+import { useRouter } from 'next/router'
 
 const cx = classNames.bind(styles)
 
 const CTASection = ({ category }) => {
   const { name, slug } = category
+  const router = useRouter()
 
   return (
     <div className={cx('root')}>
@@ -40,7 +42,7 @@ const CTASection = ({ category }) => {
           <span>Byråer tilpasset ditt prosjekt</span>
         </li>
       </ul>
-      <Button className={cx('cta-btn')} link={`/${slug}/tilbud`} flex='flex-center' size='large'>
+      <Button className={cx('cta-btn')} link={`/tilbud?${slug}`} flex='flex-center' size='large'>
         Få 3 gratis tilbud
       </Button>
       {/*<p className={cx('disclaimer')}>*/}

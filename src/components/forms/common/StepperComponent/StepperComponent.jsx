@@ -1,43 +1,17 @@
-import Step from '@mui/material/Step'
-import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector'
-import StepLabel from '@mui/material/StepLabel'
-import Stepper from '@mui/material/Stepper'
-import { styled } from '@mui/material/styles'
-import React from 'react'
+import classNames from 'classnames/bind'
+import styles from './StepperComponent.module.css'
 
-const QontoConnector = styled(StepConnector)(() => ({
-  [`&.${stepConnectorClasses.alternativeLabel}`]: {
-    top: 13,
-    left: 'calc(-50% + 12px)',
-    right: 'calc(50% + 12px)'
-  },
-  [`&.${stepConnectorClasses.active}`]: {
-    [`& .${stepConnectorClasses.line}`]: {
-      borderColor: '#2288ef'
-    }
-  },
-  [`&.${stepConnectorClasses.completed}`]: {
-    [`& .${stepConnectorClasses.line}`]: {
-      borderColor: '#2288ef'
-    }
-  },
-  [`& .${stepConnectorClasses.line}`]: {
-    borderColor: '#2288ef',
-    borderTopWidth: 2,
-    borderRadius: 1
-  }
-}))
+const cx = classNames.bind(styles)
 
-function StepperComponent({ step, steps }) {
+function StepperComponent({ step }) {
   return (
-    <div>
-      <Stepper alternativeLabel activeStep={step} connector={<QontoConnector />}>
-        {steps?.map(label => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
+    <div className={cx('root')}>
+      <div className={cx('container')}>
+        <span>{(step * 100) / 10} % </span>
+      </div>
+      <div className={cx('progressInnerContainer')}>
+        <progress id='file' value={step || '0'} max='5'></progress>
+      </div>
     </div>
   )
 }

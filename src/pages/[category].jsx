@@ -26,7 +26,7 @@ const CityArticle = ({ data }) => {
     },
     headerMenu,
     footerMenu
-  } = data
+  } = data || {}
 
   const cities = cityPosts.filter(post => post.categories.nodes[1].slug === categories.nodes[1].slug)
 

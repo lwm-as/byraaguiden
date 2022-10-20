@@ -1,0 +1,29 @@
+/* .root {
+  height: 375px;
+}*/
+
+
+.checkboxes {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.border {
+    border: 2px solid #D3D3D3;
+    background-color: #F6F6F6;
+    padding: 3px 8px;
+    border-radius: 10px;
+    width: 100%;
+    margin: 8px 0;
+}
+.checked {
+    border: 2px solid #FF4A55;
+    background-color: #FFEFF0;
+}
+
+@media screen and (max-width: 768px) {
+    .root {
+        margin-bottom: 1rem;
+    }
+}

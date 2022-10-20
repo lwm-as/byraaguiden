@@ -845,4 +845,5 @@ label {
 
 .MuiTypography-root {
   font-size: 14px !important;
+  font-weight: 500;
 }
