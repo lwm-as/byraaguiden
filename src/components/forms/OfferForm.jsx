@@ -11,15 +11,21 @@ import getZapierHookId from '../../utils/getZapierHookId'
 import useWindowSize from '../../utils/windowSize'
 import OfferFormContainer from './common/Layout/OfferFormContainer/OfferFormContainer'
 import OfferFormFooter from './common/Layout/OfferFormFooter/OfferFormFooter'
-import StepperComponent from './common/StepperComponent/StepperComponent'
 import styles from './OfferForm.module.css'
 
 const cx = classNames.bind(styles)
 
-function OfferForm({ children, initialValues, steps, bransje, ...props }) {
+function OfferForm({ children, initialValues, selectedValues, categories, steps, ...props }) {
   const childArray = React.Children.toArray(children)
   const router = useRouter()
-  const urlParams = router.asPath.split('/')
+
+  const categoryFromURL = router.asPath.split('?')[1]
+
+  const currentCategory = categories.find(
+    ({ slug }) => decodeURIComponent(slug) === decodeURIComponent(categoryFromURL)
+  )
+
+  const emailArray = currentCategory?.providerCategory?.providerCategory
 
   const [step, setStep] = useState(0)
   const currentStep = childArray[step]
@@ -36,28 +42,22 @@ function OfferForm({ children, initialValues, steps, bransje, ...props }) {
         onSubmit={async values => {
           if (isLastStep()) {
             const date = new Date()
-            const { dateStamp, timeStamp } = getDateAndTime(date)
-            const origin = sessionStorage.getItem('__byråguidenOriginPage')
-            const trackingTag = sessionStorage.getItem('__byråguidenTrackingTag')
-
-            const { postal } = values
-
-            const location = getLocation(postal)
+            const { dateStamp } = getDateAndTime(date)
 
             const dynamicValues = {
               dateStamp,
-              timeStamp,
-              origin,
-              tag: trackingTag || 'Annet',
-              device: isMobile ? 'mobile' : 'desktop',
-              zapierHookId: getZapierHookId(urlParams[1])
+              zapierHookId: '8671498/b00y69a',
+              category: categoryFromURL,
+              emails: emailArray
             }
-            const data = { ...values, location, ...dynamicValues }
+
+            const data = { ...values, ...selectedValues, ...dynamicValues }
 
             const res = await axios.post('/api/send-lead', data)
 
             if (res.status === 200) {
-              router.push(`/${urlParams[1]}/suksess`)
+              alert('success')
+              // router.push(`/suksess`)
             }
           } else {
             setStep(s => s + 1)
@@ -69,26 +69,20 @@ function OfferForm({ children, initialValues, steps, bransje, ...props }) {
       >
         {({ isSubmitting }) => (
           <Form className={cx('form')}>
-            <Stack spacing={3} alignItems='center'>
-              {!isMobileWidth && (
-                <div className={cx('form-stepper')}>
-                  <StepperComponent step={step} steps={steps} />
-                </div>
-              )}
-              <OfferFormContainer>
-                <Stack spacing={3} className={cx('root')}>
-                  {currentStep}
-                  <OfferFormFooter
-                    isLastStep={isLastStep()}
-                    activeStep={step}
-                    onBack={() => setStep(state => state - 1)}
-                    isMobile={isMobileWidth}
-                    isSubmitting={isSubmitting}
-                    bransje={bransje}
-                  />
-                </Stack>
-              </OfferFormContainer>
-            </Stack>
+            <OfferFormContainer>
+              <Stack sx={{ paddingTop: '2rem !important' }} spacing={3} className={cx('root')}>
+                {currentStep}
+                <OfferFormFooter
+                  isLastStep={isLastStep()}
+                  activeStep={step}
+                  onBack={() => setStep(state => state - 1)}
+                  isMobile={isMobileWidth}
+                  isSubmitting={isSubmitting}
+                  validate={currentStep.props.validate}
+                  step={step}
+                />
+              </Stack>
+            </OfferFormContainer>
           </Form>
         )}
       </Formik>

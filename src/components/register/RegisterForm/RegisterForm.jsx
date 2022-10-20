@@ -20,14 +20,14 @@ export default function RegisterForm() {
 
   const onSubmit = async (values, e) => {
     e.preventDefault()
-    // const res = await emailjs.send('service_xwr0fgs', 'template_999nazi', { ...values }, 'user_Tf5WUPLO6lS39d5FpP8CE')
-    //
-    // if (res.status === 200) {
-    //   reset()
-    //   await router.push('suksess-registrering')
-    // } else {
-    //   setFormFailed(true)
-    // }
+    const res = await emailjs.send('service_xwr0fgs', 'template_999nazi', { ...values }, 'user_Tf5WUPLO6lS39d5FpP8CE')
+
+    if (res.status === 200) {
+      reset()
+      await router.push('suksess-registrering')
+    } else {
+      setFormFailed(true)
+    }
   }
 
   return (

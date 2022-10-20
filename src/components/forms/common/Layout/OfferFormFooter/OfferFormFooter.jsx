@@ -3,10 +3,11 @@ import classNames from 'classnames/bind'
 import React from 'react'
 import Button from '../../../../common/Button/Button'
 import styles from './OfferFormFooter.module.css'
+import StepperComponent from '../../StepperComponent/StepperComponent'
 
 const cx = classNames.bind(styles)
 
-export default function OfferFormFooter({ activeStep, onBack, isLastStep, isMobile, isSubmitting }) {
+export default function OfferFormFooter({ validate, activeStep, onBack, isLastStep, isMobile, isSubmitting, step }) {
   const isMobileBtn = isMobile && activeStep === 0
 
   return (
@@ -46,8 +47,14 @@ export default function OfferFormFooter({ activeStep, onBack, isLastStep, isMobi
           )}
         </div>
       </div>
+      <div className={cx('form-stepper')}>
+        <StepperComponent step={step} />
+      </div>
+
       <div className={cx('bottom-txt')}>
-        <p className={cx('disclaimer')}>byråguiden er helt gratis og uforpliktende.</p>
+        <p className={cx('disclaimer')}>
+          Informasjonen du sender inn sendes med en gang ti byråene, og sensitiv <br /> informasjon
+        </p>
       </div>
     </div>
   )

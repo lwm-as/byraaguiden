@@ -27,7 +27,7 @@ const Cooperation = ({ data }) => {
 
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
-      <GridHero title={title} description={excerpts(content)} component />
+      <GridHero width={cx('max-width')} textAlignCenter title={title} description={excerpts(content)} component />
       <Container size='small'>
         <RegisterForm />
       </Container>

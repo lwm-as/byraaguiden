@@ -1,9 +1,0 @@
-/* .subHeading {
-  color: var(--color-accent-red);
-} */
-
-@media screen and (max-width: 768px) {
-  .root {
-    margin-bottom: 1rem;
-  }
-}

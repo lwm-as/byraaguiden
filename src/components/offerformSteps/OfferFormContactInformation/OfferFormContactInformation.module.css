@@ -1,7 +1,6 @@
 .root {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
 
 }
 
@@ -19,6 +18,7 @@
 .input-container {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .input-container input {
@@ -28,12 +28,24 @@
     border-radius: 8px;
 }
 
+
+.input-container textarea {
+    border: 1px solid #D3D3D3;
+    padding: 12px;
+    background-color: #F6F6F6;
+    border-radius: 8px;
+    font-family: var(--text-font);
+    resize: none;
+    height: 130px;
+}
+
+
 .input-container label {
     margin-bottom: 5px;
 }
 
-#name {
-   margin-bottom: 1rem;
+#name, .second-row {
+    margin-bottom: 1rem;
 }
 
 
@@ -44,27 +56,13 @@
 }
 
 .full-flex {
-    flex: 1
+    flex: 1;
 }
 
-.submit button{
-    border-radius: 10px;
-}
-
-.error {
-    font-size: 14px;
-    color: red;
-}
-
-.error-on-fail {
-    text-align: center;
-    color: red;
-}
 
 @media screen and (min-width: 768px) {
     .inner-root {
-        padding: 0 78px;
-        width: 70%;
+        /*width: 60%;*/
         margin: 0 auto;
 
     }

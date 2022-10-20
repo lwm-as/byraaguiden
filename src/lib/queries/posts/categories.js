@@ -42,6 +42,11 @@ export const GET_POSTS_BY_CATEGORY = `
             nodes {
               slug
               name
+       providerCategory {
+        providerCategory {
+          providerEmail
+        }
+      }
               servicePreviewDescription {
              serviceDescription
            }
@@ -161,6 +166,11 @@ export const GET_ALL_CATEGORIES = `
       nodes {
         name
         slug
+       providerCategory {
+        providerCategory {
+          providerEmail
+        }
+      }
         servicePreviewDescription {
            serviceDescription
         }

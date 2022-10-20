@@ -1,4 +1,5 @@
 import { useReducer } from 'react'
+import { OPTIONS } from '../../components/offerformSteps/fieldValues'
 
 export const actionTypes = {
   toggle_category: 'toggle_category',
@@ -108,6 +109,7 @@ export const useSelector = ({ reducer = toggleReducer } = {}) => {
   const toggleProbability = event => dispatch({ type: actionTypes.toggle_probability, event })
 
   return {
+    OPTIONS,
     budgetGroup,
     categoryGroup,
     timeGroup,
