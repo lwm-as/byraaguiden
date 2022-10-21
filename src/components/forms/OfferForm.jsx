@@ -19,19 +19,34 @@ function OfferForm({ children, initialValues, selectedValues, categories, steps,
   const childArray = React.Children.toArray(children)
   const router = useRouter()
 
-  const categoryFromURL = router.asPath.split('?')[1]
+  const categoryFromURL = router.asPath.split('?')[1].split('=')[1]
 
   const currentCategory = categories.find(
     ({ slug }) => decodeURIComponent(slug) === decodeURIComponent(categoryFromURL)
   )
 
-  const emailArray = currentCategory?.providerCategory?.providerCategory
+  const providerNames = currentCategory?.providerCategory?.providerCategory
+    .map(({ providerContact }) => providerContact.chooseProvider.providersInfo)
+    .map(({ name }) => name)
+
+  const providerEmails = currentCategory?.providerCategory?.providerCategory.map(
+    ({ providerContact }) => providerContact.providerEmail
+  )
+
+  const creatKeyValuePairsForNames = () => {
+    return providerNames.map((data, i) => ({
+      [decodeURIComponent(`Byrå${i + 1}`)]: data
+    }))
+  }
 
   const [step, setStep] = useState(0)
   const currentStep = childArray[step]
 
   const { width } = useWindowSize()
   const isMobileWidth = width <= 1000
+
+  const date = new Date()
+  const { dateStamp } = getDateAndTime(date)
 
   const isLastStep = () => step === childArray.length - 1
   return (
@@ -41,14 +56,11 @@ function OfferForm({ children, initialValues, selectedValues, categories, steps,
         initialValues={initialValues}
         onSubmit={async values => {
           if (isLastStep()) {
-            const date = new Date()
-            const { dateStamp } = getDateAndTime(date)
-
             const dynamicValues = {
               dateStamp,
               zapierHookId: '8671498/b00y69a',
-              category: categoryFromURL,
-              emails: emailArray
+              providers: creatKeyValuePairsForNames(),
+              providerEmails
             }
 
             const data = { ...values, ...selectedValues, ...dynamicValues }

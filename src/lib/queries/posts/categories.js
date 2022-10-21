@@ -42,9 +42,18 @@ export const GET_POSTS_BY_CATEGORY = `
             nodes {
               slug
               name
-       providerCategory {
+      providerCategory {
         providerCategory {
-          providerEmail
+          providerContact {
+            chooseProvider {
+              ... on Provider {
+                providersInfo {
+                  name
+                }
+              }
+            }
+            providerEmail
+          }
         }
       }
               servicePreviewDescription {
@@ -166,9 +175,18 @@ export const GET_ALL_CATEGORIES = `
       nodes {
         name
         slug
-       providerCategory {
+      providerCategory {
         providerCategory {
-          providerEmail
+          providerContact {
+            chooseProvider {
+              ... on Provider {
+                providersInfo {
+                  name
+                }
+              }
+            }
+            providerEmail
+          }
         }
       }
         servicePreviewDescription {

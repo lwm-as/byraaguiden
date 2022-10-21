@@ -42,7 +42,7 @@ export const budgetData = budgetGroup => {
     },
     {
       name: 'between20And50',
-      label: '20 000kr - 50 0000',
+      label: '20 000kr - 50 0000kr',
       checked: budgetGroup.between20And50
     },
     {

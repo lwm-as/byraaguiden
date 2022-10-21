@@ -3,7 +3,7 @@ export const servicesArray = [
   {
     id: 0,
     service: 'apputvikling',
-    logo: '/media/icons/apputvikling.svg'
+    logo: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/apputvikling.svg'
   },
   {
     id: 1,
