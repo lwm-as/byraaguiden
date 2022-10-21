@@ -42,7 +42,7 @@ const CTASection = ({ category }) => {
           <span>Byråer tilpasset ditt prosjekt</span>
         </li>
       </ul>
-      <Button className={cx('cta-btn')} link={`/tilbud?${slug}`} flex='flex-center' size='large'>
+      <Button className={cx('cta-btn')} link={`/tilbud?kategori=${slug}`} flex='flex-center' size='large'>
         Få 3 gratis tilbud
       </Button>
       {/*<p className={cx('disclaimer')}>*/}
