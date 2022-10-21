@@ -1,15 +1,19 @@
 .root {
   margin: 0 0 2rem 0;
-  padding: 1.5rem 1rem 1rem 1rem;
+  padding: 1.6rem 1rem 1.6rem 1rem;
   border-radius: 12px;
-  background-color: #F6F6F6;
+  background-color: #FFEFF0;
+  border: 1px solid #FF4A55;
 }
 
 .title {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 18px;
+  line-height:1.7rem !important;
+  font-weight: 600 !important;
   color: var(--color-title);
+  font-family: var(--text-font);
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 
@@ -41,7 +45,7 @@
 
 
 .list-item .icon-container {
-  background-color: #668190;
+  background-color: #FF4A55;
   border-radius: 50%;
 }
 

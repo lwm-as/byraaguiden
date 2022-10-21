@@ -6,6 +6,7 @@ import OfferFormStep from '../../forms/common/OfferFormStep/OfferFormStep'
 import { useField } from 'formik'
 import FormError from '../../forms/common/FormError/FormError'
 import { Field } from 'formik'
+import { FormStepHeading } from '../FormStepHeading/FormStepHeading'
 
 const cx = classNames.bind(styles)
 
@@ -26,7 +27,7 @@ function TextField({ id = '', name, htmlFor, label, textArea, fullFlex }) {
 const OfferFormContactInformation = ({ validationSchema }) => {
   return (
     <OfferFormStep className={cx('root')} validationSchema={validationSchema}>
-      <h1>Utfyllende informasjon</h1>
+      <FormStepHeading text='Utfyllende informasjon' />
 
       <div className={cx('root')}>
         <form className={cx('inner-root')}>

@@ -847,3 +847,7 @@ label {
   font-size: 14px !important;
   font-weight: 500;
 }
+
+.react-select__single-value {
+  font-size: 14px !important;
+}

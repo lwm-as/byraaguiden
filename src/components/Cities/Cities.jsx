@@ -4,7 +4,6 @@ import styles from './Cities.module.css'
 const cx = classNames.bind(styles)
 
 export default function Cities({ name, posts }) {
-  console.log(name)
   return (
     <div className={cx('root')}>
       <div className={cx('img-container')}>

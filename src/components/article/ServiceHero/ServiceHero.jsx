@@ -7,12 +7,12 @@ import Link from 'next/link'
 
 const cx = classNames.bind(styles)
 
-export default function ServiceHero({ category }) {
+export default function ServiceHero({ category, slug }) {
   let date = category.posts.nodes[0]?.modifiedGmt
   let formattedDate = date && format(parseISO(date), 'dd.MM.yyyy')
 
   return (
-    <Link href={`/${category.name}/${category.posts.nodes[0]?.slug}`}>
+    <Link href={`/${slug}/${category.posts.nodes[0]?.slug}`}>
       <a className={cx('root')}>
         <div>
           <Image className={cx('image')} imageData={category.posts.nodes[0]?.featuredImage.node} />

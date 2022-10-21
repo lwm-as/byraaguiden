@@ -11,12 +11,8 @@ import styles from './Sidebar.module.css'
 
 const cx = classNames.bind(styles)
 
-const PostContent = ({ ctaDisabled: { ctaDisabled }, post, category, show }) => {
-  const { slug } = category
-
-  const isRA = category.posts.nodes.length > 1
-
-  const showCTA = ctaDisabled
+const PostContent = ({ ctaDisabled = false, category = {} }) => {
+  const showCTA = ctaDisabled?.ctaDisabled
 
   const { width } = useWindowSize()
   const isMobile = width <= 768

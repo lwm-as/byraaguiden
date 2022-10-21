@@ -6,7 +6,7 @@ import React from 'react'
 
 const cx = classNames.bind(styles)
 
-export default function ServiceSection({ category }) {
+export default function ServiceSection({ category, slug }) {
   return (
     <div className={cx('root')}>
       <Container size='medium'>
@@ -21,7 +21,7 @@ export default function ServiceSection({ category }) {
             </p>
           </div>
           <div>
-            <Button className={cx('btn')} link={`/${decodeURIComponent(category.name.toLowerCase())}`}>
+            <Button className={cx('btn')} link={`/${decodeURIComponent(slug)}`}>
               Sammenlign byråer
             </Button>
           </div>

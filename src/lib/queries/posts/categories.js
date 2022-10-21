@@ -14,6 +14,7 @@ export const GET_POSTS_BY_CATEGORY = `
   query getPostsByCategory($id: ID!, $after: String, $first: Int, $featured: ID!, $popular: ID!){
     category(id: $id, idType: SLUG) {
       ${SEO_FRAGMENT}
+      slug
       name
       posts(first: $first, after: $after, where: {categoryNotIn: 271}) {
         nodes {
