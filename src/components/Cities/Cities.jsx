@@ -4,10 +4,22 @@ import styles from './Cities.module.css'
 const cx = classNames.bind(styles)
 
 export default function Cities({ name, posts }) {
+  console.log(name)
   return (
     <div className={cx('root')}>
       <div className={cx('img-container')}>
-        <img src={`/media/icons/${name.replace(/\s/g, '')}.svg`} alt='Service logo' />
+        <img
+          src={
+            name === 'Digital markedsføring'
+              ? 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/digitalmarkedsforing.svg'
+              : name === 'Regnskapsfører'
+              ? 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/regnskapsforer.svg'
+              : `https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/${name
+                  .toLowerCase()
+                  .replace(/\s/g, '')}.svg`
+          }
+          alt='Service logo'
+        />
       </div>
       <h4>{name}</h4>
       <div className={cx('cities')}>
