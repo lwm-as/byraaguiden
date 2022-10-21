@@ -59,7 +59,6 @@ const HeroSection = ({ noHeading }) => {
           </h1>
         )}
       </div>
-      {/* eslint-disable-next-line react/jsx-no-bind */}
       {isMobile && (
         <TabSlider data={servicesArray} setActiveClassText={setActiveClassText} setActiveClass={setActiveClass} />
       )}

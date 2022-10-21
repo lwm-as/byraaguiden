@@ -97,7 +97,7 @@ const HomePage = ({ data }) => {
           <Container size='medium'>
             <section>
               <div className={cx('section-icon-container')}>
-                <img src='/media/icons/pin.svg' alt='' />
+                <img src='https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/pin.svg' alt='' />
                 <h3 className={cx('section-title')}>Steder</h3>
               </div>
               {categories.nodes
