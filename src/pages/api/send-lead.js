@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   const { zapierHookId } = data
 
-  await axios.post(`https://hooks.zapier.com/hooks/catch/${zapierHookId}/`, data)
+  //await axios.post(`https://hooks.zapier.com/hooks/catch/${zapierHookId}/`, data)
 
   return res.status(200).json({ msg: 'ok' })
 }

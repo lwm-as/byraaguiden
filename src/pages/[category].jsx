@@ -8,6 +8,11 @@ import Breadcrumb from '../components/common/Breadcrumb/Breadcrumb'
 import React, { useEffect, useState } from 'react'
 import Container from '../components/layout/Container/Container'
 import { useRouter } from 'next/router'
+import classNames from 'classnames/bind'
+import styles from '../styles/pages/BlogArticle.module.css'
+import ProviderHero from '../components/Providers/ProviderHero/ProviderHero'
+
+const cx = classNames.bind(styles)
 
 const CityArticle = ({ data }) => {
   const {
@@ -26,7 +31,7 @@ const CityArticle = ({ data }) => {
     },
     headerMenu,
     footerMenu
-  } = data || {}
+  } = data || ''
 
   const cities = cityPosts.filter(post => post.categories.nodes[1].slug === categories.nodes[1].slug)
 
@@ -45,7 +50,12 @@ const CityArticle = ({ data }) => {
       </Container>
       {isProviders && (
         <ReviewContextProvider providers={providers} cities={cities}>
-          <Providers />
+          <Container className={cx('padding-0')} size='medium'>
+            <div className={cx('left-col')}>
+              <ProviderHero />
+            </div>
+            <Providers category={data.category} />
+          </Container>
         </ReviewContextProvider>
       )}
       {/*<CategorypageHero data={categorypage} image={featuredImage}></CategorypageHero>*/}

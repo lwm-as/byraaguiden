@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Select, { components } from 'react-select'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,6 +10,7 @@ const cx = classNames.bind(styles)
 
 export default function CityFilter() {
   const router = useRouter()
+  const [loading, setLoading] = useState(false)
   const { cities } = useReviewContext()
 
   const DropdownIndicator = props => (
@@ -18,9 +19,34 @@ export default function CityFilter() {
     </components.DropdownIndicator>
   )
 
+  useEffect(() => {
+    const handleRouteChange = url => {
+      console.log(`App is changing to ${url}`)
+      //   setState({ clicked: false, menuName: 'Menu' })
+      setLoading(true)
+    }
+
+    function handleCompletedRoute() {
+      setLoading(false)
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange)
+
+    router.events.on('routeChangeComplete', handleCompletedRoute)
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [router.events])
+
+  console.log(loading)
+
   const style = {
     control: (base, state) => ({
       ...base,
+      width: '180px',
       boxShadow: 'none',
       fontSize: '14px',
       height: '47px',
@@ -36,7 +62,7 @@ export default function CityFilter() {
     option: (base, state) => ({
       ...base,
       backgroundColor: state.isSelected ? '#FF4A55' : 'white',
-      fontSize: '16px',
+      fontSize: '14px',
       '&:hover': {
         cursor: 'pointer',
         backgroundColor: '#FF4A55',

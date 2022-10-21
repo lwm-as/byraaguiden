@@ -27,11 +27,11 @@ function OfferForm({ children, initialValues, selectedValues, categories, steps,
 
   const providerNames =
     currentCategory?.providerCategory?.providerCategory
-      .map(({ providerContact }) => providerContact?.chooseProvider?.providersInfo)
-      .map(({ name }) => name) || []
+      ?.map(({ providerContact }) => providerContact?.chooseProvider?.providersInfo)
+      ?.map(({ name }) => name) || []
 
   const providerEmails =
-    currentCategory?.providerCategory?.providerCategory.map(({ providerContact }) => providerContact.providerEmail) ||
+    currentCategory?.providerCategory?.providerCategory?.map(({ providerContact }) => providerContact.providerEmail) ||
     []
 
   const creatKeyValuePairsForNames = () => {

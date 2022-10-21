@@ -1,9 +1,9 @@
 .select-container {
-    display: flex;
-    align-items: center;
     position: relative;
-    top: 9px;
+    top: 14px;
+
 }
+
 
 .select-container * {
     margin: 0;

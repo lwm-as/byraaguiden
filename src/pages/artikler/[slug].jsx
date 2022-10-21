@@ -17,7 +17,7 @@ const cx = classNames.bind(styles)
 const BlogCategories = ({ data, categories }) => {
   const {
     category,
-    category: { posts, seo },
+    category: { posts, seo, slug },
     footerMenu,
     headerMenu,
     featuredPosts: { posts: featured },
@@ -34,11 +34,11 @@ const BlogCategories = ({ data, categories }) => {
       />
       <Container size='medium'>
         <Breadcrumb title={category.name} category={category} size={size} />
-        <ServiceHero category={category} />
+        <ServiceHero category={category} slug={slug} />
         {posts.nodes.length > 1 && <h2 className={cx('section-title')}>Les mer om {category.name.toLowerCase()}</h2>}
       </Container>
       <BlogCategoryGrid category={category} categories={categories} posts={posts}>
-        <ServiceSection category={category} />
+        <ServiceSection category={category} slug={slug} />
       </BlogCategoryGrid>
     </Layout>
   )

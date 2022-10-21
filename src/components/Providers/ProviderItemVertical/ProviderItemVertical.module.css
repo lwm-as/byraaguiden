@@ -1,18 +1,17 @@
 .root {
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #D3D4D5;
     padding: 1rem;
+    border: 1px solid #D3D4D5;
+}
+
+.root {
+    border-right: unset;
+    border-left: unset;
+    border-top: unset;
 }
 
 
-.root:nth-of-type(4n) {
-    border-right: 1px solid white;
-}
-
-.root:last-of-type {
-    /*border-right: unset;*/
-}
 .name {
     font-size: 20px;
     font-weight: 700;
@@ -73,4 +72,16 @@
 .last-section {
     /*border: 1px solid red;*/
     flex-grow: 1;
+}
+
+
+@media screen and (min-width: 768px) {
+    .root {
+        border-right: 1px solid #D3D4D5;
+    }
+
+    .root:nth-of-type(4n) {
+        border-right: 1px solid white;
+    }
+
 }

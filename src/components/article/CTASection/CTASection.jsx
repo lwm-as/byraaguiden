@@ -12,16 +12,24 @@ const cx = classNames.bind(styles)
 const CTASection = ({ category }) => {
   const { name, slug } = category
   const router = useRouter()
+  const categoryFromUrl = router.asPath.split('/')[1]
+
+  const articlePage = `/tilbud?kategori=${slug}`
+  const providerPage = `/tilbud?kategori=${categoryFromUrl}`
+
+  const s = router?.route === '[category]/[slug]' ? articlePage : providerPage
 
   return (
     <div className={cx('root')}>
-      <h3 className={cx('title')}>Få gratis og uforpliktende tilbud på {name.toLowerCase()}</h3>
-      <p className={cx('text')}>
-        <i className={cx('icon-container')}>
-          <FontAwesomeIcon className={cx('icon-clock')} icon={['fal', 'clock']} />
-        </i>
-        Få tilbud på 60 sekunder
-      </p>
+      <h3 className={cx('title')}>
+        Få gratis og uforpliktende tilbud på {decodeURIComponent(name?.toLowerCase() || categoryFromUrl)}
+      </h3>
+      {/*<p className={cx('text')}>*/}
+      {/*  <i className={cx('icon-container')}>*/}
+      {/*    <FontAwesomeIcon className={cx('icon-clock')} icon={['fal', 'clock']} />*/}
+      {/*  </i>*/}
+      {/*  Få tilbud på 60 sekunder*/}
+      {/*</p>*/}
       <ul className={cx('list')}>
         <li className={cx('list-item')}>
           <i className={cx('icon-container', 'check')}>
@@ -42,7 +50,7 @@ const CTASection = ({ category }) => {
           <span>Byråer tilpasset ditt prosjekt</span>
         </li>
       </ul>
-      <Button className={cx('cta-btn')} link={`/tilbud?kategori=${slug}`} flex='flex-center' size='large'>
+      <Button className={cx('cta-btn')} link={s} flex='flex-center' size='large'>
         Få 3 gratis tilbud
       </Button>
       {/*<p className={cx('disclaimer')}>*/}

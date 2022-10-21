@@ -1,5 +1,5 @@
 .root {
-    padding: 1rem 2rem;
+    padding: 1rem 19px;
     border: 1px solid #D3D4D5;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -13,10 +13,18 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-bottom: 2rem;
-    padding: 1rem 2rem;
+    padding: 1rem 19px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
+}
+
+.cta-button-container {
+    margin-bottom: 1rem;
+}
+
+.btn a {
+    margin-top: unset;
 }
 
 .footer-heading {
@@ -78,7 +86,7 @@
 .name {
     font-family: var(--text-font);
     position: relative;
-    top: -24px;
+    top: -15px;
     font-size: 20px;
 }
 
@@ -88,7 +96,9 @@
 
 .image-container {
     display: flex;
+    flex-direction: column;
 }
+
 
 .right {
     display: flex;
@@ -137,6 +147,11 @@
 
 
 @media screen and (min-width: 768px) {
+    .root {
+        padding: 1rem 2rem;
+
+    }
+
     .grid {
         display: grid;
         grid-template-columns: 30% 70%;
@@ -148,5 +163,27 @@
         column-gap: 1rem;
         flex: 1;
     }
+
+    .image-container {
+        flex-direction: row;
+    }
+    .name {
+        top: -24px;
+
+    }
+
+    .expandable-div {
+        padding: 1rem 2rem;
+
+    }
+
+    .cta-button-container {
+        margin-bottom: unset;
+    }
+
+    .btn a {
+        margin-top: 16px;
+    }
+
 
 }

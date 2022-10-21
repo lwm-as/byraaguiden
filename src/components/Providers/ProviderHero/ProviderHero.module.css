@@ -34,6 +34,11 @@
     justify-content: space-between;
 }
 
+.city {
+    margin-top: 1rem;
+}
+
+
 .selectWrapper {
     width: 100%;
     min-width: 150px;
@@ -153,6 +158,7 @@
     font-weight: 400;
     box-shadow: unset;
     white-space: nowrap;
+    font-size: 14px;
 }
 
 .btn button:hover {
@@ -183,7 +189,10 @@
 
 }
 
-
+.filtrer {
+    display: block;
+    margin-bottom: 8px;
+}
 
 
 @media screen and (min-width: 768px) {
@@ -199,7 +208,9 @@
     }
 
     .filter {
+        display: flex;
         flex: 0;
+        margin: unset;
     }
 
     .sorter-title {
@@ -210,13 +221,16 @@
     }
 
     .inner-filter {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        flex-grow: 1;
+        display: flex;
         gap: 1rem;
+/*        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;*/
     }
 
     .city {
-        flex: 1;
+        margin-top: unset;
     }
 
     .providerHeroLeft {

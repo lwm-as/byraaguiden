@@ -8,6 +8,7 @@ import { Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material
 import Image from '../../common/Image/Image'
 import React, { useState } from 'react'
 import { useToggler } from '../../../hooks/useToggler'
+import useWindowSize from '../../../utils/windowSize'
 const cx = classNames.bind(styles)
 
 const ProviderItem = ({ customReviewModal, toggleChecked, checked, idx, provider }) => {
@@ -33,9 +34,8 @@ const ProviderItem = ({ customReviewModal, toggleChecked, checked, idx, provider
     agencyScore
   } = provider
 
-  // const size = useWindowSize()
-
-  // const isMobile = size.width < 768
+  const size = useWindowSize()
+  const isMobile = size.width < 768
 
   const isCtaButton = providerButton === 'cta'
   const isVisitButton = providerButton === 'visit'
@@ -76,15 +76,13 @@ const ProviderItem = ({ customReviewModal, toggleChecked, checked, idx, provider
               control={
                 <Checkbox
                   sx={{
-                    '&.MuiSvgIcon-root': {
-                      borderRadius: '20px'
-                    }
+                    transform: isMobile && 'scale(1.4)'
                   }}
                   checked={checked?.includes(idx)}
                   onChange={() => toggleChecked(idx)}
                 />
               }
-              label={labelStyles}
+              label={!isMobile && labelStyles}
             />
           </FormGroup>
         </div>
@@ -111,16 +109,18 @@ const ProviderItem = ({ customReviewModal, toggleChecked, checked, idx, provider
                 placeid={placeid}
               />
             </div>
-            {isVisitButton && (
-              <Button className={cx('btn')} size='medium' link={websiteLink}>
-                Besøk nettsted
-              </Button>
-            )}
-            {isCtaButton && (
-              <Button className={cx('btn')} size='medium' link={`/tilbud?name=${name}&contact=${contact}`}>
-                Besøk nettsted
-              </Button>
-            )}
+            <div className={cx('cta-button-container')}>
+              {isVisitButton && (
+                <Button className={cx('btn')} size='medium' link={websiteLink}>
+                  Besøk nettsted
+                </Button>
+              )}
+              {isCtaButton && (
+                <Button className={cx('btn')} size='medium' link={`/tilbud?name=${name}&contact=${contact}`}>
+                  Besøk nettsted
+                </Button>
+              )}
+            </div>
           </div>
           <div className={cx('right')}>
             <div className={cx('right-inner')}>
@@ -135,7 +135,6 @@ const ProviderItem = ({ customReviewModal, toggleChecked, checked, idx, provider
             </div>
             <div className={cx('focus-container')}>
               <hr className={cx('divider')} />
-
               <div>
                 <span className={cx('fokus-labelStyles')}>Fokus områder</span>
                 <div className={cx('focus-inner')}>
