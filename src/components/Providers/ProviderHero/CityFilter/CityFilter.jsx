@@ -21,7 +21,7 @@ export default function CityFilter() {
 
   useEffect(() => {
     const handleRouteChange = url => {
-      console.log(`App is changing to ${url}`)
+      console.log(`App is changking to ${url}`)
       //   setState({ clicked: false, menuName: 'Menu' })
       setLoading(true)
     }
