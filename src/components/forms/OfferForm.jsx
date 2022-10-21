@@ -19,19 +19,20 @@ function OfferForm({ children, initialValues, selectedValues, categories, steps,
   const childArray = React.Children.toArray(children)
   const router = useRouter()
 
-  const categoryFromURL = router.asPath.split('?')[1].split('=')[1]
+  const categoryFromURL = router.asPath?.split('?')[1]?.split('=')[1]
 
-  const currentCategory = categories.find(
+  const currentCategory = categories?.find(
     ({ slug }) => decodeURIComponent(slug) === decodeURIComponent(categoryFromURL)
   )
 
-  const providerNames = currentCategory?.providerCategory?.providerCategory
-    .map(({ providerContact }) => providerContact.chooseProvider.providersInfo)
-    .map(({ name }) => name)
+  const providerNames =
+    currentCategory?.providerCategory?.providerCategory
+      .map(({ providerContact }) => providerContact?.chooseProvider?.providersInfo)
+      .map(({ name }) => name) || []
 
-  const providerEmails = currentCategory?.providerCategory?.providerCategory.map(
-    ({ providerContact }) => providerContact.providerEmail
-  )
+  const providerEmails =
+    currentCategory?.providerCategory?.providerCategory.map(({ providerContact }) => providerContact.providerEmail) ||
+    []
 
   const creatKeyValuePairsForNames = () => {
     return providerNames.map((data, i) => ({
