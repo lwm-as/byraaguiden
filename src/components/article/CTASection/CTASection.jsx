@@ -10,19 +10,10 @@ import { useRouter } from 'next/router'
 const cx = classNames.bind(styles)
 
 const CTASection = ({ category }) => {
-  const { name, slug } = category
-  const router = useRouter()
-  const categoryFromUrl = router.asPath.split('/')[1]
-
-  const articlePage = `/tilbud?kategori=${slug}`
-  const providerPage = `/tilbud?kategori=${categoryFromUrl}`
-
-  const s = router?.route === '[category]/[slug]' ? articlePage : providerPage
-
   return (
     <div className={cx('root')}>
       <h3 className={cx('title')}>
-        Få gratis og uforpliktende tilbud på {decodeURIComponent(name?.toLowerCase() || categoryFromUrl)}
+        Få gratis og uforpliktende tilbud på {decodeURIComponent(category?.name?.toLowerCase())}
       </h3>
       {/*<p className={cx('text')}>*/}
       {/*  <i className={cx('icon-container')}>*/}
@@ -50,7 +41,12 @@ const CTASection = ({ category }) => {
           <span>Byråer tilpasset ditt prosjekt</span>
         </li>
       </ul>
-      <Button className={cx('cta-btn')} link={s} flex='flex-center' size='large'>
+      <Button
+        className={cx('cta-btn')}
+        link={`/tilbud?kategori=${decodeURIComponent(category?.slug)}`}
+        flex='flex-center'
+        size='large'
+      >
         Få 3 gratis tilbud
       </Button>
       {/*<p className={cx('disclaimer')}>*/}

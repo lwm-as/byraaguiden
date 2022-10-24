@@ -42,7 +42,7 @@ export default function ServicePreviewArticle({ services }) {
             <Button link={`/${service?.slug}`}>Sammenlign byråer</Button>
           </div>
           <div>
-            <Button className={cx('white-bg')} link={`/""`}>
+            <Button className={cx('white-bg')} link={`/artikler/${service?.slug}`}>
               Les artikler
             </Button>
           </div>

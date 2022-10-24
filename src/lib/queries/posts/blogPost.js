@@ -18,6 +18,7 @@ query getPostSlugs {
 export const GET_POST = `
   query getPost($id: ID!, $catId: ID!) {
     post(id: $id, idType: SLUG) {
+     id
      customToc {
       hascustomtoc
       content {
@@ -26,6 +27,7 @@ export const GET_POST = `
     }
       author {
         node {
+          name
           firstName
           avatar {
            url
@@ -92,8 +94,9 @@ export const GET_POST = `
     category(id: $catId, idType: SLUG){
       name
       slug
-      posts(first: 3, where: {categoryNotIn: 271}) {
+      posts(first: 12, where: {categoryNotIn: 271}) {
         nodes {
+          id
           title
           slug
           excerpt

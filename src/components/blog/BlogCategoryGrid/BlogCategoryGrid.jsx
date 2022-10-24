@@ -56,7 +56,7 @@ export default function BlogCategoryGrid({ categories, posts, category, children
           {posts?.nodes
             .filter((post, idx) => post.title !== category.posts.nodes[0].title)
             .map((post, idx) => {
-              return <GridItem post={post} />
+              return <GridItem author={post.author} post={post} />
             })}
         </div>
       </Container>
@@ -64,7 +64,7 @@ export default function BlogCategoryGrid({ categories, posts, category, children
       <Container size='medium'>
         <div className={cx('inner-container')}>
           {preLoadedPosts?.map((post, idx) => {
-            return <GridItem post={post} />
+            return <GridItem author={post.author} post={post} />
           })}
         </div>
       </Container>

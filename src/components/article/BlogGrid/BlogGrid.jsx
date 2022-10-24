@@ -16,6 +16,7 @@ const cx = classNames.bind(styles)
 export default function BlogGrid({ categories, posts, category, children }) {
   const [preLoadedPosts, setPreLoadedPosts] = useState([])
   const [preLoadedInfo, setPreLoadedInfo] = useState()
+  const router = useRouter()
 
   const [info] = useState(posts.pageInfo)
 
@@ -31,7 +32,7 @@ export default function BlogGrid({ categories, posts, category, children }) {
       setPreLoadedPosts(data.posts.nodes)
       setPreLoadedInfo(data.posts.pageInfo)
     })
-  }, [])
+  }, [router])
 
   const handleClick = async () => {
     setLoading(true)

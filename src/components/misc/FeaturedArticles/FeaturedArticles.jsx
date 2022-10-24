@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
 import classNames from 'classnames/bind'
 
@@ -8,21 +8,28 @@ import Image from '../../common/Image/Image'
 
 import styles from './FeaturedArticles.module.css'
 import GridItem from '../../article/GridItem/GridItem'
+import { ArticleContext } from '../../../context/ArticleProvider'
 
 const cx = classNames.bind(styles)
 
 const FeaturedArticles = ({ post, author, children, posts }) => {
-  const [showTitle, setShowTitle] = useState(true)
+  // this component receives posts from "lignende artikler" and filters them out
+  const { distinctArticles } = useContext(ArticleContext)
+
+  if (!distinctArticles) {
+    return <div>Loading...</div>
+  }
+
+  const ids = new Set(distinctArticles.map(({ id }) => id))
+  const removedDuplicates = posts?.nodes?.filter(({ id }) => !ids.has(id) && id !== post.id)
 
   return (
     <div className={cx('root')}>
-      {showTitle && <h3>{children}</h3>}
+      {removedDuplicates?.length > 0 && <h3>{children}</h3>}
       <div className={cx('feature-items')}>
-        {posts.nodes
-          .filter(({ title, slug, featuredImage }) => title !== post.title)
-          .map(post => {
-            return <GridItem author={author} post={post} />
-          })}
+        {removedDuplicates.map(post => {
+          return <GridItem author={author} post={post} />
+        })}
       </div>
     </div>
   )

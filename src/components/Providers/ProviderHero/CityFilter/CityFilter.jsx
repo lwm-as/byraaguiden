@@ -8,9 +8,8 @@ import { useRouter } from 'next/router'
 
 const cx = classNames.bind(styles)
 
-export default function CityFilter() {
+export default function CityFilter({ setChangingCity }) {
   const router = useRouter()
-  const [loading, setLoading] = useState(false)
   const { cities } = useReviewContext()
 
   const DropdownIndicator = props => (
@@ -21,35 +20,28 @@ export default function CityFilter() {
 
   useEffect(() => {
     const handleRouteChange = url => {
-      console.log(`App is changking to ${url}`)
-      //   setState({ clicked: false, menuName: 'Menu' })
-      setLoading(true)
+      setChangingCity(true)
     }
 
     function handleCompletedRoute() {
-      setLoading(false)
+      setChangingCity(false)
     }
 
     router.events.on('routeChangeStart', handleRouteChange)
-
     router.events.on('routeChangeComplete', handleCompletedRoute)
 
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method:
     return () => {
       router.events.off('routeChangeStart', handleRouteChange)
     }
   }, [router.events])
 
-  console.log(loading)
-
   const style = {
     control: (base, state) => ({
       ...base,
-      width: '180px',
+      width: '100%',
       boxShadow: 'none',
       fontSize: '14px',
-      height: '47px',
+      height: '50px',
       borderRadius: '12px',
       outline: 'none',
       borderColor: state.isFocused ? '#FF4A55 !important' : '#D3D4D5 !important',
@@ -85,6 +77,7 @@ export default function CityFilter() {
 
   return (
     <div className={cx('select-container')}>
+      <span className={cx('filtrer')}>Filtrer:</span>
       <Select
         styles={style}
         defaultValue={{ label: 'Sted' }}
