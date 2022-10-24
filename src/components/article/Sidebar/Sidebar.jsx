@@ -11,11 +11,8 @@ import styles from './Sidebar.module.css'
 
 const cx = classNames.bind(styles)
 
-const PostContent = ({ ctaDisabled = false, category = {} }) => {
+const Sidebar = ({ ctaDisabled = false, category }) => {
   const showCTA = ctaDisabled?.ctaDisabled
-
-  const { width } = useWindowSize()
-  const isMobile = width <= 768
 
   return (
     <div className={cx('root')}>
@@ -27,4 +24,4 @@ const PostContent = ({ ctaDisabled = false, category = {} }) => {
   )
 }
 
-export default PostContent
+export default Sidebar

@@ -28,6 +28,9 @@ export const GET_POST = `
           caption(format: RENDERED)
         }
       }
+     ctaDisabled {
+      ctaDisabled
+    }
       categories {
         nodes {
           name

@@ -5,34 +5,42 @@
 }
 
 .lignende-artikler {
+    display: block;
     font-size: 16px !important;
     font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 100px 100px;
     align-items: center;
-    gap: 1rem;
+
 }
 
-.featured-image {
-    position: relative;
-    top: 10px ;
 
+.featured-image-container {
+    display: flex;
+    align-items: center;
+    height: 75px;
+    width: 75px;
 }
 
 .featured-image img {
-    width: 350px !important;
-    height: 80px !important;
-    border-radius: 12px;
-    display: block !important;
+    height: 75px !important;
+    border-radius: 12px !important;
 }
 
+
 .title {
+    position: relative;
+    left: -10px;
     font-size: 14px !important;
     line-height: 1.2rem;
     font-weight: 600;
-    margin-top: 1rem;
+    width: 500px;
+    max-width: 250px;
+    word-wrap:break-word;
 }
 
 .isSimilarArticlesShown {

@@ -11,7 +11,7 @@ import { useToggler } from '../../../hooks/useToggler'
 import useWindowSize from '../../../utils/windowSize'
 const cx = classNames.bind(styles)
 
-const ProviderItem = ({ customReviewModal, toggleChecked, checked, idx, provider }) => {
+const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx, provider }) => {
   const {
     provider: {
       providersInfo: {
@@ -33,9 +33,6 @@ const ProviderItem = ({ customReviewModal, toggleChecked, checked, idx, provider
     popularity,
     agencyScore
   } = provider
-
-  const size = useWindowSize()
-  const isMobile = size.width < 768
 
   const isCtaButton = providerButton === 'cta'
   const isVisitButton = providerButton === 'visit'
@@ -101,7 +98,7 @@ const ProviderItem = ({ customReviewModal, toggleChecked, checked, idx, provider
                     }
                   }}
                 />
-              )}{' '}
+              )}
               <GoogleRating
                 customReviewModal={customReviewModal}
                 stars={rating}

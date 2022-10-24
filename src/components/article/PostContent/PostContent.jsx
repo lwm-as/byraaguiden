@@ -11,13 +11,15 @@ import ContentsMenuArrowStyle from '../../common/ContentsMenuArrowStyle/Contents
 
 const cx = classNames.bind(styles)
 
-const PostContent = ({ author, excerpt, marginBreadCrumb, post, postHeaderIsInside, className }) => {
+const PostContent = ({ noBreadCrumb, author, excerpt, marginBreadCrumb, post, postHeaderIsInside, className }) => {
   const { featuredImage, content, customToc } = post
   const isFeatured = !!featuredImage?.node
 
   return (
     <div className={cx('root')}>
-      {postHeaderIsInside && <PostHeader author={author} marginBreadCrumb={marginBreadCrumb} post={post} />}
+      {postHeaderIsInside && (
+        <PostHeader noBreadCrumb={noBreadCrumb} author={author} marginBreadCrumb={marginBreadCrumb} post={post} />
+      )}
       {excerpt && <p className={cx('excerpt')}>{excerpts(excerpt)}</p>}
       {isFeatured && (
         <>

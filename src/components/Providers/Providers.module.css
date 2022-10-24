@@ -1,9 +1,9 @@
 .compare-items {
     position: fixed;
-    bottom: 0;
+    bottom: 65px;
     right: 0;
-    margin: 3rem;
     cursor: pointer;
+    z-index: 9;
 }
 
 .inner-compare {
@@ -44,8 +44,6 @@
 
 }
 
-.col-1 {
-}
 
 .buttonContainer {
     display: flex;
@@ -58,9 +56,10 @@
 }
 
 @media screen and (min-width: 768px) {
-    .split-view {
-        display: grid;
-        grid-template-columns: 75% 25%;
-        column-gap: 1rem;
+
+    .compare-items {
+        bottom: 0;
+        margin: 3rem;
     }
+
 }

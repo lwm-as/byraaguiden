@@ -8,10 +8,27 @@
     border-radius: 20px !important;
 }
 
+
+
 .content h3 {
     margin-bottom: 8px;
     font-size: 22px;
 }
+
+.icon-container {
+    float: right;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    padding: 7px;
+    border-radius: 100%;
+    background-color: #FF4A55;
+
+}
+
 
 
 @media screen and (min-width: 768px) {

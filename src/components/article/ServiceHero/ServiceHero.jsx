@@ -4,6 +4,8 @@ import Image from '../../common/Image/Image'
 import excerpts from 'excerpts'
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
 
 const cx = classNames.bind(styles)
 
@@ -20,7 +22,14 @@ export default function ServiceHero({ category, slug }) {
         <div className={cx('content')}>
           {category.posts.nodes.length > 0 && <h3>{category.posts.nodes[0]?.title}</h3>}
           <span>{formattedDate || 'No post found'}</span>
-          {category.posts.nodes.length > 0 && <p>{excerpts(category.posts.nodes[0]?.excerpt)}</p>}
+          {category.posts.nodes.length > 0 && (
+            <p className={cx('p-tag')}>
+              {excerpts(category.posts.nodes[0]?.excerpt)}
+              <div className={cx('icon-container')}>
+                <FontAwesomeIcon icon={['fas', 'chevron-right']} color='white' size='xs' />
+              </div>
+            </p>
+          )}
         </div>
       </a>
     </Link>

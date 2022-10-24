@@ -1,6 +1,5 @@
 import { useReviewContext } from '../Cities/ReviewContextProvider'
 import uniqid from 'uniqid'
-import ProviderHero from './ProviderHero/ProviderHero'
 import ProviderItem from './ProviderItem/ProviderItem'
 import styles from './Providers.module.css'
 
@@ -14,13 +13,11 @@ import CompareItemsModal from './CompareItemsModal/CompareItemsModal'
 import disableScroll from '../../utils/disableScroll'
 import Image from '../common/Image/Image'
 import Button from '../common/Button/Button'
-import Sidebar from '../article/Sidebar/Sidebar'
-import SimilarArticles from '../article/SimilarArticles/SimilarArticles'
 import useWindowSize from '../../utils/windowSize'
 
 const cx = classNames.bind(styles)
 
-const Providers = ({ category }) => {
+const Providers = () => {
   const { sortedReviews, loading, setLoadMore, rest } = useReviewContext()
   const { checked, toggleChecked } = useCompareItems()
   const [compareItemsModal, setCompareItemsModal] = useState(false)
@@ -50,13 +47,14 @@ const Providers = ({ category }) => {
   return (
     <>
       <CompareItemsModal checked={checked} onClose={() => setCompareItemsModal(false)} open={compareItemsModal} />
-      <div className={cx('root', 'split-view')}>
+      <div className={cx('root')}>
         {customerReviewsModal && <Popup onClick={() => setCustomerReviewsModal(false)} />}
         {customerReviewsModal && <Backdrop onClick={() => setCustomerReviewsModal(false)} />}
         <div className={cx('col-1')}>
           <Container size='medium' className={cx('providerContainer')}>
             {sortedReviews.map((item, idx) => (
               <ProviderItem
+                isMobile={isMobile}
                 customReviewModal={() => setCustomerReviewsModal(true)}
                 checked={checked}
                 toggleChecked={toggleChecked}
@@ -91,9 +89,6 @@ const Providers = ({ category }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div className={cx('side-container')}>
-          <div className={cx('inner-container')}>{!isMobile && <Sidebar />}</div>
         </div>
       </div>
     </>

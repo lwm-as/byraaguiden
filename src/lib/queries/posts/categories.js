@@ -20,6 +20,7 @@ export const GET_POSTS_BY_CATEGORY = `
         nodes {
         author {
         node {
+          name
           firstName
           avatar {
            url
@@ -142,6 +143,7 @@ export const GET_MORE_POSTS_BY_CATEGORY = `
       nodes {
          author {
           node {
+            name
             firstName
             avatar {
            url

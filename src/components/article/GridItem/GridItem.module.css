@@ -2,26 +2,22 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    border: 1px solid transparent;
+
 }
 
 .img-container {
-    flex-grow: 1;
     margin-bottom: 4px;
 }
 
-.image {
-}
 
 .image img {
     display: block;
     border-radius: 15px;
-    height: 180px !important;
-    width: 300px !important;
 }
 
 .content {
-    /*flex: 1;*/
-    height: 100%;
+    border: 1px solid transparent;
 
 }
 
@@ -46,5 +42,9 @@
 
 
 @media screen and (min-width: 768px) {
+    .image img {
+        height: 180px !important;
+        width: 300px !important;
+    }
 
 }

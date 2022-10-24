@@ -12,7 +12,7 @@ import { SORT_OPTIONS } from '../../../lib/constants/sortOptions'
 
 const cx = classNames.bind(styles)
 
-const ProviderHero = () => {
+const ProviderHero = ({ setChangingCity }) => {
   const { toggleButton, checkedButtons } = useToggler()
   const { sortReviews, sortValue } = useReviewContext()
 
@@ -29,34 +29,35 @@ const ProviderHero = () => {
     return checkedButtons.includes(idx)
   }
 
+  const filtered = SORT_OPTIONS.filter(
+    item =>
+      item.value === 'Høyest kundetilfredshet' ||
+      item.value === 'Høyest Byrå-score' ||
+      item.value === 'Høyest popularitet'
+  )
   return (
-    <div className={cx('root')}>
-      {/*<span className={cx('title', 'sorter-title')}>Sorter etter:</span>*/}
-      <div className={cx('inner-filter')}>
-        {SORT_OPTIONS.filter(
-          item =>
-            item.value === 'Høyest kundetilfredshet' ||
-            item.value === 'Høyest Byrå-score' ||
-            item.value === 'Høyest popularitet'
-        ).map((item, idx) => {
-          return (
-            <Button
-              disabled={disableButton({ idx })}
-              size='medium'
-              data-value={item.key}
-              className={cx('btn', setActiveClass({ idx }))}
-              onClick={e => handleClick({ e, idx })}
-            >
-              {item.value}
-            </Button>
-          )
-        })}
-        <div className={cx('city')}>
-          {/*<span className={cx('filtrer')}>Filtrer:</span>*/}
-          <CityFilter />
+    <>
+      <span className={cx('title', 'sorter-title')}>Sorter etter:</span>
+      <div className={cx('root')}>
+        <div className={cx('inner-filter')}>
+          {filtered.map((item, idx) => {
+            return (
+              <Button
+                disabled={disableButton({ idx })}
+                size='small'
+                data-value={item.key}
+                className={cx('btn', setActiveClass({ idx }))}
+                onClick={e => handleClick({ e, idx })}
+              >
+                {item.value}
+              </Button>
+            )
+          })}
+
+          <CityFilter setChangingCity={setChangingCity} />
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

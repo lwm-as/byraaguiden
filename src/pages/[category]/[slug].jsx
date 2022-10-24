@@ -10,19 +10,26 @@ import Container from '../../components/layout/Container/Container'
 import Layout from '../../components/layout/Layout/Layout'
 import classNames from 'classnames/bind'
 import PostContent from '../../components/article/PostContent/PostContent'
-import React, { useState } from 'react'
+import React from 'react'
 import Sidebar from '../../components/article/Sidebar/Sidebar'
 import SimilarArticles from '../../components/article/SimilarArticles/SimilarArticles'
 import FeaturedArticles from '../../components/misc/FeaturedArticles/FeaturedArticles'
+import CtaFooterButton from '../../components/CtaFooterButton/CtaFooterButton'
+import { useCtaToggler } from '../../hooks/useCtaToggler'
+import ArticleProvider from '../../context/ArticleProvider'
 
 const cx = classNames.bind(styles)
 
 const BlogArticle = ({ data }) => {
   const {
-    post: { author, excerpt },
+    post: {
+      author,
+      excerpt,
+      ctaDisabled: { ctaDisabled }
+    },
     post,
     category,
-    category: { posts },
+    category: { posts, slug },
     headerMenu,
     footerMenu
   } = data
@@ -30,24 +37,34 @@ const BlogArticle = ({ data }) => {
   const { width } = useWindowSize()
   const isMobile = width <= 1000
 
+  const { isCtaShown } = useCtaToggler(800)
+
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={post.seo} categories={post.categories}>
       <Container className={cx('split-view')} size='medium'>
-        <ContentsMenuStateProvider>
-          <PostContent author={author} excerpt={excerpt} marginBreadCrumb postHeaderIsInside post={post} />
-          <div className={cx('side-container')}>
-            <div className={cx('inner-container')}>
-              {!isMobile && <Sidebar ctaDisabled={post.ctaDisabled} post={post} category={category} />}
-              {/*<TableOfContent />*/}
-              {!isMobile && posts?.nodes.length > 1 && (
-                <SimilarArticles post={data?.post} category={category} posts={posts} />
-              )}
+        <ArticleProvider>
+          <ContentsMenuStateProvider>
+            <PostContent author={author} excerpt={excerpt} marginBreadCrumb postHeaderIsInside post={post} />
+            <div className={cx('side-container')}>
+              <div className={cx('inner-container')}>
+                {!isMobile && <Sidebar ctaDisabled={post.ctaDisabled} category={category} />}
+                {/*<TableOfContent />*/}
+                {!isMobile && posts?.nodes.length > 1 && (
+                  <SimilarArticles post={data?.post} category={category} posts={posts} />
+                )}
+              </div>
             </div>
-          </div>
-        </ContentsMenuStateProvider>
-        <FeaturedArticles post={data?.post} category={category} author={author} posts={posts}>
-          Dykk enda dypere i {category.name}
-        </FeaturedArticles>
+          </ContentsMenuStateProvider>
+          <FeaturedArticles post={data?.post} category={category} author={author} posts={posts}>
+            Dykk enda dypere i {category.name}
+          </FeaturedArticles>
+        </ArticleProvider>
+        <CtaFooterButton
+          slug={decodeURIComponent(slug)}
+          isMobile={isMobile}
+          ctaDisabled={ctaDisabled}
+          show={isCtaShown}
+        />
       </Container>
     </Layout>
   )
