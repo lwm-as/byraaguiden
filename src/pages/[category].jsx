@@ -98,16 +98,18 @@ const CityArticle = ({ data, categories: allCategories }) => {
               <Providers />
             </ReviewContextProvider>
           )}
-          <ContentsMenuStateProvider>
-            <PostContent
-              noBreadCrumb
-              author={author}
-              excerpt={excerpt}
-              marginBreadCrumb
-              postHeaderIsInside
-              post={data?.post}
-            />
-          </ContentsMenuStateProvider>
+          {isContent && (
+            <ContentsMenuStateProvider>
+              <PostContent
+                noBreadCrumb
+                author={author}
+                excerpt={excerpt}
+                marginBreadCrumb
+                postHeaderIsInside
+                post={data?.post}
+              />
+            </ContentsMenuStateProvider>
+          )}
         </div>
         <div className={cx('side-container')}>
           <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData} />}</div>
