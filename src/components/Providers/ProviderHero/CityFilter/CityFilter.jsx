@@ -15,13 +15,13 @@ export default function CityFilter({ setChangingCity }) {
   const [displayText, setDisplayText] = useState('')
 
   const wrapperRef = useRef(null)
-  useOutsideDetecter(wrapperRef, onClose)
   const router = useRouter()
   const { cities } = useReviewContext()
 
   const onClose = () => {
     setOpenSelect(false)
   }
+  useOutsideDetecter(wrapperRef, onClose)
 
   useEffect(() => {
     const handleRouteChange = url => {
