@@ -7,7 +7,7 @@ import Image from '../../common/Image/Image'
 
 const cx = classNames.bind(styles)
 
-export default function ProviderItemVertical({ provider }) {
+export default function ProviderItemVertical({ customReviewModal, provider }) {
   const {
     provider: {
       providersInfo: { name, logo, providerButton, contact, websiteLink, focusareas, description, placeid }
@@ -36,7 +36,12 @@ export default function ProviderItemVertical({ provider }) {
               }}
             />
           )}
-          <GoogleRating stars={rating} totalReviews={totalReviews} placeid={placeid} />
+          <GoogleRating
+            customReviewModal={customReviewModal}
+            stars={rating}
+            totalReviews={totalReviews}
+            placeid={placeid}
+          />
         </div>
         {isVisitButton ? (
           <Button className={cx('btn')} size='large' link={websiteLink}>

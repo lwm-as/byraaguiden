@@ -44,7 +44,7 @@ const tabLabelStyles = {
   }
 }
 
-export function BasicTabs({ topFiveProviders, checked }) {
+export function BasicTabs({ customReviewModal, topFiveProviders, checked }) {
   const [value, setValue] = useState(0)
   const { sortedReviews } = useReviewContext() //denne kan brukes på alle komponenter i provider
 
@@ -73,15 +73,15 @@ export function BasicTabs({ topFiveProviders, checked }) {
         <div className={cx('grid')}>
           {sortedReviews?.map((item, idx) => {
             if (checked.includes(idx)) {
-              return <ProviderItemVertical provider={item} />
+              return <ProviderItemVertical customReviewModal={customReviewModal} provider={item} />
             }
           })}
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div className={cx('grid')}>
-          {topFiveProviders?.slice(0, 5).map((item, idx) => {
-            return <ProviderItemVertical provider={item} />
+          {topFiveProviders?.slice(0, 5).map(item => {
+            return <ProviderItemVertical customReviewModal={customReviewModal} provider={item} />
           })}
         </div>
       </TabPanel>

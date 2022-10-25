@@ -1,45 +1,35 @@
-.popupLayout {
-    width: calc(100% - 40px);
-    max-width: 900px;
-    height: min-content;
+.root {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1002;
-    text-align: center;
-    background-color: #f7fafd;
-    -webkit-box-shadow: 0 5px 10px rgb(37 37 37 / 40%);
-    box-shadow: 0 5px 10px rgb(37 37 37 / 40%);
-    max-height: calc(100vh - 112px);
-    overflow: auto;
-    border-radius: 4px;
-
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
 }
-
 .popoutLayout_content {
-    height: 100%;
-    width: 100%;
-    padding-top: 2.5rem;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    border-radius: 4px;
-    z-index: 200;
+    position: fixed;
+    width: 60%;
+    top: 50%; right: 50%;
+    transform: translate(50%,-50%);
+    background-color: #fff;
+    height: 80vh;
+    overflow: scroll;
+    padding: 1rem 1rem 3rem;
+    z-index: 1002;
 }
 
 .popupLayout_content_root {
     position: relative;
     background-color: white;
-    box-shadow: 0 0 10px #dee3ea;
-    border-radius: 4px;
+    border: 1px solid #D3D4D5;
+    border-radius: 12px;
     margin-bottom: 2.5rem;
+
 }
 
 .popoutLayout_content_root_comment_container {
     display: flex;
-    background-color: var(--color-white);
-    -webkit-box-shadow: var(--app-shadow);
-    box-shadow: var(--app-shadow);
     border-radius: 4px;
     padding: 30px;
 }

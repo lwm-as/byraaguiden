@@ -61,7 +61,7 @@ const CityArticle = ({ data, categories: allCategories }) => {
   const { width } = useWindowSize()
   const isMobile = width <= 1000
 
-  // run this when changin city
+  // run this when changing city
   if (changingCity) {
     return (
       <LoadingPlaceholder

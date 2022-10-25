@@ -18,7 +18,7 @@ import useWindowSize from '../../utils/windowSize'
 const cx = classNames.bind(styles)
 
 const Providers = () => {
-  const { sortedReviews, loading, setLoadMore, rest } = useReviewContext()
+  const { sortedReviews, setLoadMore, rest } = useReviewContext()
   const { checked, toggleChecked } = useCompareItems()
   const [compareItemsModal, setCompareItemsModal] = useState(false)
   const [customerReviewsModal, setCustomerReviewsModal] = useState(false)
@@ -49,7 +49,6 @@ const Providers = () => {
       <CompareItemsModal checked={checked} onClose={() => setCompareItemsModal(false)} open={compareItemsModal} />
       <div className={cx('root')}>
         {customerReviewsModal && <Popup onClick={() => setCustomerReviewsModal(false)} />}
-        {customerReviewsModal && <Backdrop onClick={() => setCustomerReviewsModal(false)} />}
         <div className={cx('col-1')}>
           <Container size='medium' className={cx('providerContainer')}>
             {sortedReviews.map((item, idx) => (
