@@ -7,29 +7,43 @@ import ProviderHero from '../ProviderHero/ProviderHero'
 import ResultSkeleton from '../ResultSkeleton/ResultSkeleton'
 import React from 'react'
 import { cx } from '../../../pages/[category]'
+import { Skeleton } from '@mui/material'
 
-export function LoadingPlaceholder(props) {
+export function LoadingPlaceholder({
+  seo,
+  changingCity,
+  cities,
+  categories,
+  category,
+  categorypage,
+  footerMenu,
+  headerMenu,
+  providers,
+  providers1,
+  title
+}) {
   return (
-    <Layout
-      menus={{ headerMenu: props.headerMenu, footerMenu: props.footerMenu }}
-      seo={props.seo}
-      categories={props.categories}
-    >
-      <GridHero title={props.categorypage?.herotitle} description={props.categorypage?.herosubtitle} />
+    <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
+      <GridHero title={categorypage?.herotitle} description={categorypage?.herosubtitle} />
       <Container size='medium'>
-        <Breadcrumb title={props.title} category={props.category} />
+        <Breadcrumb title={title} category={category} />
       </Container>
-      {props.providers && (
-        <ReviewContextProvider providers={props.providers1} cities={props.cities}>
-          <Container className={cx('padding-0')} size='medium'>
-            <div className={cx('left-col')}>
-              <ProviderHero setChangingCity={props.changingCity} />
-            </div>
-          </Container>
-        </ReviewContextProvider>
-      )}
-      <Container className={cx('skeleton')} size='medium'>
-        <ResultSkeleton results={2} />
+      <Container size='medium' className={cx('split-view', 'padding-0')}>
+        <div>
+          {providers && (
+            <ReviewContextProvider providers={providers1} cities={cities}>
+              <Container size='medium'>
+                <div>
+                  <ProviderHero setChangingCity={changingCity} />
+                </div>
+                <ResultSkeleton results={2} />
+              </Container>
+            </ReviewContextProvider>
+          )}
+        </div>
+        <div className={cx('skeleton-side-container')}>
+          <Skeleton sx={{ animationDuration: '.9s' }} width='100%' height={600} />
+        </div>
       </Container>
     </Layout>
   )
