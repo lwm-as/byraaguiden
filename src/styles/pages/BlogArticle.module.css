@@ -6,7 +6,7 @@
 .side-container {
     position: relative;
     /*top: 7rem;*/
-    margin-top: 7rem;
+    margin-top: 10.6rem;
 }
 
 .inner-container {
@@ -15,6 +15,10 @@
     gap: 1rem;
     position: sticky;
     top: 5rem;
+}
+
+.skeleton-side-container {
+    margin-top: 2.5rem;
 }
 
 .wyswig-no-margin-top {
