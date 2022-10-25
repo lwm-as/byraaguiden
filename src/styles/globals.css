@@ -18,6 +18,16 @@
 
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #ECECEC;
+  outline: 1px solid #ECECEC;
+}
+
 html {
   overflow-x: hidden;
 }
