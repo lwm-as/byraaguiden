@@ -59,6 +59,13 @@
     position: relative;
     top: 4px;
     font-size: 14px;
+    z-index: 999;
+}
+
+.openSelect {
+    border-bottom-color: rgba(211, 212, 213, 0.3) !important;
+    border-bottom-right-radius: unset;
+    border-bottom-left-radius: unset;
 }
 
 .options  a {
@@ -66,11 +73,13 @@
 }
 
 .list {
+    z-index: 6;
     position: absolute;
     background-color: white;
-    /*top: 50px;*/
+    top: -5px;
     width: 120%;
     border: 1px solid #D3D4D5;
+    border-top-color: rgba(211, 212, 213, 0.3);
     display: flex;
     flex-direction: column;
     height: 300px;

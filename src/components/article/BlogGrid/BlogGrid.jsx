@@ -52,6 +52,10 @@ export default function BlogGrid({ categories, posts, category, children }) {
   const { width: windowWidth } = useWindowSize()
   const isMobile = windowWidth < 768
 
+  const filter = categories.categories.nodes.filter(catt => {
+    return catt.name !== category.name && catt.name !== 'Alle artikler'
+  })
+
   return (
     <div className={cx('root')}>
       <Container size='medium'>
@@ -65,7 +69,7 @@ export default function BlogGrid({ categories, posts, category, children }) {
       <Container size='medium' className={cx('preloaded-post')}>
         <div className={cx('inner-container')}>
           {preLoadedPosts?.map((post, idx) => {
-            return <GridItem author={post.author} post={post} />
+            return <GridItem noMarginOnFirstItem author={post.author} post={post} />
           })}
         </div>
       </Container>
@@ -86,19 +90,17 @@ export default function BlogGrid({ categories, posts, category, children }) {
           </div>
         </div>
       </Container>
-      <Container size='medium'>
+      <Container size='large'>
         <div className={cx('other-services-bar')}>
           <span className={cx('choose-other-service')}>Velg en annen bransje:</span>
           <div className={cx('other-service-bar-inner')}>
-            {categories.categories.nodes
-              .filter(catt => catt.name !== category.name && catt.name !== 'Alle artikler')
-              .map(({ name, slug }, i) => {
-                return (
-                  <Link href={`/${slug}`}>
-                    <a className={cx('link')}>{name}</a>
-                  </Link>
-                )
-              })}
+            {filter.map(({ name, slug }, i) => {
+              return (
+                <Link href={`/artikler/${slug}`}>
+                  <a className={cx('link')}>{name}</a>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </Container>

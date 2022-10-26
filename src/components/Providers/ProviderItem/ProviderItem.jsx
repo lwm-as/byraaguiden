@@ -8,6 +8,7 @@ import { Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material
 import Image from '../../common/Image/Image'
 import React, { useState } from 'react'
 import { useToggler } from '../../../hooks/useToggler'
+
 import useWindowSize from '../../../utils/windowSize'
 const cx = classNames.bind(styles)
 
@@ -73,7 +74,13 @@ const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx
               control={
                 <Checkbox
                   sx={{
-                    transform: isMobile && 'scale(1.4)'
+                    transform: isMobile && 'scale(1.4)',
+                    position: 'relative',
+                    left: isMobile && '25px',
+                    color: '#002E47',
+                    '&.Mui-checked': {
+                      color: '#FF4A55'
+                    }
                   }}
                   checked={checked?.includes(idx)}
                   onChange={() => toggleChecked(idx)}

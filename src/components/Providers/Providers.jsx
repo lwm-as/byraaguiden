@@ -14,15 +14,15 @@ import disableScroll from '../../utils/disableScroll'
 import Image from '../common/Image/Image'
 import Button from '../common/Button/Button'
 import useWindowSize from '../../utils/windowSize'
+import CircularProgress from '@mui/material/CircularProgress'
 
 const cx = classNames.bind(styles)
 
 const Providers = () => {
-  const { sortedReviews, setLoadMore, rest } = useReviewContext()
+  const { sortedReviews, setLoadMore, rest, loading } = useReviewContext()
   const { checked, toggleChecked } = useCompareItems()
   const [compareItemsModal, setCompareItemsModal] = useState(false)
   const [customerReviewsModal, setCustomerReviewsModal] = useState(false)
-
   const { width } = useWindowSize()
   const isMobile = width <= 1000
 
@@ -44,11 +44,19 @@ const Providers = () => {
     }
   }, [compareItemsModal])
 
+  if (loading) {
+    return (
+      <div className={cx('progress-container')}>
+        <CircularProgress className={cx('progress-icon')} />
+      </div>
+    )
+  }
+
   return (
     <>
-      <CompareItemsModal checked={checked} onClose={() => setCompareItemsModal(false)} open={compareItemsModal} />
+      {compareItemsModal && <CompareItemsModal checked={checked} onClose={() => setCompareItemsModal(false)} />}
       <div className={cx('root')}>
-        {customerReviewsModal && <Popup onClick={() => setCustomerReviewsModal(false)} />}
+        {customerReviewsModal && <Popup open={customerReviewsModal} onClose={() => setCustomerReviewsModal(false)} />}
         <div className={cx('col-1')}>
           <Container size='medium' className={cx('providerContainer')}>
             {sortedReviews.map((item, idx) => (

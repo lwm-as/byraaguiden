@@ -5,7 +5,8 @@ export const actionTypes = {
 }
 
 export const initialState = {
-  checked: []
+  checked: [],
+  empty: []
 }
 
 export const toggleReducer = (state, action) => {
@@ -25,16 +26,23 @@ export const toggleReducer = (state, action) => {
         prev
       }
     }
+    case actionTypes.resetState: {
+      return {
+        ...state,
+        empty: state.empty
+      }
+    }
   }
 }
 
 export const useCompareItems = ({ reducer = toggleReducer } = {}) => {
-  const [{ checked }, dispatch] = useReducer(reducer, initialState)
+  const [{ checked, empty }, dispatch] = useReducer(reducer, initialState)
 
-  const toggleChecked = idx => dispatch({ type: 'toggle_checked', idx })
+  const toggleChecked = idx => dispatch({ type: actionTypes.toggle_checked, idx })
 
   return {
     checked,
+    empty,
     toggleChecked
   }
 }

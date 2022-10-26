@@ -3,6 +3,7 @@ import styles from '../LanguagePreview/ServicePreview.module.css'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useState } from 'react'
 import Button from '../common/Button/Button'
+import Link from 'next/link'
 
 const cx = classNames.bind(styles)
 
@@ -38,8 +39,8 @@ export default function ServicePreviewArticle({ services }) {
           <p>{service?.servicePreviewDescription?.serviceDescription}</p>
         </div>
         <div className={cx('btn-container')}>
-          <div>
-            <Button link={`/${service?.slug}`}>Sammenlign byråer</Button>
+          <div className={cx('sammenling-btn')}>
+            <Link href={`/${service?.slug}`}>Sammenlign byråer</Link>
           </div>
           <div>
             <Button className={cx('white-bg')} link={`/artikler/${service?.slug}`}>

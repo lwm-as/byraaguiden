@@ -5,7 +5,7 @@ import GridHero from '../components/blog/GridHero/GridHero'
 import { ReviewContextProvider } from '../components/Cities/ReviewContextProvider'
 import Providers from '../components/Providers/Providers'
 import Breadcrumb from '../components/common/Breadcrumb/Breadcrumb'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../components/layout/Container/Container'
 import { useRouter } from 'next/router'
 import classNames from 'classnames/bind'
@@ -19,6 +19,10 @@ import { GET_ALL_CATEGORIES } from '../lib/queries/posts/categories'
 import { LoadingPlaceholder } from '../components/Providers/LoadingPlaceholder/LoadingPlaceholder'
 import { useCtaToggler } from '../hooks/useCtaToggler'
 import Sidebar from '../components/article/Sidebar/Sidebar'
+import Popup from '../components/Popup/Popup'
+import CompareItemsModal from '../components/Providers/CompareItemsModal/CompareItemsModal'
+import disableScroll from '../utils/disableScroll'
+import { useCompareItems } from '../components/Providers/compareitems'
 
 export const cx = classNames.bind(styles)
 
@@ -81,47 +85,49 @@ const CityArticle = ({ data, categories: allCategories }) => {
   }
 
   return (
-    <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
-      <GridHero title={categorypage?.herotitle} description={categorypage?.herosubtitle} />
-      <Container size='medium'>
-        <Breadcrumb title={categoryNameFromUrl} category={data.category} />
-      </Container>
-      <Container size='medium' className={cx('split-view', 'padding-0')}>
-        <div>
-          {isProviders && (
-            <ReviewContextProvider providers={providers} cities={cities}>
-              <Container size='medium'>
-                <div>
-                  <ProviderHero setChangingCity={setChangingCity} />
-                </div>
-              </Container>
-              <Providers />
-            </ReviewContextProvider>
-          )}
-          {isContent && (
-            <ContentsMenuStateProvider>
-              <PostContent
-                noBreadCrumb
-                author={author}
-                excerpt={excerpt}
-                marginBreadCrumb
-                postHeaderIsInside
-                post={data?.post}
-              />
-            </ContentsMenuStateProvider>
-          )}
-        </div>
-        <div className={cx('side-container')}>
-          <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData} />}</div>
-        </div>
-        <CtaFooterButton
-          slug={decodeURIComponent(categoryData?.slug)}
-          isMobile={isMobile}
-          ctaDisabled={ctaDisabled}
-          show={isCtaShown}
-        />
-      </Container>
-    </Layout>
+    <>
+      <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
+        <GridHero title={categorypage?.herotitle} description={categorypage?.herosubtitle} />
+        <Container size='medium'>
+          <Breadcrumb title={categoryNameFromUrl} category={data.category} />
+        </Container>
+        <Container size='medium' className={cx('split-view', 'padding-0')}>
+          <div>
+            {isProviders && (
+              <ReviewContextProvider providers={providers} cities={cities}>
+                <Container size='medium'>
+                  <div>
+                    <ProviderHero setChangingCity={setChangingCity} />
+                  </div>
+                </Container>
+                <Providers />
+              </ReviewContextProvider>
+            )}
+            {isContent && (
+              <ContentsMenuStateProvider>
+                <PostContent
+                  noBreadCrumb
+                  author={author}
+                  excerpt={excerpt}
+                  marginBreadCrumb
+                  postHeaderIsInside
+                  post={data?.post}
+                />
+              </ContentsMenuStateProvider>
+            )}
+          </div>
+          <div className={cx('side-container')}>
+            <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData} />}</div>
+          </div>
+          <CtaFooterButton
+            slug={decodeURIComponent(categoryData?.slug)}
+            isMobile={isMobile}
+            ctaDisabled={ctaDisabled}
+            show={isCtaShown}
+          />
+        </Container>
+      </Layout>
+    </>
   )
 }
 

@@ -4,6 +4,7 @@ import ProviderItemVertical from './ProviderItemVertical/ProviderItemVertical'
 import classNames from 'classnames/bind'
 import styles from './Tabs.module.css'
 import { useReviewContext } from '../Cities/ReviewContextProvider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const cx = classNames.bind(styles)
 
@@ -44,7 +45,7 @@ const tabLabelStyles = {
   }
 }
 
-export function BasicTabs({ customReviewModal, topFiveProviders, checked }) {
+export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, topFiveProviders, checked }) {
   const [value, setValue] = useState(0)
   const { sortedReviews } = useReviewContext() //denne kan brukes på alle komponenter i provider
 
@@ -53,8 +54,23 @@ export function BasicTabs({ customReviewModal, topFiveProviders, checked }) {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: '#D3D4D5' }}>
+    <Box sx={{ width: '100%', position: 'relative' }}>
+      <div className={cx('close')}>
+        <FontAwesomeIcon size='2x' color='black' onClick={onClose} className={cx('icon')} icon={['fal', 'times']} />
+      </div>
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: '#D3D4D5',
+          position: 'sticky',
+          top: '-1rem',
+          backgroundColor: 'white',
+          zIndex: '1003',
+          padding: '1rem 0 0 0'
+        }}
+      >
+        <span className={cx('title')}>Sammenlign byråene</span>
+
         <Tabs
           TabIndicatorProps={{
             style: {
@@ -73,7 +89,13 @@ export function BasicTabs({ customReviewModal, topFiveProviders, checked }) {
         <div className={cx('grid')}>
           {sortedReviews?.map((item, idx) => {
             if (checked.includes(idx)) {
-              return <ProviderItemVertical customReviewModal={customReviewModal} provider={item} />
+              return (
+                <ProviderItemVertical
+                  setCustomerReviewModal={setCustomerReviewModal}
+                  customReviewModal={customReviewModal}
+                  provider={item}
+                />
+              )
             }
           })}
         </div>
@@ -81,7 +103,13 @@ export function BasicTabs({ customReviewModal, topFiveProviders, checked }) {
       <TabPanel value={value} index={1}>
         <div className={cx('grid')}>
           {topFiveProviders?.slice(0, 5).map(item => {
-            return <ProviderItemVertical customReviewModal={customReviewModal} provider={item} />
+            return (
+              <ProviderItemVertical
+                setCustomerReviewModal={setCustomerReviewModal}
+                customReviewModal={customReviewModal}
+                provider={item}
+              />
+            )
           })}
         </div>
       </TabPanel>

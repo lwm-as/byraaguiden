@@ -85,8 +85,9 @@ const BurgerMenu = ({ items, handleDropDownClick, subItems }) => {
                 )
               })}
             {subItems.map(({ path, label }) => {
+              const cleanPath = path.split('/category').pop()
               return (
-                <a className={cx('service-box')} href={path}>
+                <a className={cx('service-box')} href={cleanPath}>
                   <img src={`/media/icons/${getCorrectImage(label)}.svg`} alt='' />
                   <a>{label}</a>
                 </a>

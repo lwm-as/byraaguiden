@@ -52,7 +52,7 @@ export default function CityFilter({ setChangingCity }) {
   return (
     <div ref={wrapperRef} className={cx('select-container')}>
       <span className={cx('filtrer')}>Filtrer:</span>
-      <div onClick={handleClick} className={cx('select-inner')}>
+      <div onClick={handleClick} className={cx('select-inner', { openSelect })}>
         <span className={cx('displayText')}>{displayText || 'Sted'}</span>
         <div className={cx('icon-container')}>
           <FontAwesomeIcon className={cx('icon')} icon={['fas', 'chevron-down']} />

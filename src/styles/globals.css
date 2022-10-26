@@ -861,3 +861,20 @@ label {
 .react-select__single-value {
   font-size: 14px !important;
 }
+
+/*.ReactModal__Overlay {*/
+/*  position: unset !important;*/
+/*}*/
+
+.ReactModal__Content {
+  bottom: 0 !important;
+  overflow-x: hidden !important;
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  z-index: 999;
+
+}
+  /*background-color: transparent !important;*/
+  /*inset: unset !important;*/
