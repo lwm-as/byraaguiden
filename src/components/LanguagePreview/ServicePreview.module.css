@@ -69,7 +69,7 @@
         flex-direction: row;
         align-items: center;
         width: 50%;
-        gap: unset;
+        gap: 1rem;
 
     }
 
