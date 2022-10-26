@@ -1,7 +1,18 @@
 .footer-content h4 {
   margin: 1rem 0;
-  color: var(--color-title);
+  position: relative;
+  top: -5px;
 }
+
+.footer-content h4:after {
+  content: "";
+  border: 1px solid white;
+  position: absolute;
+  width: 30px;
+  bottom: -12px;
+  left: 0;
+}
+
 
 .footer-content h4:first-of-type {
   margin: 1.5rem 0 1rem;

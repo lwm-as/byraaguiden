@@ -1,12 +1,17 @@
 .inner-container {
     display: flex;
     flex-direction: column;
-    margin: 2rem 0;
+    /*margin: 2rem 0;*/
     gap: 1.5rem;
+
 }
 
 .initialPOSTS {
-    margin-bottom: 4rem;
+    /*margin-bottom: 4rem;*/
+}
+
+.preloaded-post {
+    margin-top: 5rem !important;
 }
 
 .btn-container {
@@ -57,60 +62,81 @@
 }
 
 .other-services-bar {
-    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+
+
+.choose-other-service {
+    display: block;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+
+.other-service-bar-inner a {
+    font-weight: 600;
 }
 
 .other-service-bar-inner {
     display: flex;
-    justify-content: space-evenly;
+    flex: 1;
+    /*gap: 1rem;*/
     flex-direction: column;
-    gap: .5rem;
+    justify-content: space-between;
 }
-
-.choose-other-service {
-    font-weight: 600;
-}
-
-.other-service-bar-inner a {
-    font-weight: 500;
-}
-
 
 @media screen and (min-width: 768px) {
     .inner-container {
-        position: relative;
-        top: -40px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 2rem;
         row-gap: 1rem;
-        margin: 4rem 0;
+        margin-bottom: 4rem;
+        /*margin: 4rem 0;*/
 
     }
-    .other-service-bar-inner {
-        flex-direction: row;
-        align-items: center;
-    }
+
     .link {
         font-size: 14px;
         white-space: nowrap;
     }
 
     .other-services-bar {
-        margin-top: 2rem;
+        flex-direction: row;
     }
 
     .other-service-bar-inner {
-        margin-top: 1rem;
-        position: relative;
-        left: -35px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 
+    .other-service-bar-inner a {
+        flex-grow: 1;
+        flex-basis: auto;
+        padding: 0 1em;
+        text-align: center;
+        border-left: 1px solid #ccc;
+        background-color: #fff;
+    }
+
+    .other-service-bar-inner a:first-of-type {
+        border: unset;
     }
 
     .btn-container {
         align-items: center;
         flex-direction: row;
     }
+
+    .choose-other-service {
+        font-size: 14px;
+    }
+
 
 
 }

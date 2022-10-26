@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames/bind'
 import styles from './SubMenu.module.css'
+import Link from 'next/link'
 
 const cx = classNames.bind(styles)
 
@@ -12,6 +13,11 @@ export default function SubMenu({ openIndexes, subItems }) {
         <hr className={cx('rule')} />
       </div>
       <ul>
+        {!openIndexes.includes(0) && (
+          <Link href={`/artikler`}>
+            <a className={cx('alle-artikler')}>Alle artikler</a>
+          </Link>
+        )}
         {subItems.map(({ label, path }) => {
           const cleanPath = path.split('/category').pop()
           return (

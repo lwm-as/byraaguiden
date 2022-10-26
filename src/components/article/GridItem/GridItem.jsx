@@ -3,13 +3,18 @@ import styles from './GridItem.module.css'
 import Image from '../../common/Image/Image'
 import Link from 'next/link'
 import React from 'react'
+import useWindowSize from '../../../utils/windowSize'
 
 const cx = classNames.bind(styles)
 
-export default function GridItem({ author = {}, post }) {
+export default function GridItem({ noMarginOnFirstItem, author = {}, post }) {
+  const { width } = useWindowSize()
+  const isMobileWidth = width <= 768
+
+  const margin = isMobileWidth && !noMarginOnFirstItem
   return (
     <Link href={`/${post.categories.nodes[1].slug}/${post.slug}`}>
-      <a>
+      <a className={cx({ margin }, { isMobileWidth })}>
         <div className={cx('container')}>
           <div className={cx('img-container')}>
             {post?.featuredImage.node ? (
@@ -19,7 +24,9 @@ export default function GridItem({ author = {}, post }) {
             )}
           </div>
           <div className={cx('content')}>
-            <h4>{post?.title}</h4>
+            <div className={cx('title')}>
+              <h4>{post?.title}</h4>
+            </div>
             <div className={cx('meta-container')}>
               <img className={cx('avatar')} src={author?.node?.avatar?.url} alt='' />
               <p>

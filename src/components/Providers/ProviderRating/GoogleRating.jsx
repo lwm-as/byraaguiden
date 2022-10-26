@@ -1,13 +1,19 @@
 import styles from './GoogleRating.module.css'
 import IconContainer from '../../../components/IconContainer/IconContainer'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useReviewContext } from '../../Cities/ReviewContextProvider'
 import classNames from 'classnames/bind'
 import { calculateStars } from '../../../utils/calculateStart'
 
 const cx = classNames.bind(styles)
 
-const GoogleRating = ({ customReviewModal = () => {}, stars, totalReviews, placeid }) => {
+const GoogleRating = ({
+  setCustomerReviewModal = () => {},
+  customReviewModal = () => {},
+  stars,
+  totalReviews,
+  placeid
+}) => {
   const { setCurrentPlaceId } = useReviewContext()
 
   const starCount = calculateStars(stars)
@@ -15,6 +21,7 @@ const GoogleRating = ({ customReviewModal = () => {}, stars, totalReviews, place
   const readMore = () => {
     setCurrentPlaceId(placeid)
     customReviewModal()
+    setCustomerReviewModal(true)
   }
 
   const starIcons = {

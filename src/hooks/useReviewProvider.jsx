@@ -6,6 +6,7 @@ import calculateReviews from '../utils/calculateReviews'
 import fetcher from '../utils/fetcher'
 import { sortReviews } from '../utils/sortReviews'
 import disableScroll from '../utils/disableScroll'
+import uniqid from 'uniqid'
 
 const useReviewProvider = (providers, cities) => {
   //Providers

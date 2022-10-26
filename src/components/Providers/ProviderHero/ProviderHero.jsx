@@ -14,7 +14,7 @@ const cx = classNames.bind(styles)
 
 const ProviderHero = ({ setChangingCity }) => {
   const { toggleButton, checkedButtons } = useToggler()
-  const { sortReviews, sortValue } = useReviewContext()
+  const { sortReviews } = useReviewContext()
 
   function handleClick({ e, idx }) {
     sortReviews(e)

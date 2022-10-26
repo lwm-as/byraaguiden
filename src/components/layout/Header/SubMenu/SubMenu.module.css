@@ -1,15 +1,21 @@
 .root {
     position: absolute;
     width: 100%;
-    top: 100%;
+    top: 97%;
     transform: translateY(15px);
     background-color: white;
     box-shadow: 0px 3px 6px #00000029;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 2rem 3rem;
-    height: 350px;
+    height: 362px;
+    z-index: 2;
 
+}
+
+.alle-artikler {
+    font-weight: 500;
+    font-size: 14px !important;
 }
 
 .root h3{
@@ -31,7 +37,7 @@
     font-size: 14px !important;
 }
 
-.root ul li:hover{
+.root ul li:hover, .alle-artikler:hover{
     color: #002E47;
     text-decoration-line: underline;
 }

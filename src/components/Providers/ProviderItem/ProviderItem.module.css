@@ -81,7 +81,9 @@
 .legg-til {
     display: flex;
     justify-content: flex-end;
+
 }
+
 
 .name {
     font-family: var(--text-font);

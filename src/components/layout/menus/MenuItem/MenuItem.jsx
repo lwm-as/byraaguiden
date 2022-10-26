@@ -33,7 +33,7 @@ const MenuItem = ({ label, path, icon, social, className }) => {
   return (
     <Link href={path} passHref>
       <a className={cx(`${className}`)} href>
-        <span>{label}</span>
+        <span className={cx('label')}>{label}</span>
         {isIcon && (
           <div className={cx('icon-wrapper')}>
             <FontAwesomeIcon icon={['fal', `${icon[0]}`]} size='lg' color='#2288EF' />

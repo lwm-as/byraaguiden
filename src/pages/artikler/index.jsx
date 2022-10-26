@@ -43,29 +43,27 @@ const Blogg = ({ data, categories }) => {
   const size = useWindowSize()
 
   return (
-    <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
-      <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
-        <GridHero title='Alle artikler' />
-        <Container size='medium'>
-          <Breadcrumb title={category.name} category={category} size={size} />
-        </Container>
-        <BlogGrid categories={categories} posts={posts} category={category}>
-          <>
-            <div className={cx('hero-container')}>
-              <Container className={cx('hero-inner-container')} size='medium'>
-                <ServiceTab />
-              </Container>
-            </div>
-            <div className={cx('bg-container')}>
-              <div className={cx('red-square')} />
-              <Container className={cx('service-preview-container')} size='medium'>
-                <ServicePreviewArticle services={categories.categories} />
-              </Container>
-              <div className={cx('dark-square')} />
-            </div>
-          </>
-        </BlogGrid>
-      </Layout>
+    <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
+      <GridHero title='Alle artikler' />
+      <Container size='medium'>
+        <Breadcrumb title={category.name} category={category} size={size} />
+      </Container>
+      <BlogGrid categories={categories} posts={posts} category={category}>
+        <>
+          <div className={cx('hero-container')}>
+            <Container className={cx('hero-inner-container')} size='medium'>
+              <ServiceTab />
+            </Container>
+          </div>
+          <div className={cx('bg-container')}>
+            <div className={cx('red-square')} />
+            <Container className={cx('service-preview-container')} size='medium'>
+              <ServicePreviewArticle services={categories.categories} />
+            </Container>
+            <div className={cx('dark-square')} />
+          </div>
+        </>
+      </BlogGrid>
     </Layout>
   )
 }

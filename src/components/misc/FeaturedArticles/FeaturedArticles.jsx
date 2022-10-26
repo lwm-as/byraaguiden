@@ -17,7 +17,7 @@ const FeaturedArticles = ({ post, author, children, posts }) => {
   const { distinctArticles } = useContext(ArticleContext)
 
   if (!distinctArticles) {
-    return <div>Loading...</div>
+    return <div></div>
   }
 
   const ids = new Set(distinctArticles.map(({ id }) => id))

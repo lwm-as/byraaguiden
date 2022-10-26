@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   const response = {
     rating: 0,
     totalReviews: 0,
-    reviews: [],
+    reviews: []
   }
 
   const allReviews = placeIds.map(async placeId => {
@@ -28,14 +28,14 @@ export default async function handler(req, res) {
           key: process.env.GOOGLE_MAPS_API_KEY,
           place_id: placeId,
           language: 'no',
-          fields,
-        },
+          fields
+        }
       })
 
       return {
         rating: data.result.rating || response.rating,
         totalReviews: data.result.user_ratings_total || response.totalReviews,
-        reviews: data.result.reviews || response.reviews,
+        reviews: data.result.reviews || response.reviews
       }
     } catch (error) {
       return response

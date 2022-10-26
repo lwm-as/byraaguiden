@@ -7,7 +7,7 @@ import Image from '../../common/Image/Image'
 
 const cx = classNames.bind(styles)
 
-export default function ProviderItemVertical({ customReviewModal, provider }) {
+export default function ProviderItemVertical({ setCustomerReviewModal, customReviewModal, provider }) {
   const {
     provider: {
       providersInfo: { name, logo, providerButton, contact, websiteLink, focusareas, description, placeid }
@@ -37,6 +37,7 @@ export default function ProviderItemVertical({ customReviewModal, provider }) {
             />
           )}
           <GoogleRating
+            setCustomerReviewModal={setCustomerReviewModal}
             customReviewModal={customReviewModal}
             stars={rating}
             totalReviews={totalReviews}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
 import styles from './BlogCategoryGrid.module.css'
 import Container from '../../layout/Container/Container'
@@ -49,6 +49,9 @@ export default function BlogCategoryGrid({ categories, posts, category, children
     setLoading(false)
   }
 
+  const filter = categories.categories.nodes.filter(catt => {
+    return catt.name !== category.name && catt.name !== 'Artikler'
+  })
   return (
     <div className={cx('root')}>
       <Container size='medium'>
@@ -64,29 +67,43 @@ export default function BlogCategoryGrid({ categories, posts, category, children
       <Container size='medium'>
         <div className={cx('inner-container')}>
           {preLoadedPosts?.map((post, idx) => {
-            return <GridItem author={post.author} post={post} />
+            return <GridItem noMarginOnFirstItem author={post.author} post={post} />
           })}
         </div>
       </Container>
-      {preLoadedInfo?.hasNextPage && (
-        <Container size='medium'>
-          <div className={cx('btn-container')}>
-            <div className={cx('inner-btn-container')}>
-              <div>
-                <Button disabled={loading} onClick={handleClick} className={cx('btn')}>
-                  {loading ? 'Laster inn fler' : 'Last inn fler'}
-                </Button>
-              </div>
-            </div>
-            <div className={cx('all-articles')}>
-              <div className={cx('all-articles-inner')}>
-                <a href='/artikler'>Alle artikler</a>
-                <FontAwesomeIcon icon={['fas', 'chevron-right']} />
-              </div>
+      {/*{preLoadedInfo?.hasNextPage && (*/}
+      <Container size='medium'>
+        <div className={cx('btn-container')}>
+          <div className={cx('inner-btn-container')}>
+            <div>
+              <Button disabled={loading} onClick={handleClick} className={cx('btn')}>
+                {loading ? 'Laster inn fler' : 'Last inn fler'}
+              </Button>
             </div>
           </div>
-        </Container>
-      )}
+          <div className={cx('all-articles')}>
+            <div className={cx('all-articles-inner')}>
+              <a href='/artikler'>Alle artikler</a>
+              <FontAwesomeIcon icon={['fas', 'chevron-right']} />
+            </div>
+          </div>
+        </div>
+      </Container>
+      {/*)}*/}
+      <Container size='large'>
+        <div className={cx('other-services-bar')}>
+          <span className={cx('choose-other-service')}>Velg en annen bransje:</span>
+          <div className={cx('other-service-bar-inner')}>
+            {filter.map(({ name, slug }, i) => {
+              return (
+                <Link href={`/artikler/${slug}`}>
+                  <a className={cx('link')}>{name}</a>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      </Container>
     </div>
   )
 }

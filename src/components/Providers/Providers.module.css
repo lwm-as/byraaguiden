@@ -10,6 +10,22 @@
     display: flex;
 }
 
+.progress-container {
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 38%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    z-index: 100;
+}
+
+.progress-icon {
+    color: #FF4A55 !important;
+}
+
 .inner-compare span {
     color: white;
     font-size: 1rem;
