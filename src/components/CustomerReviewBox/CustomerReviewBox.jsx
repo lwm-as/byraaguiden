@@ -4,6 +4,7 @@ import styles from './CustomerReviewBox.module.css'
 const cx = classNames.bind(styles)
 
 export default function CustomerReviewBox({ author, text }) {
+  console.log('')
   return (
     <div className={cx('root')}>
       <div>
