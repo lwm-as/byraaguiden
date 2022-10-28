@@ -48,12 +48,13 @@ export default function OfferFormFooter({ validate, activeStep, onBack, isLastSt
         </div>
       </div>
       <div className={cx('form-stepper')}>
-        <StepperComponent step={step} />
+        <StepperComponent step={step + 1} />
       </div>
 
       <div className={cx('bottom-txt')}>
         <p className={cx('disclaimer')}>
-          Informasjonen du sender inn sendes med en gang ti byråene, og sensitiv <br /> informasjon
+          informasjonen du sender inn går direkte til byråene.
+          <br /> Sensitiv informasjon lagres ikke.
         </p>
       </div>
     </div>

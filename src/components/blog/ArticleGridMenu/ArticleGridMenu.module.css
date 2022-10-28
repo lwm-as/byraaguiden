@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: #12273A;
+  color: #12273a;
   transition: color 0.2s ease;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .icon-container svg {
-  color: #12273A;
+  color: #12273a;
 }
 
 .link:hover .icon-container svg {

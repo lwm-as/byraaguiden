@@ -1,11 +1,9 @@
 import { useReviewContext } from '../Cities/ReviewContextProvider'
-import uniqid from 'uniqid'
 import ProviderItem from './ProviderItem/ProviderItem'
 import styles from './Providers.module.css'
 
 import Popup from '../../components/Popup/Popup'
-import Backdrop from '../../components/Backdrop/Backdrop'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import Container from '../layout/Container/Container'
 import classNames from 'classnames/bind'
 import { useCompareItems } from './compareitems'
@@ -15,16 +13,19 @@ import Image from '../common/Image/Image'
 import Button from '../common/Button/Button'
 import useWindowSize from '../../utils/windowSize'
 import CircularProgress from '@mui/material/CircularProgress'
+import _ from 'lodash'
 
 const cx = classNames.bind(styles)
 
 const Providers = () => {
   const { sortedReviews, setLoadMore, rest, loading } = useReviewContext()
-  const { checked, toggleChecked } = useCompareItems()
+  const { checked, toggleChecked, removeItemFromCompareModal } = useCompareItems()
+
   const [compareItemsModal, setCompareItemsModal] = useState(false)
   const [customerReviewsModal, setCustomerReviewsModal] = useState(false)
   const { width } = useWindowSize()
   const isMobile = width <= 1000
+  const [state, setState] = useState([])
 
   const isRestEmpty = rest.length < 1
 
@@ -54,22 +55,30 @@ const Providers = () => {
 
   return (
     <>
-      {compareItemsModal && <CompareItemsModal checked={checked} onClose={() => setCompareItemsModal(false)} />}
+      {compareItemsModal && (
+        <CompareItemsModal
+          compareItemsModal={compareItemsModal}
+          checked={checked}
+          onClose={() => setCompareItemsModal(false)}
+        />
+      )}
       <div className={cx('root')}>
         {customerReviewsModal && <Popup open={customerReviewsModal} onClose={() => setCustomerReviewsModal(false)} />}
         <div className={cx('col-1')}>
           <Container size='medium' className={cx('providerContainer')}>
-            {sortedReviews.map((item, idx) => (
-              <ProviderItem
-                isMobile={isMobile}
-                customReviewModal={() => setCustomerReviewsModal(true)}
-                checked={checked}
-                toggleChecked={toggleChecked}
-                idx={idx}
-                provider={item}
-                key={uniqid()}
-              />
-            ))}
+            {sortedReviews?.map((item, idx) => {
+              return (
+                <ProviderItem
+                  isMobile={isMobile}
+                  customReviewModal={() => setCustomerReviewsModal(true)}
+                  checked={checked}
+                  toggleChecked={toggleChecked}
+                  idx={idx}
+                  provider={item}
+                  // key={item.id}
+                />
+              )
+            })}
             {!isRestEmpty && (
               <div className={cx('buttonContainer')}>
                 <div>

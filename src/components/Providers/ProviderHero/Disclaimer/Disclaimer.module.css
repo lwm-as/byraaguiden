@@ -6,7 +6,7 @@
   font-size: 14px;
   color: var(--cl-link);
   text-decoration: underline;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .disclaimerButton .disclaimerInfoIcon {
@@ -44,7 +44,7 @@
     height: 100%;
     padding: 0.5rem 1rem;
     position: relative;
-    background-color: #FFF;
+    background-color: #fff;
     box-shadow: var(--shadow);
     z-index: 12;
   }
@@ -89,7 +89,7 @@
     width: 600px;
     padding: 1rem 2rem;
     position: relative;
-    background-color: #FFF;
+    background-color: #fff;
     box-shadow: var(--shadow);
     z-index: 12;
   }

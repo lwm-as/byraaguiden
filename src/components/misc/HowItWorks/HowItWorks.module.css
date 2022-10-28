@@ -32,7 +32,7 @@
 .text-box {
   margin: 1.5rem 0;
   padding: 1.5rem 1rem;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 2px 5px 1px #00000010;
 }
@@ -49,7 +49,7 @@
   margin: 0 0 0.25rem;
   font-size: 16px;
   font-weight: 600;
-  color: #223EAA;
+  color: #223eaa;
 }
 
 .text-box p {
@@ -60,7 +60,7 @@
 .icon-box {
   margin: 1.5rem 1rem 1.5rem 0;
   padding: 0.5rem;
-  background-color: #E2F2FE;
+  background-color: #e2f2fe;
   border-radius: 50%;
 }
 
@@ -68,7 +68,7 @@
   .root {
     margin: 0 0 3rem;
     padding: 2rem 3rem;
-    background-color: #FFF;
+    background-color: #fff;
     border-radius: var(--border-radius);
     box-shadow: 0px 2px 5px 1px #00000010;
   }
@@ -105,7 +105,7 @@
   .text-box {
     margin: 0;
     padding: 1.5rem;
-    background-color: #E2F2FE;
+    background-color: #e2f2fe;
     box-shadow: none;
   }
   .text-box:last-of-type {
@@ -118,7 +118,7 @@
     position: absolute;
     width: 1px;
     height: 30px;
-    background-color: #2288EF;
+    background-color: #2288ef;
   }
   .first-line {
     top: 70px;

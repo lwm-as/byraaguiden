@@ -1,42 +1,38 @@
 .root {
-    padding: 1rem 1.5rem;
-    box-shadow: 0 1px 10px 1px #00000015;
-    margin-right: 1.5rem;
-    border-radius: 16px;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 1px 10px 1px #00000015;
+  margin-right: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .root div:first-of-type {
-    margin-bottom: 1.3rem;
+  margin-bottom: 1.3rem;
 }
 
 .root:last-of-type {
-    margin: unset;
+  margin: unset;
 }
 
-
 .author {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
 }
 
 .author span:first-of-type {
-    font-weight: 700;
-    font-size: 14px;
-
+  font-weight: 700;
+  font-size: 14px;
 }
 .author span:last-of-type {
-    margin-top: 2px;
-     font-size: 12px;
- }
-
+  margin-top: 2px;
+  font-size: 12px;
+}
 
 @media screen and (min-width: 768px) {
-    .root {
-        margin-bottom: unset;
-
-    }
+  .root {
+    margin-bottom: unset;
+  }
 }

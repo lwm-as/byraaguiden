@@ -30,7 +30,7 @@ export default function GridItem({ noMarginOnFirstItem, author = {}, post }) {
             <div className={cx('meta-container')}>
               <img className={cx('avatar')} src={author?.node?.avatar?.url} alt='' />
               <p>
-                by {author?.node?.firstName || author?.node?.name.charAt(0).toUpperCase() + author?.node?.name.slice(1)}
+                av {author?.node?.firstName || author?.node?.name.charAt(0).toUpperCase() + author?.node?.name.slice(1)}
               </p>
             </div>
           </div>

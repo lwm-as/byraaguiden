@@ -21,7 +21,7 @@
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: var(--border-radius);
   /*box-shadow: 0px 2px 5px 1px #00000010;*/
   transition: all 0.2s ease-in-out;
@@ -55,7 +55,6 @@
 
 .featured-image img {
   border-radius: 10px 10px 0 0;
-
 }
 
 .featured-item h3 {
@@ -80,7 +79,7 @@
 
 .featured-item .read-more p {
   text-decoration: underline;
-  color: #051D5C;
+  color: #051d5c;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,11 +1,11 @@
 .footer {
   padding: 1rem 0 2rem;
-  background-color: #00101A;
+  background-color: #00101a;
 }
 .footer * {
-    color: white;
-    font-size: 14px;
-    font-family: var(--text-font) !important;
+  color: white;
+  font-size: 14px;
+  font-family: var(--text-font) !important;
 }
 
 /*.footer-container {*/
@@ -18,78 +18,83 @@
 /*  border-top: 1px solid #d1d1d1;*/
 /*}*/
 
-
 .flex-col {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 3rem;
-    /*height: 300px;*/
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  /*height: 300px;*/
 }
 
 .text {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .rule {
-    flex-grow: 1;
-    max-width: 10%;
-    margin-left: 0;
+  flex-grow: 1;
+  max-width: 10%;
+  margin-left: 0;
 }
 
 .other {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .other-inner {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 @media screen and (min-width: 768px) {
-    .flex {
-      display: flex;
-        justify-content: space-between;
-    }
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5rem;
-    }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+  }
 
-    .flex-child-1 {
-        margin-top: 32px;
-        flex: .5;
-    }
-    .flex-child-2 {
-        flex: .5;
-    }
+  .flex-child-1 {
+    margin-top: 32px;
+    line-height: 2rem;
+    flex: 0.5;
+  }
 
-    .other {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        /*justify-items: left;*/
-    }
+  .flex-child-1 span {
+    font-size: 16px;
+    font-weight: 600;
+  }
 
-   .sep-container {
+  .flex-child-2 {
+    flex: 0.5;
+  }
+
+  .other {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /*justify-items: left;*/
+  }
+
+  .sep-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-    .sep {
-        flex: 1;
-    }
+  }
+  .sep {
+    flex: 1;
+  }
 
-    .sep span {
-        font-size: 22px;
-        display: block;
-        text-align: center;
-    }
+  .sep span {
+    font-size: 22px;
+    display: block;
+    text-align: center;
+  }
 }
-

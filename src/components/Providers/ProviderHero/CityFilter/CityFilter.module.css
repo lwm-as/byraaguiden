@@ -1,115 +1,110 @@
 .select-container {
-    width: 100%;
-    height: 100%;
-    margin-top: 2rem;
+  /*width: 100%;*/
+  /*height: 100%;*/
+  margin-top: 2rem;
 }
 
 .filtrer {
-    position: relative;
-    top: -10px;
-    font-size: 16px;
-    font-weight: 500;
+  position: relative;
+  top: -10px;
+  font-size: 16px;
+  font-weight: 500;
 }
 .select-container * {
-    margin: 0;
+  margin: 0;
 }
 
-
-
 .select-inner {
-    height: 50px;
-    border: 1px solid #D3D4D5;
-    border-radius: 12px;
-    position: relative;
-    cursor: pointer;
+  padding: 0.93rem 0;
+  border: 1px solid #d3d4d5;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
 }
 
 .select-inner:hover {
-    border: 1px solid #FF4A55;
-    background-color: #FF4A55;
-    color: white;
+  border: 1px solid #ff4a55;
+  background-color: #ff4a55;
+  color: white;
 }
 
 .select-inner:hover .icon {
-    color: white;
+  color: white;
 }
 
 .icon-container {
-    top: 0;
-    line-height: 50px;
-    right: 8px;
-    position: absolute;
+  top: 0;
+  line-height: 50px;
+  right: 8px;
+  height: 100%;
+  display: block;
+  position: absolute;
 }
 
 .icon {
-    color: #FF4A55;
-    font-size: 1rem;
+  color: #ff4a55;
+  font-size: 1rem;
 }
 
 .displayText {
-    padding-left: 12px;
-    line-height: 50px;
-    width: 30%;
-    font-size: 14px;
-    font-weight: 400;
-
+  padding-left: 12px;
+  /*line-height: 50px;*/
+  width: 30%;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .options {
-    position: relative;
-    top: 4px;
-    font-size: 14px;
-    z-index: 999;
+  position: relative;
+  top: 4px;
+  font-size: 14px;
+  z-index: 999;
 }
 
 .openSelect {
-    border-bottom-color: rgba(211, 212, 213, 0.3) !important;
-    border-bottom-right-radius: unset;
-    border-bottom-left-radius: unset;
+  border-bottom-color: rgba(211, 212, 213, 0.3) !important;
+  border-bottom-right-radius: unset;
+  border-bottom-left-radius: unset;
 }
 
-.options  a {
-    font-weight: 500 !important;
+.options a {
+  font-weight: 500 !important;
 }
 
 .list {
-    z-index: 6;
-    position: absolute;
-    background-color: white;
-    top: -5px;
-    width: 120%;
-    border: 1px solid #D3D4D5;
-    border-top-color: rgba(211, 212, 213, 0.3);
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    overflow: scroll;
-    overflow-x: hidden;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-
+  z-index: 6;
+  position: absolute;
+  background-color: white;
+  top: -5px;
+  width: 100%;
+  border: 1px solid #d3d4d5;
+  border-top-color: rgba(211, 212, 213, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  overflow: scroll;
+  overflow-x: hidden;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-
-.list a{
-    padding: 8px 8px;
-    list-style: none;
-    margin: 3px 0;
-
+.list a {
+  padding: 8px 8px;
+  list-style: none;
+  margin: 3px 0;
 }
 
-.list a:hover{
-    background-color: #FF4A55;
-    color: white;
-    cursor: pointer;
+.list a:hover {
+  background-color: #ff4a55;
+  color: white;
+  cursor: pointer;
 }
-
-
 
 @media screen and (min-width: 768px) {
-    .select-container {
-        width: 170px;
-    }
-
-
+  .select-container {
+    /*width: 170px;*/
+  }
+  .list {
+    width: 120%;
+  }
 }

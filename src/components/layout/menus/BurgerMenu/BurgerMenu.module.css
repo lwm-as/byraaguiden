@@ -20,7 +20,7 @@
 }
 
 .links {
-  padding: 0 1rem;
+  padding: 1.5rem 1rem;
 }
 
 .links-item {
@@ -29,8 +29,8 @@
 }
 
 .link {
+  padding-top: 1rem;
   margin-bottom: 1rem;
-
 }
 
 .articles {
@@ -45,7 +45,13 @@
   padding: 0 1rem 0;
 }
 
-.label, .link, .service {
+.label {
+  font-weight: 600;
+}
+
+.label,
+.link,
+.service {
   font-size: 18px;
 }
 
@@ -58,8 +64,8 @@
   display: flex;
   align-items: center;
   padding: 1rem;
-  background-color: #FF4A55;
-  margin-bottom: 1rem ;
+  background-color: #002e47;
+  margin-bottom: 1rem;
   margin-top: 1rem;
   border-radius: 12px;
 }
@@ -75,12 +81,14 @@
 
 .service-box img {
   width: 50px;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   border-radius: 8px;
   padding: 4px;
   background-color: white;
 }
 
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+}
 
-@media screen and (min-width: 1024px) {}
+@media screen and (min-width: 1024px) {
+}

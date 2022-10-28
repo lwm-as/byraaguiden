@@ -2,28 +2,27 @@
   height: 375px;
 }*/
 
-
 .checkboxes {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .border {
-    border: 2px solid #D3D3D3;
-    background-color: #F6F6F6;
-    padding: 3px 8px;
-    border-radius: 10px;
-    width: 100%;
-    margin: 8px 0;
+  border: 2px solid #d3d3d3;
+  background-color: #f6f6f6;
+  padding: 3px 8px;
+  border-radius: 10px;
+  width: 100%;
+  margin: 8px 0;
 }
 .checked {
-    border: 2px solid #FF4A55;
-    background-color: #FFEFF0;
+  border: 2px solid #ff4a55;
+  background-color: #ffeff0;
 }
 
 @media screen and (max-width: 768px) {
-    .root {
-        margin-bottom: 1rem;
-    }
+  .root {
+    margin-bottom: 1rem;
+  }
 }

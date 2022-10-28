@@ -12,10 +12,11 @@ import useWindowSize from '../../utils/windowSize'
 import OfferFormContainer from './common/Layout/OfferFormContainer/OfferFormContainer'
 import OfferFormFooter from './common/Layout/OfferFormFooter/OfferFormFooter'
 import styles from './OfferForm.module.css'
+import OfferFinalStep from '../offerformSteps/OfferFinalStep/OfferFinalStep'
 
 const cx = classNames.bind(styles)
 
-function OfferForm({ children, initialValues, selectedValues, categories, steps, ...props }) {
+function OfferForm({ setShowFinalStep, children, initialValues, selectedValues, categories, steps, ...props }) {
   const childArray = React.Children.toArray(children)
   const router = useRouter()
 
@@ -69,6 +70,7 @@ function OfferForm({ children, initialValues, selectedValues, categories, steps,
             const res = await axios.post('/api/send-lead', data)
 
             if (res.status === 200) {
+              setShowFinalStep(true)
               alert('success')
               // router.push(`/suksess`)
             }

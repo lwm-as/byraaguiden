@@ -13,11 +13,12 @@ export default function TabSlider({ data, setActiveClass = () => {}, setActiveCl
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={100}
-        slidesPerView={2}
+        slidesPerView={2.5}
         navigation
+        watchSlidesProgress={true}
         breakpoints={{
           320: {
-            slidesPerView: 2,
+            slidesPerView: 2.45,
             spaceBetween: 5
           },
           480: {

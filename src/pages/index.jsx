@@ -95,7 +95,7 @@ const HomePage = ({ data }) => {
             </>
           )}
           <Container size='medium'>
-            <section>
+            <section className={cx('city-section')}>
               <div className={cx('section-icon-container')}>
                 <img src='https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/pin.svg' alt='' />
                 <h3 className={cx('section-title')}>Steder</h3>
@@ -164,9 +164,11 @@ const HomePage = ({ data }) => {
                   </div>
                 </div>
                 <div className={cx('register-btn-container')}>
-                  <Button className={cx('gaa-til-registrering')} link='/registrer-bedrift'>
-                    Gå til registrering
-                  </Button>
+                  <div className={cx('register-btn-inner-container')}>
+                    <Button className={cx('gaa-til-registrering')} link='/registrer-bedrift'>
+                      Gå til registrering
+                    </Button>
+                  </div>
                 </div>
               </div>
             </section>

@@ -1,14 +1,15 @@
 .root {
-   margin: 0 0 1rem;
-  padding: 1.6rem 1rem 1.6rem 1rem;
+  margin: 0 0 1rem;
+  padding: 1.6rem 1rem 1rem 1rem;
+  /*padding: 1.6rem 1rem 1.6rem 1rem;*/
   border-radius: 12px;
-  background-color: #FFEFF0;
-  border: 1px solid #FF4A55;
+  background-color: #ffeff0;
+  border: 1px solid #ff4a55;
 }
 
 .title {
   font-size: 18px;
-  line-height:1.7rem !important;
+  line-height: 1.7rem !important;
   font-weight: 600 !important;
   color: var(--color-title);
   font-family: var(--text-font);
@@ -16,11 +17,9 @@
   margin-bottom: 1rem;
 }
 
-
 .icon-clock {
   margin-right: 4px;
 }
-
 
 .text {
   padding: 0.3rem 1.5rem;
@@ -38,32 +37,28 @@
 }
 
 .list-item {
-  margin: .6rem 0;
+  margin: 0.6rem 0;
   display: flex;
   align-items: center;
 }
 
-
 .list-item .icon-container {
-  background-color: #FF4A55;
+  background-color: #ff4a55;
   border-radius: 50%;
 }
 
-
-
-.cta-btn a{
-  border-radius: 12px;
-  background-color: #FF4A55;
+.cta-btn a {
+  border-radius: 10px;
+  background-color: #ff4a55;
   font-size: 14px;
   margin-top: 7px;
 }
 
-
 .list-item .icon {
   width: 20px;
+  padding: 2px;
   height: 16px;
   color: white;
-  /*color: var(--color-primary-blue);*/
 }
 
 .list-item span {
@@ -83,4 +78,5 @@
   margin-left: 0.5rem;
 }
 
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+}

@@ -1,81 +1,74 @@
 .root {
-    display: flex;
+  display: flex;
 }
 .inner-root {
-    padding: 2rem;
-    background: white;
-    border-radius: 1rem;
-    width: 100%;
-    position: relative;
-    z-index: 9;
-    flex: 1;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  width: 100%;
+  position: relative;
+  z-index: 9;
+  flex: 1;
 }
 
 .header {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .btn-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
 }
-
 
 .sammenling-btn {
-    margin-top: 1rem;
-}
-
-.btn-container a{
-    border-radius: 10px;
-    margin: 0;
-    white-space: nowrap;
-    background-color: var(--color-primary-red);
-    box-shadow: 0px 1px 5px 1px #00000020;
-    transition: all 0.2s ease-in-out;
-    padding: 1.1rem 1.1rem;
-    color: white;
-}
-
-.btn-container a:hover {
-    background-color: var(--color-accent-red);
-    box-shadow: 0 1px 5px 1px #00000030;
+  margin-top: 1rem;
 }
 
 .btn-container a {
-    flex: 1;
+  border-radius: 10px;
+  margin: 0;
+  white-space: nowrap;
+  background-color: var(--color-primary-red);
+  box-shadow: 0px 1px 5px 1px #00000020;
+  transition: all 0.2s ease-in-out;
+  color: white;
 }
 
-.white-bg a{
-    background: white;
-    color: #002E47;
-    border: 1px solid var(--color-accent-red);
+.btn-container a:hover {
+  background-color: var(--color-accent-red);
+  box-shadow: 0 1px 5px 1px #00000030;
 }
 
-.white-bg a:hover{
-    color: white;
-    background: var(--color-primary-red);
+.btn-container a {
+  flex: 1;
+}
 
+.white-bg a {
+  background: white;
+  color: #002e47;
+  border: 1px solid var(--color-accent-red);
+}
+
+.white-bg a:hover {
+  color: white;
+  background: var(--color-primary-red);
 }
 
 @media screen and (min-width: 768px) {
-    .inner-root {
-        flex: 0.5;
+  .inner-root {
+    flex: 0.5;
+  }
 
-    }
+  .btn-container {
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    gap: 1.5rem;
+  }
 
-    .btn-container {
-        flex-direction: row;
-        align-items: center;
-        width: 50%;
-        gap: 1rem;
-
-    }
-
-    .sammenling-btn {
-        margin-top: unset;
-    }
-
-
+  .sammenling-btn {
+    margin-top: unset;
+  }
 }

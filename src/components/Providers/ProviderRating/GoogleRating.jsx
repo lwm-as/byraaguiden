@@ -4,6 +4,7 @@ import React, { useContext } from 'react'
 import { useReviewContext } from '../../Cities/ReviewContextProvider'
 import classNames from 'classnames/bind'
 import { calculateStars } from '../../../utils/calculateStart'
+import useWindowSize from '../../../utils/windowSize'
 
 const cx = classNames.bind(styles)
 
@@ -14,6 +15,9 @@ const GoogleRating = ({
   totalReviews,
   placeid
 }) => {
+  const { width } = useWindowSize()
+  const isMobile = width <= 1000
+
   const { setCurrentPlaceId } = useReviewContext()
 
   const starCount = calculateStars(stars)
@@ -32,14 +36,14 @@ const GoogleRating = ({
 
   if (stars === 0) {
     return (
-      <div className={styles.root}>
+      <div className={cx('ingen-anmeldelser')}>
         <p>Ingen anmeldelser</p>
       </div>
     )
   }
 
   return (
-    <div className={cx('root')}>
+    <div className={cx('root', { isMobile })}>
       <div className={cx('starContainer')}>
         <IconContainer src={'google-icon.svg'} width={14} height={14} />
         <p className={styles.starCount}>{parseFloat(stars).toFixed(1)}</p>

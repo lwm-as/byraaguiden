@@ -30,7 +30,7 @@
   margin-left: 1rem;
 }
 
-.bottom-content .social-menu a:hover>svg {
+.bottom-content .social-menu a:hover > svg {
   /*color: var(--color-primary-blue);*/
 }
 
@@ -69,4 +69,5 @@
   }
 }
 
-@media screen and (min-width: 1024px) {}
+@media screen and (min-width: 1024px) {
+}

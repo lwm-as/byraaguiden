@@ -56,7 +56,7 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
   return (
     <Box sx={{ width: '100%', position: 'relative' }}>
       <div className={cx('close')}>
-        <FontAwesomeIcon size='2x' color='black' onClick={onClose} className={cx('icon')} icon={['fal', 'times']} />
+        <FontAwesomeIcon size='2x' color='#727070' onClick={onClose} className={cx('icon')} icon={['fal', 'times']} />
       </div>
       <Box
         sx={{
@@ -69,7 +69,7 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
           padding: '1rem 0 0 0'
         }}
       >
-        <span className={cx('title')}>Sammenlign byråene</span>
+        <span className={cx('title')}>Sammenlign byråer</span>
 
         <Tabs
           TabIndicatorProps={{
@@ -91,6 +91,7 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
             if (checked.includes(idx)) {
               return (
                 <ProviderItemVertical
+                  idx={idx}
                   setCustomerReviewModal={setCustomerReviewModal}
                   customReviewModal={customReviewModal}
                   provider={item}

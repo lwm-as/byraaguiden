@@ -56,7 +56,7 @@ const BlogArticle = ({ data }) => {
             </div>
           </ContentsMenuStateProvider>
           <FeaturedArticles post={data?.post} category={category} author={author} posts={posts}>
-            Dykk enda dypere i {category.name}
+            Dykk enda dypere i {category.name.toLowerCase()}
           </FeaturedArticles>
         </ArticleProvider>
         <CtaFooterButton

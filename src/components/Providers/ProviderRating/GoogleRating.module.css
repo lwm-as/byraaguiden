@@ -3,6 +3,26 @@
   align-items: center;
 }
 
+.reviewLink {
+  text-decoration: underline;
+  font-weight: 400 !important;
+}
+
+.isMobile {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.ingen-anmeldelser p {
+  font-weight: 600 !important;
+}
+
+.isMobile div {
+  margin: -5px 0;
+}
+
 .starContainer {
   display: flex;
   align-items: center;

@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Button from '../../common/Button/Button'
 
 import styles from './CTASection.module.css'
-import { useRouter } from 'next/router'
 
 const cx = classNames.bind(styles)
 
@@ -24,19 +23,19 @@ const CTASection = ({ category }) => {
       <ul className={cx('list')}>
         <li className={cx('list-item')}>
           <i className={cx('icon-container', 'check')}>
-            <FontAwesomeIcon className={cx('icon')} icon={['fal', 'check']} />
+            <FontAwesomeIcon className={cx('icon')} icon={['fas', 'check']} />
           </i>
           <span>Helt uforpliktende</span>
         </li>
         <li className={cx('list-item')}>
           <i className={cx('icon-container', 'check')}>
-            <FontAwesomeIcon className={cx('icon')} icon={['fal', 'check']} />
+            <FontAwesomeIcon className={cx('icon')} icon={['fas', 'check']} />
           </i>
           <span>100% gratis</span>
         </li>
         <li className={cx('list-item')}>
           <i className={cx('icon-container')}>
-            <FontAwesomeIcon className={cx('icon', 'check')} icon={['fal', 'check']} />
+            <FontAwesomeIcon className={cx('icon', 'check')} icon={['fas', 'check']} />
           </i>
           <span>Byråer tilpasset ditt prosjekt</span>
         </li>

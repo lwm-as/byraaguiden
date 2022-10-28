@@ -30,8 +30,7 @@
     grid-template-columns: 75% 25%;
     column-gap: 1rem;
   }
-.isCompareArticle {
-  grid-template-columns: 75% 25% !important;
-
-}
+  .isCompareArticle {
+    grid-template-columns: 75% 25% !important;
+  }
 }

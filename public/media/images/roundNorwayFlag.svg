@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="Ellipse_10" data-name="Ellipse 10" cx="15" cy="15" r="15" transform="translate(1560 21)" fill="#781c1c"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_2" data-name="Mask Group 2" transform="translate(-1560 -21)" clip-path="url(#clip-path)">
+    <g id="Flag_of_Norway" transform="translate(1555.791 21.321)">
+      <rect id="Rectangle_92" data-name="Rectangle 92" width="41.418" height="29.679" fill="#ba0c2f"/>
+      <g id="Group_108" data-name="Group 108">
+        <rect id="Rectangle_93" data-name="Rectangle 93" width="7.531" height="29.679" transform="translate(11.296)" fill="#fff"/>
+        <rect id="Rectangle_94" data-name="Rectangle 94" width="41.418" height="7.531" transform="translate(0 11.074)" fill="#fff"/>
+      </g>
+      <g id="Group_109" data-name="Group 109">
+        <rect id="Rectangle_95" data-name="Rectangle 95" width="3.765" height="29.679" transform="translate(13.178)" fill="#00205b"/>
+        <rect id="Rectangle_96" data-name="Rectangle 96" width="41.418" height="3.765" transform="translate(0 12.957)" fill="#00205b"/>
+      </g>
+    </g>
+  </g>
+</svg>

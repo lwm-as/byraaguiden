@@ -1,16 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/dist/client/router'
+import React, { useRef, useState } from 'react'
 import classNames from 'classnames/bind'
 
 import '../../../utils/fontawesome'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import useWindowSize from '../../../utils/windowSize'
-import disableScroll from '../../../utils/disableScroll'
 
 import Container from '../Container/Container'
 import DomainLogo from '../menus/DomainLogo/DomainLogo'
 import BurgerMenu from '../menus/BurgerMenu/BurgerMenu'
-// import MenuItem from '../menus/MenuItem/MenuItem'
 
 import styles from './Header.module.css'
 import SubMenu from './SubMenu/SubMenu'
@@ -54,7 +51,7 @@ function DesktopLeftHeader({ handleIconBackgroundColor, parentItems, handleDropD
           <FontAwesomeIcon icon={['fas', handleIcon(4)]} color='white' size='xs' />
         </div>
         <div onClick={() => handleFlag(4)} className={cx('flag-container')}>
-          <img className={cx('flag')} src='/media/images/norway.png' alt='' />
+          <img className={cx('flag')} src='/media/images/roundNorwayFlag.svg' alt='' />
         </div>
       </div>
     </div>
@@ -81,7 +78,7 @@ const Header = ({ headerMenu }) => {
   }
 
   function handleIcon(index) {
-    return openIndexes.includes(index) ? 'chevron-down' : 'chevron-up'
+    return openIndexes.includes(index) ? 'chevron-up' : 'chevron-down'
   }
 
   function handleIconBackgroundColor(index) {
@@ -126,97 +123,3 @@ const Header = ({ headerMenu }) => {
 }
 
 export default Header
-
-{
-  /*<Container className={cx('container')} size='large'>*/
-}
-{
-  /*  <div className={cx('header-left')}>*/
-}
-{
-  /*    <DomainLogo />*/
-}
-{
-  /*  </div>*/
-}
-{
-  /*  <div className={cx('header-right')}>*/
-}
-{
-  /*    <BurgerMenu isMobile={isMobile} showMenu={showMenu} toggleMenu={toggleMenu} />*/
-}
-{
-  /*    {isMenuShown && (*/
-}
-{
-  /*      <div className={cx('menu')}>*/
-}
-{
-  /*        {parentItems.map(item => {*/
-}
-{
-  /*          const { label, path } = item*/
-}
-{
-  /*          if (label === 'Tjenester') {*/
-}
-{
-  /*            return (*/
-}
-{
-  /*              <div key={label}>*/
-}
-{
-  /*                <button type='button' className={cx('menu-item', 'menu-button')} onClick={toggleSubMenu}>*/
-}
-{
-  /*                  <span>{label}</span>*/
-}
-{
-  /*                  {showSubMenu ? (*/
-}
-{
-  /*                    <FontAwesomeIcon icon={['fal', 'angle-up']} size='lg' />*/
-}
-{
-  /*                  ) : (*/
-}
-{
-  /*                    <FontAwesomeIcon icon={['fal', 'angle-down']} size='lg' />*/
-}
-{
-  /*                  )}*/
-}
-{
-  /*                </button>*/
-}
-{
-  /*                {showSubMenu && <SubMenu subItems={subItems} />}*/
-}
-{
-  /*              </div>*/
-}
-{
-  /*            )*/
-}
-{
-  /*          }*/
-}
-{
-  /*          return <MenuItem key={label} label={label} path={path} className='menu-item' />*/
-}
-{
-  /*        })}*/
-}
-{
-  /*      </div>*/
-}
-{
-  /*    )}*/
-}
-{
-  /*  </div>*/
-}
-{
-  /*</Container>*/
-}

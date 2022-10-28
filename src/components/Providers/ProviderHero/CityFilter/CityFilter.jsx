@@ -51,7 +51,7 @@ export default function CityFilter({ setChangingCity }) {
 
   return (
     <div ref={wrapperRef} className={cx('select-container')}>
-      <span className={cx('filtrer')}>Filtrer:</span>
+      {/*<span className={cx('filtrer')}>Filtrer:</span>*/}
       <div onClick={handleClick} className={cx('select-inner', { openSelect })}>
         <span className={cx('displayText')}>{displayText || 'Sted'}</span>
         <div className={cx('icon-container')}>
@@ -71,17 +71,6 @@ export default function CityFilter({ setChangingCity }) {
           </ul>
         </div>
       )}
-      {/*<Select*/}
-      {/*  styles={style}*/}
-      {/*  defaultValue={{ label: 'Sted' }}*/}
-      {/*  isSearchable={false}*/}
-      {/*  closeMenuOnScroll*/}
-      {/*  onChange={handleChange}*/}
-      {/*  options={options()}*/}
-      {/*  components={{ IndicatorSeparator: () => null, DropdownIndicator }}*/}
-      {/*  className={cx('react-select-container')}*/}
-      {/*  classNamePrefix='react-select'*/}
-      {/*/>*/}
     </div>
   )
 }

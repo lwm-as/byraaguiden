@@ -1,8 +1,9 @@
 import classNames from 'classnames/bind'
 import styles from './CommonQuestions.module.css'
 import { useToggler } from '../../../hooks/useToggler'
-import React, { useState } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Expand from 'react-expand-animated'
 
 const cx = classNames.bind(styles)
 
@@ -14,7 +15,7 @@ export default function CommonQuestions({ registerfaq }) {
   }
 
   function handleIcon(index) {
-    return openIndexes.includes(index) ? 'chevron-down' : 'chevron-up'
+    return openIndexes.includes(index) ? 'chevron-up' : 'chevron-down'
   }
 
   return (
@@ -28,11 +29,12 @@ export default function CommonQuestions({ registerfaq }) {
                 <span>{question}</span>
                 <FontAwesomeIcon icon={['fas', handleIcon(idx)]} color='#002E47' size='sm' />
               </div>
-              {openIndexes.includes(idx) && (
+
+              <Expand open={openIndexes.includes(idx)} duration={300}>
                 <div>
                   <p>{answer}</p>
                 </div>
-              )}
+              </Expand>
             </div>
           )
         })}

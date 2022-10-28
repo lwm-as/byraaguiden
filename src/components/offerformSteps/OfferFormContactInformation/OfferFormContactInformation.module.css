@@ -1,69 +1,63 @@
 .root {
-    display: flex;
-    flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
 }
 
 .inner-root {
-    width: 100%;
-
+  width: 100%;
 }
 
 .heading {
-    margin-bottom: 1rem;
-    font-size: 16px;
-    font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .input-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .input-container input {
-    border: 1px solid #D3D3D3;
-    padding: 12px;
-    background-color: #F6F6F6;
-    border-radius: 8px;
+  border: 1px solid #d3d3d3;
+  padding: 12px;
+  background-color: #f6f6f6;
+  border-radius: 8px;
 }
-
 
 .input-container textarea {
-    border: 1px solid #D3D3D3;
-    padding: 12px;
-    background-color: #F6F6F6;
-    border-radius: 8px;
-    font-family: var(--text-font);
-    resize: none;
-    height: 130px;
+  border: 1px solid #d3d3d3;
+  padding: 12px;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  font-family: var(--text-font);
+  resize: none;
+  height: 130px;
 }
-
 
 .input-container label {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
-#name, .second-row {
-    margin-bottom: 1rem;
+#name,
+.second-row {
+  margin-bottom: 1rem;
 }
-
 
 .flex {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
 }
 
 .full-flex {
-    flex: 1;
+  flex: 1;
 }
 
-
 @media screen and (min-width: 768px) {
-    .inner-root {
-        /*width: 60%;*/
-        margin: 0 auto;
-
-    }
+  .inner-root {
+    /*width: 60%;*/
+    margin: 0 auto;
+  }
 }

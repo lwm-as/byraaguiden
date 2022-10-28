@@ -1,81 +1,80 @@
 .compare-items {
-    position: fixed;
-    bottom: 65px;
-    right: 0;
-    cursor: pointer;
-    z-index: 9;
+  position: fixed;
+  bottom: 65px;
+  right: 0;
+  cursor: pointer;
+  z-index: 9;
 }
 
 .inner-compare {
-    display: flex;
+  display: flex;
 }
 
 .progress-container {
-    width: 100vw;
-    position: absolute;
-    left: 0;
-    top: 38%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    bottom: 0;
-    z-index: 100;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 38%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  z-index: 100;
 }
 
 .progress-icon {
-    color: #FF4A55 !important;
+  color: #ff4a55 !important;
 }
 
 .inner-compare span {
-    color: white;
-    font-size: 1rem;
+  color: white;
+  font-size: 1rem;
 }
 
 .icon-container {
-    position: relative;
-    left: -8px;
-    top: -8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    padding: 7px;
-    border-radius: 100%;
-    margin-right: 8px;
-    background-color: #002E47;
-
+  position: relative;
+  left: -8px;
+  top: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 7px;
+  border-radius: 100%;
+  margin-right: 8px;
+  background-color: #002e47;
 }
 
 .side-container {
-    position: relative;
+  position: relative;
 }
 
 .inner-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    position: sticky;
-    top: 5rem;
-
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 5rem;
 }
 
-
 .buttonContainer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .loadMoreButton button {
-    border-radius: 10px;
-    margin-top: unset;
+  border-radius: 10px;
+  margin-top: unset;
+}
+
+.providerContainer {
+  margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 768px) {
-
-    .compare-items {
-        bottom: 0;
-        margin: 3rem;
-    }
-
+  .compare-items {
+    bottom: 0;
+    margin: 3rem;
+  }
 }

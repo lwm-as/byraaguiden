@@ -10,7 +10,7 @@ import disableScroll from '../../../../utils/disableScroll'
 
 const cx = classNames.bind(styles)
 
-function getCorrectImage(label) {
+export function getCorrectImage(label) {
   switch (label) {
     case 'Apputvikling':
       return 'apputvikling'
@@ -19,6 +19,8 @@ function getCorrectImage(label) {
     case 'Digital markedsføring':
       return 'digitalmarkedsføring'
     case 'Regnskapsføring':
+      return 'regnskapsfører'
+    case 'Regnskapsfører':
       return 'regnskapsfører'
     case 'SEO':
       return 'seo'
@@ -56,9 +58,13 @@ const BurgerMenu = ({ items, handleDropDownClick, subItems }) => {
         <div className={cx('root')}>
           <div className={cx('links')}>
             {items
-              .filter(({ label }) => label !== 'Tjenester')
+              .filter(({ label }) => {
+                return label !== 'Tjenester'
+              })
               .map(({ label, path }) => {
-                console.log({ label }, { path })
+                if (label === 'Artikler') {
+                  label = 'Alle artikler'
+                }
                 return (
                   <div className={cx('links-item')}>
                     <a className={cx('link')} href={path}>
@@ -76,6 +82,9 @@ const BurgerMenu = ({ items, handleDropDownClick, subItems }) => {
             {items
               .filter(({ label }) => label === 'Tjenester')
               .map(({ label, path }, index) => {
+                if (label === 'Tjenester') {
+                  label = 'Velg bransje'
+                }
                 return (
                   <div onClick={() => handleDropDownClick(index)} className={cx('service')}>
                     <div className={cx('parent-box')}>
