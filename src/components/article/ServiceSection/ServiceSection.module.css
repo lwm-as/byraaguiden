@@ -1,44 +1,43 @@
 .root {
-    padding: 4rem 0;
-    background-color: #002E47;
-    position: relative;
+  padding: 4rem 0;
+  background-color: #002e47;
+  position: relative;
 }
-
 
 .box {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 15px;
-    width: 100%;
-    position: relative;
-    z-index: 2;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
-.btn a{
-    border-radius: 10px;
+.btn a {
+  border-radius: 10px;
 }
 
 .title {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .red-square {
-    position: absolute;
-    box-sizing: border-box;
-    top: 100%;
-    right: 0;
-    border-top: solid 120px #FF4A55;
-    border-left: solid 120px #FF4A55;
-    border-top-left-radius: 40px;
-    border-right: solid 120px transparent;
-    border-bottom: solid 120px transparent;
-    -ms-transform: rotate(45deg); /* IE 9 */
-    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-    transform: rotate(45deg) translate(-230px, 60px)  ;
+  position: absolute;
+  box-sizing: border-box;
+  top: 100%;
+  right: 0;
+  border-top: solid 120px #ff4a55;
+  border-left: solid 120px #ff4a55;
+  border-top-left-radius: 40px;
+  border-right: solid 120px transparent;
+  border-bottom: solid 120px transparent;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg) translate(-230px, 60px);
 }
 
-@media screen and (min-width: 768px)  {
-.box {
+@media screen and (min-width: 768px) {
+  .box {
     width: 45%;
-}
+  }
 }

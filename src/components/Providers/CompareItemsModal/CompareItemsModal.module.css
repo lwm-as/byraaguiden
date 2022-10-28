@@ -1,39 +1,36 @@
 .root {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
 }
 
 .overlay {
-    position: fixed;
-    top: 20%;
-    width: 100%;
-    /*transform: translate(-50%, -50%);*/
-    background-color: #fff;
-    height: 100vh;
-    /*overflow: scroll;*/
-    /*padding: 1rem 1rem 3rem;*/
-    z-index: 1000;
+  position: fixed;
+  top: 20%;
+  width: 100%;
+  /*transform: translate(-50%, -50%);*/
+  background-color: #fff;
+  height: 100vh;
+  /*overflow: scroll;*/
+  /*padding: 1rem 1rem 3rem;*/
+  z-index: 1000;
 }
 
 .close:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
-
 @media screen and (min-width: 768px) {
-    .overlay {
-        padding: 0 50px 90px
-
-    }
-    .close {
-        position: sticky;
-        top: 6.5rem;
-        transform: translateX(100%) translateY(-60px);
-    }
+  .overlay {
+    padding: 0 50px 90px;
+  }
+  .close {
+    position: sticky;
+    top: 6.5rem;
+    transform: translateX(100%) translateY(-60px);
+  }
 }

@@ -19,16 +19,13 @@ import { GET_ALL_CATEGORIES } from '../lib/queries/posts/categories'
 import { LoadingPlaceholder } from '../components/Providers/LoadingPlaceholder/LoadingPlaceholder'
 import { useCtaToggler } from '../hooks/useCtaToggler'
 import Sidebar from '../components/article/Sidebar/Sidebar'
-import Popup from '../components/Popup/Popup'
-import CompareItemsModal from '../components/Providers/CompareItemsModal/CompareItemsModal'
-import disableScroll from '../utils/disableScroll'
-import { useCompareItems } from '../components/Providers/compareitems'
 
 export const cx = classNames.bind(styles)
 
 const CityArticle = ({ data, categories: allCategories }) => {
   const {
     post: {
+      modifiedGmt,
       ctaDisabled: { ctaDisabled },
       categorypage,
       content,
@@ -105,18 +102,21 @@ const CityArticle = ({ data, categories: allCategories }) => {
             )}
             {isContent && (
               <ContentsMenuStateProvider>
-                <PostContent
-                  noBreadCrumb
-                  author={author}
-                  excerpt={excerpt}
-                  marginBreadCrumb
-                  postHeaderIsInside
-                  post={data?.post}
-                />
+                <Container size='medium'>
+                  <PostContent
+                    modifiedGmt={modifiedGmt}
+                    noBreadCrumb
+                    author={author}
+                    excerpt={excerpt}
+                    marginBreadCrumb
+                    postHeaderIsInside
+                    post={data?.post}
+                  />
+                </Container>
               </ContentsMenuStateProvider>
             )}
           </div>
-          <div className={cx('side-container')}>
+          <div className={cx('city-side-container')}>
             <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData} />}</div>
           </div>
           <CtaFooterButton

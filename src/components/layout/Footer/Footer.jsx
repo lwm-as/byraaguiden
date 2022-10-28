@@ -31,8 +31,8 @@ const Footer = ({ footerMenu, isHome }) => {
   const imageData = {
     sourceUrl: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/favicon.png',
     mediaDetails: {
-      width: 50,
-      height: 50
+      width: 60,
+      height: 60
     },
     altText: 'byråguiden'
   }
@@ -118,7 +118,7 @@ const Footer = ({ footerMenu, isHome }) => {
                 <div className={cx('sep-container')}>
                   <Link href={data?.label}>
                     <a className={cx('other-inner')}>
-                      <Image imageData={{ sourceUrl: data?.flag, mediaDetails: { width: 44, height: 28 } }} />
+                      <Image imageData={{ sourceUrl: data?.flag, mediaDetails: { width: 35, height: 25 } }} />
                       <span>{data?.label}</span>
                     </a>
                   </Link>

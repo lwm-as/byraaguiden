@@ -1,89 +1,82 @@
 .root {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 2rem 0;
 }
 
 .inner-filter {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-
-
 .btn button {
-    border: 1px solid #D3D4D5;
-    color: #212121;
-    background-color: white;
-    border-radius: 12px;
-    font-weight: 400;
-    box-shadow: unset;
-    white-space: nowrap;
-    font-size: 14px;
-    padding: 1rem;
-    flex: 1;
+  border: 1px solid #d3d4d5;
+  color: #212121;
+  background-color: white;
+  border-radius: 12px;
+  font-weight: 400;
+  box-shadow: unset;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 1rem;
+  flex: 1;
 }
 
 .btn button:hover {
-    color: white;
-    background-color: #FF4A55;
+  color: white;
+  background-color: #ff4a55;
 }
 
 .btn button:disabled:hover {
-    box-shadow: unset;
-    background-color: rgba(255, 74, 85, 0.15);
-
+  box-shadow: unset;
+  background-color: rgba(255, 74, 85, 0.15);
 }
 
 .active button {
-    background-color: rgba(255, 74, 85, 0.15);
-    color: #FF4A55;
-    border: 1px solid #FF4A55;
-    border-radius: 12px;
-    text-shadow:  1px 0px 0px #FF4A55;
+  background-color: rgba(255, 74, 85, 0.15);
+  color: #ff4a55;
+  border: 1px solid #ff4a55;
+  border-radius: 12px;
+  text-shadow: 1px 0px 0px #ff4a55;
 }
 
-
 .active button:hover {
-    background-color: rgba(255, 74, 85, 0.3);
-    color: #FF4A55;
-    border: 1px solid #FF4A55;
-    border-radius: 12px;
-    cursor: unset;
-
+  background-color: rgba(255, 74, 85, 0.3);
+  color: #ff4a55;
+  border: 1px solid #ff4a55;
+  border-radius: 12px;
+  cursor: unset;
 }
 
 .title {
-    margin: 0 !important;
-    font-size: 16px;
-    font-weight: 500;
-    display: block;
-    position: relative;
-    top: 20px !important;
+  margin: 0 !important;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  position: relative;
+  top: 20px !important;
 }
 
 @media screen and (min-width: 768px) {
-    .root {
-       flex-direction: row;
-        align-items: center;
-    }
+  .root {
+    flex-direction: row;
+    align-items: center;
+  }
 
-    .title {
-        top: 37px !important;
-    }
+  .title {
+    top: 37px !important;
+  }
 
-    .sorter-title {
-        position: relative;
-        top: 4px;
-        font-weight: 500;
+  .sorter-title {
+    position: relative;
+    top: 4px;
+    font-weight: 500;
+  }
 
-    }
-
-    .inner-filter {
-       display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-        align-items: center;
-    }
-
+  .inner-filter {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: flex-end;
+  }
 }

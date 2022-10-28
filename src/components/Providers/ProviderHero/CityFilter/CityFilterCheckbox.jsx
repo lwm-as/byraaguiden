@@ -6,7 +6,7 @@ import styles from '../ProviderHero.module.css'
 const CityFilterCheckbox = ({ item }) => {
   const {
     slug,
-    tags: { nodes },
+    tags: { nodes }
   } = item
 
   const router = useRouter()

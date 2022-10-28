@@ -33,6 +33,7 @@
 .nextBtn > button {
   transition: none;
   margin-top: 0;
+  border-radius: 10px;
 }
 
 .circularBtn > button {

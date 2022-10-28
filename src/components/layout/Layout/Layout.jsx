@@ -27,7 +27,7 @@ const Layout = ({ menus, seo, children, white = false }) => {
       <SEO seo={seo} />
       <Header headerMenu={headerMenu} />
       <Main white={white}>{children}</Main>
-      <Footer footerMenu={footerMenu}  />
+      <Footer footerMenu={footerMenu} />
     </>
   )
 }

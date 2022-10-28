@@ -33,7 +33,7 @@ import {
   faClock,
   faStickyNote,
   faSpinner,
-  faCheck,
+  // faCheck,
   faCheckCircle,
   faInfoCircle,
   faSearch,
@@ -51,7 +51,8 @@ import {
   faHome,
   faUserFriends,
   faMapMarkerAlt,
-  faFlag
+  faFlag,
+  faCheck
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebookSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons'

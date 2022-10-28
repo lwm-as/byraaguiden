@@ -1,49 +1,56 @@
 .root {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    /*min-height: 140px;*/
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /*min-height: 140px;*/
 }
 
 .progressInnerContainer {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
+  flex: 1;
 }
 
 .progressInnerContainer progress {
-    width: 100%;
-    margin-top: -10px;
+  width: 100%;
+  margin-top: -10px;
 }
 
 .progressInnerContainer progress[value] {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 7px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 7px;
 }
 
 .progressInnerContainer progress[value]::-webkit-progress-value {
-    background-color: #FBBC04;
-    border-radius: 1rem;
+  background-color: #fbbc04;
+  border-radius: 1rem;
 }
 
 .progressInnerContainer progress[value]::-webkit-progress-bar {
-    background-color: var(--bg-focus);
-    border-radius: 1rem;
-
+  background-color: var(--bg-focus);
+  border-radius: 1rem;
 }
 
 .labelContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: -8px;
-    font-weight: 500;
-    font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: -8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.labelContainer span:last-of-type {
+  font-size: 12px;
+  padding: 4px 0;
 }
 
 @media screen and (min-width: 801px) {
-    .root {
-        /*display: grid;*/
-        /*grid-template-columns: repeat(3, 1fr);*/
-        /*gap: 1rem;*/
-        /*padding: 1rem;*/
-    }
+  .root {
+    flex-direction: row;
+  }
+
+  .vertical {
+    flex-direction: column;
+  }
 }

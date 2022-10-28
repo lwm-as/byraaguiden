@@ -76,6 +76,11 @@ export default function RegisterForm() {
             {errors?.tlf?.message && <span className={cx('error')}>{errors.tlf.message}</span>}
           </div>
         </div>
+        <div id={cx('description')} className={cx('input-container')}>
+          <label htmlFor='description'>Beskrivelse</label>
+          <textarea {...register('description', { required: 'Vennligst skriv inn beskrivelse.' })} name='description' />
+          {errors?.description?.message && <span className={cx('error')}>{errors.description.message}</span>}
+        </div>
         <div>
           <Button disabled={formFailed} className={cx('submit')} size='large' type='submit'>
             Meld interesse

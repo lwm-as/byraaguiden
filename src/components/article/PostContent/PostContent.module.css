@@ -31,10 +31,8 @@
 
   .image-container {
     height: 300px;
-
   }
   .image-container div span img {
     object-fit: cover !important;
   }
-
 }

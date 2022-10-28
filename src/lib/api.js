@@ -1,4 +1,3 @@
-
 async function fetchAPI(query, { variables } = {}) {
   const headers = { 'Content-Type': 'application/json' }
 

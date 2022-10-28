@@ -1,8 +1,7 @@
 .root {
   display: none;
   margin-top: 2.5rem;
-  padding-bottom: 1.2rem;
-
+  padding-bottom: 4.2rem;
 }
 
 .breadcrumb {
@@ -12,17 +11,16 @@
   list-style: none;
 }
 
-.item{
+.item {
   font-size: 12px;
   line-height: 16px;
-  color: #7E7E7E !important;
+  color: #7e7e7e !important;
 }
 
 .item:not(.active):after {
   content: '>';
   display: inline-block;
   margin: 0 8px;
-
 }
 
 .link:hover {
@@ -32,19 +30,15 @@
 
 .active {
   color: #313131 !important;
-
 }
 
 .icon-container svg:first-of-type {
   margin-right: 6px;
 }
 
-
-
 @media screen and (min-width: 768px) {
   .root {
     display: block;
     margin-bottom: unset;
-
   }
 }

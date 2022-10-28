@@ -4,7 +4,7 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
 
-const ProviderRating = ({ className, rating, totalReviews, popularity, agencyScore }) => {
+const ProviderRating = ({ vertical, className, rating, totalReviews, popularity, agencyScore }) => {
   const isReviews = totalReviews != 0
 
   return (

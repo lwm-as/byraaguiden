@@ -22,6 +22,15 @@ export const GET_POST = `
       modifiedGmt
       excerpt
       content(format: RENDERED)
+      author {
+        node {
+          name
+          firstName
+          avatar {
+           url
+          }
+        }
+      }
       featuredImage {
         node {
           sourceUrl

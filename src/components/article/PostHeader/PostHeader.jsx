@@ -1,18 +1,18 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import dayjs from 'dayjs'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Breadcrumb from '../../common/Breadcrumb/Breadcrumb'
 
 import styles from './PostHeader.module.css'
 
+import dayjs from 'dayjs'
+
 const cx = classNames.bind(styles)
 
-const PostHeader = ({ noBreadCrumb, author, marginBreadCrumb, fullwidth, post }) => {
-  const { title, date, categories } = post
+const PostHeader = ({ modifiedGmt, noBreadCrumb, author, marginBreadCrumb, fullwidth, post }) => {
+  const { title, categories } = post
 
-  const dateFormatted = dayjs(date).format('DD. MMM, YYYY')
+  const formattedDate = dayjs(modifiedGmt).locale('de').format('DD. MMM, YYYY')
 
   return (
     <div className={cx('root', { fullwidth })}>
@@ -23,11 +23,11 @@ const PostHeader = ({ noBreadCrumb, author, marginBreadCrumb, fullwidth, post })
       <div className={cx('meta-info')}>
         <div className={cx('meta-container')}>
           <img src={author?.node.avatar.url} alt='' />
-          <p>by {author?.node.firstName || author?.node.name.charAt(0).toUpperCase() + author?.node.name.slice(1)}</p>
+          <p>av {author?.node.firstName || author?.node.name.charAt(0).toUpperCase() + author?.node.name.slice(1)}</p>
         </div>
         <span className={cx('separator')}>|</span>
         <p className={cx('date')}>
-          <span>{dateFormatted}</span>
+          <span>{formattedDate}</span>
         </p>
       </div>
     </div>

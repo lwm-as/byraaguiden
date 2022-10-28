@@ -1,31 +1,29 @@
 .container {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .container span {
-    display: block;
-     text-align: center;
-    font-weight: 600;
-    font-size: 12px;
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
 }
 
-
 .progressInnerContainer progress {
-    width: 100%;
-    margin-top: -10px;
+  width: 100%;
+  margin-top: -10px;
 }
 
 .progressInnerContainer progress[value] {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 7px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 7px;
 }
 
 .progressInnerContainer progress[value]::-webkit-progress-value {
-    background-color: #002E47;
+  background-color: #002e47;
 }
 
 .progressInnerContainer progress[value]::-webkit-progress-bar {
-    background-color: var(--bg-focus);
-
+  background-color: var(--bg-focus);
 }

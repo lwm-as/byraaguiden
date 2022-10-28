@@ -1,15 +1,13 @@
- .outer {
-     position: relative;
-     top: -130px;
-     display: flex;
-     flex-direction: column;
- }
+.outer {
+  position: relative;
+  top: -130px;
+  display: flex;
+  flex-direction: column;
+}
 
- .outer:not(:first-of-type) {
+.outer:not(:first-of-type) {
+}
 
- }
-
-
- .root {
-     height: 350px;
- }
+.root {
+  height: 350px;
+}

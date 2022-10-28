@@ -5,18 +5,15 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
 import { BasicTabs } from '../Tabs'
 import ReactModal from 'react-modal'
 import { useReviewContext } from '../../Cities/ReviewContextProvider'
-import useOutsideDetecter from '../../../utils/hooks/useOutsideDetecter'
 import Popup from '../../Popup/Popup'
+import disableScroll from '../../../utils/disableScroll'
 
 const cx = classNames.bind(styles)
 
-export default function CompareItemsModal({ checked, onClose }) {
+export default function CompareItemsModal({ compareItemsModal, checked, onClose }) {
   const [topFiveProviders, setTopFiveProviders] = useState()
   const { sortedReviews, sortReviews } = useReviewContext()
   const [customerReviewModal, setCustomerReviewModal] = useState(false)
-
-  // const wrapperRef = useRef(null)
-  // useOutsideDetecter(wrapperRef, onClose)
 
   //setting top providers for the compare modal
   useEffect(() => {
@@ -39,16 +36,20 @@ export default function CompareItemsModal({ checked, onClose }) {
     }
   }
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [])
+  useEffect(() => {
+    if (compareItemsModal) {
+      disableScroll.on()
+    } else {
+      disableScroll.off()
+    }
+  }, [compareItemsModal])
 
   return (
     <ReactModal style={customStyles} isOpen onRequestClose={onClose}>
-      <div>
+      <div style={{ width: '100%' }}>
         {customerReviewModal && <Popup open={customerReviewModal} onClose={() => setCustomerReviewModal(false)} />}
 
-        <div>
+        <div style={{ width: '100%' }}>
           <BasicTabs
             onClose={onClose}
             setCustomerReviewModal={setCustomerReviewModal}

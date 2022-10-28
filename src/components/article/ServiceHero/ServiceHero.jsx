@@ -21,7 +21,7 @@ export default function ServiceHero({ category, slug }) {
         </div>
         <div className={cx('content')}>
           {category.posts.nodes.length > 0 && <h3>{category.posts.nodes[0]?.title}</h3>}
-          <span>{formattedDate || 'No post found'}</span>
+          <span className={cx('date')}>{formattedDate || 'No post found'}</span>
           {category.posts.nodes.length > 0 && (
             <p className={cx('p-tag')}>
               {excerpts(category.posts.nodes[0]?.excerpt)}

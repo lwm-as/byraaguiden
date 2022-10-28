@@ -6,9 +6,9 @@ import Container from '../../layout/Container/Container'
 
 const cx = classNames.bind(styles)
 
-export default function GridHero({ width, title, description, component = '', textAlignCenter, className }) {
+export default function GridHero({ width, title, description, component = '', textAlignCenter, className, ...props }) {
   return (
-    <div className={cx('root', className)}>
+    <div className={cx('root', className)} {...props}>
       <div className={cx('dark-square-left')} />
       <div className={cx('red-square')} />
       {/*<div className={cx('red-square')} />*/}

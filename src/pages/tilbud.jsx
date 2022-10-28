@@ -15,6 +15,9 @@ import GridHero from '../components/blog/GridHero/GridHero'
 import classNames from 'classnames/bind'
 import styles from '../styles/pages/Tilbud/Tilbud.module.css'
 import { GET_ALL_CATEGORIES } from '../lib/queries/posts/categories'
+import OfferFinalStep from '../components/offerformSteps/OfferFinalStep/OfferFinalStep'
+import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const cx = classNames.bind(styles)
 
@@ -24,6 +27,8 @@ const Offer = ({ data, categories }) => {
     headerMenu,
     footerMenu
   } = data
+
+  const [showFinalStep, setShowFinalStep] = useState(false)
 
   const {
     OPTIONS,
@@ -46,6 +51,14 @@ const Offer = ({ data, categories }) => {
     OPTIONS
   )
 
+  const router = useRouter()
+
+  const webdesignFromURL = router?.asPath.split('=')[1]
+
+  const webDesignCategory = webdesignFromURL === 'webdesign'
+
+  // TODO:         {showFinalStep && <OfferFinalStep />}
+
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
       <GridHero
@@ -57,6 +70,7 @@ const Offer = ({ data, categories }) => {
       />
       <Container size='small'>
         <OfferForm
+          setShowFinalStep={setShowFinalStep}
           categories={categories?.categories.nodes}
           selectedValues={{
             category: chosenCategory,
@@ -71,7 +85,10 @@ const Offer = ({ data, categories }) => {
             description: ''
           }}
         >
-          <OfferFormCategory validate={chosenCategory} group={categoryGroup} toggler={toggleCategory} />
+          {webDesignCategory && (
+            <OfferFormCategory validate={chosenCategory} group={categoryGroup} toggler={toggleCategory} />
+          )}
+
           <OfferFormBudget validate={chosenBudget} group={budgetGroup} toggler={toggleBudget} />
           <OfferFormTime validate={chosenTime} group={timeGroup} toggler={toggleTime} />
           <OfferFormProbability validate={chosenProbability} group={probabilityGroup} toggler={toggleProbability} />
@@ -88,6 +105,7 @@ const Offer = ({ data, categories }) => {
             })}
           />
         </OfferForm>
+        {showFinalStep && <OfferFinalStep />}
       </Container>
     </Layout>
   )

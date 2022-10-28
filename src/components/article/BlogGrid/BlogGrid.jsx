@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import useWindowSize from '../../../utils/windowSize'
 import Container from '../../layout/Container/Container'
+import { getCorrectImage } from '../../layout/menus/BurgerMenu/BurgerMenu'
 
 const cx = classNames.bind(styles)
 
@@ -73,34 +74,47 @@ export default function BlogGrid({ categories, posts, category, children }) {
           })}
         </div>
       </Container>
-      <Container size='medium'>
-        <div className={cx('btn-container')}>
-          <div className={cx('inner-btn-container')}>
-            <div>
-              <Button disabled={loading} onClick={handleClick} className={cx('btn')}>
-                {loading ? 'Laster inn fler' : 'Last inn fler'}
-              </Button>
+      {preLoadedInfo?.hasNextPage && (
+        <Container size='medium'>
+          <div className={cx('btn-container')}>
+            <div className={cx('inner-btn-container')}>
+              <div>
+                <Button disabled={loading} onClick={handleClick} className={cx('btn')}>
+                  {loading ? 'Laster inn fler' : 'Last inn fler'}
+                </Button>
+              </div>
+            </div>
+            <div className={cx('all-articles')}>
+              <div className={cx('all-articles-inner')}>
+                <a href='/artikler'>Alle artikler</a>
+                <FontAwesomeIcon icon={['fas', 'chevron-right']} />
+              </div>
             </div>
           </div>
-          <div className={cx('all-articles')}>
-            <div className={cx('all-articles-inner')}>
-              <a href='/artikler'>Alle artikler</a>
-              <FontAwesomeIcon icon={['fas', 'chevron-right']} />
-            </div>
-          </div>
-        </div>
-      </Container>
+        </Container>
+      )}
       <Container size='large'>
         <div className={cx('other-services-bar')}>
           <span className={cx('choose-other-service')}>Velg en annen bransje:</span>
           <div className={cx('other-service-bar-inner')}>
-            {filter.map(({ name, slug }, i) => {
-              return (
-                <Link href={`/artikler/${slug}`}>
-                  <a className={cx('link')}>{name}</a>
-                </Link>
-              )
-            })}
+            {!isMobile
+              ? filter.map(({ name, slug }, i) => {
+                  return (
+                    <Link href={`/artikler/${slug}`}>
+                      <a className={cx('link')}>{name}</a>
+                    </Link>
+                  )
+                })
+              : filter.map(({ name, slug }, i) => {
+                  return (
+                    <Link href={`/artikler/${slug}`}>
+                      <a className={cx('service-box')}>
+                        <img src={`/media/icons/${getCorrectImage(name)}.svg`} alt='Services' />
+                        <span className={cx('link')}>{name}</span>
+                      </a>
+                    </Link>
+                  )
+                })}
           </div>
         </div>
       </Container>

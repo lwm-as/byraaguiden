@@ -6,10 +6,11 @@ import ProviderRating from '../ProviderRating/ProviderRating'
 import GoogleRating from '../ProviderRating/GoogleRating'
 import { Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material'
 import Image from '../../common/Image/Image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useToggler } from '../../../hooks/useToggler'
+import Expand from 'react-expand-animated'
+import _ from 'lodash'
 
-import useWindowSize from '../../../utils/windowSize'
 const cx = classNames.bind(styles)
 
 const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx, provider }) => {
@@ -63,11 +64,9 @@ const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx
     return openIndexes.includes(index) ? 'chevron-down' : 'chevron-up'
   }
 
-  let expand = openIndexes.includes(openDropDown)
-
   return (
     <>
-      <div className={cx('root')}>
+      <div key={_.uniqueId()} className={cx('root')}>
         <div className={cx('legg-til')}>
           <FormGroup>
             <FormControlLabel
@@ -77,6 +76,7 @@ const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx
                     transform: isMobile && 'scale(1.4)',
                     position: 'relative',
                     left: isMobile && '25px',
+                    top: isMobile && '20px',
                     color: '#002E47',
                     '&.Mui-checked': {
                       color: '#FF4A55'
@@ -140,7 +140,7 @@ const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx
             <div className={cx('focus-container')}>
               <hr className={cx('divider')} />
               <div>
-                <span className={cx('fokus-labelStyles')}>Fokus områder</span>
+                <span className={cx('fokus-labelStyles')}>Fokusområder</span>
                 <div className={cx('focus-inner')}>
                   {focusareas.map(focus => (
                     <div className={cx('focus-box')} key={focus.name}>
@@ -158,10 +158,10 @@ const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx
           <span>Les mer om {name}</span>
           <FontAwesomeIcon icon={['fas', handleIcon(idx)]} color='#002E47' size='sm' />
         </div>
-        {expand && (
-          <div className={cx('footer-desc', { expand })}>
+        <Expand open={openIndexes.includes(openDropDown)} duration={300}>
+          <div className={cx('footer-desc')}>
             <div>
-              <p>{description}</p>
+              <p className={cx('description')}>{description}</p>
             </div>
             <div className={cx('icon-outer')}>
               <div className={cx('icon-container')}>
@@ -178,7 +178,7 @@ const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx
               </div>
             </div>
           </div>
-        )}
+        </Expand>
       </div>
     </>
   )

@@ -4,13 +4,32 @@ import GoogleRating from '../ProviderRating/GoogleRating'
 import Button from '../../common/Button/Button'
 import ProviderRating from '../ProviderRating/ProviderRating'
 import Image from '../../common/Image/Image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
+import { useCompareItems } from '../compareitems'
+import useWindowSize from '../../../utils/windowSize'
 
 const cx = classNames.bind(styles)
 
-export default function ProviderItemVertical({ setCustomerReviewModal, customReviewModal, provider }) {
+export default function ProviderItemVertical({ idx, setCustomerReviewModal, customReviewModal, provider }) {
+  // const { removeItemFromCompareModal } = useCompareItems()
+  const { width } = useWindowSize()
+  const isMobile = width <= 1000
   const {
     provider: {
-      providersInfo: { name, logo, providerButton, contact, websiteLink, focusareas, description, placeid }
+      providersInfo: {
+        name,
+        logo,
+        providerButton,
+        contact,
+        websiteLink,
+        focusareas,
+        description,
+        placeid,
+        establishedYear,
+        employeeCount,
+        city: { name: city }
+      }
     },
     rating,
     totalReviews,
@@ -20,11 +39,27 @@ export default function ProviderItemVertical({ setCustomerReviewModal, customRev
 
   const isCtaButton = providerButton === 'cta'
   const isVisitButton = providerButton === 'visit'
+
+  /** Will be implemented soon****/
+
+  // function handleRemoval() {
+  //   removeItemFromCompareModal(idx)
+  // }
+
   return (
     <div className={cx('root')}>
+      {/*<div className={cx('close')}>*/}
+      {/*  <FontAwesomeIcon*/}
+      {/*    size='2x'*/}
+      {/*    onClick={() => handleRemoval()}*/}
+      {/*    color='#727070'*/}
+      {/*    className={cx('icon')}*/}
+      {/*    icon={['fal', 'times']}*/}
+      {/*  />*/}
+      {/*</div>*/}
       <div className={cx('first-section')}>
         <span className={cx('name')}>{name}</span>
-        <div className={cx('image-container')}>
+        <div className={cx('image-container', { isMobile })}>
           {logo.sourceUrl && (
             <Image
               imageData={{
@@ -49,12 +84,14 @@ export default function ProviderItemVertical({ setCustomerReviewModal, customRev
             Besøk nettsted
           </Button>
         ) : (
-          <Button disabled={true} size='large' className={cx('transparent')}>
-            -
-          </Button>
+          !isMobile && (
+            <Button disabled={true} size='large' className={cx('transparent')}>
+              -
+            </Button>
+          )
         )}
         {isCtaButton && (
-          <Button className={cx('btn')} size='large' link={`/tilbud?name=${name}&contact=${contact}`}>
+          <Button className={cx({ isMobile }, 'btn')} size='large' link={`/tilbud?name=${name}&contact=${contact}`}>
             Besøk nettsted
           </Button>
         )}
@@ -63,6 +100,7 @@ export default function ProviderItemVertical({ setCustomerReviewModal, customRev
         <p>{description}</p>
         <div className={cx('provider-rating')}>
           <ProviderRating
+            className='vertical'
             rating={rating}
             totalReviews={totalReviews}
             popularity={popularity}
@@ -72,13 +110,29 @@ export default function ProviderItemVertical({ setCustomerReviewModal, customRev
         </div>
       </div>
       <div className={cx('last-section')}>
-        <span>Fokus områder</span>
+        <span className={cx('focus-labelStyles')}>Fokus områder</span>
         <div className={cx('focus-container')}>
           {focusareas.map(focus => (
             <div className={cx('focus-box')} key={focus.name}>
-              <span>{focus.name}</span>
+              <span className={cx('focus-name')}>{focus.name}</span>
             </div>
           ))}
+        </div>
+      </div>
+      <div className={cx('footer-desc')}>
+        <div className={cx('icon-outer')}>
+          <div className={cx('icon-container')}>
+            <FontAwesomeIcon icon={['fas', 'map-marker-alt']} color='#7E7E7E' />
+            <p>{city}</p>
+          </div>
+          <div className={cx('icon-container')}>
+            <FontAwesomeIcon icon={['fas', 'user-friends']} color='#7E7E7E' />
+            <p>Ansatte: {employeeCount}</p>
+          </div>{' '}
+          <div className={cx('icon-container')}>
+            <FontAwesomeIcon icon={['fas', 'flag']} color='#7E7E7E' />
+            <p>Etablert: {establishedYear}</p>
+          </div>
         </div>
       </div>
     </div>

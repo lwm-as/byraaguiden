@@ -1,130 +1,130 @@
 .root {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
 }
 .popoutLayout_content {
-    position: fixed;
-    width: 60%;
-    top: 50%; right: 50%;
-    transform: translate(50%,-50%);
-    background-color: #fff;
-    height: 80vh;
-    overflow: scroll;
-    padding: 1rem 1rem 3rem;
-    z-index: 1002;
+  position: fixed;
+  width: 60%;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  background-color: #fff;
+  height: 80vh;
+  overflow: scroll;
+  padding: 1rem 1rem 3rem;
+  z-index: 1002;
 }
 
 .popupLayout_content_root {
-    position: relative;
-    background-color: white;
-    border: 1px solid #D3D4D5;
-    border-radius: 12px;
-    margin-bottom: 2.5rem;
-
+  position: relative;
+  background-color: white;
+  border: 1px solid #d3d4d5;
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
 }
 
 .popoutLayout_content_root_comment_container {
-    display: flex;
-    border-radius: 4px;
-    padding: 30px;
+  display: flex;
+  border-radius: 4px;
+  padding: 30px;
 }
 
 .comment_container_author {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-right: 3rem;
-    min-width: 160px;
-    max-width: 160px;
-    min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3rem;
+  min-width: 160px;
+  max-width: 160px;
+  min-height: 140px;
 }
 
 .comment_container_content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: left;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
 }
 
 .comment_container_content_actual {
-    font-weight: 400;
-    line-height: 160%;
+  font-weight: 400;
+  line-height: 160%;
 }
 
 .parent {
 }
 
 .button-container {
-    display: flex;
-    justify-content: flex-end;
-    position: sticky;
-    top: 1rem;
-    z-index: 999;
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 1rem;
+  z-index: 999;
 }
 
 .popupLayout_closePopup {
-    appearance: none;
-    cursor: pointer;
-    display: block;
-    border: 0;
-    color: currentColor;
-    width: 50px;
-    height: 50px;
-    font-size: 2em;
-    background: none;
-    font-weight: 700;
-    padding-bottom: 8px;
+  appearance: none;
+  cursor: pointer;
+  display: block;
+  border: 0;
+  color: currentColor;
+  width: 50px;
+  height: 50px;
+  font-size: 2em;
+  background: none;
+  font-weight: 700;
+  padding-bottom: 8px;
 }
 
 .popupLayout_comment_item {
-    display: flex;
-    align-items: center;
-    max-width: 100%;
-    min-width: 70%;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  min-width: 70%;
 }
 
 .popupLayout_comment_item img {
-    height: 15px;
-    margin: 1.3rem 0.6rem 1.3rem 0;
+  height: 15px;
+  margin: 1.3rem 0.6rem 1.3rem 0;
 }
 
 .comment_container_author img {
-    width: 57px;
-    height: 57px;
-    border-radius: 50%;
-    -webkit-object-fit: cover;
-    object-fit: cover;
+  width: 57px;
+  height: 57px;
+  border-radius: 50%;
+  -webkit-object-fit: cover;
+  object-fit: cover;
 }
 
 .rating_text {
-    color: #85868a;
+  color: #85868a;
 }
 
 .rating_text2 {
-    color: #85868a;
-    margin-left: 4px;
+  color: #85868a;
+  margin-left: 4px;
 }
 
 .author_name {
-    margin-bottom: 0;
-    font-weight: 700;
-    text-align: center;
-    color: #26394e;
+  margin-bottom: 0;
+  font-weight: 700;
+  text-align: center;
+  color: #26394e;
 }
 
 @media screen and (max-width: 768px) {
-    .popoutLayout_content_root_comment_container {
-        display: block;
-    }
-    .comment_container_author {
-        margin-right: 0px;
-        max-width: none;
-    }
+  .popoutLayout_content_root_comment_container {
+    display: block;
+  }
+  .comment_container_author {
+    margin-right: 0px;
+    max-width: none;
+  }
 }

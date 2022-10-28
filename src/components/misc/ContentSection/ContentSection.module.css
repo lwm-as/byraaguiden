@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #E2F2FE;
+  background-color: #e2f2fe;
   border-radius: var(--border-radius);
   box-shadow: 0px 2px 5px 1px #00000010;
 }
@@ -16,7 +16,7 @@
 
 .section-right .title {
   font-weight: 600;
-  color: #223EAA;
+  color: #223eaa;
 }
 
 .section-right .subtitle {
