@@ -1,9 +1,21 @@
 export const OPTIONS = {
-  categoryGroup: {
+  webDesignCategoryGroup: {
     newWebsite: 'Lage ny nettside',
     updateWebsite: 'Oppdatere eksisterende nettside',
     createWebStore: 'Lage ny nettbutikk',
     updateWebStore: 'Oppdatere eksisterende nettbutikk',
+    other: 'Annet / usikker'
+  },
+  appDevelopmentCategoryGroup: {
+    newApp: 'Lage ny app',
+    updateApp: 'Oppdatere eksisterende app',
+    other: 'Annet / usikker'
+  },
+  digitalMarketingCategoryGroup: {
+    socialMedia: 'Sosiale medier',
+    ads: 'Annonsering (Google, Bing)',
+    seo: 'Søkemotoroptimalisering (SEO)',
+    digitalStrategy: 'Digital strategi',
     other: 'Annet / usikker'
   },
   budgetGroup: {

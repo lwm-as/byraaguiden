@@ -2,18 +2,32 @@ import { useReducer } from 'react'
 import { OPTIONS } from '../../components/offerformSteps/fieldValues'
 
 export const actionTypes = {
-  toggle_category: 'toggle_category',
+  toggle_webDesignCategory: 'toggle_webDesignCategory',
+  toggle_appDevelopmentCategory: 'toggle_appDevelopmentCategory',
+  toggle_digitalMarketingCategory: 'toggle_digitalMarketingCategory',
   toggle_budget: 'toggle_budget',
   toggle_time: 'toggle_time',
   toggle_probability: 'toggle_probability'
 }
 
 const inititalState = {
-  categoryGroup: {
+  webDesignCategoryGroup: {
     newWebsite: false,
     updateWebsite: false,
     createWebStore: false,
     updateWebStore: false,
+    other: false
+  },
+  appDevelopmentCategoryGroup: {
+    newApp: false,
+    updateApp: false,
+    other: false
+  },
+  digitalMarketingCategoryGroup: {
+    socialMedia: false,
+    ads: false,
+    seo: false,
+    digitalStrategy: false,
     other: false
   },
   budgetGroup: {
@@ -42,15 +56,41 @@ const inititalState = {
 
 export const toggleReducer = (state, action) => {
   switch (action.type) {
-    case actionTypes.toggle_category: {
-      const radioGroupState1 = { ...state.categoryGroup }
+    case actionTypes.toggle_webDesignCategory: {
+      const radioGroupState1 = { ...state.webDesignCategoryGroup }
       for (const key in radioGroupState1) {
         radioGroupState1[key] = !action.event.target.checked
       }
       return {
         ...state,
-        categoryGroup: {
+        webDesignCategoryGroup: {
           ...radioGroupState1,
+          [action.event.target.name]: action.event.target.checked
+        }
+      }
+    }
+    case actionTypes.toggle_appDevelopmentCategory: {
+      const radioGroupState5 = { ...state.appDevelopmentCategoryGroup }
+      for (const key in radioGroupState5) {
+        radioGroupState5[key] = !action.event.target.checked
+      }
+      return {
+        ...state,
+        appDevelopmentCategoryGroup: {
+          ...radioGroupState5,
+          [action.event.target.name]: action.event.target.checked
+        }
+      }
+    }
+    case actionTypes.toggle_digitalMarketingCategory: {
+      const radioGroupState6 = { ...state.digitalMarketingCategoryGroup }
+      for (const key in radioGroupState6) {
+        radioGroupState6[key] = !action.event.target.checked
+      }
+      return {
+        ...state,
+        digitalMarketingCategoryGroup: {
+          ...radioGroupState6,
           [action.event.target.name]: action.event.target.checked
         }
       }
@@ -101,9 +141,21 @@ export const toggleReducer = (state, action) => {
 }
 
 export const useSelector = ({ reducer = toggleReducer } = {}) => {
-  const [{ budgetGroup, categoryGroup, timeGroup, probabilityGroup }, dispatch] = useReducer(reducer, inititalState)
+  const [
+    {
+      budgetGroup,
+      appDevelopmentCategoryGroup,
+      digitalMarketingCategoryGroup,
+      webDesignCategoryGroup,
+      timeGroup,
+      probabilityGroup
+    },
+    dispatch
+  ] = useReducer(reducer, inititalState)
 
-  const toggleCategory = event => dispatch({ type: actionTypes.toggle_category, event })
+  const toggleWebDesignCategory = event => dispatch({ type: actionTypes.toggle_webDesignCategory, event })
+  const toggleAppDevelopmentCategory = event => dispatch({ type: actionTypes.toggle_appDevelopmentCategory, event })
+  const toggleDigitalMarketingCategory = event => dispatch({ type: actionTypes.toggle_digitalMarketingCategory, event })
   const toggleBudget = event => dispatch({ type: actionTypes.toggle_budget, event })
   const toggleTime = event => dispatch({ type: actionTypes.toggle_time, event })
   const toggleProbability = event => dispatch({ type: actionTypes.toggle_probability, event })
@@ -111,10 +163,14 @@ export const useSelector = ({ reducer = toggleReducer } = {}) => {
   return {
     OPTIONS,
     budgetGroup,
-    categoryGroup,
+    webDesignCategoryGroup,
+    appDevelopmentCategoryGroup,
+    digitalMarketingCategoryGroup,
     timeGroup,
     probabilityGroup,
-    toggleCategory,
+    toggleWebDesignCategory,
+    toggleDigitalMarketingCategory,
+    toggleAppDevelopmentCategory,
     toggleBudget,
     toggleTime,
     toggleProbability

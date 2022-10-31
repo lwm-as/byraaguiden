@@ -17,7 +17,7 @@
 }
 
 .max-width {
-  width: 800px;
+  width: unset;
   margin-left: auto;
   margin-right: auto;
 }
@@ -95,6 +95,10 @@
 @media screen and (min-width: 768px) {
   .root {
     overflow: hidden;
+  }
+
+  .max-width {
+    width: 800px;
   }
   .dark-square-right {
     position: absolute;

@@ -11,6 +11,29 @@
   margin-left: 1rem;
 }
 
+.legg-til {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.inner-legg-til {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  cursor: pointer;
+}
+
+.inner-legg-til {
+  font-size: 1.2rem;
+}
+
+.inner-legg-til span {
+  font-weight: 600;
+}
+
 .close {
   display: block;
   text-align: right;

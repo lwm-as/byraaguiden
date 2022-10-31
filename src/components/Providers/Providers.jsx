@@ -3,29 +3,28 @@ import ProviderItem from './ProviderItem/ProviderItem'
 import styles from './Providers.module.css'
 
 import Popup from '../../components/Popup/Popup'
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../layout/Container/Container'
 import classNames from 'classnames/bind'
-import { useCompareItems } from './compareitems'
 import CompareItemsModal from './CompareItemsModal/CompareItemsModal'
 import disableScroll from '../../utils/disableScroll'
 import Image from '../common/Image/Image'
 import Button from '../common/Button/Button'
 import useWindowSize from '../../utils/windowSize'
 import CircularProgress from '@mui/material/CircularProgress'
-import _ from 'lodash'
+import { useStateValue } from '../../context/StateValueProvider'
 
 const cx = classNames.bind(styles)
 
 const Providers = () => {
   const { sortedReviews, setLoadMore, rest, loading } = useReviewContext()
-  const { checked, toggleChecked, removeItemFromCompareModal } = useCompareItems()
+
+  const [{ basket }] = useStateValue()
 
   const [compareItemsModal, setCompareItemsModal] = useState(false)
   const [customerReviewsModal, setCustomerReviewsModal] = useState(false)
   const { width } = useWindowSize()
   const isMobile = width <= 1000
-  const [state, setState] = useState([])
 
   const isRestEmpty = rest.length < 1
 
@@ -56,11 +55,7 @@ const Providers = () => {
   return (
     <>
       {compareItemsModal && (
-        <CompareItemsModal
-          compareItemsModal={compareItemsModal}
-          checked={checked}
-          onClose={() => setCompareItemsModal(false)}
-        />
+        <CompareItemsModal compareItemsModal={compareItemsModal} onClose={() => setCompareItemsModal(false)} />
       )}
       <div className={cx('root')}>
         {customerReviewsModal && <Popup open={customerReviewsModal} onClose={() => setCustomerReviewsModal(false)} />}
@@ -71,11 +66,10 @@ const Providers = () => {
                 <ProviderItem
                   isMobile={isMobile}
                   customReviewModal={() => setCustomerReviewsModal(true)}
-                  checked={checked}
-                  toggleChecked={toggleChecked}
-                  idx={idx}
+                  id={item.provider.id}
                   provider={item}
-                  // key={item.id}
+                  idx={idx}
+                  key={item.provider.id}
                 />
               )
             })}
@@ -100,9 +94,7 @@ const Providers = () => {
                   }
                 }}
               />
-              <div className={cx('icon-container')}>
-                <span>{checked.length}</span>
-              </div>
+              <div className={cx('icon-container')}>{<span>{basket?.length}</span>}</div>
             </div>
           </div>
         </div>

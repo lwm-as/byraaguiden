@@ -1,33 +1,83 @@
-export const categoryData = categoryGroup => {
+export const webDesignCategoryData = webDesignCategoryGroup => {
   return [
     {
       name: 'newWebsite',
       label: 'Lage ny nettside',
-      checked: categoryGroup.newWebsite
+      checked: webDesignCategoryGroup.newWebsite
     },
     {
       name: 'updateWebsite',
-
       label: 'Oppdatere eksisterende nettside',
-      checked: categoryGroup.updateWebsite
+      checked: webDesignCategoryGroup.updateWebsite
     },
     {
       name: 'createWebStore',
       label: 'Lage ny nettbutikk',
-      checked: categoryGroup.createWebStore
+      checked: webDesignCategoryGroup.createWebStore
     },
     {
       name: 'updateWebStore',
       label: 'Oppdatere eksisterende nettbutikk',
-      checked: categoryGroup.updateWebStore
+      checked: webDesignCategoryGroup.updateWebStore
     },
     {
       name: 'other',
       label: 'Annet / usikker',
-      checked: categoryGroup.other
+      checked: webDesignCategoryGroup.other
     }
   ]
 }
+
+export const appDevelopmentCategoryData = appDevelopmentCategoryGroup => {
+  return [
+    {
+      name: 'newApp',
+      label: 'Lage ny app',
+      checked: appDevelopmentCategoryGroup.newApp
+    },
+    {
+      name: 'updateApp',
+      label: 'Oppdatere eksisterende app',
+      checked: appDevelopmentCategoryGroup.updateApp
+    },
+    {
+      name: 'other',
+      label: 'Annet / usikker',
+      checked: appDevelopmentCategoryGroup.other
+    }
+  ]
+}
+
+export const digitalMarketingCategoryData = digitalMarketingCategoryGroup => {
+  return [
+    {
+      name: 'socialMedia',
+      label: 'Sosiale medier',
+      checked: digitalMarketingCategoryGroup.socialMedia
+    },
+    {
+      name: 'ads',
+      label: 'Annonsering (Google, Bing)',
+      checked: digitalMarketingCategoryGroup.ads
+    },
+    {
+      name: 'seo',
+      label: 'Søkemotoroptimalisering (SEO)',
+      checked: digitalMarketingCategoryGroup.seo
+    },
+    {
+      name: 'digitalStrategy',
+      label: 'Digital strategi',
+      checked: digitalMarketingCategoryGroup.digitalStrategy
+    },
+    {
+      name: 'other',
+      label: 'Annet / usikker',
+      checked: digitalMarketingCategoryGroup.other
+    }
+  ]
+}
+
 export const budgetData = budgetGroup => {
   return [
     {

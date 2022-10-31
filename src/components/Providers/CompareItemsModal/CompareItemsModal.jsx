@@ -10,7 +10,7 @@ import disableScroll from '../../../utils/disableScroll'
 
 const cx = classNames.bind(styles)
 
-export default function CompareItemsModal({ compareItemsModal, checked, onClose }) {
+export default function CompareItemsModal({ compareItemsModal, onClose }) {
   const [topFiveProviders, setTopFiveProviders] = useState()
   const { sortedReviews, sortReviews } = useReviewContext()
   const [customerReviewModal, setCustomerReviewModal] = useState(false)
@@ -54,7 +54,6 @@ export default function CompareItemsModal({ compareItemsModal, checked, onClose 
             onClose={onClose}
             setCustomerReviewModal={setCustomerReviewModal}
             topFiveProviders={topFiveProviders}
-            checked={checked}
           />
         </div>
       </div>

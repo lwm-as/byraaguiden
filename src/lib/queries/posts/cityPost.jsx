@@ -55,6 +55,7 @@ export const GET_POST = `
         providers {
           provider {
             ... on Provider {
+              id
               providersInfo {
                 name
                 logo {
