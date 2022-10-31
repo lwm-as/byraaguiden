@@ -8,7 +8,6 @@ const cx = classNames.bind(styles)
 
 export function OfferFormDigitalMarketingCategory({ toggler, validate, group }) {
   const data = digitalMarketingCategoryData(group)
-  console.log()
 
   return (
     <OfferFormStep className={cx('root')} validate={validate}>
