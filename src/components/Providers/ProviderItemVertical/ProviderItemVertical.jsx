@@ -8,11 +8,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { useCompareItems } from '../compareitems'
 import useWindowSize from '../../../utils/windowSize'
+import { useStateValue } from '../../../context/StateValueProvider'
 
 const cx = classNames.bind(styles)
 
-export default function ProviderItemVertical({ idx, setCustomerReviewModal, customReviewModal, provider }) {
-  // const { removeItemFromCompareModal } = useCompareItems()
+export default function ProviderItemVertical({ noCloseBtn, id, setCustomerReviewModal, customReviewModal, provider }) {
+  const [{ basket }, dispatch] = useStateValue()
   const { width } = useWindowSize()
   const isMobile = width <= 1000
   const {
@@ -40,23 +41,26 @@ export default function ProviderItemVertical({ idx, setCustomerReviewModal, cust
   const isCtaButton = providerButton === 'cta'
   const isVisitButton = providerButton === 'visit'
 
-  /** Will be implemented soon****/
-
-  // function handleRemoval() {
-  //   removeItemFromCompareModal(idx)
-  // }
+  const handleOnDelete = () => {
+    dispatch({
+      type: 'REMOVE_FROM_BASKET',
+      id: id
+    })
+  }
 
   return (
     <div className={cx('root')}>
-      {/*<div className={cx('close')}>*/}
-      {/*  <FontAwesomeIcon*/}
-      {/*    size='2x'*/}
-      {/*    onClick={() => handleRemoval()}*/}
-      {/*    color='#727070'*/}
-      {/*    className={cx('icon')}*/}
-      {/*    icon={['fal', 'times']}*/}
-      {/*  />*/}
-      {/*</div>*/}
+      <div className={cx('close')}>
+        {!noCloseBtn && (
+          <FontAwesomeIcon
+            size='2x'
+            onClick={handleOnDelete}
+            color='#727070'
+            className={cx('icon')}
+            icon={['fal', 'times']}
+          />
+        )}
+      </div>
       <div className={cx('first-section')}>
         <span className={cx('name')}>{name}</span>
         <div className={cx('image-container', { isMobile })}>

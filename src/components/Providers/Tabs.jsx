@@ -1,10 +1,12 @@
 import { Box, Tab, Tabs, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ProviderItemVertical from './ProviderItemVertical/ProviderItemVertical'
 import classNames from 'classnames/bind'
 import styles from './Tabs.module.css'
 import { useReviewContext } from '../Cities/ReviewContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useStateValue } from '../../context/StateValueProvider'
+import { ProviderSearchModal } from './ProviderSearchModal'
 
 const cx = classNames.bind(styles)
 
@@ -45,12 +47,45 @@ const tabLabelStyles = {
   }
 }
 
-export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, topFiveProviders, checked }) {
+export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, topFiveProviders }) {
   const [value, setValue] = useState(0)
+  const [{ basket }, dispatch] = useStateValue()
+
+  const [searchBox, setSearchBox] = useState(false)
   const { sortedReviews } = useReviewContext() //denne kan brukes på alle komponenter i provider
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
+  }
+
+  function addProvider() {
+    return setSearchBox(true)
+  }
+
+  const providersForSearchField = sortedReviews.map(
+    ({ provider, reviews, totalReviews, agencyScore, popularity, rating }) => ({
+      value: provider?.providersInfo?.name,
+      provider: provider,
+      reviews,
+      totalReviews,
+      agencyScore,
+      popularity,
+      rating
+    })
+  )
+
+  const basketItemsIDS = basket.map(item => item?.provider.id)
+  console.log(basketItemsIDS)
+  const filteredItems = providersForSearchField.filter(item => !basketItemsIDS.includes(item.provider.id))
+
+  console.log(filteredItems)
+
+  function handleOnSelect(provider) {
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: provider.item
+    })
+    setSearchBox(false)
   }
 
   return (
@@ -79,26 +114,45 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
           }}
           value={value}
           onChange={handleChange}
-          aria-label='basic tabs example'
+          aria-label='tabs'
         >
-          <Tab sx={tabLabelStyles} label='Valgte byråer' {...a11yProps(0)} />
+          <Tab
+            sx={tabLabelStyles}
+            label={`Valgte byråer ${basket.length === 0 ? '' : basket.length}`}
+            {...a11yProps(0)}
+          />
           <Tab sx={tabLabelStyles} label='Topp 5 byråer' {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
         <div className={cx('grid')}>
-          {sortedReviews?.map((item, idx) => {
-            if (checked.includes(idx)) {
+          {!searchBox ? (
+            basket?.map(item => {
               return (
                 <ProviderItemVertical
-                  idx={idx}
                   setCustomerReviewModal={setCustomerReviewModal}
                   customReviewModal={customReviewModal}
                   provider={item}
+                  id={item?.provider?.id}
                 />
               )
-            }
-          })}
+            })
+          ) : (
+            <ProviderSearchModal
+              setSearchBox={() => setSearchBox(false)}
+              handleOnSelect={handleOnSelect}
+              filteredItems={filteredItems}
+              searchBox={searchBox}
+            />
+          )}
+          {!searchBox && (
+            <div onClick={() => addProvider()} className={cx('legg-til')}>
+              <div className={cx('inner-legg-til')}>
+                <span className={cx('legg-til-text')}>Legg til byrå</span>
+                <FontAwesomeIcon size='2x' color='#022E47' icon={['fas', 'plus']} />
+              </div>
+            </div>
+          )}
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -109,10 +163,12 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
                 setCustomerReviewModal={setCustomerReviewModal}
                 customReviewModal={customReviewModal}
                 provider={item}
+                noCloseBtn
               />
             )
           })}
         </div>
+        <ProviderSearchModal handleOnSelect={handleOnSelect} filteredItems={filteredItems} searchBox={searchBox} />
       </TabPanel>
     </Box>
   )

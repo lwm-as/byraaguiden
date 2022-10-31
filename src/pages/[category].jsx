@@ -19,6 +19,8 @@ import { GET_ALL_CATEGORIES } from '../lib/queries/posts/categories'
 import { LoadingPlaceholder } from '../components/Providers/LoadingPlaceholder/LoadingPlaceholder'
 import { useCtaToggler } from '../hooks/useCtaToggler'
 import Sidebar from '../components/article/Sidebar/Sidebar'
+import reducer, { initialState } from '../utils/hooks/stateValueReducer'
+import { StateProvider } from '../context/StateValueProvider'
 
 export const cx = classNames.bind(styles)
 
@@ -97,7 +99,9 @@ const CityArticle = ({ data, categories: allCategories }) => {
                     <ProviderHero setChangingCity={setChangingCity} />
                   </div>
                 </Container>
-                <Providers />
+                <StateProvider initialState={initialState} reducer={reducer}>
+                  <Providers />
+                </StateProvider>
               </ReviewContextProvider>
             )}
             {isContent && (

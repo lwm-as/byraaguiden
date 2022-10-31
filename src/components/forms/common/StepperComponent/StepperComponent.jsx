@@ -17,8 +17,6 @@ function StepperComponent({ step }) {
     }
   }
 
-  console.log(step)
-
   return (
     <div className={cx('root')}>
       <div className={cx('container')}>

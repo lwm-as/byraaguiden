@@ -3,7 +3,7 @@ import Layout from '../components/layout/Layout/Layout'
 import { GET_MISCPAGE_BY_URI } from '../lib/queries/pages/homepage'
 import Container from '../components/layout/Container/Container'
 import OfferForm from '../components/forms/OfferForm'
-import OfferFormCategory from '../components/offerformSteps/OfferFormCategory/OfferFormCategory'
+import OfferFormWebDesignCategory from '../components/offerformSteps/OfferFormWebDesignCategory/OfferFormWebDesignCategory'
 import OfferFormBudget from '../components/offerformSteps/OfferFormBudget/OfferFormBudget'
 import OfferFormTime from '../components/offerformSteps/OfferFormTime/OfferFormTime'
 import OfferFormProbability from '../components/offerformSteps/OfferFormProbability/OfferFormProbability'
@@ -15,9 +15,10 @@ import GridHero from '../components/blog/GridHero/GridHero'
 import classNames from 'classnames/bind'
 import styles from '../styles/pages/Tilbud/Tilbud.module.css'
 import { GET_ALL_CATEGORIES } from '../lib/queries/posts/categories'
-import OfferFinalStep from '../components/offerformSteps/OfferFinalStep/OfferFinalStep'
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
+import { OfferFormAppDevelopmentCategory } from '../components/offerformSteps/OfferFormAppDevelopmentCategory/OfferFormAppDevelopmentCategory'
+import { OfferFormDigitalMarketingCategory } from '../components/offerformSteps/OfferFormDigitalMarketingCategory/OfferFormDigitalMarketingCategory'
 
 const cx = classNames.bind(styles)
 
@@ -32,19 +33,32 @@ const Offer = ({ data, categories }) => {
 
   const {
     OPTIONS,
-    categoryGroup,
+    webDesignCategoryGroup,
+    digitalMarketingCategoryGroup,
+    appDevelopmentCategoryGroup,
     budgetGroup,
     timeGroup,
     probabilityGroup,
-    toggleCategory,
+    toggleWebDesignCategory,
+    toggleAppDevelopmentCategory,
+    toggleDigitalMarketingCategory,
     toggleBudget,
     toggleTime,
     toggleProbability
   } = useSelector()
 
   // returns selected checkbox based on boolean values returned from reducer
-  const { chosenCategory, chosenBudget, chosenTime, chosenProbability } = handleSelecting(
-    categoryGroup,
+  const {
+    chosenAppDevelopmentCategoryGroup,
+    chosenWebDesignCategoryGroup,
+    chosenDigitalMarketingCategoryGroup,
+    chosenBudget,
+    chosenTime,
+    chosenProbability
+  } = handleSelecting(
+    webDesignCategoryGroup,
+    digitalMarketingCategoryGroup,
+    appDevelopmentCategoryGroup,
     budgetGroup,
     timeGroup,
     probabilityGroup,
@@ -53,11 +67,36 @@ const Offer = ({ data, categories }) => {
 
   const router = useRouter()
 
-  const webdesignFromURL = router?.asPath.split('=')[1]
+  const categoryFromURL = router?.asPath.split('=')[1]
 
-  const webDesignCategory = webdesignFromURL === 'webdesign'
-
-  // TODO:         {showFinalStep && <OfferFinalStep />}
+  const categoryMap = {
+    webdesign: (
+      <OfferFormWebDesignCategory
+        validate={chosenWebDesignCategoryGroup}
+        group={webDesignCategoryGroup}
+        toggler={toggleWebDesignCategory}
+      />
+    ),
+    apputvikling: (
+      <OfferFormAppDevelopmentCategory
+        validate={chosenAppDevelopmentCategoryGroup}
+        group={appDevelopmentCategoryGroup}
+        toggler={toggleAppDevelopmentCategory}
+      />
+    ),
+    [encodeURIComponent('digital-markedsføring')]: (
+      <OfferFormDigitalMarketingCategory
+        validate={chosenDigitalMarketingCategoryGroup}
+        group={digitalMarketingCategoryGroup}
+        toggler={toggleDigitalMarketingCategory}
+      />
+    ),
+    grafiskDesignCategory: '',
+    accountingCategory: '',
+    seoCategory: '',
+    telemarketing: '',
+    webUtviklingCategory: ''
+  }
 
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
@@ -73,7 +112,9 @@ const Offer = ({ data, categories }) => {
           setShowFinalStep={setShowFinalStep}
           categories={categories?.categories.nodes}
           selectedValues={{
-            category: chosenCategory,
+            webDesignCategoryGroup: chosenWebDesignCategoryGroup,
+            digitalMarketingCategoryGroup: chosenDigitalMarketingCategoryGroup,
+            appDevelopmentCategoryGroup: chosenAppDevelopmentCategoryGroup,
             budget: chosenBudget,
             time: chosenTime,
             probability: chosenProbability
@@ -85,10 +126,7 @@ const Offer = ({ data, categories }) => {
             description: ''
           }}
         >
-          {webDesignCategory && (
-            <OfferFormCategory validate={chosenCategory} group={categoryGroup} toggler={toggleCategory} />
-          )}
-
+          {categoryMap[categoryFromURL]}
           <OfferFormBudget validate={chosenBudget} group={budgetGroup} toggler={toggleBudget} />
           <OfferFormTime validate={chosenTime} group={timeGroup} toggler={toggleTime} />
           <OfferFormProbability validate={chosenProbability} group={probabilityGroup} toggler={toggleProbability} />
@@ -105,7 +143,7 @@ const Offer = ({ data, categories }) => {
             })}
           />
         </OfferForm>
-        {showFinalStep && <OfferFinalStep />}
+        {/*{showFinalStep && <OfferFinalStep />}*/}
       </Container>
     </Layout>
   )

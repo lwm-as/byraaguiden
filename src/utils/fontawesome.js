@@ -52,13 +52,15 @@ import {
   faUserFriends,
   faMapMarkerAlt,
   faFlag,
-  faCheck
+  faCheck,
+  faPlus
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebookSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Add icons to library here
 library.add(faBars)
+library.add(faPlus)
 library.add(faFlag)
 library.add(faStar)
 library.add(faUserFriends)

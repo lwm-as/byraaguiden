@@ -6,14 +6,15 @@ import ProviderRating from '../ProviderRating/ProviderRating'
 import GoogleRating from '../ProviderRating/GoogleRating'
 import { Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material'
 import Image from '../../common/Image/Image'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useToggler } from '../../../hooks/useToggler'
 import Expand from 'react-expand-animated'
 import _ from 'lodash'
+import { useStateValue } from '../../../context/StateValueProvider'
 
 const cx = classNames.bind(styles)
 
-const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx, provider }) => {
+const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
   const {
     provider: {
       providersInfo: {
@@ -38,6 +39,8 @@ const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx
 
   const isCtaButton = providerButton === 'cta'
   const isVisitButton = providerButton === 'visit'
+
+  const [{ checkedItems, basket }, dispatch] = useStateValue()
 
   const { openIndexes, toggleIndex } = useToggler()
   const [openDropDown, setOpenDropDown] = useState()
@@ -64,6 +67,8 @@ const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx
     return openIndexes.includes(index) ? 'chevron-down' : 'chevron-up'
   }
 
+  const basketItemsIDS = basket.map(item => item?.provider.id)
+
   return (
     <>
       <div key={_.uniqueId()} className={cx('root')}>
@@ -82,8 +87,14 @@ const ProviderItem = ({ isMobile, customReviewModal, toggleChecked, checked, idx
                       color: '#FF4A55'
                     }
                   }}
-                  checked={checked?.includes(idx)}
-                  onChange={() => toggleChecked(idx)}
+                  checked={basketItemsIDS?.includes(id)}
+                  onChange={() =>
+                    dispatch({
+                      type: 'TOGGLE_CHECKED',
+                      id,
+                      item: provider
+                    })
+                  }
                 />
               }
               label={!isMobile && labelStyles}
