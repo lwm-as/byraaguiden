@@ -256,11 +256,15 @@
   padding: 0 1.5rem;
 }
 
+.heading h2 {
+  font-family: var(--title-font);
+}
+
 .register-content {
   display: flex;
   padding: 0 3rem;
   margin: 2rem 0;
-  gap: 1.5rem;
+  gap: 1.7rem;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -309,6 +313,7 @@
   .section {
     margin: 1rem 0;
     display: grid;
+    column-gap: 2rem;
     grid-template-columns: 35% 55%;
     align-items: center;
   }

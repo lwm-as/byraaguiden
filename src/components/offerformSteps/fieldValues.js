@@ -32,7 +32,7 @@ export const OPTIONS = {
     twoWeeks: 'Innen 2 uker',
     oneMonth: 'Innen 1 måned',
     twoOrThreeMonths: 'Innen de neste 2-3 månedene',
-    other: 'Annet / ønsker å disukutere dette'
+    other: 'Annet / ønsker å diskutere dette'
   },
   probabilityGroup: {
     veldigSannsynlig: 'Veldig sannsynlig',

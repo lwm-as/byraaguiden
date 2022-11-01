@@ -27,7 +27,7 @@ const Offer = ({ data, categories }) => {
     page: { seo },
     headerMenu,
     footerMenu
-  } = data
+  } = data || undefined
 
   const [showFinalStep, setShowFinalStep] = useState(false)
 
@@ -98,6 +98,17 @@ const Offer = ({ data, categories }) => {
     webUtviklingCategory: ''
   }
 
+  const returnChosenCategoryBasedOnURL = () => {
+    switch (categoryFromURL) {
+      case 'webdesign':
+        return chosenWebDesignCategoryGroup
+      case 'apputvikling':
+        return chosenAppDevelopmentCategoryGroup
+      case encodeURIComponent('digital-markedsføring'):
+        return chosenDigitalMarketingCategoryGroup
+    }
+  }
+
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
       <GridHero
@@ -112,9 +123,7 @@ const Offer = ({ data, categories }) => {
           setShowFinalStep={setShowFinalStep}
           categories={categories?.categories.nodes}
           selectedValues={{
-            webDesignCategoryGroup: chosenWebDesignCategoryGroup,
-            digitalMarketingCategoryGroup: chosenDigitalMarketingCategoryGroup,
-            appDevelopmentCategoryGroup: chosenAppDevelopmentCategoryGroup,
+            category: returnChosenCategoryBasedOnURL(),
             budget: chosenBudget,
             time: chosenTime,
             probability: chosenProbability

@@ -22,9 +22,9 @@ function OfferForm({ setShowFinalStep, children, initialValues, selectedValues, 
 
   const categoryFromURL = router.asPath?.split('?')[1]?.split('=')[1]
 
-  const currentCategory = categories?.find(
-    ({ slug }) => decodeURIComponent(slug) === decodeURIComponent(categoryFromURL)
-  )
+  const currentCategory = categories?.find(({ slug }) => {
+    return decodeURIComponent(slug) === decodeURIComponent(categoryFromURL)
+  })
 
   const providerNames =
     currentCategory?.providerCategory?.providerCategory

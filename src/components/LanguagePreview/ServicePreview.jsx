@@ -44,7 +44,7 @@ export default function ServicePreview({ services }) {
         <h3 className={cx('title')}>De beste {`${service?.name?.toLowerCase()}-byråene i Norge`}</h3>
         <p>{service?.servicePreviewDescription?.serviceDescription}</p>
         <div className={cx('btn-container')}>
-          <Button link={`/${service?.slug}`}>Sammenlign byråer</Button>
+          <Button link={`/${service.name.toLowerCase().trim().replace(/[ -]+/g, '-')}`}>Sammenlign byråer</Button>
           <Button className={cx('white-bg')} link={`artikler/${service?.name?.toLowerCase()}`}>
             Les artikler
           </Button>

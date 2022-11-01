@@ -82,12 +82,20 @@ const Footer = ({ footerMenu, isHome }) => {
                 title='Help'
                 items={[
                   {
-                    label: 'asfd',
-                    path: 'afd'
+                    label: 'Hjelpesenter',
+                    path: '#'
                   },
                   {
-                    label: 'asfd',
-                    path: 'afd'
+                    label: 'Støtteteam',
+                    path: '#'
+                  },
+                  {
+                    label: 'Samfunnet',
+                    path: '#'
+                  },
+                  {
+                    label: 'FAQ',
+                    path: '#'
                   }
                 ]}
                 // items={subItemsContact}

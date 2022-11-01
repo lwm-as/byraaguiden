@@ -71,7 +71,7 @@ const HomePage = ({ data }) => {
               </div>
               <div>
                 <ContentsMenuStateProvider>
-                  <Wysiwyg className={cx('text')}>{homeSection?.sectionContent}</Wysiwyg>
+                  <Wysiwyg className={cx('text', 'heading')}>{homeSection?.sectionContent}</Wysiwyg>
                 </ContentsMenuStateProvider>
               </div>
             </section>

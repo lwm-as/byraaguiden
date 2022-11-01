@@ -6,11 +6,15 @@ const cx = classNames.bind(styles)
 
 function StepperComponent({ step }) {
   const router = useRouter()
-  const webdesignFromURL = router?.asPath.split('=')[1]
-  const webDesignCategory = webdesignFromURL === 'webdesign'
+  const url = router?.asPath.split('=')[1]
+  const webDesignCategory = url === 'webdesign'
+  const app = url === 'apputvikling'
+  const digitalMarketing = decodeURIComponent(url) === decodeURIComponent('digital-markedsføring')
+
+  const fiveSteps = webDesignCategory || app || digitalMarketing
 
   function calculatePercentage() {
-    if (webDesignCategory) {
+    if (webDesignCategory || app || digitalMarketing) {
       return step * 20
     } else {
       return step * 25
@@ -22,9 +26,15 @@ function StepperComponent({ step }) {
       <div className={cx('container')}>
         <span>{calculatePercentage()} % </span>
       </div>
-      <div className={cx('progressInnerContainer')}>
-        <progress id='file' value={step || '0'} max={webDesignCategory ? '5' : '4'}></progress>
-      </div>
+      {fiveSteps ? (
+        <div className={cx('progressInnerContainer')}>
+          <progress id='file' value={step || '0'} max='5'></progress>
+        </div>
+      ) : (
+        <div className={cx('progressInnerContainer')}>
+          <progress id='file' value={step || '0'} max='4'></progress>
+        </div>
+      )}
     </div>
   )
 }

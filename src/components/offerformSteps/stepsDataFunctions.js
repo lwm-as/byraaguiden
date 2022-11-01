@@ -136,7 +136,7 @@ export const timeData = timeGroup => {
     },
     {
       name: 'twoOrThreeMonths',
-      label: 'Ínnen de neste 2-3 månedene',
+      label: 'Innen de neste 2-3 månedene',
       checked: timeGroup.twoOrThreeMonths
     },
     {
