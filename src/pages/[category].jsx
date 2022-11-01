@@ -42,10 +42,10 @@ const CityArticle = ({ data, categories: allCategories }) => {
     },
     headerMenu,
     footerMenu
-  } = data || ''
+  } = data
 
   // state that keeps track when city is changed so that we can show loading screen
-  const [changingCity, setChangingCity] = useState(false)
+  // const [changingCity, setChangingCity] = useState(false)
 
   const router = useRouter()
 
@@ -66,23 +66,23 @@ const CityArticle = ({ data, categories: allCategories }) => {
   const isMobile = width <= 1000
 
   // run this when changing city
-  if (changingCity) {
-    return (
-      <LoadingPlaceholder
-        headerMenu={headerMenu}
-        footerMenu={footerMenu}
-        seo={seo}
-        categories={categories}
-        categorypage={categorypage}
-        title={categoryNameFromUrl}
-        category={data.category}
-        providers={isProviders}
-        providers1={providers}
-        cities={cities}
-        changingCity={setChangingCity}
-      />
-    )
-  }
+  // if (changingCity) {
+  //   return (
+  //     <LoadingPlaceholder
+  //       headerMenu={headerMenu}
+  //       footerMenu={footerMenu}
+  //       seo={seo}
+  //       categories={categories}
+  //       categorypage={categorypage}
+  //       title={categoryNameFromUrl}
+  //       category={data.category}
+  //       providers={isProviders}
+  //       providers1={providers}
+  //       cities={cities}
+  //       changingCity={setChangingCity}
+  //     />
+  //   )
+  // }
 
   return (
     <>
@@ -97,7 +97,9 @@ const CityArticle = ({ data, categories: allCategories }) => {
               <ReviewContextProvider providers={providers} cities={cities}>
                 <Container size='medium'>
                   <div>
-                    <ProviderHero setChangingCity={setChangingCity} />
+                    <ProviderHero
+                    // setChangingCity={setChangingCity}
+                    />
                   </div>
                 </Container>
                 <StateProvider initialState={initialState} reducer={reducer}>
