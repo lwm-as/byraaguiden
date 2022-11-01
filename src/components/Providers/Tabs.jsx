@@ -73,6 +73,7 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
       rating
     })
   )
+  console.log('')
 
   const filteredItems = providersForSearchField.filter(item => !checkedItems?.includes(item.provider.id))
 
