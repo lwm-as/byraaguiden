@@ -71,8 +71,7 @@ function OfferForm({ setShowFinalStep, children, initialValues, selectedValues, 
 
             if (res.status === 200) {
               setShowFinalStep(true)
-              alert('success')
-              // router.push(`/suksess`)
+              await router.push(`/suksess`)
             }
           } else {
             setStep(s => s + 1)

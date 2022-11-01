@@ -54,7 +54,9 @@ const ProviderHero = ({ setChangingCity }) => {
             )
           })}
 
-          <CityFilter setChangingCity={setChangingCity} />
+          <CityFilter
+          // setChangingCity={setChangingCity}
+          />
         </div>
       </div>
     </>
