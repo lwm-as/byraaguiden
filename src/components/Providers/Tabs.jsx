@@ -49,7 +49,7 @@ const tabLabelStyles = {
 
 export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, topFiveProviders }) {
   const [value, setValue] = useState(0)
-  const [{ basket }, dispatch] = useStateValue()
+  const [{ basket, checkedItems }, dispatch] = useStateValue()
 
   const [searchBox, setSearchBox] = useState(false)
   const { sortedReviews } = useReviewContext() //denne kan brukes på alle komponenter i provider
@@ -74,12 +74,12 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
     })
   )
 
-  const basketItemsIDS = basket.map(item => item?.provider.id)
-  const filteredItems = providersForSearchField.filter(item => !basketItemsIDS.includes(item.provider.id))
+  const filteredItems = providersForSearchField.filter(item => !checkedItems?.includes(item.provider.id))
 
   function handleOnSelect(provider) {
     dispatch({
       type: 'ADD_TO_BASKET',
+      id: provider.item.provider.id,
       item: provider.item
     })
     setSearchBox(false)
