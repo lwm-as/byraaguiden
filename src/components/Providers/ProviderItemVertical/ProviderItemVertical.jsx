@@ -6,7 +6,6 @@ import ProviderRating from '../ProviderRating/ProviderRating'
 import Image from '../../common/Image/Image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { useCompareItems } from '../compareitems'
 import useWindowSize from '../../../utils/windowSize'
 import { useStateValue } from '../../../context/StateValueProvider'
 

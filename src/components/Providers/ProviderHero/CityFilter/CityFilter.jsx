@@ -10,11 +10,7 @@ import excerpts from 'excerpts'
 
 const cx = classNames.bind(styles)
 
-export default function CityFilter(
-  {
-    // setChangingCity
-  }
-) {
+export default function CityFilter({ setChangingCity }) {
   const [openSelect, setOpenSelect] = useState(false)
   const [displayText, setDisplayText] = useState('')
 
@@ -27,22 +23,22 @@ export default function CityFilter(
   }
   useOutsideDetecter(wrapperRef, onClose)
 
-  // useEffect(() => {
-  //   const handleRouteChange = url => {
-  //     setChangingCity(true)
-  //   }
-  //
-  //   function handleCompletedRoute() {
-  //     setChangingCity(false)
-  //   }
-  //
-  //   router.events.on('routeChangeStart', handleRouteChange)
-  //   router.events.on('routeChangeComplete', handleCompletedRoute)
-  //
-  //   return () => {
-  //     router.events.off('routeChangeStart', handleRouteChange)
-  //   }
-  // }, [displayText, router])
+  useEffect(() => {
+    const handleRouteChange = url => {
+      setChangingCity(true)
+    }
+
+    function handleCompletedRoute() {
+      setChangingCity(false)
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange)
+    router.events.on('routeChangeComplete', handleCompletedRoute)
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [displayText, router])
 
   function handleChange(e) {
     setDisplayText(excerpts(e?.target?.innerHTML))

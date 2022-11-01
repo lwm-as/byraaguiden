@@ -3,8 +3,9 @@ import styles from './Popup.module.css'
 import classNames from 'classnames/bind'
 import ReactModal from 'react-modal'
 import useWindowSize from '../../utils/windowSize'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import disableScroll from '../../utils/disableScroll'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const cx = classNames.bind(styles)
 
@@ -30,21 +31,19 @@ function Popup({ open, onClose }) {
     }
   }
 
-  useEffect(() => {
-    if (open) {
-      disableScroll.on()
-    } else {
-      disableScroll.off()
-    }
-  }, [open])
+  // useEffect(() => {
+  //   if (open) {
+  //     disableScroll.on()
+  //   } else {
+  //     disableScroll.off()
+  //   }
+  // }, [open])
 
   return (
     <ReactModal style={customStyles} isOpen onRequestClose={onClose}>
       <div className={cx('parent')}>
         <div className={cx('button-container')}>
-          <button onClick={onClose} className={cx('popupLayout_closePopup')}>
-            ×
-          </button>
+          <FontAwesomeIcon size='2x' onClick={onClose} color='#727070' className={cx('icon')} icon={['fal', 'times']} />
         </div>
         {currentReviews === undefined
           ? null
