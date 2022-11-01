@@ -29,7 +29,7 @@ export default function OfferFormFooter({ validate, activeStep, onBack, isLastSt
         <div>
           {!isSubmitting ? (
             <Button
-              disabled={isSubmitting}
+              disabled={validate === undefined || isSubmitting}
               size={isMobileBtn ? 'xlarge' : 'large'}
               type='submit'
               className={cx('nextBtn')}

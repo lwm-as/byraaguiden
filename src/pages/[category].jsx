@@ -5,7 +5,7 @@ import GridHero from '../components/blog/GridHero/GridHero'
 import { ReviewContextProvider } from '../components/Cities/ReviewContextProvider'
 import Providers from '../components/Providers/Providers'
 import Breadcrumb from '../components/common/Breadcrumb/Breadcrumb'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Container from '../components/layout/Container/Container'
 import { useRouter } from 'next/router'
 import classNames from 'classnames/bind'
@@ -50,6 +50,7 @@ const CityArticle = ({ data, categories: allCategories }) => {
   const router = useRouter()
 
   const cities = cityPosts.filter(post => post.categories.nodes[1].slug === categories.nodes[1].slug)
+
   const categoryNameFromUrl =
     router?.asPath.split('/')[1].charAt(0).toUpperCase() + router?.asPath.split('/')[1].slice(1)
 
