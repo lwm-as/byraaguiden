@@ -75,10 +75,7 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
   )
 
   const basketItemsIDS = basket.map(item => item?.provider.id)
-  console.log(basketItemsIDS)
   const filteredItems = providersForSearchField.filter(item => !basketItemsIDS.includes(item.provider.id))
-
-  console.log(filteredItems)
 
   function handleOnSelect(provider) {
     dispatch({
@@ -149,7 +146,7 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
             <div onClick={() => addProvider()} className={cx('legg-til')}>
               <div className={cx('inner-legg-til')}>
                 <span className={cx('legg-til-text')}>Legg til byrå</span>
-                <FontAwesomeIcon size='2x' color='#022E47' icon={['fas', 'plus']} />
+                <FontAwesomeIcon size='lg' color='#022E47' icon={['fas', 'plus']} />
               </div>
             </div>
           )}

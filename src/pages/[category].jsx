@@ -21,6 +21,7 @@ import { useCtaToggler } from '../hooks/useCtaToggler'
 import Sidebar from '../components/article/Sidebar/Sidebar'
 import reducer, { initialState } from '../utils/hooks/stateValueReducer'
 import { StateProvider } from '../context/StateValueProvider'
+import { slugFactory } from '../utils/slugFactory'
 
 export const cx = classNames.bind(styles)
 
@@ -45,17 +46,39 @@ const CityArticle = ({ data, categories: allCategories }) => {
   } = data
 
   // state that keeps track when city is changed so that we can show loading screen
-  // const [changingCity, setChangingCity] = useState(false)
+  const [changingCity, setChangingCity] = useState(false)
 
   const router = useRouter()
 
   const cities = cityPosts.filter(post => post.categories.nodes[1].slug === categories.nodes[1].slug)
 
+  // For breadcrumb
   const categoryNameFromUrl =
     router?.asPath.split('/')[1].charAt(0).toUpperCase() + router?.asPath.split('/')[1].slice(1)
 
+  const asPath = decodeURIComponent(router?.asPath)
+
+  // checking if we are on desired slug
+  const digitalMarketing = asPath.split('/')[1] === decodeURIComponent('digital-markedsføring')
+  const graphicDesign = asPath.split('/')[1] === 'grafisk-design'
+
+  // adding slug booleans in to an array to run array.some to see which one is true
+  const slugArray = [digitalMarketing, graphicDesign]
+
+  // getting total amount (-) is used in slug
+  const totalOccurencesOfHyphenInURL = (asPath.split('/')[1].match(/-/g) || []).length
+
+  // returned slug by counting hyphens and returning correct format
+  const returnedSlug = slugFactory({
+    asPath,
+    digitalMarketing,
+    graphicDesign,
+    totalOccurencesOfHyphenInURL,
+    slugArray
+  })
+
   const categoryData =
-    allCategories.categories.nodes.filter(item => item.slug === categoryNameFromUrl.toLowerCase())[0] || ''
+    allCategories.categories.nodes.filter(item => decodeURIComponent(item.slug) === returnedSlug?.toLowerCase()) || ''
 
   const isProviders = providers?.length > 0
   const isContent = content != null
@@ -66,23 +89,23 @@ const CityArticle = ({ data, categories: allCategories }) => {
   const isMobile = width <= 1000
 
   // run this when changing city
-  // if (changingCity) {
-  //   return (
-  //     <LoadingPlaceholder
-  //       headerMenu={headerMenu}
-  //       footerMenu={footerMenu}
-  //       seo={seo}
-  //       categories={categories}
-  //       categorypage={categorypage}
-  //       title={categoryNameFromUrl}
-  //       category={data.category}
-  //       providers={isProviders}
-  //       providers1={providers}
-  //       cities={cities}
-  //       changingCity={setChangingCity}
-  //     />
-  //   )
-  // }
+  if (changingCity) {
+    return (
+      <LoadingPlaceholder
+        headerMenu={headerMenu}
+        footerMenu={footerMenu}
+        seo={seo}
+        categories={categories}
+        categorypage={categorypage}
+        title={categoryNameFromUrl}
+        category={data.category}
+        providers={isProviders}
+        providers1={providers}
+        cities={cities}
+        changingCity={setChangingCity}
+      />
+    )
+  }
 
   return (
     <>
@@ -97,9 +120,7 @@ const CityArticle = ({ data, categories: allCategories }) => {
               <ReviewContextProvider providers={providers} cities={cities}>
                 <Container size='medium'>
                   <div>
-                    <ProviderHero
-                    // setChangingCity={setChangingCity}
-                    />
+                    <ProviderHero setChangingCity={setChangingCity} />
                   </div>
                 </Container>
                 <StateProvider initialState={initialState} reducer={reducer}>
@@ -124,7 +145,7 @@ const CityArticle = ({ data, categories: allCategories }) => {
             )}
           </div>
           <div className={cx('city-side-container')}>
-            <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData} />}</div>
+            <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData[0]} />}</div>
           </div>
           <CtaFooterButton
             slug={decodeURIComponent(categoryData?.slug)}
