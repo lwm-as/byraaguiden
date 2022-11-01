@@ -67,8 +67,6 @@ const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
     return openIndexes.includes(index) ? 'chevron-down' : 'chevron-up'
   }
 
-  const basketItemsIDS = basket.map(item => item?.provider.id)
-
   return (
     <>
       <div key={_.uniqueId()} className={cx('root')}>
@@ -87,7 +85,7 @@ const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
                       color: '#FF4A55'
                     }
                   }}
-                  checked={basketItemsIDS?.includes(id)}
+                  checked={checkedItems?.includes(id)}
                   onChange={() =>
                     dispatch({
                       type: 'TOGGLE_CHECKED',
