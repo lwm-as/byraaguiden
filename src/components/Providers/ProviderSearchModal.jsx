@@ -12,6 +12,7 @@ export function ProviderSearchModal({ setSearchBox, searchBox, filteredItems, ha
         <div className={cx('root')}>
           <span className={cx('txt')}>Skriv navnet på byrået du ønsker å sammenligne</span>
           <ReactSearchBox
+            className={cx('hall')}
             placeholder='Søk på byråer'
             clearOnSelect
             data={filteredItems}

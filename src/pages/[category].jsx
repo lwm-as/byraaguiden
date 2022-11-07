@@ -148,7 +148,7 @@ const CityArticle = ({ data, categories: allCategories }) => {
             <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData[0]} />}</div>
           </div>
           <CtaFooterButton
-            slug={decodeURIComponent(categoryData?.slug)}
+            slug={categoryData[0].slug}
             isMobile={isMobile}
             ctaDisabled={ctaDisabled}
             show={isCtaShown}

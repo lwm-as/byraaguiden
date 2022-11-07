@@ -7,6 +7,7 @@ import { useReviewContext } from '../../../Cities/ReviewContextProvider'
 import { useRouter } from 'next/router'
 import useOutsideDetecter from '../../../../utils/hooks/useOutsideDetecter'
 import excerpts from 'excerpts'
+import Link from 'next/link'
 
 const cx = classNames.bind(styles)
 
@@ -16,7 +17,9 @@ export default function CityFilter({ setChangingCity }) {
 
   const wrapperRef = useRef(null)
   const router = useRouter()
-  const { cities } = useReviewContext()
+  const {
+    reviews: { cities }
+  } = useReviewContext()
 
   const onClose = () => {
     setOpenSelect(false)
@@ -63,9 +66,9 @@ export default function CityFilter({ setChangingCity }) {
           <ul className={cx('list')}>
             {cities.map(({ slug, tags: { nodes } }) => {
               return (
-                <a onClick={e => handleChange(e)} href={`/${slug}`}>
+                <Link onClick={e => handleChange(e)} href={`/${slug}`}>
                   {nodes[0].name}
-                </a>
+                </Link>
               )
             })}
           </ul>

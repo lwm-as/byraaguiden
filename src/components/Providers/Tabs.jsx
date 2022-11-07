@@ -7,6 +7,8 @@ import { useReviewContext } from '../Cities/ReviewContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useStateValue } from '../../context/StateValueProvider'
 import { ProviderSearchModal } from './ProviderSearchModal'
+import useReviewProvider from '../../hooks/useReviewProvider'
+import { useReviewProviderSearch } from '../../hooks/useReviewProviderSearch'
 
 const cx = classNames.bind(styles)
 
@@ -52,8 +54,11 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
   const [{ basket, checkedItems }, dispatch] = useStateValue()
 
   const [searchBox, setSearchBox] = useState(false)
-  const { sortedReviews } = useReviewContext() //denne kan brukes på alle komponenter i provider
+  const {
+    reviewsForSearchField: { sortedReviewsForSearch }
+  } = useReviewContext() || {}
 
+  // console.log(sortedReviewsForSearch)
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
@@ -62,7 +67,7 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
     return setSearchBox(true)
   }
 
-  const providersForSearchField = sortedReviews.map(
+  const providersForSearchField = sortedReviewsForSearch.map(
     ({ provider, reviews, totalReviews, agencyScore, popularity, rating }) => ({
       value: provider?.providersInfo?.name,
       provider: provider,

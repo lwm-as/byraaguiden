@@ -47,6 +47,8 @@ const useReviewProvider = (providers, cities) => {
     shouldRetryOnError: false
   })
 
+  // some logic to just get top 50 providers and save them in a list
+
   if (loadMore) {
     const nextProviders = rest.filter((item, ixd) => ixd < 10)
     const nextRest = rest.filter((item, ixd) => ixd >= 10)
