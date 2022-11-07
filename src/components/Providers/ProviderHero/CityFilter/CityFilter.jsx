@@ -7,7 +7,6 @@ import { useReviewContext } from '../../../Cities/ReviewContextProvider'
 import { useRouter } from 'next/router'
 import useOutsideDetecter from '../../../../utils/hooks/useOutsideDetecter'
 import excerpts from 'excerpts'
-import Link from 'next/link'
 
 const cx = classNames.bind(styles)
 
@@ -66,9 +65,9 @@ export default function CityFilter({ setChangingCity }) {
           <ul className={cx('list')}>
             {cities.map(({ slug, tags: { nodes } }) => {
               return (
-                <Link onClick={e => handleChange(e)} href={`/${slug}`}>
+                <a onClick={e => handleChange(e)} href={`/${slug}`}>
                   {nodes[0].name}
-                </Link>
+                </a>
               )
             })}
           </ul>
