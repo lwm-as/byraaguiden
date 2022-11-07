@@ -50,35 +50,36 @@ const CityArticle = ({ data, categories: allCategories }) => {
 
   const router = useRouter()
 
-  const cities = cityPosts.filter(post => post.categories.nodes[1].slug === categories.nodes[1].slug)
+  const cities = cityPosts?.filter(post => post?.categories.nodes[1].slug === categories.nodes[1].slug) || []
 
   // For breadcrumb
   const categoryNameFromUrl =
-    router?.asPath.split('/')[1].charAt(0).toUpperCase() + router?.asPath.split('/')[1].slice(1)
+    router?.asPath.split('/')[1].charAt(0).toUpperCase() + router?.asPath.split('/')[1].slice(1) || ''
 
-  const asPath = decodeURIComponent(router?.asPath)
+  const asPath = decodeURIComponent(router?.asPath) || ''
 
   // checking if we are on desired slug
-  const digitalMarketing = asPath.split('/')[1] === decodeURIComponent('digital-markedsføring')
-  const graphicDesign = asPath.split('/')[1] === 'grafisk-design'
+  const digitalMarketing = asPath?.split('/')[1] === decodeURIComponent('digital-markedsføring')
+  const graphicDesign = asPath?.split('/')[1] === 'grafisk-design'
 
   // adding slug booleans in to an array to run array.some to see which one is true
-  const slugArray = [digitalMarketing, graphicDesign]
+  const slugArray = [digitalMarketing, graphicDesign] || []
 
   // getting total amount (-) is used in slug
-  const totalOccurencesOfHyphenInURL = (asPath.split('/')[1].match(/-/g) || []).length
+  const totalOccurencesOfHyphenInURL = (asPath?.split('/')[1].match(/-/g) || []).length || 0
 
   // returned slug by counting hyphens and returning correct format
-  const returnedSlug = slugFactory({
-    asPath,
-    digitalMarketing,
-    graphicDesign,
-    totalOccurencesOfHyphenInURL,
-    slugArray
-  })
+  const returnedSlug =
+    slugFactory({
+      asPath,
+      digitalMarketing,
+      graphicDesign,
+      totalOccurencesOfHyphenInURL,
+      slugArray
+    }) || ''
 
   const categoryData =
-    allCategories.categories.nodes.filter(item => decodeURIComponent(item.slug) === returnedSlug?.toLowerCase()) || ''
+    allCategories?.categories?.nodes.filter(item => decodeURIComponent(item.slug) === returnedSlug?.toLowerCase()) || []
 
   const isProviders = providers?.length > 0
   const isContent = content != null
@@ -89,23 +90,23 @@ const CityArticle = ({ data, categories: allCategories }) => {
   const isMobile = width <= 1000
 
   // run this when changing city
-  if (changingCity) {
-    return (
-      <LoadingPlaceholder
-        headerMenu={headerMenu}
-        footerMenu={footerMenu}
-        seo={seo}
-        categories={categories}
-        categorypage={categorypage}
-        title={categoryNameFromUrl}
-        category={data.category}
-        providers={isProviders}
-        providers1={providers}
-        cities={cities}
-        changingCity={setChangingCity}
-      />
-    )
-  }
+  // if (changingCity) {
+  //   return (
+  //     <LoadingPlaceholder
+  //       headerMenu={headerMenu}
+  //       footerMenu={footerMenu}
+  //       seo={seo}
+  //       categories={categories}
+  //       categorypage={categorypage}
+  //       title={categoryNameFromUrl}
+  //       category={data.category}
+  //       providers={isProviders}
+  //       providers1={providers}
+  //       cities={cities}
+  //       changingCity={setChangingCity}
+  //     />
+  //   )
+  // }
 
   return (
     <>
@@ -172,7 +173,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const variables = {
-    id: decodeURIComponent(params.category)
+    id: encodeURIComponent(params.category)
   }
   const data = await graphql(GET_POST, variables)
   const categories = await graphql(GET_ALL_CATEGORIES)
