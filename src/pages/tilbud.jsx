@@ -94,7 +94,7 @@ const Offer = ({ data, categories }) => {
     grafiskDesignCategory: '',
     accountingCategory: '',
     seoCategory: '',
-    telemarketing: '',
+    telemarketingCategory: '',
     webUtviklingCategory: ''
   }
 

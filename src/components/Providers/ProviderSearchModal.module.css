@@ -11,6 +11,10 @@
   padding-left: 4px;
 }
 
+.hall {
+  border: 1px solid red !important;
+}
+
 .avbryt {
   padding-left: 4px;
   padding-top: 4px;

@@ -14,7 +14,7 @@ import { useStateValue } from '../../../context/StateValueProvider'
 
 const cx = classNames.bind(styles)
 
-const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
+const ProviderItem = ({ key, idx, id, isMobile, customReviewModal, provider }) => {
   const {
     provider: {
       providersInfo: {
@@ -40,7 +40,7 @@ const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
   const isCtaButton = providerButton === 'cta'
   const isVisitButton = providerButton === 'visit'
 
-  const [{ checkedItems, basket }, dispatch] = useStateValue()
+  const [{ checkedItems }, dispatch] = useStateValue()
 
   const { openIndexes, toggleIndex } = useToggler()
   const [openDropDown, setOpenDropDown] = useState()
@@ -69,7 +69,7 @@ const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
 
   return (
     <>
-      <div key={_.uniqueId()} className={cx('root')}>
+      <div key={key} className={cx('root')}>
         <div className={cx('legg-til')}>
           <FormGroup>
             <FormControlLabel

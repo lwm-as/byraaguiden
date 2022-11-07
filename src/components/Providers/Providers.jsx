@@ -17,7 +17,9 @@ import { useStateValue } from '../../context/StateValueProvider'
 const cx = classNames.bind(styles)
 
 const Providers = () => {
-  const { sortedReviews, setLoadMore, rest, loading } = useReviewContext()
+  const {
+    reviews: { sortedReviews, setLoadMore, rest, loading }
+  } = useReviewContext()
 
   const [{ basket }] = useStateValue()
 

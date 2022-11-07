@@ -79,7 +79,7 @@ function OfferForm({ setShowFinalStep, children, initialValues, selectedValues, 
         }}
         validateOnBlur={false}
         validateOnChange
-        validationSchema={currentStep.props.validationSchema}
+        validationSchema={currentStep?.props?.validationSchema}
       >
         {({ isSubmitting }) => (
           <Form className={cx('form')}>
@@ -92,7 +92,7 @@ function OfferForm({ setShowFinalStep, children, initialValues, selectedValues, 
                   onBack={() => setStep(state => state - 1)}
                   isMobile={isMobileWidth}
                   isSubmitting={isSubmitting}
-                  validate={currentStep.props.validate}
+                  validate={currentStep?.props?.validate}
                   step={step}
                 />
               </Stack>

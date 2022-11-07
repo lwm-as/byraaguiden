@@ -18,12 +18,16 @@ const GoogleRating = ({
   const { width } = useWindowSize()
   const isMobile = width <= 1000
 
-  const { setCurrentPlaceId } = useReviewContext()
+  const {
+    reviews: { setCurrentPlaceId },
+    reviewsForSearchField: { setCurrentPlaceIdSearch }
+  } = useReviewContext()
 
   const starCount = calculateStars(stars)
 
   const readMore = () => {
     setCurrentPlaceId(placeid)
+    setCurrentPlaceIdSearch(placeid)
     customReviewModal()
     setCustomerReviewModal(true)
   }

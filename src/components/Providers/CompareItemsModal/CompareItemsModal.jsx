@@ -12,7 +12,9 @@ const cx = classNames.bind(styles)
 
 export default function CompareItemsModal({ compareItemsModal, onClose }) {
   const [topFiveProviders, setTopFiveProviders] = useState()
-  const { sortedReviews, sortReviews } = useReviewContext()
+  const {
+    reviews: { sortedReviews, sortReviews }
+  } = useReviewContext()
   const [customerReviewModal, setCustomerReviewModal] = useState(false)
 
   //setting top providers for the compare modal

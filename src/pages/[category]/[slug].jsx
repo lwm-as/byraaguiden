@@ -25,6 +25,7 @@ const BlogArticle = ({ data }) => {
     post: {
       author,
       excerpt,
+      modifiedGmt,
       ctaDisabled: { ctaDisabled }
     },
     post,
@@ -44,7 +45,7 @@ const BlogArticle = ({ data }) => {
       <Container className={cx('split-view')} size='medium'>
         <ArticleProvider>
           <ContentsMenuStateProvider>
-            <PostContent author={author} excerpt={excerpt} postHeaderIsInside post={post} />
+            <PostContent modifiedGmt={modifiedGmt} author={author} excerpt={excerpt} postHeaderIsInside post={post} />
             <div className={cx('side-container')}>
               <div className={cx('inner-container')}>
                 {!isMobile && <Sidebar ctaDisabled={post.ctaDisabled} category={category} />}
