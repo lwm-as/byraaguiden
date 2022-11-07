@@ -52,8 +52,6 @@ export default function CityFilter({ setChangingCity }) {
     setOpenSelect(prevValue => !prevValue)
   }
 
-  console.log('')
-
   return (
     <div ref={wrapperRef} className={cx('select-container')}>
       <span className={cx('filtrer')}>Filtrer:</span>
