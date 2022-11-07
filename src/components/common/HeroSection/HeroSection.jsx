@@ -67,7 +67,7 @@ const HeroSection = ({ noHeading }) => {
           <div className={cx('list-container')}>
             {servicesArray.map(({ service, logo }, idx) => {
               return (
-                <Link href={`#${service.toLowerCase()}`}>
+                <Link key={idx} href={`#${service.toLowerCase()}`}>
                   <div className={cx('inner')}>
                     <div className={cx('logo-container')}>
                       <img src={logo} alt='Service' />

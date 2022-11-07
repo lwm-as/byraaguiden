@@ -103,7 +103,7 @@ const HomePage = ({ data }) => {
               {categories.nodes
                 .filter(({ name }) => name !== 'Sted' && name !== 'Artikler')
                 .map(({ name }) => {
-                  return <Cities posts={cityPosts} name={name} />
+                  return <Cities key={name} posts={cityPosts} name={name} />
                 })}
             </section>
           </Container>

@@ -41,22 +41,22 @@ const Footer = ({ footerMenu, isHome }) => {
     {
       flag: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/norsk.svg',
       label: 'Byråguiden NO',
-      path: ''
+      path: '/'
     },
     {
       flag: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/dansk.svg',
       label: 'Byråguiden DK',
-      path: ''
+      path: '/'
     },
     {
       flag: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/svensk.svg',
       label: 'Byråguiden SE',
-      path: ''
+      path: '/'
     },
     {
       flag: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/tysk.svg',
       label: 'Byråguiden DE',
-      path: ''
+      path: '/'
     }
   ]
 
@@ -123,8 +123,8 @@ const Footer = ({ footerMenu, isHome }) => {
           <div className={cx('other')}>
             {otherLanguages.map((data, idx, arr) => {
               return (
-                <div className={cx('sep-container')}>
-                  <Link href={data?.label}>
+                <div key={idx} className={cx('sep-container')}>
+                  <Link href={data.path}>
                     <a className={cx('other-inner')}>
                       <Image imageData={{ sourceUrl: data?.flag, mediaDetails: { width: 35, height: 25 } }} />
                       <span>{data?.label}</span>

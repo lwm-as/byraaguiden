@@ -23,7 +23,7 @@ function DesktopLeftHeader({ handleIconBackgroundColor, parentItems, handleDropD
         .filter(({ label }) => label === 'Tjenester' || label === 'Artikler')
         .map(({ label, path }, index) => {
           return (
-            <div onClick={() => handleDropDownClick(index)} className={cx('dropdown-menu-container')}>
+            <div key={path} onClick={() => handleDropDownClick(index)} className={cx('dropdown-menu-container')}>
               <div className={cx('icon-container', handleIconBackgroundColor(index))}>
                 <FontAwesomeIcon icon={['fas', handleIcon(index)]} color='white' size='xs' />
               </div>
@@ -39,7 +39,7 @@ function DesktopLeftHeader({ handleIconBackgroundColor, parentItems, handleDropD
           .filter(({ label }) => label !== 'Tjenester' && label !== 'Artikler' && label !== 'Registrer byrå')
           .map(({ label, path }) => {
             return (
-              <div className={cx('om-oss')}>
+              <div key={path} className={cx('om-oss')}>
                 <a href={path}>{label}</a>
                 <span id={cx('bli-kjent-med-oss')}>Bli kjent med oss</span>
               </div>

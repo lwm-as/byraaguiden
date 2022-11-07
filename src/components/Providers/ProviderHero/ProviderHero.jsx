@@ -43,6 +43,7 @@ const ProviderHero = ({ setChangingCity }) => {
           {filtered.map((item, idx) => {
             return (
               <Button
+                key={idx}
                 disabled={disableButton({ idx })}
                 size='small'
                 data-value={item.key}

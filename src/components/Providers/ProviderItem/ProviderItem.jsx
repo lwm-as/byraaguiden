@@ -14,7 +14,7 @@ import { useStateValue } from '../../../context/StateValueProvider'
 
 const cx = classNames.bind(styles)
 
-const ProviderItem = ({ key, idx, id, isMobile, customReviewModal, provider }) => {
+const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
   const {
     provider: {
       providersInfo: {
@@ -69,7 +69,7 @@ const ProviderItem = ({ key, idx, id, isMobile, customReviewModal, provider }) =
 
   return (
     <>
-      <div key={key} className={cx('root')}>
+      <div className={cx('root')}>
         <div className={cx('legg-til')}>
           <FormGroup>
             <FormControlLabel
