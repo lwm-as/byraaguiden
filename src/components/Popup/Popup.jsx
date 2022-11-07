@@ -44,14 +44,16 @@ function Popup({ open, onClose }) {
   //   }
   // }, [open])
 
+  console.log(currentReviews)
+
   return (
-    <ReactModal style={customStyles} isOpen onRequestClose={onClose}>
+    <ReactModal ariaHideApp={false} style={customStyles} isOpen onRequestClose={onClose}>
       <div className={cx('parent')}>
         <div className={cx('button-container')}>
           <FontAwesomeIcon size='2x' onClick={onClose} color='#727070' className={cx('icon')} icon={['fal', 'times']} />
         </div>
         {currentReviews === undefined
-          ? currentReview.reviews.map(review => {
+          ? currentReview?.reviews.map(review => {
               return (
                 <div key={review.author_name} className={cx('popupLayout_content_root')}>
                   <div className={cx('popoutLayout_content_root_comment_container')}>
@@ -73,7 +75,7 @@ function Popup({ open, onClose }) {
                 </div>
               )
             })
-          : currentReviews.reviews.map(review => {
+          : currentReviews?.reviews.map(review => {
               return (
                 <div key={review.author_name} className={cx('popupLayout_content_root')}>
                   <div className={cx('popoutLayout_content_root_comment_container')}>
