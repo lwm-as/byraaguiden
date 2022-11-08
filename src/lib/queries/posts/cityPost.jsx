@@ -37,8 +37,8 @@ export const GET_POST = `
           caption(format: RENDERED)
         }
       }
-     ctaDisabled {
-      ctaDisabled
+    ctaEnable {
+      ctaEnable
     }
       categories {
         nodes {

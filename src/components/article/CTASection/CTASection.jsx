@@ -13,7 +13,7 @@ const CTASection = ({ category }) => {
     <div className={cx('root')}>
       <h3 className={cx('title')}>
         Få gratis og uforpliktende tilbud på {/*{decodeURIComponent(category[0]?.name?.toLowerCase())}*/}
-        {decodeURIComponent(category?.name?.toLowerCase())}
+        {decodeURIComponent(category?.name?.toLowerCase() === 'seo' ? 'SEO' : category?.name?.toLowerCase())}
       </h3>
       {/*<p className={cx('text')}>*/}
       {/*  <i className={cx('icon-container')}>*/}

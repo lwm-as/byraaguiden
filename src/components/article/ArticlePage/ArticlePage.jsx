@@ -29,13 +29,13 @@ const ArticlePage = ({ data }) => {
 
   const {
     categories
-    // ctaDisabled: { ctaDisabled }
+    // ctaEnable: { ctaEnable }
   } = post
 
   const category = categories.nodes[0]
 
   // const isRA = category.posts.nodes.length > 1
-  // const showCTA = !ctaDisabled
+  // const showCTA = !ctaEnable
 
   const { width } = useWindowSize()
   const isMobile = width <= 768

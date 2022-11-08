@@ -29,7 +29,7 @@ const CityArticle = ({ data, categories: allCategories }) => {
   const {
     post: {
       modifiedGmt,
-      ctaDisabled: { ctaDisabled },
+      ctaEnable: { ctaEnable },
       categorypage,
       content,
       excerpt,
@@ -148,14 +148,11 @@ const CityArticle = ({ data, categories: allCategories }) => {
             )}
           </div>
           <div className={cx('city-side-container')}>
-            <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData[0]} />}</div>
+            <div className={cx('inner-container')}>
+              {!isMobile && <Sidebar ctaEnable={ctaEnable} category={categoryData[0]} />}
+            </div>
           </div>
-          <CtaFooterButton
-            slug={categoryData[0]?.slug}
-            isMobile={isMobile}
-            ctaDisabled={ctaDisabled}
-            show={isCtaShown}
-          />
+          <CtaFooterButton slug={categoryData[0]?.slug} isMobile={isMobile} ctaEnable={ctaEnable} show={isCtaShown} />
         </Container>
       </Layout>
     </>
