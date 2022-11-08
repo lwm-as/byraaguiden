@@ -28,7 +28,7 @@ const SEO = ({ seo }) => {
       <meta name='description' content={metaDesc} />
       <meta
         name='robots'
-        content={`noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1`}
+        content={`${metaRobotsNoindex}, ${metaRobotsNofollow}, max-snippet:-1, max-image-preview:large, max-video-preview:-1`}
       />
 
       <link rel='preconnect' href='https://fonts.googleapis.com' />

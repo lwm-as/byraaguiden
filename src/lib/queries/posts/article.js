@@ -19,8 +19,8 @@ query getArticle($id: ID!) {
         }
       }
     }
-    ctaDisabled {
-      ctaDisabled
+    ctaEnable {
+      ctaEnable
     }
     customToc {
       hascustomtoc

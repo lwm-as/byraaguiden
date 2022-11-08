@@ -20,7 +20,8 @@ const PostContent = ({
   marginBreadCrumb,
   post,
   postHeaderIsInside,
-  className
+  className,
+  articleTitle
 }) => {
   const { featuredImage, content, customToc } = post
   const isFeatured = !!featuredImage?.node
@@ -35,6 +36,7 @@ const PostContent = ({
             author={author}
             marginBreadCrumb={marginBreadCrumb}
             post={post}
+            articleTitle={articleTitle}
           />
         )}
         {excerpt && <p className={cx('excerpt')}>{excerpts(excerpt)}</p>}

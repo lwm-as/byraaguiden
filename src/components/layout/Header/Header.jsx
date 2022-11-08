@@ -46,14 +46,14 @@ function DesktopLeftHeader({ handleIconBackgroundColor, parentItems, handleDropD
             )
           })}
       </div>
-      <div className={cx('choose-language-container')}>
-        <div className={cx('icon-container', 'flag-chevron', handleIconBackgroundColor(4))}>
-          <FontAwesomeIcon icon={['fas', handleIcon(4)]} color='white' size='xs' />
-        </div>
-        <div onClick={() => handleFlag(4)} className={cx('flag-container')}>
-          <img className={cx('flag')} src='/media/images/roundNorwayFlag.svg' alt='' />
-        </div>
-      </div>
+      {/*<div className={cx('choose-language-container')}>*/}
+      {/*  <div className={cx('icon-container', 'flag-chevron', handleIconBackgroundColor(4))}>*/}
+      {/*    <FontAwesomeIcon icon={['fas', handleIcon(4)]} color='white' size='xs' />*/}
+      {/*  </div>*/}
+      {/*  <div onClick={() => handleFlag(4)} className={cx('flag-container')}>*/}
+      {/*    <img className={cx('flag')} src='/media/images/roundNorwayFlag.svg' alt='' />*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </div>
   )
 }

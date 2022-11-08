@@ -54,8 +54,8 @@ export const GET_POST = `
           slug
         }
       }
-     ctaDisabled {
-      ctaDisabled
+     ctaEnable {
+      ctaEnable
     }
       categorypage {
         herotitle

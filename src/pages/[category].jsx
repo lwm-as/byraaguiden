@@ -5,7 +5,7 @@ import GridHero from '../components/blog/GridHero/GridHero'
 import { ReviewContextProvider } from '../components/Cities/ReviewContextProvider'
 import Providers from '../components/Providers/Providers'
 import Breadcrumb from '../components/common/Breadcrumb/Breadcrumb'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../components/layout/Container/Container'
 import { useRouter } from 'next/router'
 import classNames from 'classnames/bind'
@@ -25,11 +25,11 @@ import { slugFactory } from '../utils/slugFactory'
 
 export const cx = classNames.bind(styles)
 
-const CityArticle = ({ data, categories: allCategories }) => {
+const CityArticle = ({ data }) => {
   const {
     post: {
       modifiedGmt,
-      ctaDisabled: { ctaDisabled },
+      ctaEnable: { ctaEnable },
       categorypage,
       content,
       excerpt,
@@ -48,7 +48,13 @@ const CityArticle = ({ data, categories: allCategories }) => {
   // state that keeps track when city is changed so that we can show loading screen
   const [changingCity, setChangingCity] = useState(false)
 
+  const [allCategories, setAllCategories] = useState()
+
   const router = useRouter()
+
+  useEffect(async () => {
+    await graphql(GET_ALL_CATEGORIES).then(allCategories => setAllCategories(allCategories))
+  }, [])
 
   const cities = cityPosts?.filter(post => post?.categories.nodes[1].slug === categories.nodes[1].slug) || []
 
@@ -142,20 +148,18 @@ const CityArticle = ({ data, categories: allCategories }) => {
                   excerpt={excerpt}
                   marginBreadCrumb
                   postHeaderIsInside
+                  articleTitle={categorypage}
                   post={data?.post}
                 />
               </Container>
             )}
           </div>
           <div className={cx('city-side-container')}>
-            <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData[0]} />}</div>
+            <div className={cx('inner-container')}>
+              {!isMobile && <Sidebar ctaEnable={ctaEnable} category={categoryData[0]} />}
+            </div>
           </div>
-          <CtaFooterButton
-            slug={categoryData[0]?.slug}
-            isMobile={isMobile}
-            ctaDisabled={ctaDisabled}
-            show={isCtaShown}
-          />
+          <CtaFooterButton slug={categoryData[0]?.slug} isMobile={isMobile} ctaEnable={ctaEnable} show={isCtaShown} />
         </Container>
       </Layout>
     </>
@@ -178,12 +182,10 @@ export async function getStaticProps({ params }) {
     id: encodeURIComponent(params.category)
   }
   const data = await graphql(GET_POST, variables)
-  const categories = await graphql(GET_ALL_CATEGORIES)
 
   return {
     props: {
-      data,
-      categories
+      data
     },
     revalidate: 1
   }
