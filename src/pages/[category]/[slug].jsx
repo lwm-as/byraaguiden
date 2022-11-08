@@ -49,7 +49,6 @@ const BlogArticle = ({ data }) => {
             <div className={cx('side-container')}>
               <div className={cx('inner-container')}>
                 {!isMobile && <Sidebar ctaDisabled={post.ctaDisabled} category={category} />}
-                {/*<TableOfContent />*/}
                 {!isMobile && posts?.nodes.length > 1 && (
                   <SimilarArticles post={data?.post} category={category} posts={posts} />
                 )}

@@ -133,19 +133,19 @@ const CityArticle = ({ data, categories: allCategories }) => {
                 </StateProvider>
               </ReviewContextProvider>
             )}
-            {/*{isContent && (*/}
-            {/*  <Container size='medium'>*/}
-            {/*    <PostContent*/}
-            {/*      modifiedGmt={modifiedGmt}*/}
-            {/*      noBreadCrumb*/}
-            {/*      author={author}*/}
-            {/*      excerpt={excerpt}*/}
-            {/*      marginBreadCrumb*/}
-            {/*      postHeaderIsInside*/}
-            {/*      post={data?.post}*/}
-            {/*    />*/}
-            {/*  </Container>*/}
-            {/*)}*/}
+            {isContent && (
+              <Container size='medium'>
+                <PostContent
+                  modifiedGmt={modifiedGmt}
+                  noBreadCrumb
+                  author={author}
+                  excerpt={excerpt}
+                  marginBreadCrumb
+                  postHeaderIsInside
+                  post={data?.post}
+                />
+              </Container>
+            )}
           </div>
           <div className={cx('city-side-container')}>
             <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData[0]} />}</div>
