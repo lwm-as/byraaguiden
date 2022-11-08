@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames/bind'
 import OfferFormStep from '../../forms/common/OfferFormStep/OfferFormStep'
 
@@ -12,13 +12,19 @@ const cx = classNames.bind(styles)
 const OfferFormWebDesignCategory = ({ group, toggler, validate }) => {
   const data = webDesignCategoryData(group)
 
+  const [error, setError] = useState(false)
+
+  function errorHandling() {
+    return error && <p className={cx('error')}>Velg minst 1 alternativ</p>
+  }
+
   return (
-    <OfferFormStep className={cx('root')} validate={validate}>
+    <OfferFormStep className={cx('root')} validate={validate} setError={setError}>
       <FormStepHeading text='Hva trenger du hjelp med?' />
       <div className={cx('checkboxes')}>
         {data.map(({ label, checked, name }) => {
           return (
-            <div className={cx({ checked }, 'border')}>
+            <div key={label} className={cx({ checked }, 'border')}>
               <FormGroup>
                 <FormControlLabel
                   control={
@@ -42,6 +48,7 @@ const OfferFormWebDesignCategory = ({ group, toggler, validate }) => {
           )
         })}
       </div>
+      {error && <p className={cx('error')}>Velg minst 1 alternativ</p>}
     </OfferFormStep>
   )
 }

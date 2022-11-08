@@ -16,10 +16,14 @@
 }
 
 .ingen-anmeldelser {
-  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 .ingen-anmeldelser p {
   font-weight: 600 !important;
+  font-size: 12px !important;
 }
 
 .isMobile div {
@@ -71,6 +75,10 @@
     margin: unset;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .noPaddingTop {
+    padding-top: 0;
   }
 
   .starContainer {

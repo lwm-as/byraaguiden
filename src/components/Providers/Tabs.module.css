@@ -17,6 +17,7 @@
   justify-content: flex-end;
   align-items: flex-start;
   padding: 1rem;
+  position: relative;
 }
 
 .inner-legg-til {
@@ -24,6 +25,8 @@
   flex-direction: column-reverse;
   align-items: center;
   cursor: pointer;
+  position: sticky;
+  top: 105px;
 }
 
 .inner-legg-til {

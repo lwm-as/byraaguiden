@@ -82,16 +82,10 @@ export default function ProviderItemVertical({ noCloseBtn, id, setCustomerReview
             placeid={placeid}
           />
         </div>
-        {isVisitButton ? (
+        {isVisitButton && (
           <Button className={cx('btn')} size='large' link={websiteLink}>
             Besøk nettsted
           </Button>
-        ) : (
-          !isMobile && (
-            <Button disabled={true} size='large' className={cx('transparent')}>
-              -
-            </Button>
-          )
         )}
         {isCtaButton && (
           <Button className={cx({ isMobile }, 'btn')} size='large' link={`/tilbud?name=${name}&contact=${contact}`}>
@@ -113,7 +107,7 @@ export default function ProviderItemVertical({ noCloseBtn, id, setCustomerReview
         </div>
       </div>
       <div className={cx('last-section')}>
-        <span className={cx('focus-labelStyles')}>Fokus områder</span>
+        <span className={cx('focus-labelStyles')}>Fokusområder</span>
         <div className={cx('focus-container')}>
           {focusareas.map(focus => (
             <div className={cx('focus-box')} key={focus.name}>

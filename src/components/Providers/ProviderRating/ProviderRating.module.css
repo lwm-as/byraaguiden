@@ -34,10 +34,19 @@
 .labelContainer {
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
+  align-items: center;
   margin-bottom: -8px;
   font-weight: 500;
   font-size: 14px;
+}
+
+.noReviews {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.noReviews span:last-of-type {
+  font-weight: 400;
 }
 
 .labelContainer span:last-of-type {

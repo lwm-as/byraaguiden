@@ -90,30 +90,34 @@ const CityArticle = ({ data, categories: allCategories }) => {
   const isMobile = width <= 1000
 
   // run this when changing city
-  // if (changingCity) {
-  //   return (
-  //     <LoadingPlaceholder
-  //       headerMenu={headerMenu}
-  //       footerMenu={footerMenu}
-  //       seo={seo}
-  //       categories={categories}
-  //       categorypage={categorypage}
-  //       title={categoryNameFromUrl}
-  //       category={data.category}
-  //       providers={isProviders}
-  //       providers1={providers}
-  //       cities={cities}
-  //       changingCity={setChangingCity}
-  //     />
-  //   )
-  // }
+  if (changingCity) {
+    return (
+      <LoadingPlaceholder
+        headerMenu={headerMenu}
+        footerMenu={footerMenu}
+        seo={seo}
+        categories={categories}
+        categorypage={categorypage}
+        title={categoryNameFromUrl}
+        category={data.category}
+        providers={isProviders}
+        providers1={providers}
+        cities={cities}
+        changingCity={setChangingCity}
+      />
+    )
+  }
 
   return (
     <>
       <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
-        <GridHero title={categorypage?.herotitle} description={categorypage?.herosubtitle} />
+        <GridHero
+          smaller={cx('smaller-width')}
+          title={categorypage?.herotitle}
+          description={categorypage?.herosubtitle}
+        />
         <Container size='medium'>
-          <Breadcrumb title={categoryNameFromUrl} category={data.category} />
+          <Breadcrumb className={cx('less-margin')} title={categoryNameFromUrl} category={data?.category} />
         </Container>
         <Container size='medium' className={cx('split-view', 'padding-0')}>
           <div>
@@ -129,21 +133,19 @@ const CityArticle = ({ data, categories: allCategories }) => {
                 </StateProvider>
               </ReviewContextProvider>
             )}
-            {/*{isContent && (*/}
-            {/*  <ContentsMenuStateProvider>*/}
-            {/*    <Container size='medium'>*/}
-            {/*      <PostContent*/}
-            {/*        modifiedGmt={modifiedGmt}*/}
-            {/*        noBreadCrumb*/}
-            {/*        author={author}*/}
-            {/*        excerpt={excerpt}*/}
-            {/*        marginBreadCrumb*/}
-            {/*        postHeaderIsInside*/}
-            {/*        post={data?.post}*/}
-            {/*      />*/}
-            {/*    </Container>*/}
-            {/*  </ContentsMenuStateProvider>*/}
-            {/*)}*/}
+            {isContent && (
+              <Container size='medium'>
+                <PostContent
+                  modifiedGmt={modifiedGmt}
+                  noBreadCrumb
+                  author={author}
+                  excerpt={excerpt}
+                  marginBreadCrumb
+                  postHeaderIsInside
+                  post={data?.post}
+                />
+              </Container>
+            )}
           </div>
           <div className={cx('city-side-container')}>
             <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData[0]} />}</div>

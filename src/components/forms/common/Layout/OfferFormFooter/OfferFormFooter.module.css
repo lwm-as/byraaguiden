@@ -1,9 +1,16 @@
 .root {
   padding-bottom: 1.7rem;
+  position: relative;
 }
 
 .btn-container {
   display: flex;
+}
+
+.error {
+  position: absolute;
+  top: -40px;
+  color: red !important;
 }
 
 .btn-flex-end {

@@ -25,8 +25,6 @@ const Providers = () => {
 
   const [compareItemsModal, setCompareItemsModal] = useState(false)
   const [customerReviewsModal, setCustomerReviewsModal] = useState(false)
-  const { width } = useWindowSize()
-  const isMobile = width <= 1000
 
   const isRestEmpty = rest.length < 1
 
@@ -66,7 +64,6 @@ const Providers = () => {
             {sortedReviews?.map((item, idx) => {
               return (
                 <ProviderItem
-                  isMobile={isMobile}
                   customReviewModal={() => setCustomerReviewsModal(true)}
                   id={item.provider.id}
                   provider={item}

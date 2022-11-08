@@ -9,6 +9,7 @@ import { useStateValue } from '../../context/StateValueProvider'
 import { ProviderSearchModal } from './ProviderSearchModal'
 import useReviewProvider from '../../hooks/useReviewProvider'
 import { useReviewProviderSearch } from '../../hooks/useReviewProviderSearch'
+import Image from '../common/Image/Image'
 
 const cx = classNames.bind(styles)
 
@@ -148,10 +149,20 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
             />
           )}
           {!searchBox && (
-            <div onClick={() => addProvider()} className={cx('legg-til')}>
+            <div className={cx('legg-til')}>
               <div className={cx('inner-legg-til')}>
-                <span className={cx('legg-til-text')}>Legg til byrå</span>
-                <FontAwesomeIcon size='lg' color='#022E47' icon={['fas', 'plus']} />
+                <span onClick={() => addProvider()} className={cx('legg-til-text')}>
+                  Legg til byrå
+                </span>
+                <Image
+                  imageData={{
+                    sourceUrl: '/media/icons/legg-til-byra.svg',
+                    mediaDetails: {
+                      width: 30,
+                      height: 30
+                    }
+                  }}
+                />
               </div>
             </div>
           )}

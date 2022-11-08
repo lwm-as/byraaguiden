@@ -30,13 +30,13 @@ export const servicesArray = [
     service: 'telemarketing',
     logo: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/telemarketing.svg'
   },
+  // {
+  //   id: 6,
+  //   service: 'webutvikling',
+  //   logo: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/webutvikling.svg'
+  // },
   {
     id: 6,
-    service: 'webutvikling',
-    logo: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/webutvikling.svg'
-  },
-  {
-    id: 7,
     service: 'digital markedsføring',
     logo: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/digitalmarkedsforing.svg'
   }

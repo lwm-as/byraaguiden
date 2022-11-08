@@ -9,6 +9,7 @@ import useWindowSize from '../../../utils/windowSize'
 const cx = classNames.bind(styles)
 
 const GoogleRating = ({
+  noPaddingTop,
   setCustomerReviewModal = () => {},
   customReviewModal = () => {},
   stars,
@@ -47,7 +48,7 @@ const GoogleRating = ({
   }
 
   return (
-    <div className={cx('root', { isMobile })}>
+    <div className={cx('root', { isMobile }, { noPaddingTop })}>
       <div className={cx('starContainer')}>
         <IconContainer src={'google-icon.svg'} width={14} height={14} />
         <p className={styles.starCount}>{parseFloat(stars).toFixed(1)}</p>

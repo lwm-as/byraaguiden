@@ -83,25 +83,27 @@
 .btn a {
   border-radius: 10px;
 }
-.img img {
-  border-radius: 10px;
-}
 
 .legg-til {
   display: flex;
-  justify-content: flex-end;
-  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.company-name {
+  display: flex;
+  align-items: center;
 }
 
 .name {
   font-family: var(--text-font);
   position: relative;
-  top: -15px;
   font-size: 20px;
 }
 
-.company-info {
-  /*border: 1px solid red;*/
+.img {
+  position: relative;
+  top: 5px;
 }
 
 .image-container {
@@ -154,18 +156,13 @@
   padding: 6px;
   display: flex;
   align-items: center;
-  background-color: #ececec;
+  background-color: var(--bg-focus);
   border-radius: 8px;
 }
 
 @media screen and (min-width: 768px) {
   .root {
     padding: 1rem 2rem;
-  }
-
-  .legg-til {
-    left: 14px;
-    top: -9px;
   }
 
   .grid {
@@ -182,9 +179,6 @@
 
   .image-container {
     flex-direction: row;
-  }
-  .name {
-    top: -24px;
   }
 
   .expandable-div {
