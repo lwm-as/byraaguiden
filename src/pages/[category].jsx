@@ -110,53 +110,53 @@ const CityArticle = ({ data, categories: allCategories }) => {
 
   return (
     <>
-      <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
-        <GridHero
-          smaller={cx('smaller-width')}
-          title={categorypage?.herotitle}
-          description={categorypage?.herosubtitle}
-        />
-        <Container size='medium'>
-          <Breadcrumb className={cx('less-margin')} title={categoryNameFromUrl} category={data?.category} />
-        </Container>
-        <Container size='medium' className={cx('split-view', 'padding-0')}>
-          <div>
-            {isProviders && (
-              <ReviewContextProvider providers={providers} cities={cities}>
-                <Container size='medium'>
-                  <div>
-                    <ProviderHero setChangingCity={setChangingCity} />
-                  </div>
-                </Container>
-                <StateProvider initialState={initialState} reducer={reducer}>
-                  <Providers />
-                </StateProvider>
-              </ReviewContextProvider>
-            )}
-            {/*{isContent && (*/}
-            {/*  <Container size='medium'>*/}
-            {/*    <PostContent*/}
-            {/*      modifiedGmt={modifiedGmt}*/}
-            {/*      noBreadCrumb*/}
-            {/*      author={author}*/}
-            {/*      excerpt={excerpt}*/}
-            {/*      marginBreadCrumb*/}
-            {/*      postHeaderIsInside*/}
-            {/*      articleTitle={categorypage}*/}
-            {/*      post={data?.post}*/}
-            {/*    />*/}
-            {/*  </Container>*/}
-            {/*)}*/}
-          </div>
-          <div className={cx('city-side-container')}>
-            <div className={cx('inner-container')}>
-              {!isMobile && <Sidebar ctaEnable={ctaEnable} category={categoryData[0]} />}
-            </div>
-          </div>
-          <CtaFooterButton slug={categoryData[0]?.slug} isMobile={isMobile} ctaEnable={ctaEnable} show={isCtaShown} />
-        </Container>
-      </Layout>
-    </>
+    {/*  <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>*/}
+    {/*    <GridHero*/}
+    {/*      smaller={cx('smaller-width')}*/}
+    {/*      title={categorypage?.herotitle}*/}
+    {/*      description={categorypage?.herosubtitle}*/}
+    {/*    />*/}
+    {/*    <Container size='medium'>*/}
+    {/*      <Breadcrumb className={cx('less-margin')} title={categoryNameFromUrl} category={data?.category} />*/}
+    {/*    </Container>*/}
+    {/*    <Container size='medium' className={cx('split-view', 'padding-0')}>*/}
+    {/*      <div>*/}
+    {/*        {isProviders && (*/}
+    {/*          <ReviewContextProvider providers={providers} cities={cities}>*/}
+    {/*            <Container size='medium'>*/}
+    {/*              <div>*/}
+    {/*                <ProviderHero setChangingCity={setChangingCity} />*/}
+    {/*              </div>*/}
+    {/*            </Container>*/}
+    {/*            <StateProvider initialState={initialState} reducer={reducer}>*/}
+    {/*              <Providers />*/}
+    {/*            </StateProvider>*/}
+    {/*          </ReviewContextProvider>*/}
+    {/*        )}*/}
+    {/*        {isContent && (*/}
+    {/*          <Container size='medium'>*/}
+    {/*            <PostContent*/}
+    {/*              modifiedGmt={modifiedGmt}*/}
+    {/*              noBreadCrumb*/}
+    {/*              author={author}*/}
+    {/*              excerpt={excerpt}*/}
+    {/*              marginBreadCrumb*/}
+    {/*              postHeaderIsInside*/}
+    {/*              articleTitle={categorypage}*/}
+    {/*              post={data?.post}*/}
+    {/*            />*/}
+    {/*          </Container>*/}
+    {/*        )}*/}
+    {/*      </div>*/}
+    {/*      <div className={cx('city-side-container')}>*/}
+    {/*        <div className={cx('inner-container')}>*/}
+    {/*          {!isMobile && <Sidebar ctaEnable={ctaEnable} category={categoryData[0]} />}*/}
+    {/*        </div>*/}
+    {/*      </div>*/}
+    {/*      <CtaFooterButton slug={categoryData[0]?.slug} isMobile={isMobile} ctaEnable={ctaEnable} show={isCtaShown} />*/}
+    {/*    </Container>*/}
+    {/*  </Layout>*/}
+    {/*</>*/}
   )
 }
 
