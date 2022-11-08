@@ -20,7 +20,7 @@
 .root h3,
 .root h2,
 .root h1 {
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 .root h1 {
