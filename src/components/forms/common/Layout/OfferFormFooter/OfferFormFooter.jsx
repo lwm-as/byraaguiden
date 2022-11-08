@@ -1,6 +1,6 @@
 import CircularProgress from '@mui/material/CircularProgress'
 import classNames from 'classnames/bind'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../../../../common/Button/Button'
 import styles from './OfferFormFooter.module.css'
 import StepperComponent from '../../StepperComponent/StepperComponent'
@@ -9,6 +9,14 @@ const cx = classNames.bind(styles)
 
 export default function OfferFormFooter({ validate, activeStep, onBack, isLastStep, isMobile, isSubmitting, step }) {
   const isMobileBtn = isMobile && activeStep === 0
+
+  // useEffect(() => {
+  //   if (validate === undefined) {
+  //     setError(true)
+  //   } else {
+  //     setError(false)
+  //   }
+  // }, [validate])
 
   return (
     <div className={cx('root')}>
@@ -33,6 +41,7 @@ export default function OfferFormFooter({ validate, activeStep, onBack, isLastSt
               size={isMobileBtn ? 'xlarge' : 'large'}
               type='submit'
               className={cx('nextBtn')}
+              // onClick={() => errorHandling(validate)}
             >
               {isLastStep ? 'Send' : 'Neste'}
             </Button>
@@ -50,7 +59,6 @@ export default function OfferFormFooter({ validate, activeStep, onBack, isLastSt
       <div className={cx('form-stepper')}>
         <StepperComponent step={step + 1} />
       </div>
-
       <div className={cx('bottom-txt')}>
         <p className={cx('disclaimer')}>
           informasjonen du sender inn går direkte til byråene.

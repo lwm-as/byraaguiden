@@ -50,35 +50,36 @@ const CityArticle = ({ data, categories: allCategories }) => {
 
   const router = useRouter()
 
-  const cities = cityPosts.filter(post => post.categories.nodes[1].slug === categories.nodes[1].slug)
+  const cities = cityPosts?.filter(post => post?.categories.nodes[1].slug === categories.nodes[1].slug) || []
 
   // For breadcrumb
   const categoryNameFromUrl =
-    router?.asPath.split('/')[1].charAt(0).toUpperCase() + router?.asPath.split('/')[1].slice(1)
+    router?.asPath.split('/')[1].charAt(0).toUpperCase() + router?.asPath.split('/')[1].slice(1) || ''
 
-  const asPath = decodeURIComponent(router?.asPath)
+  const asPath = decodeURIComponent(router?.asPath) || ''
 
   // checking if we are on desired slug
-  const digitalMarketing = asPath.split('/')[1] === decodeURIComponent('digital-markedsføring')
-  const graphicDesign = asPath.split('/')[1] === 'grafisk-design'
+  const digitalMarketing = asPath?.split('/')[1] === decodeURIComponent('digital-markedsføring')
+  const graphicDesign = asPath?.split('/')[1] === 'grafisk-design'
 
   // adding slug booleans in to an array to run array.some to see which one is true
-  const slugArray = [digitalMarketing, graphicDesign]
+  const slugArray = [digitalMarketing, graphicDesign] || []
 
   // getting total amount (-) is used in slug
-  const totalOccurencesOfHyphenInURL = (asPath.split('/')[1].match(/-/g) || []).length
+  const totalOccurencesOfHyphenInURL = (asPath?.split('/')[1].match(/-/g) || []).length || 0
 
   // returned slug by counting hyphens and returning correct format
-  const returnedSlug = slugFactory({
-    asPath,
-    digitalMarketing,
-    graphicDesign,
-    totalOccurencesOfHyphenInURL,
-    slugArray
-  })
+  const returnedSlug =
+    slugFactory({
+      asPath,
+      digitalMarketing,
+      graphicDesign,
+      totalOccurencesOfHyphenInURL,
+      slugArray
+    }) || ''
 
   const categoryData =
-    allCategories.categories.nodes.filter(item => decodeURIComponent(item.slug) === returnedSlug?.toLowerCase()) || ''
+    allCategories?.categories?.nodes.filter(item => decodeURIComponent(item.slug) === returnedSlug?.toLowerCase()) || []
 
   const isProviders = providers?.length > 0
   const isContent = content != null
@@ -110,9 +111,13 @@ const CityArticle = ({ data, categories: allCategories }) => {
   return (
     <>
       <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
-        <GridHero title={categorypage?.herotitle} description={categorypage?.herosubtitle} />
+        <GridHero
+          smaller={cx('smaller-width')}
+          title={categorypage?.herotitle}
+          description={categorypage?.herosubtitle}
+        />
         <Container size='medium'>
-          <Breadcrumb title={categoryNameFromUrl} category={data.category} />
+          <Breadcrumb className={cx('less-margin')} title={categoryNameFromUrl} category={data?.category} />
         </Container>
         <Container size='medium' className={cx('split-view', 'padding-0')}>
           <div>
@@ -129,26 +134,24 @@ const CityArticle = ({ data, categories: allCategories }) => {
               </ReviewContextProvider>
             )}
             {isContent && (
-              <ContentsMenuStateProvider>
-                <Container size='medium'>
-                  <PostContent
-                    modifiedGmt={modifiedGmt}
-                    noBreadCrumb
-                    author={author}
-                    excerpt={excerpt}
-                    marginBreadCrumb
-                    postHeaderIsInside
-                    post={data?.post}
-                  />
-                </Container>
-              </ContentsMenuStateProvider>
+              <Container size='medium'>
+                <PostContent
+                  modifiedGmt={modifiedGmt}
+                  noBreadCrumb
+                  author={author}
+                  excerpt={excerpt}
+                  marginBreadCrumb
+                  postHeaderIsInside
+                  post={data?.post}
+                />
+              </Container>
             )}
           </div>
           <div className={cx('city-side-container')}>
             <div className={cx('inner-container')}>{!isMobile && <Sidebar category={categoryData[0]} />}</div>
           </div>
           <CtaFooterButton
-            slug={categoryData[0].slug}
+            slug={categoryData[0]?.slug}
             isMobile={isMobile}
             ctaDisabled={ctaDisabled}
             show={isCtaShown}

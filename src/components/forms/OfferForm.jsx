@@ -16,7 +16,16 @@ import OfferFinalStep from '../offerformSteps/OfferFinalStep/OfferFinalStep'
 
 const cx = classNames.bind(styles)
 
-function OfferForm({ setShowFinalStep, children, initialValues, selectedValues, categories, steps, ...props }) {
+function OfferForm({
+  setShowFinalStep,
+  children,
+  initialValues,
+  selectedValues,
+  categories,
+  setError,
+  steps,
+  ...props
+}) {
   const childArray = React.Children.toArray(children)
   const router = useRouter()
 
@@ -87,6 +96,7 @@ function OfferForm({ setShowFinalStep, children, initialValues, selectedValues, 
               <Stack sx={{ paddingTop: '2rem !important' }} spacing={3} className={cx('root')}>
                 {currentStep}
                 <OfferFormFooter
+                  setError={currentStep?.props?.setError}
                   isLastStep={isLastStep()}
                   activeStep={step}
                   onBack={() => setStep(state => state - 1)}

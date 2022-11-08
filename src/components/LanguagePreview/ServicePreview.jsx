@@ -38,10 +38,35 @@ export default function ServicePreview({ services }) {
 
   // return <>{service ? <div className={cx('root')}></div> : <p>No post found</p>}</>
 
+  const isTelemarketing = service?.name?.toLowerCase() === 'telemarketing'
+  const telemarketingText = isTelemarketing && 'telemarketing-'
+
+  const isRegnskap = service?.name?.toLowerCase() === 'regnskapsfører'
+  const regnskapsText = isRegnskap && 'regnskaps'
+
+  const isSEO = service?.name?.toLowerCase() === 'seo'
+  const seoText = isSEO && 'SEO-'
+
+  const isDigitalMarketing = decodeURIComponent(service?.name?.toLowerCase()) === 'digital markedsføring'
+  const digitalMarketingText = isDigitalMarketing && 'digital markedsførings'
+
   return (
     <div className={cx('root')}>
       <div className={cx('inner-root')}>
-        <h3 className={cx('title')}>De beste {`${service?.name?.toLowerCase()}-byråene i Norge`}</h3>
+        <h3 className={cx('title')}>
+          De beste{' '}
+          {`${
+            isDigitalMarketing
+              ? digitalMarketingText
+              : isTelemarketing
+              ? telemarketingText
+              : isRegnskap
+              ? regnskapsText
+              : isSEO
+              ? seoText
+              : service?.name?.toLowerCase()
+          }byråene i Norge`}
+        </h3>
         <p>{service?.servicePreviewDescription?.serviceDescription}</p>
         <div className={cx('btn-container')}>
           <Button link={`/${service?.slug}`}>Sammenlign byråer</Button>

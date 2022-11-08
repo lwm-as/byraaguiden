@@ -44,8 +44,6 @@ function Popup({ open, onClose }) {
   //   }
   // }, [open])
 
-  console.log(currentReviews)
-
   return (
     <ReactModal ariaHideApp={false} style={customStyles} isOpen onRequestClose={onClose}>
       <div className={cx('parent')}>

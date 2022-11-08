@@ -77,32 +77,32 @@ const Footer = ({ footerMenu, isHome }) => {
             <div>
               <FooterSection title='Bransjer' items={subItemsServices} />
             </div>
-            <div>
-              <FooterSection
-                title='Help'
-                items={[
-                  {
-                    label: 'Hjelpesenter',
-                    path: '#'
-                  },
-                  {
-                    label: 'Støtteteam',
-                    path: '#'
-                  },
-                  {
-                    label: 'Samfunnet',
-                    path: '#'
-                  },
-                  {
-                    label: 'FAQ',
-                    path: '#'
-                  }
-                ]}
-                // items={subItemsContact}
-                // secondTitle={menuLabels[3].label}
-                // secondItems={subItemsVisit}
-              />
-            </div>
+            {/*<div>*/}
+            {/*<FooterSection*/}
+            {/*  title='Help'*/}
+            {/*  items={[*/}
+            {/*    {*/}
+            {/*      label: 'Hjelpesenter',*/}
+            {/*      path: '#'*/}
+            {/*    },*/}
+            {/*    {*/}
+            {/*      label: 'Støtteteam',*/}
+            {/*      path: '#'*/}
+            {/*    },*/}
+            {/*    {*/}
+            {/*      label: 'Samfunnet',*/}
+            {/*      path: '#'*/}
+            {/*    },*/}
+            {/*    {*/}
+            {/*      label: 'FAQ',*/}
+            {/*      path: '#'*/}
+            {/*    }*/}
+            {/*  ]}*/}
+            {/*   items={subItemsContact}*/}
+            {/* secondTitle={menuLabels[3].label}*/}
+            {/*secondItems={subItemsVisit}*/}
+            {/*/>*/}
+            {/*</div>*/}
           </div>
         </Container>
         <Container size='medium' className={cx('flex-col')}>

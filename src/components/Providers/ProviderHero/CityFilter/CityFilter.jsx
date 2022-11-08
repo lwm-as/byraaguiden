@@ -7,6 +7,7 @@ import { useReviewContext } from '../../../Cities/ReviewContextProvider'
 import { useRouter } from 'next/router'
 import useOutsideDetecter from '../../../../utils/hooks/useOutsideDetecter'
 import excerpts from 'excerpts'
+import Link from 'next/link'
 
 const cx = classNames.bind(styles)
 
@@ -60,14 +61,15 @@ export default function CityFilter({ setChangingCity }) {
           <FontAwesomeIcon className={cx('icon')} icon={['fas', 'chevron-down']} />
         </div>
       </div>
+
       {openSelect && (
         <div className={cx('options')}>
           <ul className={cx('list')}>
             {cities.map(({ slug, tags: { nodes } }) => {
               return (
-                <a onClick={e => handleChange(e)} href={`/${slug}`}>
+                <Link onClick={e => handleChange(e)} href={`/${slug}`}>
                   {nodes[0].name}
-                </a>
+                </Link>
               )
             })}
           </ul>

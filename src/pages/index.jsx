@@ -101,7 +101,7 @@ const HomePage = ({ data }) => {
                 <h3 className={cx('section-title')}>Steder</h3>
               </div>
               {categories.nodes
-                .filter(({ name }) => name !== 'Sted' && name !== 'Artikler')
+                .filter(({ name }) => name !== 'Sted' && name !== 'Artikler' && name !== 'Webutvikling')
                 .map(({ name }) => {
                   return <Cities key={name} posts={cityPosts} name={name} />
                 })}
@@ -119,21 +119,15 @@ const HomePage = ({ data }) => {
             <section>
               <div className={cx('customer-review-container')}>
                 <CustomerReviewBox
-                  text='Jeg har alltid funnet Byråguiden svært nyttig
-                når jeg har lett etter god webdesign og webutvikling!
-                Informasjon er veldig enkel å forstå!'
-                  author='Brynjar P.'
+                  text='Jeg trengte et byrå til å hjelpe meg med å lansere en nettbutikk, og da fant jeg frem til Byråguiden. Fikk hjelp fra et byrå og er strålende fornøyd med det.'
+                  author='Sofie'
                 />{' '}
                 <CustomerReviewBox
-                  text='Jeg har alltid funnet Byråguiden svært nyttig
-                når jeg har lett etter god webdesign og webutvikling!
-                Informasjon er veldig enkel å forstå!'
-                  author='Brynjar P.'
+                  text='Ble tipset om Byråguiden for å finne noen som kunne hjelpe meg med webdesign og det er jeg veldig glad for.'
+                  author='Tore'
                 />{' '}
                 <CustomerReviewBox
-                  text='Jeg har alltid funnet Byråguiden svært nyttig
-                når jeg har lett etter god webdesign og webutvikling!
-                Informasjon er veldig enkel å forstå!'
+                  text='Søkte rundt og fant frem til Byråguiden hvor jeg fikk flere gode forslag til byråer jeg kunne bli kontaktet av.'
                   author='Brynjar P.'
                 />
               </div>

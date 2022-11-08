@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames/bind'
 
 import styles from './OfferFormBudget.module.css'
@@ -12,13 +12,15 @@ const cx = classNames.bind(styles)
 const OfferFormBudget = ({ group, toggler, validate }) => {
   const data = budgetData(group)
 
+  const [error, setError] = useState(false)
+
   return (
-    <OfferFormStep className={cx('root')} validate={validate}>
+    <OfferFormStep className={cx('root')} validate={validate} setError={setError}>
       <FormStepHeading text='Omtrent hvor stort budsjett har du?' />
       <div className={cx('checkboxes')}>
         {data.map(({ label, checked, name }) => {
           return (
-            <div className={cx({ checked }, 'border')}>
+            <div key={label} className={cx({ checked }, 'border')}>
               <FormGroup>
                 <FormControlLabel
                   control={
@@ -41,6 +43,7 @@ const OfferFormBudget = ({ group, toggler, validate }) => {
           )
         })}
       </div>
+      {error && <p className={cx('error')}>Velg minst 1 alternativ</p>}
     </OfferFormStep>
   )
 }

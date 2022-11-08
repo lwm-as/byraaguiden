@@ -10,7 +10,7 @@
 
 .city-side-container {
   position: relative;
-  margin-top: 9.44rem;
+  margin-top: 11.55em;
 }
 
 .inner-container {
@@ -22,7 +22,7 @@
 }
 
 .skeleton-side-container {
-  margin-top: 1.2rem;
+  margin-top: 3.2rem;
 }
 
 .wyswig-no-margin-top {
@@ -65,6 +65,10 @@
   .split-view {
     display: grid;
     grid-template-columns: 75% 25%;
-    column-gap: 2rem;
+    column-gap: 20px;
+  }
+
+  .less-margin {
+    padding-bottom: 3rem;
   }
 }

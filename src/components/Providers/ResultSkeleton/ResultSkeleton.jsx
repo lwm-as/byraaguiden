@@ -8,8 +8,8 @@ const cx = classNames.bind(styles)
 const ResultSkeleton = ({ results }) =>
   Array(results)
     .fill(0)
-    .map(() => (
-      <div className={cx('outer')}>
+    .map((_, index) => (
+      <div key={index} className={cx('outer')}>
         <div className={cx('root')}>
           <Skeleton sx={{ animationDuration: '.9s' }} width='100%' height={600} />
         </div>

@@ -9,12 +9,12 @@ import Image from '../../common/Image/Image'
 import React, { useState } from 'react'
 import { useToggler } from '../../../hooks/useToggler'
 import Expand from 'react-expand-animated'
-import _ from 'lodash'
 import { useStateValue } from '../../../context/StateValueProvider'
+import useWindowSize from '../../../utils/windowSize'
 
 const cx = classNames.bind(styles)
 
-const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
+const ProviderItem = ({ idx, id, customReviewModal, provider }) => {
   const {
     provider: {
       providersInfo: {
@@ -36,6 +36,9 @@ const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
     popularity,
     agencyScore
   } = provider
+
+  const { width } = useWindowSize()
+  const isMobile = width <= 1000
 
   const isCtaButton = providerButton === 'cta'
   const isVisitButton = providerButton === 'visit'
@@ -64,44 +67,53 @@ const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
   )
 
   function handleIcon(index) {
-    return openIndexes.includes(index) ? 'chevron-down' : 'chevron-up'
+    return openIndexes.includes(index) ? 'chevron-up' : 'chevron-down'
   }
 
   return (
     <>
       <div className={cx('root')}>
         <div className={cx('legg-til')}>
-          <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  sx={{
-                    transform: isMobile && 'scale(1.4)',
-                    position: 'relative',
-                    left: isMobile && '25px',
-                    top: isMobile && '20px',
-                    color: '#002E47',
-                    '&.Mui-checked': {
-                      color: '#FF4A55'
-                    }
-                  }}
-                  checked={checkedItems?.includes(id)}
-                  onChange={() =>
-                    dispatch({
-                      type: 'TOGGLE_CHECKED',
-                      id,
-                      item: provider
-                    })
+          <div className={cx('company-name')}>
+            <h4 className={cx('name')}>{name}</h4>
+          </div>
+          <div className={cx('check-box')}>
+            <FormGroup>
+              <FormControlLabel
+                sx={{
+                  '&.MuiFormControlLabel-root': {
+                    paddingRight: '0px',
+                    marginRight: '0px'
                   }
-                />
-              }
-              label={!isMobile && labelStyles}
-            />
-          </FormGroup>
+                }}
+                control={
+                  <Checkbox
+                    sx={{
+                      transform: isMobile && 'scale(1.3)',
+                      position: 'relative',
+                      padding: isMobile ? '0px' : '8px',
+                      color: '#002E47',
+                      '&.Mui-checked': {
+                        color: '#FF4A55'
+                      }
+                    }}
+                    checked={checkedItems?.includes(id)}
+                    onChange={() =>
+                      dispatch({
+                        type: 'TOGGLE_CHECKED',
+                        id,
+                        item: provider
+                      })
+                    }
+                  />
+                }
+                label={!isMobile && labelStyles}
+              />
+            </FormGroup>
+          </div>
         </div>
         <div className={cx('grid')}>
           <div className={cx('company-info')}>
-            <h4 className={cx('name')}>{name}</h4>
             <div className={cx('image-container')}>
               {logo?.sourceUrl && (
                 <Image
@@ -116,6 +128,7 @@ const ProviderItem = ({ idx, id, isMobile, customReviewModal, provider }) => {
                 />
               )}
               <GoogleRating
+                noPaddingTop
                 customReviewModal={customReviewModal}
                 stars={rating}
                 totalReviews={totalReviews}

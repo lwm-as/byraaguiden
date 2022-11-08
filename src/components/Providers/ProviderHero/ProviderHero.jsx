@@ -7,14 +7,20 @@ import classNames from 'classnames/bind'
 import Button from '../../common/Button/Button'
 import { useToggler } from '../../../hooks/useToggler'
 import { useReviewContext } from '../../Cities/ReviewContextProvider'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { SORT_OPTIONS } from '../../../lib/constants/sortOptions'
+import OmVårVurdering from '../../common/Modal/OmVårVurdering/OmVårVurdering'
+import Image from '../../common/Image/Image'
 
 const cx = classNames.bind(styles)
 
 const ProviderHero = ({ setChangingCity }) => {
   const { toggleButton, checkedButtons } = useToggler()
-  const { sortReviews } = useReviewContext()
+  const {
+    reviews: { sortReviews }
+  } = useReviewContext()
+
+  const [open, setOpen] = useState(false)
 
   function handleClick({ e, idx }) {
     sortReviews(e)
@@ -37,6 +43,7 @@ const ProviderHero = ({ setChangingCity }) => {
   )
   return (
     <>
+      {open && <OmVårVurdering onClose={() => setOpen(false)} open={open} />}
       <span className={cx('title', 'sorter-title')}>Sorter etter:</span>
       <div className={cx('root')}>
         <div className={cx('inner-filter')}>
@@ -57,6 +64,20 @@ const ProviderHero = ({ setChangingCity }) => {
 
           <CityFilter setChangingCity={setChangingCity} />
         </div>
+      </div>
+      <div className={cx('om-vaar-container')}>
+        <Image
+          imageData={{
+            sourceUrl: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/11/acclamation_mark.svg',
+            mediaDetails: {
+              width: 17,
+              height: 17
+            }
+          }}
+        />
+        <span onClick={() => setOpen(true)} className={cx('om-vaar-vurdering')}>
+          Om vår vurdering
+        </span>
       </div>
     </>
   )
