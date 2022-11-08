@@ -31,13 +31,16 @@
   border-radius: 1rem;
 }
 
+.labelContainer label {
+  font-size: 13px;
+}
+
 .labelContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: -8px;
   font-weight: 500;
-  font-size: 14px;
 }
 
 .noReviews {

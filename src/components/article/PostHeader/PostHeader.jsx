@@ -9,8 +9,10 @@ import dayjs from 'dayjs'
 
 const cx = classNames.bind(styles)
 
-const PostHeader = ({ modifiedGmt, noBreadCrumb, author, marginBreadCrumb, fullwidth, post }) => {
+const PostHeader = ({ articleTitle, modifiedGmt, noBreadCrumb, author, marginBreadCrumb, fullwidth, post }) => {
   const { title, categories } = post
+
+  const articleTitlee = articleTitle?.articletitle
 
   const formattedDate = dayjs(modifiedGmt).locale('de').format('DD. MMM, YYYY')
 
@@ -19,7 +21,9 @@ const PostHeader = ({ modifiedGmt, noBreadCrumb, author, marginBreadCrumb, fullw
       {!noBreadCrumb && (
         <Breadcrumb marginBreadCrumb={marginBreadCrumb} categoryData={categories?.nodes[0]} title={title} />
       )}
-      <h1 className={cx('title')}>{title}</h1>
+
+      {articleTitle ? <h1 className={cx('title')}>{articleTitlee}</h1> : <h1 className={cx('title')}>{title}</h1>}
+
       <div className={cx('meta-info')}>
         <div className={cx('meta-container')}>
           <img src={author?.node.avatar.url} alt='' />

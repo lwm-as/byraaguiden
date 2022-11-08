@@ -142,6 +142,7 @@ const CityArticle = ({ data, categories: allCategories }) => {
                   excerpt={excerpt}
                   marginBreadCrumb
                   postHeaderIsInside
+                  articleTitle={categorypage}
                   post={data?.post}
                 />
               </Container>
