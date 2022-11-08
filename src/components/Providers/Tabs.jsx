@@ -150,10 +150,8 @@ export function BasicTabs({ onClose, setCustomerReviewModal, customReviewModal, 
           )}
           {!searchBox && (
             <div className={cx('legg-til')}>
-              <div className={cx('inner-legg-til')}>
-                <span onClick={() => addProvider()} className={cx('legg-til-text')}>
-                  Legg til byrå
-                </span>
+              <div onClick={() => addProvider()} className={cx('inner-legg-til')}>
+                <span className={cx('legg-til-text')}>Legg til byrå</span>
                 <Image
                   imageData={{
                     sourceUrl: '/media/icons/legg-til-byra.svg',
