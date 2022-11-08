@@ -11,7 +11,6 @@ export default function CustomerReviewBox({ author, text }) {
       </div>
       <div className={cx('author')}>
         <span>{author}</span>
-        <span>Byråguiden user</span>
       </div>
     </div>
   )
