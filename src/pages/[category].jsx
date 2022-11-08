@@ -155,7 +155,7 @@ const CityArticle = ({ data, categories: allCategories }) => {
       {/*    </div>*/}
       {/*    <CtaFooterButton slug={categoryData[0]?.slug} isMobile={isMobile} ctaEnable={ctaEnable} show={isCtaShown} />*/}
       {/*  </Container>*/}
-      </Layout>
+      {/*</Layout>*/}
     </>
   )
 }
