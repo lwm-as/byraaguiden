@@ -18,18 +18,20 @@ export default function SubMenu({ openIndexes, subItems }) {
             <a className={cx('alle-artikler')}>Alle artikler</a>
           </Link>
         )}
-        {subItems.map(({ label, path }) => {
-          const cleanPath = path.split('/category').pop()
-          return (
-            <li>
-              {!openIndexes.includes(0) ? (
-                <a href={`/artikler${cleanPath}`}>{label}</a>
-              ) : (
-                <a href={`${cleanPath}`}>{label}</a>
-              )}
-            </li>
-          )
-        })}
+        {subItems
+          .filter(item => item.label !== 'Telemarketing')
+          .map(({ label, path }) => {
+            const cleanPath = path.split('/category').pop()
+            return (
+              <li>
+                {!openIndexes.includes(0) ? (
+                  <a href={`/artikler${cleanPath}`}>{label}</a>
+                ) : (
+                  <a href={`${cleanPath}`}>{label}</a>
+                )}
+              </li>
+            )
+          })}
       </ul>
     </div>
   )
