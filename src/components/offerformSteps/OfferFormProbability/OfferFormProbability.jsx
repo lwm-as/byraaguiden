@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import classNames from 'classnames/bind'
 
 import styles from './OfferFormProbability.module.css'
-import { Checkbox, FormControlLabel, FormGroup, Radio } from '@mui/material'
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import OfferFormStep from '../../forms/common/OfferFormStep/OfferFormStep'
 import { probabilityData } from '../stepsDataFunctions'
 import { FormStepHeading } from '../FormStepHeading/FormStepHeading'
@@ -23,7 +23,7 @@ const OfferFormProbability = ({ group, toggler, validate }) => {
               <FormGroup>
                 <FormControlLabel
                   control={
-                    <Radio
+                    <Checkbox
                       sx={{
                         '&.Mui-disabled': {
                           color: '#FF4A55'

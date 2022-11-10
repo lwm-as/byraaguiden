@@ -55,8 +55,9 @@ export default function BlogCategoryGrid({ categories, posts, category, children
   const isMobile = windowWidth < 768
 
   const filter = categories.categories.nodes.filter(catt => {
-    return catt.name !== category.name && catt.name !== 'Artikler'
+    return catt.name !== category.name && catt.name !== 'Artikler' && catt.name !== 'Webutvkling'
   })
+
   return (
     <div className={cx('root')}>
       <Container size='medium'>

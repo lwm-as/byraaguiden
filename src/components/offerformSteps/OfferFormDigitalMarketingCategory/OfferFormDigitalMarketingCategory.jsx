@@ -22,7 +22,7 @@ export function OfferFormDigitalMarketingCategory({ toggler, validate, group }) 
               <FormGroup>
                 <FormControlLabel
                   control={
-                    <Radio
+                    <Checkbox
                       value={label}
                       sx={{
                         '&.Mui-disabled': {
