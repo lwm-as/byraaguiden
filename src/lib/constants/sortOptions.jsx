@@ -1,9 +1,5 @@
 export const SORT_OPTIONS = [
   {
-    key: 'default',
-    value: 'Reset'
-  },
-  {
     key: 'highestScore',
     value: 'Høyest Byrå-score'
   },
@@ -26,5 +22,9 @@ export const SORT_OPTIONS = [
   {
     key: 'worstreviews',
     value: 'Lavest kundetilfredshet'
+  },
+  {
+    key: 'default',
+    value: 'Tilbakestill'
   }
 ]

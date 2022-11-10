@@ -9,6 +9,12 @@
   flex-direction: column;
 }
 
+.reset {
+  position: relative;
+  top: 15px;
+  cursor: pointer;
+}
+
 .btn button {
   border: 1px solid #d3d4d5;
   color: #212121;
