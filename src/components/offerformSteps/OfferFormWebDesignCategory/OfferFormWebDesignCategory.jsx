@@ -28,7 +28,7 @@ const OfferFormWebDesignCategory = ({ group, toggler, validate }) => {
               <FormGroup>
                 <FormControlLabel
                   control={
-                    <Radio
+                    <Checkbox
                       value={label}
                       sx={{
                         '&.Mui-disabled': {
