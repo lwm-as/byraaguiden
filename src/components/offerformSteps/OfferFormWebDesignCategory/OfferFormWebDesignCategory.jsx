@@ -3,7 +3,7 @@ import classNames from 'classnames/bind'
 import OfferFormStep from '../../forms/common/OfferFormStep/OfferFormStep'
 
 import styles from './OfferFormWebDesignCategory.module.css'
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
+import { Checkbox, FormControlLabel, FormGroup, Radio } from '@mui/material'
 import { webDesignCategoryData } from '../stepsDataFunctions'
 import { FormStepHeading } from '../FormStepHeading/FormStepHeading'
 
@@ -28,7 +28,7 @@ const OfferFormWebDesignCategory = ({ group, toggler, validate }) => {
               <FormGroup>
                 <FormControlLabel
                   control={
-                    <Checkbox
+                    <Radio
                       value={label}
                       sx={{
                         '&.Mui-disabled': {

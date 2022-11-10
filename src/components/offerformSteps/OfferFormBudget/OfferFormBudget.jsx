@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import classNames from 'classnames/bind'
 
 import styles from './OfferFormBudget.module.css'
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
+import { Checkbox, FormControlLabel, FormGroup, Radio } from '@mui/material'
 import OfferFormStep from '../../forms/common/OfferFormStep/OfferFormStep'
 import { budgetData } from '../stepsDataFunctions'
 import { FormStepHeading } from '../FormStepHeading/FormStepHeading'
@@ -24,7 +24,7 @@ const OfferFormBudget = ({ group, toggler, validate }) => {
               <FormGroup>
                 <FormControlLabel
                   control={
-                    <Checkbox
+                    <Radio
                       sx={{
                         '&.Mui-disabled': {
                           color: '#FF4A55'

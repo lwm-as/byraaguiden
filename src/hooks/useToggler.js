@@ -46,7 +46,8 @@ export const toggleReducer = (state, action) => {
       return {
         ...state,
         ...inititalState,
-        openIndexes: []
+        openIndexes: [],
+        checkedButtons: []
       }
     default: {
       throw new Error(`Unhandled type in toggleReducer: ${action.type}`)
@@ -56,7 +57,7 @@ export const toggleReducer = (state, action) => {
 
 // user can provide custom reducer if he wishes to
 export const useToggler = ({ reducer = toggleReducer } = {}) => {
-  const [{ openIndexes, checkedButtons, radioGroupCategory }, dispatch] = useReducer(reducer, inititalState)
+  const [{ openIndexes, checkedButtons }, dispatch] = useReducer(reducer, inititalState)
 
   const toggleIndex = index => dispatch({ type: actionTypes.toggle_index, index })
   const toggleButton = index => dispatch({ type: actionTypes.toggle_button, index })

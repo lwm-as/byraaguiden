@@ -88,7 +88,7 @@ const Footer = ({ footerMenu, isHome }) => {
                     path: 'mailto:kontakt@byråguiden.no'
                   },
                   {
-                    label: 'Bogstadveien 27B, 0566 Oslo'
+                    label: 'Bogstadveien 27B, 0555 Oslo'
                   }
                 ]}
               />

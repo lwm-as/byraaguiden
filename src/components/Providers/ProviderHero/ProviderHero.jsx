@@ -16,7 +16,7 @@ import useWindowSize from '../../../utils/windowSize'
 const cx = classNames.bind(styles)
 
 const ProviderHero = ({ setChangingCity }) => {
-  const { toggleButton, checkedButtons } = useToggler()
+  const { toggleButton, checkedButtons, resetState } = useToggler()
   const {
     reviews: { sortReviews }
   } = useReviewContext()
@@ -45,6 +45,12 @@ const ProviderHero = ({ setChangingCity }) => {
       item.value === 'Høyest Byrå-score' ||
       item.value === 'Høyest popularitet'
   )
+
+  function handleReset() {
+    sortReviews({ target: { dataset: { value: 'default' } } })
+    resetState()
+  }
+
   return (
     <>
       {open && <OmVårVurdering onClose={() => setOpen(false)} open={open} />}
@@ -67,11 +73,7 @@ const ProviderHero = ({ setChangingCity }) => {
           })}
 
           {isMobile && (
-            <Button
-              size='small'
-              className={cx('btn')}
-              onClick={() => sortReviews({ target: { dataset: { value: 'default' } } })}
-            >
+            <Button size='small' className={cx('btn')} onClick={() => handleReset()}>
               Tilbakestill
             </Button>
           )}
@@ -81,7 +83,7 @@ const ProviderHero = ({ setChangingCity }) => {
         {!isMobile && (
           <div className={cx('reset')}>
             <Image
-              onClick={() => sortReviews({ target: { dataset: { value: 'default' } } })}
+              onClick={() => handleReset()}
               imageData={{
                 sourceUrl: '/media/icons/trash-can-solid.svg',
                 mediaDetails: {
