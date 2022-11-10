@@ -69,34 +69,34 @@ const Offer = ({ data, categories }) => {
 
   const categoryFromURL = router?.asPath.split('=')[1]
 
-  const categoryMap = {
-    webdesign: (
-      <OfferFormWebDesignCategory
-        validate={chosenWebDesignCategoryGroup}
-        group={webDesignCategoryGroup}
-        toggler={toggleWebDesignCategory}
-      />
-    ),
-    apputvikling: (
-      <OfferFormAppDevelopmentCategory
-        validate={chosenAppDevelopmentCategoryGroup}
-        group={appDevelopmentCategoryGroup}
-        toggler={toggleAppDevelopmentCategory}
-      />
-    ),
-    [encodeURIComponent('digital-markedsføring')]: (
-      <OfferFormDigitalMarketingCategory
-        validate={chosenDigitalMarketingCategoryGroup}
-        group={digitalMarketingCategoryGroup}
-        toggler={toggleDigitalMarketingCategory}
-      />
-    ),
-    grafiskDesignCategory: '',
-    accountingCategory: '',
-    seoCategory: '',
-    telemarketingCategory: '',
-    webUtviklingCategory: ''
-  }
+  // const categoryMap = {
+  //   webdesign: (
+  //     <OfferFormWebDesignCategory
+  //       validate={chosenWebDesignCategoryGroup}
+  //       group={webDesignCategoryGroup}
+  //       toggler={toggleWebDesignCategory}
+  //     />
+  //   ),
+  //   apputvikling: (
+  //     <OfferFormAppDevelopmentCategory
+  //       validate={chosenAppDevelopmentCategoryGroup}
+  //       group={appDevelopmentCategoryGroup}
+  //       toggler={toggleAppDevelopmentCategory}
+  //     />
+  //   ),
+  //   [encodeURIComponent('digital-markedsføring')]: (
+  //     <OfferFormDigitalMarketingCategory
+  //       validate={chosenDigitalMarketingCategoryGroup}
+  //       group={digitalMarketingCategoryGroup}
+  //       toggler={toggleDigitalMarketingCategory}
+  //     />
+  //   ),
+  //   grafiskDesignCategory: '',
+  //   accountingCategory: '',
+  //   seoCategory: '',
+  //   telemarketingCategory: '',
+  //   webUtviklingCategory: ''
+  // }
 
   const returnChosenCategoryBasedOnURL = () => {
     switch (categoryFromURL) {
@@ -135,7 +135,7 @@ const Offer = ({ data, categories }) => {
             description: ''
           }}
         >
-          {categoryMap[categoryFromURL]}
+          {/*{categoryMap[categoryFromURL]}*/}
           <OfferFormBudget validate={chosenBudget} group={budgetGroup} toggler={toggleBudget} />
           <OfferFormTime validate={chosenTime} group={timeGroup} toggler={toggleTime} />
           <OfferFormProbability validate={chosenProbability} group={probabilityGroup} toggler={toggleProbability} />
