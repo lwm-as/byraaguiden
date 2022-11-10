@@ -50,6 +50,17 @@ export default function ServicePreview({ services }) {
   const isDigitalMarketing = decodeURIComponent(service?.name?.toLowerCase()) === 'digital markedsføring'
   const digitalMarketingText = isDigitalMarketing && 'digital markedsførings'
 
+  const isApp = service?.name?.toLowerCase() === 'apputvikling'
+
+  const handleReadArticles = () => {
+    if (!isTelemarketing && !isApp)
+      return (
+        <Button className={cx('white-bg')} link={`/artikler/${service?.slug}`}>
+          Les artikler
+        </Button>
+      )
+  }
+
   return (
     <div className={cx('root')}>
       <div className={cx('inner-root')}>
@@ -70,11 +81,7 @@ export default function ServicePreview({ services }) {
         <p>{service?.servicePreviewDescription?.serviceDescription}</p>
         <div className={cx('btn-container')}>
           <Button link={`/${service?.slug}`}>Sammenlign byråer</Button>
-          {!isTelemarketing && (
-            <Button className={cx('white-bg')} link={`artikler/${service?.slug?.toLowerCase()}`}>
-              Les artikler
-            </Button>
-          )}
+          {handleReadArticles()}
         </div>
       </div>
     </div>

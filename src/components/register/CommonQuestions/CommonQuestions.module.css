@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.noHeading {
+  margin-top: 4rem;
+}
+
 .title {
   text-align: center;
   margin: 5rem 0;

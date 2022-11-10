@@ -5,7 +5,7 @@ import GridHero from '../components/blog/GridHero/GridHero'
 import WhatHappensNow from '../components/success/WhatHappensNow/WhatHappensNow'
 import Container from '../components/layout/Container/Container'
 
-const SuksessRegistrering = ({ data }) => {
+const Suksess = ({ data }) => {
   const {
     page: { seo },
     headerMenu,
@@ -18,11 +18,9 @@ const SuksessRegistrering = ({ data }) => {
         width={'max-width'}
         textAlignCenter
         title='Takk for henvendelsen!'
-        description='Dersom du har noen spørsmål kan du selvfølgelig ta kontakt på kontakt@byråguiden.no'
+        description='Du vil bli kontaktet av forskjellige meglere innen kort tid.'
       />
-      <Container size='medium'>
-        <WhatHappensNow />
-      </Container>
+      <Container size='medium'>{/*<WhatHappensNow />*/}</Container>
     </Layout>
   )
 }
@@ -41,4 +39,4 @@ export async function getStaticProps() {
   }
 }
 
-export default SuksessRegistrering
+export default Suksess

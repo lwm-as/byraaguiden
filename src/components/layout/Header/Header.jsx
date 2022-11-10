@@ -41,7 +41,11 @@ function DesktopLeftHeader({ handleIconBackgroundColor, parentItems, handleDropD
             return (
               <div key={path} className={cx('om-oss')}>
                 <a href={path}>{label}</a>
-                <span class={cx('header-menu-subtitle')}>Bli kjent med oss</span>
+                {path === '/registrer-bedrift/' ? (
+                  <span className={cx('header-menu-subtitle')}>Samarbeid med oss</span>
+                ) : (
+                  <span className={cx('header-menu-subtitle')}>Bli kjent med oss</span>
+                )}
               </div>
             )
           })}

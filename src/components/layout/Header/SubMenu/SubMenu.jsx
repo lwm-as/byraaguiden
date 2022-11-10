@@ -7,7 +7,7 @@ const cx = classNames.bind(styles)
 
 export default function SubMenu({ openIndexes, subItems }) {
   const artikler = subItems.filter(({ label, path }) => {
-    return label !== 'Telemarketing'
+    return label !== 'Telemarketing' && label !== 'Apputvikling'
   })
 
   return (

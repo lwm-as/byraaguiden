@@ -22,7 +22,7 @@ export function OfferFormAppDevelopmentCategory({ group, toggler, validate }) {
               <FormGroup>
                 <FormControlLabel
                   control={
-                    <Checkbox
+                    <Radio
                       value={label}
                       sx={{
                         '&.Mui-disabled': {

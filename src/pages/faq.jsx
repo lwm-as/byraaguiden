@@ -20,9 +20,9 @@ const FAQPage = ({ data }) => {
 
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
-      <GridHero title='Faq' />
+      <GridHero width={'max-width'} textAlignCenter title='Ofte stilte spørsmål' />
       <Container size='medium'>
-        <CommonQuestions registerfaq={faq} />
+        <CommonQuestions noHeading registerfaq={faq} />
       </Container>
     </Layout>
   )

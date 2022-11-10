@@ -7,7 +7,7 @@ import Expand from 'react-expand-animated'
 
 const cx = classNames.bind(styles)
 
-export default function CommonQuestions({ registerfaq }) {
+export default function CommonQuestions({ noHeading, registerfaq }) {
   const { openIndexes, toggleIndex } = useToggler()
 
   function handleDropDownClick(index) {
@@ -20,8 +20,8 @@ export default function CommonQuestions({ registerfaq }) {
 
   return (
     <>
-      <h3 className={cx('title')}>Ofte stilte spørsmål</h3>
-      <div className={cx('root')}>
+      {!noHeading && <h3 className={cx('title')}>Ofte stilte spørsmål</h3>}
+      <div className={cx('root', { noHeading })}>
         {registerfaq.map(({ question, answer }, idx) => {
           return (
             <div className={cx('item-root')} onClick={() => handleDropDownClick(idx)}>
