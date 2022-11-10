@@ -18,7 +18,7 @@ const Suksess = ({ data }) => {
         width={'max-width'}
         textAlignCenter
         title='Takk for henvendelsen!'
-        description='Du vil bli kontaktet av forskjellige meglere innen kort tid.'
+        description='Du vil bli kontaktet av forskjellige byråer innen kort tid.'
       />
       <Container size='medium'>{/*<WhatHappensNow />*/}</Container>
     </Layout>
