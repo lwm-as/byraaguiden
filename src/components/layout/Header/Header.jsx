@@ -43,11 +43,10 @@ function DesktopLeftHeader({ handleIconBackgroundColor, parentItems, handleDropD
                 <a href={path}>{label}</a>
                 <span class={cx('header-menu-subtitle')}>Bli kjent med oss</span>
               </div>
-              
             )
           })}
       </div>
-      
+
       {/*<div className={cx('choose-language-container')}>*/}
       {/*  <div className={cx('icon-container', 'flag-chevron', handleIconBackgroundColor(4))}>*/}
       {/*    <FontAwesomeIcon icon={['fas', handleIcon(4)]} color='white' size='xs' />*/}

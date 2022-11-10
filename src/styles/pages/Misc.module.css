@@ -11,14 +11,44 @@
   margin-bottom: 3rem;
 }
 
+.person-vern-content {
+  margin-top: 80px;
+}
+
 /*.slider-container {*/
 /*    background: #f4f7fc;*/
 /*    padding: 2rem 0;*/
 /*    margin: 4rem 0;*/
 /*}*/
 
-.our-team-container {
+.misc-container {
   margin: 4rem 0;
+}
+
+.nettsted-outer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.nettsted-outer h3 {
+  font-family: var(--text-font);
+  margin-bottom: 1rem;
+}
+
+.nettsted-outer div ul {
+  line-height: 1.6;
+  font-size: 16px;
+  color: var(--color-text);
+  margin-left: 2rem;
+}
+
+.nettsted-outer div ul li a {
+  font-weight: 500 !important;
+}
+
+.nettsted-outer div ul li a:hover {
+  text-decoration-line: underline;
 }
 
 @media screen and (min-width: 768px) {

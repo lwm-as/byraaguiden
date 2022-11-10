@@ -18,7 +18,7 @@ const reducer = (state, action) => {
       }
 
       if (idsArray.includes(action.id)) {
-        prevBasket.push(action?.item)
+        prevBasket.unshift(action?.item)
       } else {
         prevBasket.splice(findIndex, 1)
       }
@@ -70,7 +70,7 @@ const reducer = (state, action) => {
       }
 
       if (idsArray.includes(action.id)) {
-        prevBasket.push(action?.item)
+        prevBasket.unshift(action?.item)
       } else {
         prevBasket.splice(index, 1)
       }

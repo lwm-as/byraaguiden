@@ -64,6 +64,7 @@ const ProviderHero = ({ setChangingCity }) => {
 
           <CityFilter setChangingCity={setChangingCity} />
         </div>
+        <span onClick={() => sortReviews({ target: { dataset: { value: 'default' } } })}>Reset</span>
       </div>
       <div className={cx('om-vaar-container')}>
         <Image

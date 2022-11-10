@@ -50,8 +50,6 @@ export default function ServicePreview({ services }) {
   const isDigitalMarketing = decodeURIComponent(service?.name?.toLowerCase()) === 'digital markedsføring'
   const digitalMarketingText = isDigitalMarketing && 'digital markedsførings'
 
-console.log(service.slug)
-
   return (
     <div className={cx('root')}>
       <div className={cx('inner-root')}>

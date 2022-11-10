@@ -10,6 +10,7 @@ import styles from './Footer.module.css'
 import Image from '../../common/Image/Image'
 import Link from 'next/link'
 import useWindowSize from '../../../utils/windowSize'
+import MenuItem from '../menus/MenuItem/MenuItem'
 
 const cx = classNames.bind(styles)
 
@@ -25,6 +26,7 @@ const Footer = ({ footerMenu, isHome }) => {
   const menuItems = footerMenu.menuItems.nodes
 
   const subItemsMenu = menuItems.filter(item => item.parentId === 'cG9zdDoxMzk=')
+
   const subItemsServices = menuItems.filter(item => item.parentId === 'cG9zdDoxMzg=')
   const subItemsBottom = menuItems.filter(item => item.parentId === 'cG9zdDoxNTU=')
 
@@ -77,32 +79,20 @@ const Footer = ({ footerMenu, isHome }) => {
             <div>
               <FooterSection title='Bransjer' items={subItemsServices} />
             </div>
-            {/*<div>*/}
-            {/*<FooterSection*/}
-            {/*  title='Help'*/}
-            {/*  items={[*/}
-            {/*    {*/}
-            {/*      label: 'Hjelpesenter',*/}
-            {/*      path: '#'*/}
-            {/*    },*/}
-            {/*    {*/}
-            {/*      label: 'Støtteteam',*/}
-            {/*      path: '#'*/}
-            {/*    },*/}
-            {/*    {*/}
-            {/*      label: 'Samfunnet',*/}
-            {/*      path: '#'*/}
-            {/*    },*/}
-            {/*    {*/}
-            {/*      label: 'FAQ',*/}
-            {/*      path: '#'*/}
-            {/*    }*/}
-            {/*  ]}*/}
-            {/*   items={subItemsContact}*/}
-            {/* secondTitle={menuLabels[3].label}*/}
-            {/*secondItems={subItemsVisit}*/}
-            {/*/>*/}
-            {/*</div>*/}
+            <div>
+              <FooterSection
+                title='Help'
+                items={[
+                  {
+                    label: 'kontakt@byråguiden.no',
+                    path: 'mailto:kontakt@byråguiden.no'
+                  },
+                  {
+                    label: 'Bogstadveien 27B, 0566 Oslo'
+                  }
+                ]}
+              />
+            </div>
           </div>
         </Container>
         <Container size='medium' className={cx('flex-col')}>
@@ -167,6 +157,18 @@ const Footer = ({ footerMenu, isHome }) => {
       {/*    </div>*/}
       {/*  </Container>*/}
       {/*</Container>*/}
+      <Container size='full' className={cx('footer', 'lighter-color')}>
+        <Container size='medium'>
+          <div className={cx('outer-container')}>
+            <div className={cx('footer-logo')}>© 2022 Byråguiden</div>
+            <div className={cx('inner-container')}>
+              <MenuItem label='Personvernserklæring' path='/personvern' className='footer-menu-item' />
+              <MenuItem label='Informasjonskapsler' path='/informasjonskapsler' className='footer-menu-item' />
+              <MenuItem label='Nettstedkart' path='/nettstedkart' className='footer-menu-item' />
+            </div>
+          </div>
+        </Container>
+      </Container>
     </>
   )
 }

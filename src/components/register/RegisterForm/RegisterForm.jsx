@@ -20,11 +20,19 @@ export default function RegisterForm() {
 
   const onSubmit = async (values, e) => {
     e.preventDefault()
-    const res = await emailjs.send('service_xwr0fgs', 'template_999nazi', { ...values }, 'user_Tf5WUPLO6lS39d5FpP8CE')
+
+    const valuesToBeSent = { ...values, serviceName: 'Byråguiden' }
+
+    const res = await emailjs.send(
+      'service_xwr0fgs',
+      'template_999nazi',
+      { ...valuesToBeSent },
+      'user_Tf5WUPLO6lS39d5FpP8CE'
+    )
 
     if (res.status === 200) {
       reset()
-      await router.push('suksess-registrering')
+      await router.push('/suksess-registrering')
     } else {
       setFormFailed(true)
     }
@@ -37,9 +45,13 @@ export default function RegisterForm() {
           <span>Meld interesse så tar vi kontakt for videre registrering</span>
         </div>
         <div id={cx('name')} className={cx('input-container')}>
-          <label htmlFor='name'>Navn på byrå</label>
-          <input {...register('name', { required: 'Vennligst fyll inn byråets navn.' })} type='text' name='name' />
-          {errors?.name?.message && <span className={cx('error')}>{errors.name.message}</span>}
+          <label htmlFor='companyName'>Navn på byrå</label>
+          <input
+            {...register('companyName', { required: 'Vennligst fyll inn byråets navn.' })}
+            type='text'
+            name='companyName'
+          />
+          {errors?.companyName?.message && <span className={cx('error')}>{errors.companyName.message}</span>}
         </div>
         <div className={cx('flex')}>
           <div className={cx('input-container', 'full-flex')}>
@@ -59,10 +71,10 @@ export default function RegisterForm() {
             {errors?.email?.message && <span className={cx('error')}>{errors.email.message}</span>}
           </div>
           <div className={cx('input-container', 'full-flex')}>
-            <label htmlFor='tlf'>Telefonnummer</label>
+            <label htmlFor='phone'>Telefonnummer</label>
             <input
               maxLength={8}
-              {...register('tlf', {
+              {...register('phone', {
                 required: 'Dette feltet skal inneholde et gyldig telefonnummer',
                 valueAsNumber: true,
                 pattern: {
@@ -71,9 +83,9 @@ export default function RegisterForm() {
                 }
               })}
               type='number'
-              name='tlf'
+              name='phone'
             />
-            {errors?.tlf?.message && <span className={cx('error')}>{errors.tlf.message}</span>}
+            {errors?.phone?.message && <span className={cx('error')}>{errors.phone.message}</span>}
           </div>
         </div>
         <div id={cx('description')} className={cx('input-container')}>

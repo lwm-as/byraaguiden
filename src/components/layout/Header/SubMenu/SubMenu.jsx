@@ -6,6 +6,10 @@ import Link from 'next/link'
 const cx = classNames.bind(styles)
 
 export default function SubMenu({ openIndexes, subItems }) {
+  const artikler = subItems.filter(({ label, path }) => {
+    return label !== 'Telemarketing'
+  })
+
   return (
     <div className={cx('root')}>
       <h3>{`${openIndexes.includes(0) ? 'Utforsk tjenester' : 'Utforsk artikler'}`}</h3>
@@ -18,20 +22,32 @@ export default function SubMenu({ openIndexes, subItems }) {
             <a className={cx('alle-artikler')}>Alle artikler</a>
           </Link>
         )}
-        {subItems
-          .filter(item => item.label !== 'Telemarketing')
-          .map(({ label, path }) => {
-            const cleanPath = path.split('/category').pop()
-            return (
-              <li>
-                {!openIndexes.includes(0) ? (
-                  <a href={`/artikler${cleanPath}`}>{label}</a>
-                ) : (
-                  <a href={`${cleanPath}`}>{label}</a>
-                )}
-              </li>
-            )
-          })}
+
+        {openIndexes.includes(0)
+          ? subItems.map(({ label, path }) => {
+              const cleanPath = path.split('/category').pop()
+              return (
+                <li>
+                  {!openIndexes.includes(0) ? (
+                    <a href={`/artikler${cleanPath}`}>{label}</a>
+                  ) : (
+                    <a href={`${cleanPath}`}>{label}</a>
+                  )}
+                </li>
+              )
+            })
+          : artikler.map(({ label, path }) => {
+              const cleanPath = path.split('/category').pop()
+              return (
+                <li>
+                  {!openIndexes.includes(0) ? (
+                    <a href={`/artikler${cleanPath}`}>{label}</a>
+                  ) : (
+                    <a href={`${cleanPath}`}>{label}</a>
+                  )}
+                </li>
+              )
+            })}
       </ul>
     </div>
   )

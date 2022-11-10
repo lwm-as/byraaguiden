@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: center;
   padding: 1rem;
   position: relative;
 }
@@ -59,6 +59,10 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1rem;
+  }
+
+  .legg-til {
+    align-items: flex-start;
   }
 }
 @media screen and (min-width: 1024px) {

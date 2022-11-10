@@ -1,7 +1,7 @@
 export const SORT_OPTIONS = [
   {
     key: 'default',
-    value: 'Vår anbefaling'
+    value: 'Reset'
   },
   {
     key: 'highestScore',

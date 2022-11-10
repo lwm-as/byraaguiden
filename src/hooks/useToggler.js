@@ -11,7 +11,7 @@ export const actionTypes = {
 
 const inititalState = {
   openIndexes: [-1],
-  checkedButtons: [0],
+  checkedButtons: [-1],
   resetState: []
 }
 

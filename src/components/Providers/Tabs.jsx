@@ -7,8 +7,6 @@ import { useReviewContext } from '../Cities/ReviewContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useStateValue } from '../../context/StateValueProvider'
 import { ProviderSearchModal } from './ProviderSearchModal'
-import useReviewProvider from '../../hooks/useReviewProvider'
-import { useReviewProviderSearch } from '../../hooks/useReviewProviderSearch'
 import Image from '../common/Image/Image'
 
 const cx = classNames.bind(styles)
