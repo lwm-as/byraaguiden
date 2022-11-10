@@ -17,9 +17,6 @@
 .header span {
   font-weight: 600;
 }
-.header span:hover {
-  text-decoration: underline;
-}
 
 .item-root:first-of-type {
   border-top: 1px solid #d2d4d5;

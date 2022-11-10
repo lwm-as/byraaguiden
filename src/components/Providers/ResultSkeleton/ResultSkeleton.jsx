@@ -11,10 +11,10 @@ const ResultSkeleton = ({ results }) =>
     .map((_, index) => (
       <div key={index} className={cx('outer')}>
         <div className={cx('root')}>
-          <Skeleton sx={{ animationDuration: '.9s' }} width='100%' height={600} />
+          <Skeleton sx={{ animationDuration: '.6s' }} width='100%' height={600} />
         </div>
         <div style={{ marginTop: '2rem' }} className={cx('root')}>
-          <Skeleton sx={{ animationDuration: '.9s' }} width='100%' height={600} />
+          <Skeleton sx={{ animationDuration: '.6s' }} width='100%' height={600} />
         </div>
       </div>
     ))

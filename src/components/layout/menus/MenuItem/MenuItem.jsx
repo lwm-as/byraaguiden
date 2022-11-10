@@ -13,11 +13,12 @@ const MenuItem = ({ label, path, icon, social, className }) => {
 
   if (label.includes('Bogstadveien')) {
     const str = label.split(', ')
+    const street = str[0]
+
     return (
-      <span>
-        {str[0]},<br></br>
-        {str[1]}, <br></br>
-        {str[2]}
+      <span className={cx('address')}>
+        {street},<br></br>
+        {str[1]} <br></br>
       </span>
     )
   }

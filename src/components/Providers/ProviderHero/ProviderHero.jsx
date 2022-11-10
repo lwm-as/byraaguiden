@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { SORT_OPTIONS } from '../../../lib/constants/sortOptions'
 import OmVårVurdering from '../../common/Modal/OmVårVurdering/OmVårVurdering'
 import Image from '../../common/Image/Image'
+import useWindowSize from '../../../utils/windowSize'
 
 const cx = classNames.bind(styles)
 
@@ -26,6 +27,9 @@ const ProviderHero = ({ setChangingCity }) => {
     sortReviews(e)
     toggleButton(idx)
   }
+
+  const { width } = useWindowSize()
+  const isMobile = width < 768
 
   function setActiveClass({ idx }) {
     return checkedButtons.includes(idx) ? 'active' : ''
@@ -62,8 +66,32 @@ const ProviderHero = ({ setChangingCity }) => {
             )
           })}
 
+          {isMobile && (
+            <Button
+              size='small'
+              className={cx('btn')}
+              onClick={() => sortReviews({ target: { dataset: { value: 'default' } } })}
+            >
+              Tilbakestill
+            </Button>
+          )}
+
           <CityFilter setChangingCity={setChangingCity} />
         </div>
+        {!isMobile && (
+          <div className={cx('reset')}>
+            <Image
+              onClick={() => sortReviews({ target: { dataset: { value: 'default' } } })}
+              imageData={{
+                sourceUrl: '/media/icons/trash-can-solid.svg',
+                mediaDetails: {
+                  width: 15.7,
+                  height: 15.7
+                }
+              }}
+            />
+          </div>
+        )}
       </div>
       <div className={cx('om-vaar-container')}>
         <Image

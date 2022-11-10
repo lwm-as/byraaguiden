@@ -8,6 +8,19 @@
   font-family: var(--text-font) !important;
 }
 
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
 /*.footer-container {*/
 /*  padding-top: 1rem;*/
 /*}*/
@@ -25,6 +38,10 @@
   justify-content: space-between;
   gap: 3rem;
   /*height: 300px;*/
+}
+
+.lighter-color {
+  background-color: #000e17;
 }
 
 .text {
@@ -54,6 +71,14 @@
   .flex {
     display: flex;
     justify-content: space-between;
+  }
+
+  .outer-container {
+    flex-direction: row;
+  }
+
+  .inner-container {
+    flex-direction: row;
   }
 
   .grid {

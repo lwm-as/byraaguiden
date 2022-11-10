@@ -7,7 +7,7 @@ import styles from './Image.module.css'
 
 const cx = classNames.bind(styles)
 
-const Image = ({ className, imageData, layout = false }) => {
+const Image = ({ className, imageData, layout = false, ...props }) => {
   if (!imageData) {
     return null
   }
@@ -34,6 +34,7 @@ const Image = ({ className, imageData, layout = false }) => {
         height={!layout && imageData.mediaDetails.height}
         alt={imageData.altText}
         className={cx('image')}
+        {...props}
         priority
       />
     </div>

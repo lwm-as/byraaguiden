@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const cx = classNames.bind(styles)
 
 const Breadcrumb = ({ marginBreadCrumb, className, categoryData, title }) => {
+
   return (
     <nav className={cx('root', className, { marginBreadCrumb })} aria-label='breadcrumb'>
       <ol className={cx('breadcrumb')}>

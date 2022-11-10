@@ -65,10 +65,12 @@ export default function CityFilter({ setChangingCity }) {
       {openSelect && (
         <div className={cx('options')}>
           <ul className={cx('list')}>
-            {cities.map(({ slug, tags: { nodes } }) => {
+            {cities.map(({ slug, tags: { nodes } }, idx) => {
               return (
-                <Link onClick={e => handleChange(e)} href={`/${slug}`}>
-                  {nodes[0].name}
+                <Link href={slug} passHref>
+                  <a key={idx} onClick={e => handleChange(e)}>
+                    {nodes[0].name}
+                  </a>
                 </Link>
               )
             })}

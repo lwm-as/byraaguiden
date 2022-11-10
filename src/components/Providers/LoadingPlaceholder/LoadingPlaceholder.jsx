@@ -42,7 +42,7 @@ export function LoadingPlaceholder({
           )}
         </div>
         <div className={cx('skeleton-side-container')}>
-          <Skeleton sx={{ animationDuration: '.9s' }} width='100%' height={600} />
+          <Skeleton sx={{ animationDuration: '.6s' }} width='100%' height={600} />
         </div>
       </Container>
     </Layout>

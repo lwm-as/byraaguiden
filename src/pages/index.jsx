@@ -118,7 +118,7 @@ const HomePage = ({ data }) => {
           <Container size='medium'>
             <section>
               <div className={cx('customer-review-container')}>
-                <CustomerReviewBox
+                {/* <CustomerReviewBox
                   text='Jeg trengte et byrå til å hjelpe meg med å lansere en nettbutikk, og da fant jeg frem til Byråguiden. Fikk hjelp fra et byrå og er strålende fornøyd med det.'
                   author='Sofie'
                 />{' '}
@@ -129,7 +129,7 @@ const HomePage = ({ data }) => {
                 <CustomerReviewBox
                   text='Søkte rundt og fant frem til Byråguiden hvor jeg fikk flere gode forslag til byråer jeg kunne bli kontaktet av.'
                   author='Brynjar P.'
-                />
+                /> */}
               </div>
               <div className={cx('register-company-box')}>
                 <div className={cx('register-triangles')}>
