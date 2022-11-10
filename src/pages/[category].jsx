@@ -123,7 +123,7 @@ const CityArticle = ({ data }) => {
           description={categorypage?.herosubtitle}
         />
         <Container size='medium'>
-          <Breadcrumb className={cx('less-margin')} title={categoryNameFromUrl} category={data?.category} />
+          <Breadcrumb className={cx('less-margin')} title={categories.nodes[1].name} category={data?.category} />
         </Container>
         <Container size='medium' className={cx('split-view', 'padding-0')}>
           <div>

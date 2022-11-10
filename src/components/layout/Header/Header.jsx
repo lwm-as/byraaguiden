@@ -36,16 +36,18 @@ function DesktopLeftHeader({ handleIconBackgroundColor, parentItems, handleDropD
         })}
       <div className={cx('menu-container')}>
         {parentItems
-          .filter(({ label }) => label !== 'Tjenester' && label !== 'Artikler' && label !== 'Registrer byrå')
+          .filter(({ label }) => label !== 'Tjenester' && label !== 'Artikler')
           .map(({ label, path }) => {
             return (
               <div key={path} className={cx('om-oss')}>
                 <a href={path}>{label}</a>
-                <span id={cx('bli-kjent-med-oss')}>Bli kjent med oss</span>
+                <span class={cx('header-menu-subtitle')}>Bli kjent med oss</span>
               </div>
+              
             )
           })}
       </div>
+      
       {/*<div className={cx('choose-language-container')}>*/}
       {/*  <div className={cx('icon-container', 'flag-chevron', handleIconBackgroundColor(4))}>*/}
       {/*    <FontAwesomeIcon icon={['fas', handleIcon(4)]} color='white' size='xs' />*/}

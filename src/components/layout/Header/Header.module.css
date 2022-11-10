@@ -63,7 +63,7 @@
   text-transform: unset;
 }
 
-#bli-kjent-med-oss {
+.header-menu-subtitle {
   font-weight: 500;
   padding-top: 2px;
   font-size: 11px !important;

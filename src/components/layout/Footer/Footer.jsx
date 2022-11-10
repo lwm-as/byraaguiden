@@ -68,7 +68,7 @@ const Footer = ({ footerMenu, isHome }) => {
         <Container size='medium' className={cx('flex')}>
           <div className={cx('flex-child-1')}>
             <Image imageData={imageData} />
-            <span>Linker stolt selskaper sammen</span>
+            <span>Stolt over å knytte selskaper sammen</span>
           </div>
           <div className={cx('grid', 'flex-child-2')}>
             <div>

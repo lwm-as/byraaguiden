@@ -50,6 +50,8 @@ export default function ServicePreview({ services }) {
   const isDigitalMarketing = decodeURIComponent(service?.name?.toLowerCase()) === 'digital markedsføring'
   const digitalMarketingText = isDigitalMarketing && 'digital markedsførings'
 
+console.log(service.slug)
+
   return (
     <div className={cx('root')}>
       <div className={cx('inner-root')}>
@@ -71,7 +73,7 @@ export default function ServicePreview({ services }) {
         <div className={cx('btn-container')}>
           <Button link={`/${service?.slug}`}>Sammenlign byråer</Button>
           {!isTelemarketing && (
-            <Button className={cx('white-bg')} link={`artikler/${service?.name?.toLowerCase()}`}>
+            <Button className={cx('white-bg')} link={`artikler/${service?.slug?.toLowerCase()}`}>
               Les artikler
             </Button>
           )}

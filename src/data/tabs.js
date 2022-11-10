@@ -7,7 +7,7 @@ export const servicesArray = [
   },
   {
     id: 1,
-    service: 'grafiskdesign',
+    service: 'grafisk design',
     logo: 'https://wp.xn--byrguiden-72a.no/wp-content/uploads/2022/10/grafiskdesign.svg'
   },
   {
