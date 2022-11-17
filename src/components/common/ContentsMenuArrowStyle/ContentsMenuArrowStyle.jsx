@@ -56,7 +56,6 @@ export default function ContentsMenuArrowStyle() {
   }
   return (
     <div>
-      <span className={cx('title')}>I denne artikkelen skal vi gå gjennom</span>
       <div className={cx('root')}>
         <ul className={cx('menu')}>
           {cappedContentsMenu.map(({ id, text }) => (

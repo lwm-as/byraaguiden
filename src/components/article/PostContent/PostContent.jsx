@@ -39,7 +39,7 @@ const PostContent = ({
             articleTitle={articleTitle}
           />
         )}
-        {excerpt && <p className={cx('excerpt')}>{excerpts(excerpt)}</p>}
+        {excerpt && <div className={cx('excerpt')} dangerouslySetInnerHTML={{__html: excerpt}}/>}
         {isFeatured && (
           <>
             <figure className={cx('image-container')}>
