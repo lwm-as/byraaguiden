@@ -14,6 +14,7 @@ const Button = ({
   color = '',
   size = 'medium',
   flex,
+  rel,
   children,
   onClick,
   disabled,
@@ -23,7 +24,7 @@ const Button = ({
     return (
       <div className={cx('root', flex, className)}>
         <Link href={link} passHref>
-          <a href className={cx('button', color, size)}>
+          <a href rel={rel} className={cx('button', color, size)}>
             {children}
           </a>
         </Link>

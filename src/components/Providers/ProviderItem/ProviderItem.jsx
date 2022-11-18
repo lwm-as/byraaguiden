@@ -137,12 +137,12 @@ const ProviderItem = ({ idx, id, customReviewModal, provider }) => {
             </div>
             <div className={cx('cta-button-container')}>
               {isVisitButton && (
-                <Button className={cx('btn')} size='medium' link={websiteLink}>
+                <Button className={cx('btn')} rel="nofollow" size='medium' link={websiteLink}>
                   Besøk nettsted
                 </Button>
               )}
               {isCtaButton && (
-                <Button className={cx('btn')} size='medium' link={`/tilbud?name=${name}&contact=${contact}`}>
+                <Button className={cx('btn')} rel="nofollow" size='medium' link={`/tilbud?name=${name}&contact=${contact}`}>
                   Besøk nettsted
                 </Button>
               )}
