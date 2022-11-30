@@ -47,7 +47,7 @@ const CityArticle = ({ data }) => {
 
   // QUICK FIX ON RESOURCE PROBLEM
   // LIMITING PROVIDERS TO 10 & COMMENTING OUT LOAD MORE BUTTON AND COMPARISONS
-  if (providers.length > 10) providers.length = 10
+  if (providers && providers?.length > 10) providers.length = 10
   // END QUICK FIX PROBLEM
 
   // state that keeps track when city is changed so that we can show loading screen
