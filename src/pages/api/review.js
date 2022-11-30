@@ -2,7 +2,8 @@ import { Client } from '@googlemaps/google-maps-services-js'
 
 export default async function handler(req, res) {
   const placeIds = req.query.placeid.split(',')
-
+  console.log(placeIds)
+  console.log(placeIds.length)
   if (placeIds.every(placeId => placeId === '')) {
     return res.status(200).json({ msg: 'empty' })
   }

@@ -54,9 +54,9 @@ const Providers = () => {
 
   return (
     <>
-      {compareItemsModal && (
+      {/* {compareItemsModal && (
         <CompareItemsModal compareItemsModal={compareItemsModal} onClose={() => setCompareItemsModal(false)} />
-      )}
+      )} */}
       <div className={cx('root')}>
         {customerReviewsModal && <Popup open={customerReviewsModal} onClose={() => setCustomerReviewsModal(false)} />}
         <div className={cx('col-1')}>
@@ -82,7 +82,7 @@ const Providers = () => {
               </div>
             )}
           </Container>
-          <div onClick={() => openCompareItems()} className={cx('compare-items')}>
+          {/* <div onClick={() => openCompareItems()} className={cx('compare-items')}>
             <div className={cx('inner-compare')}>
               <Image
                 imageData={{
@@ -95,7 +95,7 @@ const Providers = () => {
               />
               <div className={cx('icon-container')}>{<span>{basket?.length}</span>}</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
