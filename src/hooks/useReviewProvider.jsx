@@ -65,12 +65,10 @@ const useReviewProvider = (providers, cities) => {
 
       // setReviews(sortReviews('highestScore', calculatedReviews))
       // setSortedReviews(sortReviews('highestScore', calculatedReviews))
-
       setReviews(calculatedReviews)
       setSortedReviews(calculatedReviews)
     }
   }, [isValidating])
-
   const changeReviewSort = event => {
     const { value } = event?.target?.dataset || {}
 

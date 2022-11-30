@@ -77,7 +77,7 @@ const ProviderItem = ({ idx, id, customReviewModal, provider }) => {
           <div className={cx('company-name')}>
             <h4 className={cx('name')}>{name}</h4>
           </div>
-          <div className={cx('check-box')}>
+          {/* <div className={cx('check-box')}>
             <FormGroup>
               <FormControlLabel
                 sx={{
@@ -110,7 +110,7 @@ const ProviderItem = ({ idx, id, customReviewModal, provider }) => {
                 label={!isMobile && labelStyles}
               />
             </FormGroup>
-          </div>
+          </div> */}
         </div>
         <div className={cx('grid')}>
           <div className={cx('company-info')}>
@@ -137,12 +137,17 @@ const ProviderItem = ({ idx, id, customReviewModal, provider }) => {
             </div>
             <div className={cx('cta-button-container')}>
               {isVisitButton && (
-                <Button className={cx('btn')} rel="nofollow" size='medium' link={websiteLink}>
+                <Button className={cx('btn')} rel='nofollow' size='medium' link={websiteLink}>
                   Besøk nettsted
                 </Button>
               )}
               {isCtaButton && (
-                <Button className={cx('btn')} rel="nofollow" size='medium' link={`/tilbud?name=${name}&contact=${contact}`}>
+                <Button
+                  className={cx('btn')}
+                  rel='nofollow'
+                  size='medium'
+                  link={`/tilbud?name=${name}&contact=${contact}`}
+                >
                   Besøk nettsted
                 </Button>
               )}
