@@ -20,15 +20,15 @@ const GoogleRating = ({
   const isMobile = width <= 1000
 
   const {
-    reviews: { setCurrentPlaceId },
-    reviewsForSearchField: { setCurrentPlaceIdSearch }
+    reviews: { setCurrentPlaceId }
+    // reviewsForSearchField: { setCurrentPlaceIdSearch }
   } = useReviewContext()
 
   const starCount = calculateStars(stars)
 
   const readMore = () => {
     setCurrentPlaceId(placeid)
-    setCurrentPlaceIdSearch(placeid)
+    // setCurrentPlaceIdSearch(placeid)
     customReviewModal()
     setCustomerReviewModal(true)
   }

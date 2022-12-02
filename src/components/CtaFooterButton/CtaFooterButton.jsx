@@ -2,10 +2,13 @@ import React from 'react'
 import classNames from 'classnames/bind'
 import styles from './CtaFooterButton.module.css'
 import Button from '../common/Button/Button'
+import useWindowSize from '../../utils/windowSize'
 
 const cx = classNames.bind(styles)
 
-function CtaFooterButton({ slug, ctaEnable, isMobile, show }) {
+function CtaFooterButton({ slug, ctaEnable, show }) {
+  const { width } = useWindowSize()
+  const isMobile = width <= 1000
   return (
     <>
       {isMobile && ctaEnable && (

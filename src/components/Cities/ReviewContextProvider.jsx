@@ -7,9 +7,18 @@ const ReviewContext = createContext()
 export const ReviewContextProvider = ({ children, providers = [], cities = [] }) => {
   const reviews = useReviewProvider(providers, cities)
 
-  const reviewsForSearchField = useReviewProviderSearch(providers)
+  // const reviewsForSearchField = useReviewProviderSearch(providers)
 
-  return <ReviewContext.Provider value={{ reviews, reviewsForSearchField }}>{children}</ReviewContext.Provider>
+  return (
+    <ReviewContext.Provider
+      value={{
+        reviews
+        // reviewsForSearchField
+      }}
+    >
+      {children}
+    </ReviewContext.Provider>
+  )
 }
 
 export const useReviewContext = () => useContext(ReviewContext)

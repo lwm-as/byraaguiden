@@ -48,7 +48,7 @@ const BlogArticle = ({ data }) => {
             <PostContent modifiedGmt={modifiedGmt} author={author} excerpt={excerpt} postHeaderIsInside post={post} />
             <div className={cx('side-container')}>
               <div className={cx('inner-container')}>
-                {!isMobile && <Sidebar ctaEnable={ctaEnable} category={category} />}
+                <Sidebar ctaEnable={ctaEnable} category={category} />
                 {!isMobile && posts?.nodes.length > 1 && (
                   <SimilarArticles post={data?.post} category={category} posts={posts} />
                 )}
@@ -59,7 +59,7 @@ const BlogArticle = ({ data }) => {
             Dykk enda dypere i {category.name.toLowerCase()}
           </FeaturedArticles>
         </ArticleProvider>
-        <CtaFooterButton slug={decodeURIComponent(slug)} isMobile={isMobile} ctaEnable={ctaEnable} show={isCtaShown} />
+        <CtaFooterButton slug={decodeURIComponent(slug)} ctaEnable={ctaEnable} show={isCtaShown} />
       </Container>
     </Layout>
   )
