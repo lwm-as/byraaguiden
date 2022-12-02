@@ -59,7 +59,7 @@ const BlogArticle = ({ data }) => {
             Dykk enda dypere i {category.name.toLowerCase()}
           </FeaturedArticles>
         </ArticleProvider>
-        <CtaFooterButton slug={decodeURIComponent(slug)} isMobile={isMobile} ctaEnable={ctaEnable} show={isCtaShown} />
+        <CtaFooterButton slug={decodeURIComponent(slug)} ctaEnable={ctaEnable} show={isCtaShown} />
       </Container>
     </Layout>
   )
