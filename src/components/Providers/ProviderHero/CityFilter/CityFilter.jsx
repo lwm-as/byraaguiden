@@ -21,6 +21,8 @@ export default function CityFilter({ setChangingCity }) {
     reviews: { cities }
   } = useReviewContext()
 
+  // console.log(cities)
+
   const onClose = () => {
     setOpenSelect(false)
   }

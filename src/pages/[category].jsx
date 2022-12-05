@@ -55,9 +55,8 @@ const CityArticle = ({ data, categories: preFetchedCategories }) => {
 
   const router = useRouter()
 
-  const cities =
-    cityPosts?.filter(post => post?.categories.nodes[1].slug === preFetchedCategories.categories.nodes[1].slug) || []
-  //
+  const cities = cityPosts?.filter(post => post?.categories.nodes[1].slug === categories.nodes[1].slug) || []
+
   // // For breadcrumb
   const categoryNameFromUrl =
     router?.asPath.split('/')[1].charAt(0).toUpperCase() + router?.asPath.split('/')[1].slice(1) || ''
