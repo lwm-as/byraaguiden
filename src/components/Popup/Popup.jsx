@@ -11,8 +11,8 @@ const cx = classNames.bind(styles)
 
 function Popup({ open, onClose }) {
   const {
-    reviews: { currentReviews },
-    reviewsForSearchField: { currentReview }
+    reviews: { currentReviews }
+    // reviewsForSearchField: { currentReview }
   } = useReviewContext()
   const EMPTY_REVIEW_PLACEHOLDER = 'Brukeren har ikke skrevet en anmeldelse'
 
@@ -34,8 +34,6 @@ function Popup({ open, onClose }) {
     }
   }
 
-  console.log(currentReview)
-
   // useEffect(() => {
   //   if (open) {
   //     disableScroll.on()
@@ -50,7 +48,7 @@ function Popup({ open, onClose }) {
         <div className={cx('button-container')}>
           <FontAwesomeIcon size='2x' onClick={onClose} color='#727070' className={cx('icon')} icon={['fal', 'times']} />
         </div>
-        {currentReviews === undefined
+        {/* {currentReviews === undefined
           ? currentReview?.reviews.map(review => {
               return (
                 <div key={review.author_name} className={cx('popupLayout_content_root')}>
@@ -94,7 +92,27 @@ function Popup({ open, onClose }) {
                   </div>
                 </div>
               )
-            })}
+            })} */}
+        {currentReviews?.reviews.map(review => {
+          return (
+            <div key={review.author_name} className={cx('popupLayout_content_root')}>
+              <div className={cx('popoutLayout_content_root_comment_container')}>
+                <div className={cx('comment_container_author')}>
+                  <img src={review.profile_photo_url} />
+                  <p className={cx('author_name')}>{review.author_name}</p>
+                </div>
+                <div className={cx('comment_container_content')}>
+                  <p className={cx('comment_container_content_actual')}>{review?.text || EMPTY_REVIEW_PLACEHOLDER}</p>
+                  <div className={cx('popupLayout_comment_item')}>
+                    <img src='/media/icons/google-icon.svg' alt='' />
+                    <p className={cx('rating_text')}>{review.rating}/5</p>
+                    <p className={cx('rating_text2')}>{review.relative_time_description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </ReactModal>
   )
