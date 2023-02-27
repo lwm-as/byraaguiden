@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState   } from 'react'
 import Select, { components } from 'react-select'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,6 +9,7 @@ import useOutsideDetecter from '../../../../utils/hooks/useOutsideDetecter'
 import excerpts from 'excerpts'
 import Link from 'next/link'
 
+
 const cx = classNames.bind(styles)
 
 export default function CityFilter({ setChangingCity }) {
@@ -17,6 +18,8 @@ export default function CityFilter({ setChangingCity }) {
 
   const wrapperRef = useRef(null)
   const router = useRouter()
+
+
   const {
     reviews: { cities }
   } = useReviewContext()
@@ -39,10 +42,11 @@ export default function CityFilter({ setChangingCity }) {
 
     router.events.on('routeChangeStart', handleRouteChange)
     router.events.on('routeChangeComplete', handleCompletedRoute)
-
+   // console.log(router.query.category);
     return () => {
       router.events.off('routeChangeStart', handleRouteChange)
     }
+
   }, [displayText, router])
 
   function handleChange(e) {
@@ -54,11 +58,19 @@ export default function CityFilter({ setChangingCity }) {
     setOpenSelect(prevValue => !prevValue)
   }
 
+  const [employees, setEmployees] = useState(cities);
+  const isFound = employees.filter(element => {
+    if (decodeURI(element.slug) === router.query.category) {
+      return true;
+    }
+    return false;
+  });
+
   return (
     <div ref={wrapperRef} className={cx('select-container')}>
       <span className={cx('filtrer')}>Filtrer:</span>
       <div onClick={handleClick} className={cx('select-inner', { openSelect })}>
-        <span className={cx('displayText')}>{displayText || 'Sted'}</span>
+        <span className={cx('displayText')}>{isFound[0]?.tags?.nodes[0]?.name || 'Sted'}</span>
         <div className={cx('icon-container')}>
           <FontAwesomeIcon className={cx('icon')} icon={['fas', 'chevron-down']} />
         </div>
@@ -69,9 +81,9 @@ export default function CityFilter({ setChangingCity }) {
           <ul className={cx('list')}>
             {cities.map(({ slug, tags: { nodes } }, idx) => {
               return (
-                <Link href={slug} passHref>
-                  <a key={idx} onClick={e => handleChange(e)}>
-                    {nodes[0].name}
+                <Link key={idx} href={slug} passHref>
+                  <a onClick={e => handleChange(e)} >
+                    {nodes[0]?.name}
                   </a>
                 </Link>
               )
