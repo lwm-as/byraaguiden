@@ -58,13 +58,7 @@ export default function CityFilter({ setChangingCity }) {
     setOpenSelect(prevValue => !prevValue)
   }
 
-  const [employees, setEmployees] = useState(cities);
-  const isFound = employees.filter(element => {
-    if (decodeURI(element.slug) === router.query.category) {
-      return true;
-    }
-    return false;
-  });
+  const isFound = cities.filter(element =>decodeURI(element.slug) === router.query.category);
 
   return (
     <div ref={wrapperRef} className={cx('select-container')}>
