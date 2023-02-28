@@ -3,7 +3,7 @@ import { Client } from '@googlemaps/google-maps-services-js'
 export default async function handler(req, res) {
   res.setHeader(
       'Cache-Control',
-      'public, s-maxage=100, stale-while-revalidate'
+      'public, s-maxage=36000, stale-while-revalidate'
   )
   const placeIds = req.query.placeid.split(',')
   if (placeIds.every(placeId => placeId === '')) {
@@ -47,5 +47,5 @@ export default async function handler(req, res) {
 
   const reviews = await Promise.all(allReviews)
 
-  return res.status(200).json({ reviews, indexTest: Math.ceil(Math.random() * 1000) })
+  return res.status(200).json({ reviews })
 }
