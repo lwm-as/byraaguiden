@@ -44,14 +44,6 @@ const Providers = () => {
     }
   }, [compareItemsModal])
 
-  if (loading) {
-    return (
-      <div className={cx('progress-container')}>
-        <CircularProgress className={cx('progress-icon')} />
-      </div>
-    )
-  }
-
   return (
     <>
       {/* {compareItemsModal && (
@@ -77,10 +69,19 @@ const Providers = () => {
                 <div>
                   <Button className={cx('loadMoreButton')} onClick={buttonClick}>
                     Last inn fler
+                    {loading ?
+                      <div className={cx('progress-container')}>
+                        <CircularProgress className={cx('progress-icon')} />
+                      </div>
+                      : null
+                    }
                   </Button>
                 </div>
               </div>
             )}
+
+
+
           </Container>
           {/* <div onClick={() => openCompareItems()} className={cx('compare-items')}>
             <div className={cx('inner-compare')}>

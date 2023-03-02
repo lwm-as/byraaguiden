@@ -11,19 +11,18 @@
 }
 
 .progress-container {
-  width: 100vw;
   position: absolute;
-  left: 0;
-  top: 38%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  z-index: 100;
+  right: 7px;
+  top: 12px;
+}
+.progress-container svg circle {
+  stroke: #fff;
 }
 
 .progress-icon {
   color: #ff4a55 !important;
+  width: 18px !important;
+  height: 18px !important;
 }
 
 .inner-compare span {
@@ -66,6 +65,7 @@
 .loadMoreButton button {
   border-radius: 10px;
   margin-top: unset;
+  position: relative;
 }
 
 .providerContainer {
