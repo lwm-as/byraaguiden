@@ -1,5 +1,6 @@
 import { Stack } from '@mui/material'
 import axios from 'axios'
+import emailjs from 'emailjs-com'
 import classNames from 'classnames/bind'
 import { Form, Formik } from 'formik'
 import { useRouter } from 'next/dist/client/router'
@@ -76,7 +77,14 @@ function OfferForm({
 
             const data = { ...values, ...selectedValues, ...dynamicValues }
 
-            const res = await axios.post('/api/send-lead', data)
+            await axios.post('/api/send-lead', data)
+
+            const res = await emailjs.send(
+              'service_45lb66b',
+              'template_rnezqro',
+              { ...data },
+              'user_Tf5WUPLO6lS39d5FpP8CE'
+            )
 
             if (res.status === 200) {
               setShowFinalStep(true)
