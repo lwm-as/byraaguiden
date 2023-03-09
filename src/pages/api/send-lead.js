@@ -1,11 +1,12 @@
-import axios from 'axios'
+import storeLeadData from './store-lead'
+// import emailjs from 'emailjs-com'
 
 export default async function handler(req, res) {
   const data = req.body
 
-  const { zapierHookId } = data
+  await storeLeadData(data)
 
-  await axios.post(`https://hooks.zapier.com/hooks/catch/${zapierHookId}/`, data)
+  // await emailjs.send('service_45lb66b', 'template_rnezqro', { ...data }, 'user_Tf5WUPLO6lS39d5FpP8CE')
 
   return res.status(200).json({ msg: 'ok' })
 }
