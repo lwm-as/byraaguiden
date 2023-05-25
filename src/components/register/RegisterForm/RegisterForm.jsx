@@ -24,7 +24,7 @@ export default function RegisterForm() {
     const valuesToBeSent = { ...values, serviceName: 'Byråguiden' }
 
     const res = await emailjs.send(
-      'service_xwr0fgs',
+      'Haakon-Lead-Service',
       'template_999nazi',
       { ...valuesToBeSent },
       'user_Tf5WUPLO6lS39d5FpP8CE'
