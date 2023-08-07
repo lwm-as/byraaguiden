@@ -10,8 +10,8 @@ import uniqid from 'uniqid'
 
 const useReviewProvider = (providers, cities) => {
   //Providers
-  let initialProviders = providers.filter((item, ixd) => ixd < 10)
-  let initialRest = providers.filter((item, ixd) => ixd >= 10)
+  let initialProviders = providers.filter((item, ixd) => ixd < 5)
+  let initialRest = providers.filter((item, ixd) => ixd >= 5)
 
   //Reviews
   const [reviews, setReviews] = useState([])
@@ -47,19 +47,17 @@ const useReviewProvider = (providers, cities) => {
     shouldRetryOnError: false
   })
 
-  // some logic to just get top 50 providers and save them in a list
-
   if (loadMore) {
-    const nextProviders = rest.filter((item, ixd) => ixd < 10)
-    const nextRest = rest.filter((item, ixd) => ixd >= 10)
+    const nextProviders = rest.filter((item, ixd) => ixd < 5)
+    const nextRest = rest.filter((item, ixd) => ixd >= 5)
     setLoaded(state => [...state, ...nextProviders])
     setRest(nextRest)
     setLoadMore(false)
   }
 
   useEffect(() => {
-    if (!isValidating) {
-      const reviews = data.reviews?.map((review, idx) => Object.assign({}, review, providers[idx])) || providers
+    if (!isValidating && data) {
+      const reviews = data.reviews?.map((review, idx) => Object.assign({}, review, providers[idx])) || loaded
 
       const calculatedReviews = calculateReviews(reviews)
 
