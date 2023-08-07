@@ -37,6 +37,8 @@ const ProviderItem = ({ idx, id, customReviewModal, provider }) => {
     agencyScore
   } = provider
 
+  const isRating = rating > 0
+
   const { width } = useWindowSize()
   const isMobile = width <= 1000
 
@@ -77,44 +79,10 @@ const ProviderItem = ({ idx, id, customReviewModal, provider }) => {
           <div className={cx('company-name')}>
             <h4 className={cx('name')}>{name}</h4>
           </div>
-          {/* <div className={cx('check-box')}>
-            <FormGroup>
-              <FormControlLabel
-                sx={{
-                  '&.MuiFormControlLabel-root': {
-                    paddingRight: '0px',
-                    marginRight: '0px'
-                  }
-                }}
-                control={
-                  <Checkbox
-                    sx={{
-                      transform: isMobile && 'scale(1.3)',
-                      position: 'relative',
-                      padding: isMobile ? '0px' : '8px',
-                      color: '#002E47',
-                      '&.Mui-checked': {
-                        color: '#FF4A55'
-                      }
-                    }}
-                    checked={checkedItems?.includes(id)}
-                    onChange={() =>
-                      dispatch({
-                        type: 'TOGGLE_CHECKED',
-                        id,
-                        item: provider
-                      })
-                    }
-                  />
-                }
-                label={!isMobile && labelStyles}
-              />
-            </FormGroup>
-          </div> */}
         </div>
         <div className={cx('grid')}>
           <div className={cx('company-info')}>
-            <div className={cx('image-container')}>
+            <div className={cx('image-container', !isRating && 'noRating')}>
               {logo?.sourceUrl && (
                 <Image
                   className={cx('img')}
@@ -127,13 +95,15 @@ const ProviderItem = ({ idx, id, customReviewModal, provider }) => {
                   }}
                 />
               )}
-              <GoogleRating
-                noPaddingTop
-                customReviewModal={customReviewModal}
-                stars={rating}
-                totalReviews={totalReviews}
-                placeid={placeid}
-              />
+              {isRating && (
+                <GoogleRating
+                  noPaddingTop
+                  customReviewModal={customReviewModal}
+                  stars={rating}
+                  totalReviews={totalReviews}
+                  placeid={placeid}
+                />
+              )}
             </div>
             <div className={cx('cta-button-container')}>
               {isVisitButton && (
@@ -154,18 +124,20 @@ const ProviderItem = ({ idx, id, customReviewModal, provider }) => {
             </div>
           </div>
           <div className={cx('right')}>
-            <div className={cx('right-inner')}>
-              <ProviderRating
-                className={cx('provider-rating-grid')}
-                rating={rating}
-                totalReviews={totalReviews}
-                popularity={popularity}
-                agencyScore={agencyScore}
-                placeid={placeid}
-              />
-            </div>
-            <div className={cx('focus-container')}>
-              <hr className={cx('divider')} />
+            {isRating && (
+              <div className={cx('right-inner')}>
+                <ProviderRating
+                  className={cx('provider-rating-grid')}
+                  rating={rating}
+                  totalReviews={totalReviews}
+                  popularity={popularity}
+                  agencyScore={agencyScore}
+                  placeid={placeid}
+                />
+              </div>
+            )}
+            <div className={cx('focus-container', !isRating && 'noRatingFocus')}>
+              {isRating && <hr className={cx('divider')} />}
               <div>
                 <span className={cx('fokus-labelStyles')}>Fokusområder</span>
                 <div className={cx('focus-inner')}>

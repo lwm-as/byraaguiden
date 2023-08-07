@@ -69,19 +69,15 @@ const Providers = () => {
                 <div>
                   <Button className={cx('loadMoreButton')} onClick={buttonClick}>
                     Last inn fler
-                    {loading ?
+                    {loading ? (
                       <div className={cx('progress-container')}>
                         <CircularProgress className={cx('progress-icon')} />
                       </div>
-                      : null
-                    }
+                    ) : null}
                   </Button>
                 </div>
               </div>
             )}
-
-
-
           </Container>
           {/* <div onClick={() => openCompareItems()} className={cx('compare-items')}>
             <div className={cx('inner-compare')}>
