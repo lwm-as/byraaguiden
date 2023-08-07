@@ -58,13 +58,11 @@ const useReviewProvider = (providers, cities) => {
   }
 
   useEffect(() => {
-    if (!isValidating && data) {
-      const reviews = data.reviews.map((review, idx) => Object.assign({}, review, providers[idx]))
+    if (!isValidating) {
+      const reviews = data.reviews?.map((review, idx) => Object.assign({}, review, providers[idx])) || providers
 
       const calculatedReviews = calculateReviews(reviews)
 
-      // setReviews(sortReviews('highestScore', calculatedReviews))
-      // setSortedReviews(sortReviews('highestScore', calculatedReviews))
       setReviews(calculatedReviews)
       setSortedReviews(calculatedReviews)
     }
