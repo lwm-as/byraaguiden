@@ -28,7 +28,7 @@ export const cx = classNames.bind(styles)
 const CityArticle = ({ data, categories: preFetchedCategories }) => {
   const {
     post: {
-      modifiedGmt,
+      // modifiedGmt,
       ctaEnable: { ctaEnable },
       categorypage,
       content,
@@ -175,11 +175,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const variables = {
-    id: encodeURIComponent(params.category)
+    id: decodeURIComponent(params.category)
   }
   const data = await graphql(GET_POST, variables)
   const categories = await graphql(GET_ALL_CATEGORIES)
-
+  console.log('data', variables)
   return {
     props: {
       data,
