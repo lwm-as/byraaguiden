@@ -20,13 +20,25 @@ const SEO = ({ seo }) => {
 
   const parsedSchemaUrl = schema?.raw && schema.raw.replace(/wp.xn--byrguiden-72a.no/g, 'wp.xn--byrguiden-72a.no')
   const parsedSchemaLanguage = parsedSchemaUrl?.replace(/("inLanguage":"en-US")/g, '"inLanguage":"nb-NO"')
-  // const obj = JSON.parse(parsedSchemaLanguage)
-  // const slugsToReplace = Object.values(obj)[1]
-  // slugsToReplace?.forEach(slug => {
-  //   const urls = Object.values(slug)
-  //   console.log(urls)
-  //   if (urls?.map(item => item?.includes('/category/'))) console.log(urls)
-  // })
+  const obj = JSON.parse(parsedSchemaLanguage)
+  const slugsToReplace = Object.values(obj)[1]
+  function updateUrls(obj) {
+    // Loop through all keys in the object
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        if (typeof obj[key] === 'object' && obj[key] !== null) {
+          // If the value is another object, recursively call the function
+          updateUrls(obj[key])
+        } else if (typeof obj[key] === 'string') {
+          // If the value is a string, replace '/category/' with '/article/'
+          obj[key] = obj[key].replace('/category/', '/artikler/')
+        }
+      }
+    }
+  }
+  updateUrls(obj)
+  const newSchema = JSON.stringify(obj)
+
   const parsedCanonical =
     canonical && canonical?.includes('https://wp.xn--byrguiden-72a.no/') ? canonical?.replace('wp.', '') : canonical
   return (
@@ -56,7 +68,7 @@ const SEO = ({ seo }) => {
           type='application/ld+json'
           className='yoast-schema-graph'
           key='yoastSchema'
-          dangerouslySetInnerHTML={{ __html: parsedSchemaLanguage }}
+          dangerouslySetInnerHTML={{ __html: newSchema }}
         />
       )}
 

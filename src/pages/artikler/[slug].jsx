@@ -67,7 +67,12 @@ export async function getStaticProps({ params }) {
 
   const data = await graphql(GET_POSTS_BY_CATEGORY, variables)
   const categories = await graphql(GET_ALL_CATEGORIES)
-
+  // console.log(categories)
+  if (data?.category?.slug === 'artikler' || data?.category?.slug === 'category' || !data?.category?.slug) {
+    return {
+      notFound: true
+    }
+  }
   return {
     props: {
       data,
