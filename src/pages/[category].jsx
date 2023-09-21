@@ -179,7 +179,7 @@ export async function getStaticProps({ params }) {
   }
   const data = await graphql(GET_POST, variables)
   const categories = await graphql(GET_ALL_CATEGORIES)
-  console.log('data', variables)
+
   return {
     props: {
       data,
