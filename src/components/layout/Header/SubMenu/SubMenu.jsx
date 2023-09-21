@@ -22,7 +22,6 @@ export default function SubMenu({ openIndexes, subItems }) {
             <a className={cx('alle-artikler')}>Alle artikler</a>
           </Link>
         )}
-
         {openIndexes.includes(0)
           ? subItems.map(({ label, path }) => {
               const cleanPath = path.split('/category').pop()

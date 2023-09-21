@@ -20,6 +20,13 @@ const SEO = ({ seo }) => {
 
   const parsedSchemaUrl = schema?.raw && schema.raw.replace(/wp.xn--byrguiden-72a.no/g, 'wp.xn--byrguiden-72a.no')
   const parsedSchemaLanguage = parsedSchemaUrl?.replace(/("inLanguage":"en-US")/g, '"inLanguage":"nb-NO"')
+  // const obj = JSON.parse(parsedSchemaLanguage)
+  // const slugsToReplace = Object.values(obj)[1]
+  // slugsToReplace?.forEach(slug => {
+  //   const urls = Object.values(slug)
+  //   console.log(urls)
+  //   if (urls?.map(item => item?.includes('/category/'))) console.log(urls)
+  // })
   const parsedCanonical =
     canonical && canonical?.includes('https://wp.xn--byrguiden-72a.no/') ? canonical?.replace('wp.', '') : canonical
   return (

@@ -82,12 +82,17 @@ export async function getStaticProps({ params }) {
     catId: encodeURIComponent(params.category)
   }
   const data = await graphql(GET_POST, variables)
-
+  console.log('data', data)
+  if (!data.post) {
+    return {
+      notFound: true
+    }
+  }
   return {
     props: {
       data
     },
-    revalidate: 1
+    revalidate: 120
   }
 }
 
