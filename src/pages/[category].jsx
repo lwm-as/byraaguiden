@@ -185,7 +185,7 @@ export async function getStaticProps({ params }) {
       data,
       categories
     },
-    revalidate: 1
+    revalidate: 120
   }
 }
 

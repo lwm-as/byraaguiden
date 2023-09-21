@@ -81,7 +81,7 @@ export default function ServicePreview({ services }) {
         <p>{service?.servicePreviewDescription?.serviceDescription}</p>
         <div className={cx('btn-container')}>
           <Button link={`/${service?.slug}`}>Sammenlign byråer</Button>
-          {handleReadArticles()}
+          {service?.slug && handleReadArticles()}
         </div>
       </div>
     </div>

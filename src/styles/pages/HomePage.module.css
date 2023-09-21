@@ -269,6 +269,29 @@
   flex-direction: column;
 }
 
+.lost-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 80vh;
+  font-size: 20px;
+}
+
+.lost-link {
+  color: #002e47;
+  font-size: 20px;
+  font-weight: 600;
+
+  transition: all 0.15s ease-in-out;
+}
+
+.lost-link:hover {
+  color: #ff4a55;
+  text-decoration: underline;
+}
+
 .icons-container {
   display: flex;
   align-items: center;
