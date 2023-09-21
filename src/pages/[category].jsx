@@ -28,7 +28,7 @@ export const cx = classNames.bind(styles)
 const CityArticle = ({ data, categories: preFetchedCategories }) => {
   const {
     post: {
-      // modifiedGmt,
+      modifiedGmt,
       ctaEnable: { ctaEnable },
       categorypage,
       content,
