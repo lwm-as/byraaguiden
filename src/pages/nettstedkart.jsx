@@ -59,7 +59,7 @@ const Cookies = ({ data }) => {
               <ul>
                 {indexableCats.map(c => (
                   <li>
-                    <Link passHref href={`/artikler/${c.slug}`}>
+                    <Link passHref href={c?.slug === 'artikler' ? '/artikler' : `/artikler/${c.slug}`}>
                       <a>{c.name}</a>
                     </Link>
                   </li>
