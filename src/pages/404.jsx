@@ -16,8 +16,15 @@ function Custom404({
     footerMenu
   }
 }) {
+  const newSeo = {
+    ...seo,
+    title: '404 - Her var det ingenting',
+    metaDesc: '404 - Her var det ingenting',
+    opengraphUrl: 'https://wp.xn--byrguiden-72a.no/404',
+    opengraphTitle: '404 - Her var det ingenting'
+  }
   return (
-    <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
+    <Layout menus={{ headerMenu, footerMenu }} seo={newSeo}>
       <Container className={cx('lost-inner-container')} size='medium'>
         <div className={cx('lost-container')}>
           <p>Oida! Her var det ingenting</p>
