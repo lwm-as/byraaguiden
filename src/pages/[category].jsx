@@ -175,7 +175,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const variables = {
-    id: encodeURIComponent(params.category)
+    id: decodeURIComponent(params.category)
   }
   const data = await graphql(GET_POST, variables)
   const categories = await graphql(GET_ALL_CATEGORIES)
