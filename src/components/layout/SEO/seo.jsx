@@ -42,7 +42,11 @@ const SEO = ({ seo }) => {
   const parsedCanonical =
     canonical && canonical?.includes('https://wp.xn--byrguiden-72a.no/') ? canonical?.replace('wp.', '') : canonical
   const parsedCanonical2 =
-    canonical && canonical?.includes('/category/') ? canonical?.replace('/category/', '/artikler/') : canonical
+    parsedCanonical && parsedCanonical?.includes('/category/')
+      ? parsedCanonical?.replace('/category/', '/artikler/')
+      : parsedCanonical
+  const parsedCanonical3 =
+    parsedCanonical2 && parsedCanonical2?.includes('/sted') ? parsedCanonical2?.replace('/sted', '') : parsedCanonical2
   return (
     <Head>
       <title>{title}</title>
@@ -74,7 +78,7 @@ const SEO = ({ seo }) => {
         />
       )}
 
-      <link rel='canonical' href={parsedCanonical2} />
+      <link rel='canonical' href={parsedCanonical3} />
 
       {!opengraphType ? null : <meta name='og:type' content={opengraphType} />}
       {!opengraphUrl ? null : <meta name='og:url' content={parsedCanonical} />}
