@@ -8,7 +8,7 @@ import useWindowSize from '../../../utils/windowSize'
 
 const cx = classNames.bind(styles)
 
-const Sidebar = ({ ctaEnable = false, category }) => {
+const Sidebar = ({ ctaEnable = false, category, slug }) => {
   const { width } = useWindowSize()
   const isMobile = width <= 1000
   return (
@@ -16,7 +16,7 @@ const Sidebar = ({ ctaEnable = false, category }) => {
       {!isMobile && (
         <div className={cx('root')}>
           <div className={cx('container')}>
-            {ctaEnable && <CTASection category={category} />}
+            {ctaEnable && <CTASection category={category} slug={slug} />}
             {/*{!showCTA && isRA && <RelevantPosts post={post} category={category} />}*/}
           </div>
         </div>

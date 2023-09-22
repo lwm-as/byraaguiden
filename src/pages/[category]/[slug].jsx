@@ -26,7 +26,8 @@ const BlogArticle = ({ data }) => {
       author,
       excerpt,
       modifiedGmt,
-      ctaEnable: { ctaEnable }
+      ctaEnable: { ctaEnable },
+      slug: postSlug
     },
     post,
     category,
@@ -48,7 +49,7 @@ const BlogArticle = ({ data }) => {
             <PostContent modifiedGmt={modifiedGmt} author={author} excerpt={excerpt} postHeaderIsInside post={post} />
             <div className={cx('side-container')}>
               <div className={cx('inner-container')}>
-                <Sidebar ctaEnable={ctaEnable} category={category} />
+                <Sidebar ctaEnable={ctaEnable} category={category} slug={postSlug} />
                 {!isMobile && posts?.nodes.length > 1 && (
                   <SimilarArticles post={data?.post} category={category} posts={posts} />
                 )}

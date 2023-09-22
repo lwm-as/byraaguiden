@@ -19,6 +19,7 @@ export const GET_POST = `
   query getPost($id: ID!, $catId: ID!) {
     post(id: $id, idType: SLUG) {
      id
+     slug
      customToc {
       hascustomtoc
       content {
