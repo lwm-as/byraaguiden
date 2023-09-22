@@ -8,8 +8,8 @@ import styles from './CTASection.module.css'
 
 const cx = classNames.bind(styles)
 
-const CTASection = ({ category }) => {
-  if (category?.slug === 'webdesign') {
+const CTASection = ({ category, slug }) => {
+  if (category?.slug === 'webdesign' && slug === 'beste-crm-systemer') {
     return (
       <div className={cx('root')}>
         <h3 className={cx('title')}>Trenger du hjelp til oppsett av CRM?</h3>
