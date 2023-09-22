@@ -17,8 +17,7 @@ import styles from '../styles/pages/Tilbud/Tilbud.module.css'
 import { GET_ALL_CATEGORIES } from '../lib/queries/posts/categories'
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-import { OfferFormAppDevelopmentCategory } from '../components/offerformSteps/OfferFormAppDevelopmentCategory/OfferFormAppDevelopmentCategory'
-import { OfferFormDigitalMarketingCategory } from '../components/offerformSteps/OfferFormDigitalMarketingCategory/OfferFormDigitalMarketingCategory'
+import OfferFormContactInformationWithoutDesc from '../components/offerformSteps/OfferFormContactInformation/OfferFormContactInformationWithoutDesc'
 
 const cx = classNames.bind(styles)
 
@@ -109,6 +108,47 @@ const Offer = ({ data, categories }) => {
     }
   }
 
+  if (categoryFromURL === 'webdesign') {
+    return (
+      <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
+        <GridHero
+          title='Få tilbud fra dyktige byråer'
+          description='Finn byrået som passer dine behov på under 60 sekunder'
+          component
+          textAlignCenter
+          className={cx('less-padding')}
+        />
+        <Container size='small'>
+          <OfferForm
+            setShowFinalStep={setShowFinalStep}
+            categories={categories?.categories.nodes}
+            selectedValues={{
+              category: 'webdesign'
+            }}
+            initialValues={{
+              name: '',
+              email: '',
+              tlf: ''
+            }}
+          >
+            <OfferFormContactInformationWithoutDesc
+              validationSchema={yup.object().shape({
+                name: yup.string().required('Navn er et obligatorisk felt'),
+                email: yup.string().email('Må være en gyldig epost').required('E-post er et obligatorisk felt'),
+                tlf: yup
+                  .string()
+                  .matches(/^(\+?\d{1,3}|\d{1,4})\d+$/, { message: 'Må være et gyldig nummer' })
+                  .min(5, 'For kort')
+                  .max(14, 'For langt')
+                  .required('Telefonnummer er et obligatorisk felt')
+              })}
+            />
+          </OfferForm>
+          {/*{showFinalStep && <OfferFinalStep />}*/}
+        </Container>
+      </Layout>
+    )
+  }
   return (
     <Layout menus={{ headerMenu, footerMenu }} seo={seo}>
       <GridHero

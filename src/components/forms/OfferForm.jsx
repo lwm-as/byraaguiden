@@ -77,15 +77,13 @@ function OfferForm({
 
             const data = { ...values, ...selectedValues, ...dynamicValues }
 
-            await axios.post('/api/send-lead', data)
-
             const res = await emailjs.send(
               'service_45lb66b',
               'template_rnezqro',
               { ...data },
               'user_Tf5WUPLO6lS39d5FpP8CE'
             )
-
+            await axios.post('/api/send-lead', data)
             if (res.status === 200) {
               setShowFinalStep(true)
               await router.push(`/suksess`)
@@ -112,6 +110,7 @@ function OfferForm({
                   isSubmitting={isSubmitting}
                   validate={currentStep?.props?.validate}
                   step={step}
+                  category={currentCategory}
                 />
               </Stack>
             </OfferFormContainer>
