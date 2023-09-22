@@ -9,6 +9,41 @@ import styles from './CTASection.module.css'
 const cx = classNames.bind(styles)
 
 const CTASection = ({ category }) => {
+  if (category?.slug === 'webdesign') {
+    return (
+      <div className={cx('root')}>
+        <h3 className={cx('title')}>Trenger du hjelp til oppsett av CRM?</h3>
+        <ul className={cx('list')}>
+          <li className={cx('list-item')}>
+            <i className={cx('icon-container', 'check')}>
+              <FontAwesomeIcon className={cx('icon')} icon={['fas', 'check']} />
+            </i>
+            <span>Bli kontaktet</span>
+          </li>
+          <li className={cx('list-item')}>
+            <i className={cx('icon-container', 'check')}>
+              <FontAwesomeIcon className={cx('icon')} icon={['fas', 'check']} />
+            </i>
+            <span>Tilpasset ditt behov</span>
+          </li>
+          <li className={cx('list-item')}>
+            <i className={cx('icon-container')}>
+              <FontAwesomeIcon className={cx('icon', 'check')} icon={['fas', 'check']} />
+            </i>
+            <span>Helt uforpliktende</span>
+          </li>
+        </ul>
+        <Button
+          className={cx('cta-btn')}
+          link={`/tilbud?kategori=${decodeURIComponent(category?.slug)}`}
+          flex='flex-center'
+          size='large'
+        >
+          Bli kontaktet
+        </Button>
+      </div>
+    )
+  }
   return (
     <div className={cx('root')}>
       <h3 className={cx('title')}>

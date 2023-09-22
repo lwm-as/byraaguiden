@@ -7,7 +7,16 @@ import StepperComponent from '../../StepperComponent/StepperComponent'
 
 const cx = classNames.bind(styles)
 
-export default function OfferFormFooter({ validate, activeStep, onBack, isLastStep, isMobile, isSubmitting, step }) {
+export default function OfferFormFooter({
+  validate,
+  activeStep,
+  onBack,
+  isLastStep,
+  isMobile,
+  isSubmitting,
+  step,
+  category
+}) {
   const isMobileBtn = isMobile && activeStep === 0
 
   // useEffect(() => {
@@ -17,7 +26,7 @@ export default function OfferFormFooter({ validate, activeStep, onBack, isLastSt
   //     setError(false)
   //   }
   // }, [validate])
-
+  const isWebdesign = category?.slug === 'webdesign'
   return (
     <div className={cx('root')}>
       <div
@@ -56,9 +65,11 @@ export default function OfferFormFooter({ validate, activeStep, onBack, isLastSt
           )}
         </div>
       </div>
-      <div className={cx('form-stepper')}>
-        <StepperComponent step={step + 1} />
-      </div>
+      {!isWebdesign && (
+        <div className={cx('form-stepper')}>
+          <StepperComponent step={step + 1} />
+        </div>
+      )}
       <div className={cx('bottom-txt')}>
         <p className={cx('disclaimer')}>
           informasjonen du sender inn går direkte til byråene.
