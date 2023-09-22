@@ -9,7 +9,6 @@ import styles from './CTASection.module.css'
 const cx = classNames.bind(styles)
 
 const CTASection = ({ category, slug }) => {
-  console.log(slug)
   if (category?.slug === 'webdesign' && slug === 'beste-crm-systemer') {
     return (
       <div className={cx('root')}>
