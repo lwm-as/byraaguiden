@@ -68,15 +68,17 @@ function OfferForm({
         initialValues={initialValues}
         onSubmit={async values => {
           if (isLastStep()) {
+            const origin = sessionStorage.getItem('__byråguidenOriginPage')
             const dynamicValues = {
               dateStamp,
               zapierHookId: '8671498/b00y69a',
               providers: creatKeyValuePairsForNames(),
-              providerEmails
+              providerEmails,
+              origin
             }
 
             const data = { ...values, ...selectedValues, ...dynamicValues }
-
+       
             const res = await emailjs.send(
               'service_45lb66b',
               'template_rnezqro',

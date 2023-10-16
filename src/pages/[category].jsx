@@ -110,6 +110,7 @@ const CityArticle = ({ data, categories: preFetchedCategories }) => {
       />
     )
   }
+
   return (
     <>
       <Layout menus={{ headerMenu, footerMenu }} seo={seo} categories={categories}>
@@ -118,6 +119,7 @@ const CityArticle = ({ data, categories: preFetchedCategories }) => {
           title={categorypage?.herotitle}
           description={categorypage?.herosubtitle}
         />
+        
         <Container size='medium'>
           <Breadcrumb className={cx('less-margin')} title={categories.nodes[1].name} category={data?.category} />
         </Container>
